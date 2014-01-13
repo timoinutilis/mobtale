@@ -16,7 +16,11 @@
 {
     if (self = [super init])
     {
-        self.userInteractionEnabled = YES;
+//        self.userInteractionEnabled = YES;
+//        self.exclusiveTouch = YES;
+
+        CGSize winSize = [[CCDirector sharedDirector] viewSize];
+        self.contentSize = winSize;
     }
     return self;
 }
@@ -33,7 +37,7 @@
     _currentLocationLayer.position = ccp((winSize.width - _currentLocationLayer.contentSize.width * scale) * 0.5f, (winSize.height - _currentLocationLayer.contentSize.height * scale) * 0.5f);
     
     [self refreshNodes];
-    [self addChild:_currentLocationLayer z:-1];
+    [self addChild:_currentLocationLayer];
 }
 
 - (void) refreshNodes
@@ -121,7 +125,7 @@
         return;
     }
     
-    [super touchBegan:touch withEvent:event];
+//    [super touchBegan:touch withEvent:event];
 }
 
 @end

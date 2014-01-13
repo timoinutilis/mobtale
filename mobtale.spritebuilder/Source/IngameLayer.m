@@ -21,6 +21,7 @@
         [self addChild:_locationLayer];
         
         self.userInteractionEnabled = YES;
+        self.exclusiveTouch = YES;
     }
     return self;
 }
@@ -46,13 +47,13 @@
     }
 }
 
-- (void) onTake:(id)sender
+- (void) onTake
 {
     CCLOG(@"Click Take");
     [[AdvController sharedController] takeObject:_selectedObjectId];
 }
 
-- (void) onUse:(id)sender
+- (void) onUse
 {
     CCLOG(@"Click Use");
     if (_selectedIsItem)
@@ -162,8 +163,9 @@
         }
         return;
     }
-
-    [super touchBegan:touch withEvent:event];
+    
+    [_locationLayer touchBegan:touch withEvent:event];
+//    [super touchBegan:touch withEvent:event];
 }
 
 - (void) touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
@@ -258,7 +260,7 @@
 
 - (void) addInventoryObject:(NSString*)objectId
 {
-    NSString* filename = @"gamedata/objects/";
+    NSString* filename = @"objects/";
     filename = [filename stringByAppendingString:objectId];
     filename = [filename stringByAppendingString:@".png"];
     AdvObjectSprite* sprite = [AdvObjectSprite spriteWithImageNamed:filename];
@@ -275,22 +277,19 @@
         AdvObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
         if ([sprite.objectId isEqualToString:objectId])
         {
-            CCActionCallFunc* actionCallFunc = [CCActionCallFunc actionWithTarget:self selector:@selector(removeFromScreen:)];
+            CCActionCallBlock* actionCall = [CCActionCallBlock actionWithBlock:^{
+                [sprite removeFromParent];
+            }];
             [sprite runAction:[CCActionSequence actions:[CCActionSpawn actions:
                                                    [CCActionFadeOut actionWithDuration:0.25f],
                                                    [CCActionScaleTo actionWithDuration:0.25f scale:0.1f],
                                                    nil],
-                                                   actionCallFunc, nil]];
+                                                   actionCall, nil]];
             
             [_inventorySprites removeObject:sprite];
             break;
         }
     }
-}
-
-- (void) removeFromScreen:(CCNode*)node
-{
-    [node removeFromParent];
 }
 
 - (void) updateInventoryPositionsAnimated:(BOOL)animated
@@ -311,7 +310,7 @@
             {
                 // new object
                 sprite.position = point;
-                sprite.opacity = 0;
+                sprite.opacity = 0.0f;
                 sprite.scale = 0.1f;
                 [sprite runAction:[CCActionEaseInOut actionWithAction:[CCActionScaleTo actionWithDuration:0.5f scale:finalScale] rate:3.0f]];
                 [sprite runAction:[CCActionFadeIn actionWithDuration:0.5f]];
@@ -319,7 +318,7 @@
             else
             {
                 // old object
-                sprite.opacity = 255;
+                sprite.opacity = 1.0f;
                 if (sprite.scale != finalScale)
                 {
                     [sprite runAction:[CCActionEaseInOut actionWithAction:[CCActionScaleTo actionWithDuration:0.5f scale:finalScale] rate:3.0f]];

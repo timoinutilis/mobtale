@@ -18,5 +18,6 @@
 - (void) showLocationImage:(NSString*)filename;
 - (void) setNodeVisible:(NSString*)itemId visible:(BOOL)visible;
 - (AdvNode*) getNodeAtPosition:(CGPoint)location;
+- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end
