@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionSkewTo.html">
+	<File path="Classes/CCActionTintBy.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionSkewTo</TokenIdentifier>
-			<Abstract type="html">Skews a CCNode object to given angles by modifying its skewX and skewY attributes.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionTintBy</TokenIdentifier>
+			<Abstract type="html">This action tints the target from current tint by the value specified.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
             
 			
@@ -13,48 +13,54 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionSkewTo/actionWithDuration:skewX:skewY:</TokenIdentifier>
-			<Abstract type="html">Creates the action.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionTintBy/actionWithDuration:red:green:blue:</TokenIdentifier>
+			<Abstract type="html">Creates a tint by action.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)t skewX:(float)sx skewY:(float)sy</Declaration>
+			<Declaration>+ (id)actionWithDuration:(CCTime)duration red:(CGFloat)deltaRed green:(CGFloat)deltaGreen blue:(CGFloat)deltaBlue</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>t</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>duration</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>sx</Name>
-					<Abstract type="html">X skew value</Abstract>
+					<Name>deltaRed</Name>
+					<Abstract type="html">Red delta color to tint.</Abstract>
 				</Parameter><Parameter>
-					<Name>sy</Name>
-					<Abstract type="html">Y skew value</Abstract>
+					<Name>deltaGreen</Name>
+					<Abstract type="html">Green delta color to tint.</Abstract>
+				</Parameter><Parameter>
+					<Name>deltaBlue</Name>
+					<Abstract type="html">Blue delta color to tint.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New skew action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:skewX:skewY:</Anchor>
+			<ReturnValue><Abstract type="html">New tint by action.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithDuration:red:green:blue:</Anchor>
             <NodeRef refid="57"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionSkewTo/initWithDuration:skewX:skewY:</TokenIdentifier>
-			<Abstract type="html">Initializes the action.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionTintBy/initWithDuration:red:green:blue:</TokenIdentifier>
+			<Abstract type="html">Initalizes a tint by action.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)t skewX:(float)sx skewY:(float)sy</Declaration>
+			<Declaration>- (id)initWithDuration:(CCTime)duration red:(CGFloat)deltaRed green:(CGFloat)deltaGreen blue:(CGFloat)deltaBlue</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>t</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>duration</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>sx</Name>
-					<Abstract type="html">X skew value in degrees</Abstract>
+					<Name>deltaRed</Name>
+					<Abstract type="html">Red delta color to tint.</Abstract>
 				</Parameter><Parameter>
-					<Name>sy</Name>
-					<Abstract type="html">Y skew value in degrees</Abstract>
+					<Name>deltaGreen</Name>
+					<Abstract type="html">Green delta color to tint.</Abstract>
+				</Parameter><Parameter>
+					<Name>deltaBlue</Name>
+					<Abstract type="html">Blue delta color to tint.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New skew action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:skewX:skewY:</Anchor>
+			<ReturnValue><Abstract type="html">New tint by action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:red:green:blue:</Anchor>
             <NodeRef refid="57"/>
 		</Token>
 		

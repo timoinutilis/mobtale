@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionScaleTo.html">
+	<File path="Classes/CCActionSkewBy.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionScaleTo</TokenIdentifier>
-			<Abstract type="html">Scales a CCNode object to a zoom factor by modifying its scale attribute.
-Note:
-This action doesn&apos;t support &quot;reverse&quot;</Abstract>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionSkewBy</TokenIdentifier>
+			<Abstract type="html">This action skews a target by the specified skewX and skewY degrees values.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
             
 			
@@ -15,88 +13,25 @@ This action doesn&apos;t support &quot;reverse&quot;</Abstract>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionScaleTo/actionWithDuration:scale:</TokenIdentifier>
-			<Abstract type="html">Creates the action with the same scale factor for X and Y.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionSkewBy/initWithDuration:skewX:skewY:</TokenIdentifier>
+			<Abstract type="html">Initializes the action.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration scale:(float)s</Declaration>
+			<Declaration>- (id)initWithDuration:(CCTime)t skewX:(float)sx skewY:(float)sy</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>s</Name>
-					<Abstract type="html">Scale to scale to</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">New scale action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:scale:</Anchor>
-            <NodeRef refid="53"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionScaleTo/initWithDuration:scale:</TokenIdentifier>
-			<Abstract type="html">Initializes the action with the same scale factor for X and Y.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
-			
-			<Declaration>- (id)initWithDuration:(CCTime)duration scale:(float)s</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>s</Name>
-					<Abstract type="html">Scale to scale to</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">New scale action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:scale:</Anchor>
-            <NodeRef refid="53"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionScaleTo/actionWithDuration:scaleX:scaleY:</TokenIdentifier>
-			<Abstract type="html">Creates the action with individual scale factor for X and Y.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
-			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration scaleX:(float)sx scaleY:(float)sy</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>t</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
 					<Name>sx</Name>
-					<Abstract type="html">X scale to scale to</Abstract>
+					<Abstract type="html">X skew delta value in degrees.</Abstract>
 				</Parameter><Parameter>
 					<Name>sy</Name>
-					<Abstract type="html">Y scale to scale to</Abstract>
+					<Abstract type="html">Y skew delta value in degrees.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New scale action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:scaleX:scaleY:</Anchor>
-            <NodeRef refid="53"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionScaleTo/initWithDuration:scaleX:scaleY:</TokenIdentifier>
-			<Abstract type="html">Initializes the action with individual scale factor for X and Y.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
-			
-			<Declaration>- (id)initWithDuration:(CCTime)duration scaleX:(float)sx scaleY:(float)sy</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>sx</Name>
-					<Abstract type="html">X scale to scale to</Abstract>
-				</Parameter><Parameter>
-					<Name>sy</Name>
-					<Abstract type="html">Y scale to scale to</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">New scale action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:scaleX:scaleY:</Anchor>
+			<ReturnValue><Abstract type="html">New skew action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:skewX:skewY:</Anchor>
             <NodeRef refid="53"/>
 		</Token>
 		

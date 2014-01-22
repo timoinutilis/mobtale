@@ -6,13 +6,13 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 961)" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2D</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -71,6 +71,10 @@
 
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Primitive Drawing Methods">Primitive Drawing Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Draw Node Management">Draw Node Management</a></span></li>
 	
 </ul></li>
 
@@ -151,7 +155,7 @@ Faster than the &ldquo;drawing primitives&rdquo; since they it draws everything 
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -160,7 +164,15 @@ Faster than the &ldquo;drawing primitives&rdquo; since they it draws everything 
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Primitive Drawing Methods" name="task_Primitive Drawing Methods"></a>
+						<h3 class="subsubtitle task-title">Primitive Drawing Methods</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/drawDot:radius:color:">&ndash;&nbsp;drawDot:radius:color:</a></code>
 	</span>
@@ -178,7 +190,15 @@ Faster than the &ldquo;drawing primitives&rdquo; since they it draws everything 
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Draw Node Management" name="task_Draw Node Management"></a>
+						<h3 class="subsubtitle task-title">Draw Node Management</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/clear">&ndash;&nbsp;clear</a></code>
 	</span>
@@ -204,8 +224,7 @@ Faster than the &ldquo;drawing primitives&rdquo; since they it draws everything 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Sets the blending function for the draw node
-All primitives will be drawn using the same blend function</p>
+		<p>Sets the blending function for the draw node.  All primitives will be drawn using the same blend function.</p>
 	</div>		
 	
     
@@ -292,7 +311,7 @@ All primitives will be drawn using the same blend function</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)drawDot:(CGPoint)<em>pos</em> radius:(CGFloat)<em>radius</em> color:(ccColor4F)<em>color</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)drawDot:(CGPoint)<em>pos</em> radius:(CGFloat)<em>radius</em> color:(CCColor *)<em>color</em></code></div>
 
     
 	
@@ -301,17 +320,17 @@ All primitives will be drawn using the same blend function</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>pos</em></dt>
-			<dd><p>Dot position</p></dd>
+			<dd><p>Dot position.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>radius</em></dt>
-			<dd><p>Dot radius</p></dd>
+			<dd><p>Dot radius.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>color</em></dt>
-			<dd><p>Dot color</p></dd>
+			<dd><p>Dot color.</p></dd>
 		</dl>
 		
 	</div>
@@ -348,7 +367,7 @@ All primitives will be drawn using the same blend function</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)drawPolyWithVerts:(const CGPoint *)<em>verts</em> count:(NSUInteger)<em>count</em> fillColor:(ccColor4F)<em>fill</em> borderWidth:(CGFloat)<em>width</em> borderColor:(ccColor4F)<em>line</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)drawPolyWithVerts:(const CGPoint *)<em>verts</em> count:(NSUInteger)<em>count</em> fillColor:(CCColor *)<em>fill</em> borderWidth:(CGFloat)<em>width</em> borderColor:(CCColor *)<em>line</em></code></div>
 
     
 	
@@ -357,27 +376,27 @@ All primitives will be drawn using the same blend function</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>verts</em></dt>
-			<dd><p>Array of CGPoints, containing the vertices</p></dd>
+			<dd><p>Array of CGPoints, containing the vertices.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>count</em></dt>
-			<dd><p>Number of vertices</p></dd>
+			<dd><p>Number of vertices.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>fill</em></dt>
-			<dd><p>Polygon fill color</p></dd>
+			<dd><p>Polygon fill color.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>width</em></dt>
-			<dd><p>Polygon outline width</p></dd>
+			<dd><p>Polygon outline width.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>line</em></dt>
-			<dd><p>Polygon outline color</p></dd>
+			<dd><p>Polygon outline color.</p></dd>
 		</dl>
 		
 	</div>
@@ -414,7 +433,7 @@ All primitives will be drawn using the same blend function</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)drawSegmentFrom:(CGPoint)<em>a</em> to:(CGPoint)<em>b</em> radius:(CGFloat)<em>radius</em> color:(ccColor4F)<em>color</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)drawSegmentFrom:(CGPoint)<em>a</em> to:(CGPoint)<em>b</em> radius:(CGFloat)<em>radius</em> color:(CCColor *)<em>color</em></code></div>
 
     
 	
@@ -423,22 +442,22 @@ All primitives will be drawn using the same blend function</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>a</em></dt>
-			<dd><p>Segment starting point</p></dd>
+			<dd><p>Segment starting point.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>b</em></dt>
-			<dd><p>Segment end point</p></dd>
+			<dd><p>Segment end point.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>radius</em></dt>
-			<dd><p>Segment radius</p></dd>
+			<dd><p>Segment radius.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>color</em></dt>
-			<dd><p>Segment color</p></dd>
+			<dd><p>Segment color.</p></dd>
 		</dl>
 		
 	</div>
@@ -478,9 +497,9 @@ All primitives will be drawn using the same blend function</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
 					</div>
 				</div>

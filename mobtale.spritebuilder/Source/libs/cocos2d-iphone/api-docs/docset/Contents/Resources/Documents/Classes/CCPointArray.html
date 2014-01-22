@@ -6,13 +6,13 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 961)" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2D</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -86,6 +86,8 @@
 
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Point Array Management">Point Array Management</a></span></li>
 	
 </ul></li>
 
@@ -169,8 +171,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>An Array that contain control points.
-Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
+						<p>A simple array that is used to contain the spline control points.</p>
 					</div>
 					
 					
@@ -183,7 +184,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -204,7 +205,15 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	</span>
 	
 	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Point Array Management" name="task_Point Array Management"></a>
+						<h3 class="subsubtitle task-title">Point Array Management</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addControlPoint:">&ndash;&nbsp;addControlPoint:</a></code>
 	</span>
@@ -272,7 +281,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Array that contains the control points</p>
+		<p>Array that contains the control points.</p>
 	</div>		
 	
     
@@ -330,7 +339,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>capacity</em></dt>
-			<dd><p>Capacity of the array</p></dd>
+			<dd><p>Capacity of the array.</p></dd>
 		</dl>
 		
 	</div>
@@ -339,7 +348,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>New point array</p>
+		<p>New point array.</p>
 	</div>
 	
 	
@@ -375,7 +384,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Appends a control point</p>
+		<p>Appends a control point.</p>
 	</div>		
 	
     
@@ -389,7 +398,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>controlPoint</em></dt>
-			<dd><p>Control point to append</p></dd>
+			<dd><p>Control point to append.</p></dd>
 		</dl>
 		
 	</div>
@@ -421,7 +430,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the number of control points in the array</p>
+		<p>Returns the number of control points in the array.</p>
 	</div>		
 	
     
@@ -434,7 +443,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Number of control points</p>
+		<p>Number of control points.</p>
 	</div>
 	
 	
@@ -462,7 +471,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Retrieves a control point</p>
+		<p>Retrieves a control point.</p>
 	</div>		
 	
     
@@ -476,7 +485,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>Index of control point to retrieve</p></dd>
+			<dd><p>Index of control point to retrieve.</p></dd>
 		</dl>
 		
 	</div>
@@ -485,7 +494,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A control point</p>
+		<p>A control point.</p>
 	</div>
 	
 	
@@ -527,7 +536,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>capacity</em></dt>
-			<dd><p>Capacity of the array</p></dd>
+			<dd><p>Capacity of the array.</p></dd>
 		</dl>
 		
 	</div>
@@ -536,7 +545,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>New point array</p>
+		<p>New point array.</p>
 	</div>
 	
 	
@@ -564,7 +573,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Inserts a controlPoint</p>
+		<p>Inserts a controlPoint.</p>
 	</div>		
 	
     
@@ -578,12 +587,12 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>controlPoint</em></dt>
-			<dd><p>Control point to insert</p></dd>
+			<dd><p>Control point to insert.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>Index of point</p></dd>
+			<dd><p>Index of point.</p></dd>
 		</dl>
 		
 	</div>
@@ -629,7 +638,7 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>Index of control point to delete</p></dd>
+			<dd><p>Index of control point to delete.</p></dd>
 		</dl>
 		
 	</div>
@@ -675,12 +684,12 @@ Used by CCCardinalSplineTo and (By) and CCCatmullRomTo (and By) actions.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>controlPoint</em></dt>
-			<dd><p>New control point</p></dd>
+			<dd><p>New control point.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>index</em></dt>
-			<dd><p>Index of point to replace</p></dd>
+			<dd><p>Index of point to replace.</p></dd>
 		</dl>
 		
 	</div>
@@ -726,7 +735,7 @@ User is responsible for releasing this array.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>New point array</p>
+		<p>New point array.</p>
 	</div>
 	
 	
@@ -754,7 +763,7 @@ User is responsible for releasing this array.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Reverses the current control point array</p>
+		<p>Reverses the current control point array.</p>
 	</div>		
 	
     
@@ -798,9 +807,9 @@ User is responsible for releasing this array.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
 					</div>
 				</div>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionFadeTo.html">
+	<File path="Classes/CCActionFlipX.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionFadeTo</TokenIdentifier>
-			<Abstract type="html">Fades an object that implements the CCRGBAProtocol protocol. It modifies the opacity from the current value to a custom one.
-Note:
-This action doesn&apos;t support &quot;reverse&quot;</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionFlipX</TokenIdentifier>
+			<Abstract type="html">This action flips the target in x direction.</Abstract>
+			<DeclaredIn>CCActionInstant.h</DeclaredIn>
             
 			
 			<NodeRef refid="31"/>
@@ -15,42 +13,36 @@ This action doesn&apos;t support &quot;reverse&quot;</Abstract>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionFadeTo/actionWithDuration:opacity:</TokenIdentifier>
-			<Abstract type="html">Creates a fade action.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionFlipX/actionWithFlipX:</TokenIdentifier>
+			<Abstract type="html">Creates a flip action with x direction flipped or non flipped.</Abstract>
+			<DeclaredIn>CCActionInstant.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration opacity:(GLubyte)opactiy</Declaration>
+			<Declaration>+ (id)actionWithFlipX:(BOOL)x</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>opactiy</Name>
-					<Abstract type="html">Opacity to fade to</Abstract>
+					<Name>x</Name>
+					<Abstract type="html">Defines if target is flipped.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New fade action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:opacity:</Anchor>
+			<ReturnValue><Abstract type="html">The flip action object.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithFlipX:</Anchor>
             <NodeRef refid="31"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionFadeTo/initWithDuration:opacity:</TokenIdentifier>
-			<Abstract type="html">Initalizes a fade action.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFlipX/initWithFlipX:</TokenIdentifier>
+			<Abstract type="html">Initializes a flip action with x direction flipped or non flipped.</Abstract>
+			<DeclaredIn>CCActionInstant.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)duration opacity:(GLubyte)opacity</Declaration>
+			<Declaration>- (id)initWithFlipX:(BOOL)x</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>opacity</Name>
-					<Abstract type="html">Opacity to fade to</Abstract>
+					<Name>x</Name>
+					<Abstract type="html">Defines if target is flipped.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New fade action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:opacity:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized flip action object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithFlipX:</Anchor>
             <NodeRef refid="31"/>
 		</Token>
 		

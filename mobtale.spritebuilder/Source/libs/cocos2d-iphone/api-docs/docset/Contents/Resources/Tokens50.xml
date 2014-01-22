@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionRotateBy.html">
+	<File path="Classes/CCActionScaleTo.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionRotateBy</TokenIdentifier>
-			<Abstract type="html">Rotates a CCNode object clockwise a number of degrees by modifying its rotation attribute.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionScaleTo</TokenIdentifier>
+			<Abstract type="html">This action scales the target to the specified factor value.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
             
 			
@@ -13,88 +13,88 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionRotateBy/actionWithDuration:angle:</TokenIdentifier>
-			<Abstract type="html">Creates the action.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionScaleTo/actionWithDuration:scale:</TokenIdentifier>
+			<Abstract type="html">Creates the action with the same scale factor for X and Y.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration angle:(float)deltaAngle</Declaration>
+			<Declaration>+ (id)actionWithDuration:(CCTime)duration scale:(float)s</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaAngle</Name>
-					<Abstract type="html">Delta angle in degrees</Abstract>
+					<Name>s</Name>
+					<Abstract type="html">Scale to scale to.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New rotate action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:angle:</Anchor>
+			<ReturnValue><Abstract type="html">New scale action.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithDuration:scale:</Anchor>
             <NodeRef refid="50"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionRotateBy/initWithDuration:angle:</TokenIdentifier>
-			<Abstract type="html">Initializes the action.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionScaleTo/initWithDuration:scale:</TokenIdentifier>
+			<Abstract type="html">Initializes the action with the same scale factor for X and Y.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)duration angle:(float)deltaAngle</Declaration>
+			<Declaration>- (id)initWithDuration:(CCTime)duration scale:(float)s</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaAngle</Name>
-					<Abstract type="html">Delta angle in degrees</Abstract>
+					<Name>s</Name>
+					<Abstract type="html">Scale to scale to.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New rotate action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:angle:</Anchor>
+			<ReturnValue><Abstract type="html">New scale action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:scale:</Anchor>
             <NodeRef refid="50"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionRotateBy/actionWithDuration:angleX:angleY:</TokenIdentifier>
-			<Abstract type="html">Creates the action with separate rotation angles.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionScaleTo/actionWithDuration:scaleX:scaleY:</TokenIdentifier>
+			<Abstract type="html">Creates the action with individual scale factor for X and Y.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)t angleX:(float)aX angleY:(float)aY</Declaration>
+			<Declaration>+ (id)actionWithDuration:(CCTime)duration scaleX:(float)sx scaleY:(float)sy</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>t</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>duration</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>aX</Name>
-					<Abstract type="html">X rotation in degrees</Abstract>
+					<Name>sx</Name>
+					<Abstract type="html">X scale to scale to.</Abstract>
 				</Parameter><Parameter>
-					<Name>aY</Name>
-					<Abstract type="html">Y rotation in degrees</Abstract>
+					<Name>sy</Name>
+					<Abstract type="html">Y scale to scale to.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New rotate action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:angleX:angleY:</Anchor>
+			<ReturnValue><Abstract type="html">New scale action.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithDuration:scaleX:scaleY:</Anchor>
             <NodeRef refid="50"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionRotateBy/initWithDuration:angleX:angleY:</TokenIdentifier>
-			<Abstract type="html">Initializes the action with separate rotation angles.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionScaleTo/initWithDuration:scaleX:scaleY:</TokenIdentifier>
+			<Abstract type="html">Initializes the action with individual scale factor for X and Y.</Abstract>
 			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)t angleX:(float)aX angleY:(float)aY</Declaration>
+			<Declaration>- (id)initWithDuration:(CCTime)duration scaleX:(float)sx scaleY:(float)sy</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>t</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>duration</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>aX</Name>
-					<Abstract type="html">X rotation in degrees</Abstract>
+					<Name>sx</Name>
+					<Abstract type="html">X scale to scale to.</Abstract>
 				</Parameter><Parameter>
-					<Name>aY</Name>
-					<Abstract type="html">Y rotation in degrees</Abstract>
+					<Name>sy</Name>
+					<Abstract type="html">Y scale to scale to.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New rotate action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:angleX:angleY:</Anchor>
+			<ReturnValue><Abstract type="html">New scale action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:scaleX:scaleY:</Anchor>
             <NodeRef refid="50"/>
 		</Token>
 		

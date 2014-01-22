@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCPhysicsCollisionPair.html">
+	<File path="Classes/CCSprite.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCPhysicsCollisionPair</TokenIdentifier>
-			<Abstract type="html">Contains information about colliding physics bodies.
-NOTE: There is only one CCPhysicsCollisionPair object per CCPhysicsNode and it&apos;s reused.
-Only use the CCPhysicsCollisionPair object in the method or block it was given to you in. Do not retain it.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCSprite</TokenIdentifier>
+			<Abstract type="html">CCSprite is a 2D image ( http://en.wikipedia.org/wiki/Sprite )</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
             
 			
 			<NodeRef refid="91"/>
@@ -15,343 +13,552 @@ Only use the CCPhysicsCollisionPair object in the method or block it was given t
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setContacts:</TokenIdentifier>
-			<Abstract type="html">The contact information from the two colliding bodies.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setTextureRect:</TokenIdentifier>
+			<Abstract type="html">Returns the texture rect of the CCSprite in points.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CCContactSet contacts</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGRect textureRect</Declaration>
 			
 			
-			<Anchor>//api/name/contacts</Anchor>
+			<Anchor>//api/name/textureRect</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/contacts</TokenIdentifier>
-			<Abstract type="html">The contact information from the two colliding bodies.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/textureRect</TokenIdentifier>
+			<Abstract type="html">Returns the texture rect of the CCSprite in points.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CCContactSet contacts</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGRect textureRect</Declaration>
 			
 			
-			<Anchor>//api/name/contacts</Anchor>
+			<Anchor>//api/name/textureRect</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/contacts</TokenIdentifier>
-			<Abstract type="html">The contact information from the two colliding bodies.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/textureRect</TokenIdentifier>
+			<Abstract type="html">Returns the texture rect of the CCSprite in points.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CCContactSet contacts</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGRect textureRect</Declaration>
 			
 			
-			<Anchor>//api/name/contacts</Anchor>
+			<Anchor>//api/name/textureRect</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setFriction:</TokenIdentifier>
-			<Abstract type="html">The friction coefficient for this pair of colliding shapes.
-The default value is pair.bodyA.friction*pair.bodyB.friction.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setTextureRectRotated:</TokenIdentifier>
+			<Abstract type="html">Returns whether or not the texture rectangle is rotated.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat friction</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL textureRectRotated</Declaration>
 			
 			
-			<Anchor>//api/name/friction</Anchor>
+			<Anchor>//api/name/textureRectRotated</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/friction</TokenIdentifier>
-			<Abstract type="html">The friction coefficient for this pair of colliding shapes.
-The default value is pair.bodyA.friction*pair.bodyB.friction.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/textureRectRotated</TokenIdentifier>
+			<Abstract type="html">Returns whether or not the texture rectangle is rotated.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat friction</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL textureRectRotated</Declaration>
 			
 			
-			<Anchor>//api/name/friction</Anchor>
+			<Anchor>//api/name/textureRectRotated</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/friction</TokenIdentifier>
-			<Abstract type="html">The friction coefficient for this pair of colliding shapes.
-The default value is pair.bodyA.friction*pair.bodyB.friction.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/textureRectRotated</TokenIdentifier>
+			<Abstract type="html">Returns whether or not the texture rectangle is rotated.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat friction</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL textureRectRotated</Declaration>
 			
 			
-			<Anchor>//api/name/friction</Anchor>
+			<Anchor>//api/name/textureRectRotated</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setRestitution:</TokenIdentifier>
-			<Abstract type="html">The restitution coefficient for this pair of colliding shapes.
-The default value is &quot;pair.bodyA.elasticity*pair.bodyB.elasticity&quot;.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setSpriteFrame:</TokenIdentifier>
+			<Abstract type="html">The currently displayed spriteFrame.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat restitution</Declaration>
+			<Declaration>@property (nonatomic, strong) CCSpriteFrame *spriteFrame</Declaration>
 			
 			
-			<Anchor>//api/name/restitution</Anchor>
+			<Anchor>//api/name/spriteFrame</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/restitution</TokenIdentifier>
-			<Abstract type="html">The restitution coefficient for this pair of colliding shapes.
-The default value is &quot;pair.bodyA.elasticity*pair.bodyB.elasticity&quot;.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/spriteFrame</TokenIdentifier>
+			<Abstract type="html">The currently displayed spriteFrame.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat restitution</Declaration>
+			<Declaration>@property (nonatomic, strong) CCSpriteFrame *spriteFrame</Declaration>
 			
 			
-			<Anchor>//api/name/restitution</Anchor>
+			<Anchor>//api/name/spriteFrame</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/restitution</TokenIdentifier>
-			<Abstract type="html">The restitution coefficient for this pair of colliding shapes.
-The default value is &quot;pair.bodyA.elasticity*pair.bodyB.elasticity&quot;.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/spriteFrame</TokenIdentifier>
+			<Abstract type="html">The currently displayed spriteFrame.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat restitution</Declaration>
+			<Declaration>@property (nonatomic, strong) CCSpriteFrame *spriteFrame</Declaration>
 			
 			
-			<Anchor>//api/name/restitution</Anchor>
+			<Anchor>//api/name/spriteFrame</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setSurfaceVelocity:</TokenIdentifier>
-			<Abstract type="html">The relative surface velocities of the two colliding shapes.
-The default value is CGPointZero.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setFlipX:</TokenIdentifier>
+			<Abstract type="html">Whether or not the sprite is flipped horizontally.
+It only flips the texture of the sprite, and not the texture of the sprite&apos;s children.
+Also, flipping the texture doesn&apos;t alter the anchorPoint.
+If you want to flip the anchorPoint too, and/or to flip the children too use:
+sprite.scaleX *= -1;</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGPoint surfaceVelocity</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL flipX</Declaration>
 			
 			
-			<Anchor>//api/name/surfaceVelocity</Anchor>
+			<Anchor>//api/name/flipX</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/surfaceVelocity</TokenIdentifier>
-			<Abstract type="html">The relative surface velocities of the two colliding shapes.
-The default value is CGPointZero.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/flipX</TokenIdentifier>
+			<Abstract type="html">Whether or not the sprite is flipped horizontally.
+It only flips the texture of the sprite, and not the texture of the sprite&apos;s children.
+Also, flipping the texture doesn&apos;t alter the anchorPoint.
+If you want to flip the anchorPoint too, and/or to flip the children too use:
+sprite.scaleX *= -1;</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGPoint surfaceVelocity</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL flipX</Declaration>
 			
 			
-			<Anchor>//api/name/surfaceVelocity</Anchor>
+			<Anchor>//api/name/flipX</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/surfaceVelocity</TokenIdentifier>
-			<Abstract type="html">The relative surface velocities of the two colliding shapes.
-The default value is CGPointZero.
-Can be overriden in a CCCollisionPairDelegate pre-solve method to change the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/flipX</TokenIdentifier>
+			<Abstract type="html">Whether or not the sprite is flipped horizontally.
+It only flips the texture of the sprite, and not the texture of the sprite&apos;s children.
+Also, flipping the texture doesn&apos;t alter the anchorPoint.
+If you want to flip the anchorPoint too, and/or to flip the children too use:
+sprite.scaleX *= -1;</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGPoint surfaceVelocity</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL flipX</Declaration>
 			
 			
-			<Anchor>//api/name/surfaceVelocity</Anchor>
+			<Anchor>//api/name/flipX</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setTotalKineticEnergy:</TokenIdentifier>
-			<Abstract type="html">The amount of kinetic energy dissipated by the last collision of the two shapes.
-This is roughly equivalent to the idea of damage.
-NOTE: By definition, fully elastic collisions do not lose any energy or cause any permanent damage.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setFlipY:</TokenIdentifier>
+			<Abstract type="html">Whether or not the sprite is flipped vertically.
+It only flips the texture of the sprite, and not the texture of the sprite&apos;s children.
+Also, flipping the texture doesn&apos;t alter the anchorPoint.
+If you want to flip the anchorPoint too, and/or to flip the children too use:
+sprite.scaleY *= -1;</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CGFloat totalKineticEnergy</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL flipY</Declaration>
 			
 			
-			<Anchor>//api/name/totalKineticEnergy</Anchor>
+			<Anchor>//api/name/flipY</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/totalKineticEnergy</TokenIdentifier>
-			<Abstract type="html">The amount of kinetic energy dissipated by the last collision of the two shapes.
-This is roughly equivalent to the idea of damage.
-NOTE: By definition, fully elastic collisions do not lose any energy or cause any permanent damage.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/flipY</TokenIdentifier>
+			<Abstract type="html">Whether or not the sprite is flipped vertically.
+It only flips the texture of the sprite, and not the texture of the sprite&apos;s children.
+Also, flipping the texture doesn&apos;t alter the anchorPoint.
+If you want to flip the anchorPoint too, and/or to flip the children too use:
+sprite.scaleY *= -1;</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CGFloat totalKineticEnergy</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL flipY</Declaration>
 			
 			
-			<Anchor>//api/name/totalKineticEnergy</Anchor>
+			<Anchor>//api/name/flipY</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/totalKineticEnergy</TokenIdentifier>
-			<Abstract type="html">The amount of kinetic energy dissipated by the last collision of the two shapes.
-This is roughly equivalent to the idea of damage.
-NOTE: By definition, fully elastic collisions do not lose any energy or cause any permanent damage.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/flipY</TokenIdentifier>
+			<Abstract type="html">Whether or not the sprite is flipped vertically.
+It only flips the texture of the sprite, and not the texture of the sprite&apos;s children.
+Also, flipping the texture doesn&apos;t alter the anchorPoint.
+If you want to flip the anchorPoint too, and/or to flip the children too use:
+sprite.scaleY *= -1;</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CGFloat totalKineticEnergy</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL flipY</Declaration>
 			
 			
-			<Anchor>//api/name/totalKineticEnergy</Anchor>
+			<Anchor>//api/name/flipY</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setTotalImpulse:</TokenIdentifier>
-			<Abstract type="html">The total impulse applied by this collision to the colliding shapes.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setOffsetPosition:</TokenIdentifier>
+			<Abstract type="html">The offset position in points of the sprite in points. Calculated automatically by sprite sheet editors.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CGPoint totalImpulse</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGPoint offsetPosition</Declaration>
 			
 			
-			<Anchor>//api/name/totalImpulse</Anchor>
+			<Anchor>//api/name/offsetPosition</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/totalImpulse</TokenIdentifier>
-			<Abstract type="html">The total impulse applied by this collision to the colliding shapes.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/offsetPosition</TokenIdentifier>
+			<Abstract type="html">The offset position in points of the sprite in points. Calculated automatically by sprite sheet editors.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CGPoint totalImpulse</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGPoint offsetPosition</Declaration>
 			
 			
-			<Anchor>//api/name/totalImpulse</Anchor>
+			<Anchor>//api/name/offsetPosition</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/totalImpulse</TokenIdentifier>
-			<Abstract type="html">The total impulse applied by this collision to the colliding shapes.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/offsetPosition</TokenIdentifier>
+			<Abstract type="html">The offset position in points of the sprite in points. Calculated automatically by sprite sheet editors.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CGPoint totalImpulse</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGPoint offsetPosition</Declaration>
 			
 			
-			<Anchor>//api/name/totalImpulse</Anchor>
+			<Anchor>//api/name/offsetPosition</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setUserData:</TokenIdentifier>
-			<Abstract type="html">A persistent object reference associated with these two colliding objects.
-If you want to store some information about a collision from time step to time step, store it here.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setBlendFunc:</TokenIdentifier>
+			<Abstract type="html">Conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id userData</Declaration>
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
 			
 			
-			<Anchor>//api/name/userData</Anchor>
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/userData</TokenIdentifier>
-			<Abstract type="html">A persistent object reference associated with these two colliding objects.
-If you want to store some information about a collision from time step to time step, store it here.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/blendFunc</TokenIdentifier>
+			<Abstract type="html">Conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id userData</Declaration>
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
 			
 			
-			<Anchor>//api/name/userData</Anchor>
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/userData</TokenIdentifier>
-			<Abstract type="html">A persistent object reference associated with these two colliding objects.
-If you want to store some information about a collision from time step to time step, store it here.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSprite/blendFunc</TokenIdentifier>
+			<Abstract type="html">Conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id userData</Declaration>
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
 			
 			
-			<Anchor>//api/name/userData</Anchor>
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/shapeA:shapeB:</TokenIdentifier>
-			<Abstract type="html">Retrive the specific physics shapes that were involved in the collision.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSprite/spriteWithImageNamed:</TokenIdentifier>
+			<Abstract type="html">Creates a sprite with the name of an image. The name can be either a name in a sprite sheet or the name of a file.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>- (void)shapeA:(__autoreleasing CCPhysicsShape **)shapeA shapeB:(__autoreleasing CCPhysicsShape **)shapeB</Declaration>
-			
-			
-			<Anchor>//api/name/shapeA:shapeB:</Anchor>
+			<Declaration>+ (id)spriteWithImageNamed:(NSString *)imageName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>imageName</Name>
+					<Abstract type="html">name of the image to load.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSprite Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/spriteWithImageNamed:</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/ignore</TokenIdentifier>
-			<Abstract type="html">Ignore the collision between these two shapes bodies until they stop colliding.
-It&apos;s idomatic to write &quot;return [pair ignore];&quot; if using this method from a CCCollisionPairDelegate pre-solve method.
-Always returns false.</Abstract>
-			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSprite/spriteWithTexture:</TokenIdentifier>
+			<Abstract type="html">Creates an sprite with a texture.
+The rect used will be the size of the texture.
+The offset will be (0,0).</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>- (BOOL)ignore</Declaration>
-			
-			
-			<Anchor>//api/name/ignore</Anchor>
+			<Declaration>+ (id)spriteWithTexture:(CCTexture *)texture</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSprite Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/spriteWithTexture:</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/setArbiter:</TokenIdentifier>
-			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSprite/spriteWithTexture:rect:</TokenIdentifier>
+			<Abstract type="html">Creates an sprite with a texture.
+The offset will be (0,0).</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) cpArbiter *arbiter</Declaration>
-			
-			
-			<Anchor>//api/name/arbiter</Anchor>
+			<Declaration>+ (id)spriteWithTexture:(CCTexture *)texture rect:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Rect to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSprite Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/spriteWithTexture:rect:</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsCollisionPair/arbiter</TokenIdentifier>
-			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSprite/spriteWithSpriteFrame:</TokenIdentifier>
+			<Abstract type="html">Creates an sprite from a sprite frame.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) cpArbiter *arbiter</Declaration>
-			
-			
-			<Anchor>//api/name/arbiter</Anchor>
+			<Declaration>+ (id)spriteWithSpriteFrame:(CCSpriteFrame *)spriteFrame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>spriteFrame</Name>
+					<Abstract type="html">Sprite frame to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSprite Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/spriteWithSpriteFrame:</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsCollisionPair/arbiter</TokenIdentifier>
-			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSprite/spriteWithCGImage:key:</TokenIdentifier>
+			<Abstract type="html">Creates an sprite with a CGImageRef and a key.
+The key is used by the CCTextureCache to know if a texture was already created with this CGImage.
+For example, a valid key is: @&quot;spriteframe01&quot;.
+If key is nil, then a new texture will be created each time by the CCTextureCache.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) cpArbiter *arbiter</Declaration>
+			<Declaration>+ (id)spriteWithCGImage:(CGImageRef)image key:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>image</Name>
+					<Abstract type="html">Image ref.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">Key description.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSprite Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/spriteWithCGImage:key:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/initWithImageNamed:</TokenIdentifier>
+			<Abstract type="html">Initializes a sprite with the name of an image. The name can be either a name in a sprite sheet or the name of a file.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
+			<Declaration>- (id)initWithImageNamed:(NSString *)imageName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>imageName</Name>
+					<Abstract type="html">name of the image to load.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithImageNamed:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/initWithTexture:</TokenIdentifier>
+			<Abstract type="html">Initializes an sprite with a texture.
+The rect used will be the size of the texture.
+The offset will be (0,0).</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
 			
-			<Anchor>//api/name/arbiter</Anchor>
+			<Declaration>- (id)initWithTexture:(CCTexture *)texture</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">The texture to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTexture:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/initWithTexture:rect:</TokenIdentifier>
+			<Abstract type="html">Initializes an sprite with a texture and a rect in points (unrotated)
+The offset will be (0,0).</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTexture:(CCTexture *)texture rect:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">The texture to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">The rect to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTexture:rect:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/initWithSpriteFrame:</TokenIdentifier>
+			<Abstract type="html">Initializes an sprite with an sprite frame.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithSpriteFrame:(CCSpriteFrame *)spriteFrame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>spriteFrame</Name>
+					<Abstract type="html">Sprite frame to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithSpriteFrame:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/initWithCGImage:key:</TokenIdentifier>
+			<Abstract type="html">Initializes an sprite with a CGImageRef and a key.
+The key is used by the CCTextureCache to know if a texture was already created with this CGImage.
+For example, a valid key is: @&quot;spriteframe01&quot;.
+If key is nil, then a new texture will be created each time by the CCTextureCache.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithCGImage:(CGImageRef)image key:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>image</Name>
+					<Abstract type="html">Image ref.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">Key description.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithCGImage:key:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSprite/emptySprite</TokenIdentifier>
+			<Abstract type="html">Creates a non rendered sprite, the primary use of this type of sprite would be for adding control sprites for more complex animations.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>+ (id)emptySprite</Declaration>
+			
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/emptySprite</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/initWithTexture:rect:rotated:</TokenIdentifier>
+			<Abstract type="html">Designated initializer.
+Initializes an sprite with a texture and a rect in points, optionally rotated.
+The offset will be (0,0).
+IMPORTANT: This is the designated initializer.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTexture:(CCTexture *)texture rect:(CGRect)rect rotated:(BOOL)rotated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">The texture to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">The rect to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rotated</Name>
+					<Abstract type="html">YES if texture is rotated.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCSprite object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTexture:rect:rotated:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setTextureRect:</TokenIdentifier>
+			<Abstract type="html">Set the texture rect of the CCSprite in points.
+It will call setTextureRect:rotated:untrimmedSize with rotated = NO, and utrimmedSize = rect.size.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>- (void)setTextureRect:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Rect to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setTextureRect:</Anchor>
+            <NodeRef refid="91"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSprite/setTextureRect:rotated:untrimmedSize:</TokenIdentifier>
+			<Abstract type="html">Set the texture rect, rectRotated and untrimmed size of the CCSprite in points.
+It will update the texture coordinates and the vertex rectangle.</Abstract>
+			<DeclaredIn>CCSprite.h</DeclaredIn>
+			
+			<Declaration>- (void)setTextureRect:(CGRect)rect rotated:(BOOL)rotated untrimmedSize:(CGSize)size</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Rect to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rotated</Name>
+					<Abstract type="html">YES if texture is rotated.</Abstract>
+				</Parameter><Parameter>
+					<Name>size</Name>
+					<Abstract type="html">Untrimmed size.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setTextureRect:rotated:untrimmedSize:</Anchor>
             <NodeRef refid="91"/>
 		</Token>
 		

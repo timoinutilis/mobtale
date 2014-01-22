@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionMoveBy.html">
+	<File path="Classes/CCActionProgressTo.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionMoveBy</TokenIdentifier>
-			<Abstract type="html">  
-Moves a CCNode object x,y pixels by modifying it&apos;s position attribute.
-X and y are relative to the position of the object.
-Several CCMoveBy actions can be concurrently called, and the resulting movement will be the sum of individual movements.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionProgressTo</TokenIdentifier>
+			<Abstract type="html">This action is for use with the CCProgressNode to control the progression to animation.</Abstract>
+			<DeclaredIn>CCActionProgressTimer.h</DeclaredIn>
             
 			
 			<NodeRef refid="42"/>
@@ -16,42 +13,42 @@ Several CCMoveBy actions can be concurrently called, and the resulting movement 
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionMoveBy/actionWithDuration:position:</TokenIdentifier>
-			<Abstract type="html">Creates the action.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionProgressTo/actionWithDuration:percent:</TokenIdentifier>
+			<Abstract type="html">Creates a progress action.</Abstract>
+			<DeclaredIn>CCActionProgressTimer.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration position:(CGPoint)deltaPosition</Declaration>
+			<Declaration>+ (id)actionWithDuration:(CCTime)duration percent:(float)percent</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>duration</Name>
-					<Abstract type="html">Action interval</Abstract>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaPosition</Name>
-					<Abstract type="html">Delta position</Abstract>
+					<Name>percent</Name>
+					<Abstract type="html">Percentage.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New moveby action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:position:</Anchor>
+			<ReturnValue><Abstract type="html">New prgress action.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithDuration:percent:</Anchor>
             <NodeRef refid="42"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionMoveBy/initWithDuration:position:</TokenIdentifier>
-			<Abstract type="html">Initializes the action.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionProgressTo/initWithDuration:percent:</TokenIdentifier>
+			<Abstract type="html">Initializes a progress action.</Abstract>
+			<DeclaredIn>CCActionProgressTimer.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)duration position:(CGPoint)deltaPosition</Declaration>
+			<Declaration>- (id)initWithDuration:(CCTime)duration percent:(float)percent</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>duration</Name>
-					<Abstract type="html">Action interval</Abstract>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaPosition</Name>
-					<Abstract type="html">Delta position</Abstract>
+					<Name>percent</Name>
+					<Abstract type="html">Percentage.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New moveby action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:position:</Anchor>
+			<ReturnValue><Abstract type="html">New progress action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:percent:</Anchor>
             <NodeRef refid="42"/>
 		</Token>
 		

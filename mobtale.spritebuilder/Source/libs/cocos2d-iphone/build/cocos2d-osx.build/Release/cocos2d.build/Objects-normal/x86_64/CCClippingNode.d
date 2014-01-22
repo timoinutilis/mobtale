@@ -19,5 +19,5 @@ dependencies: \
   cocos2d/CCResponderManager.h cocos2d/CCScheduler.h \
   /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/OpenGL_Internal.h \
   cocos2d/CCGLProgram.h cocos2d/CCShaderCache.h cocos2d/CCDirector.h \
-  cocos2d/CCDrawingPrimitives.h \
-  external/kazmath/include/kazmath/GL/matrix.h cocos2d/CCNode_Private.h
+  external/kazmath/include/kazmath/GL/matrix.h cocos2d/CCNode_Private.h \
+  cocos2d/CCDrawingPrimitives.h

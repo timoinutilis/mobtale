@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCPhysicsShape.html">
+	<File path="Classes/CCSpriteFrame.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCPhysicsShape</TokenIdentifier>
-			<Abstract type="html"></Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCSpriteFrame</TokenIdentifier>
+			<Abstract type="html">A CCSpriteFrame contains the texture and rectangle of the texture to be used by a CCSprite.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
             
 			
 			<NodeRef refid="94"/>
@@ -13,567 +13,351 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsShape/circleShapeWithRadius:center:</TokenIdentifier>
-			<Abstract type="html">Create a circular shape.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/setRect:</TokenIdentifier>
+			<Abstract type="html">Rectangle of the frame in points. If it is updated, then rectInPixels will also be updated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>+ (CCPhysicsShape *)circleShapeWithRadius:(CGFloat)radius center:(CGPoint)center</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGRect rect</Declaration>
 			
 			
-			<Anchor>//api/name/circleShapeWithRadius:center:</Anchor>
+			<Anchor>//api/name/rect</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsShape/rectShape:cornerRadius:</TokenIdentifier>
-			<Abstract type="html">Create a box shape with rounded corners.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/rect</TokenIdentifier>
+			<Abstract type="html">Rectangle of the frame in points. If it is updated, then rectInPixels will also be updated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>+ (CCPhysicsShape *)rectShape:(CGRect)rect cornerRadius:(CGFloat)cornerRadius</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGRect rect</Declaration>
 			
 			
-			<Anchor>//api/name/rectShape:cornerRadius:</Anchor>
+			<Anchor>//api/name/rect</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsShape/pillShapeFrom:to:cornerRadius:</TokenIdentifier>
-			<Abstract type="html">Create a pill shape with rounded corners that stretches from &apos;start&apos; to &apos;end&apos;.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteFrame/rect</TokenIdentifier>
+			<Abstract type="html">Rectangle of the frame in points. If it is updated, then rectInPixels will also be updated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>+ (CCPhysicsShape *)pillShapeFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGRect rect</Declaration>
 			
 			
-			<Anchor>//api/name/pillShapeFrom:to:cornerRadius:</Anchor>
+			<Anchor>//api/name/rect</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsShape/polygonShapeWithPoints:count:cornerRadius:</TokenIdentifier>
-			<Abstract type="html">Create a convex polygon shape with rounded corners.
-If the points do not form a convex polygon, then a convex hull will be created for them automatically.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/setRotated:</TokenIdentifier>
+			<Abstract type="html">Is the frame rectangle is rotated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>+ (CCPhysicsShape *)polygonShapeWithPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL rotated</Declaration>
 			
 			
-			<Anchor>//api/name/polygonShapeWithPoints:count:cornerRadius:</Anchor>
+			<Anchor>//api/name/rotated</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setMass:</TokenIdentifier>
-			<Abstract type="html">Mass of this individual shape.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/rotated</TokenIdentifier>
+			<Abstract type="html">Is the frame rectangle is rotated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat mass</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL rotated</Declaration>
 			
 			
-			<Anchor>//api/name/mass</Anchor>
+			<Anchor>//api/name/rotated</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/mass</TokenIdentifier>
-			<Abstract type="html">Mass of this individual shape.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteFrame/rotated</TokenIdentifier>
+			<Abstract type="html">Is the frame rectangle is rotated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat mass</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL rotated</Declaration>
 			
 			
-			<Anchor>//api/name/mass</Anchor>
+			<Anchor>//api/name/rotated</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/mass</TokenIdentifier>
-			<Abstract type="html">Mass of this individual shape.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/setOffset:</TokenIdentifier>
+			<Abstract type="html">Offset of the frame in points.  If it is updated, then offsetInPixels will also be updated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat mass</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGPoint offset</Declaration>
 			
 			
-			<Anchor>//api/name/mass</Anchor>
+			<Anchor>//api/name/offset</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setFriction:</TokenIdentifier>
-			<Abstract type="html">Surface friction of the shape.
-When two objects collide, their friction is multiplied together.
-The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to 0.7.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/offset</TokenIdentifier>
+			<Abstract type="html">Offset of the frame in points.  If it is updated, then offsetInPixels will also be updated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat friction</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGPoint offset</Declaration>
 			
 			
-			<Anchor>//api/name/friction</Anchor>
+			<Anchor>//api/name/offset</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/friction</TokenIdentifier>
-			<Abstract type="html">Surface friction of the shape.
-When two objects collide, their friction is multiplied together.
-The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to 0.7.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteFrame/offset</TokenIdentifier>
+			<Abstract type="html">Offset of the frame in points.  If it is updated, then offsetInPixels will also be updated.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat friction</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGPoint offset</Declaration>
 			
 			
-			<Anchor>//api/name/friction</Anchor>
+			<Anchor>//api/name/offset</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/friction</TokenIdentifier>
-			<Abstract type="html">Surface friction of the shape.
-When two objects collide, their friction is multiplied together.
-The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to 0.7.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/setOriginalSize:</TokenIdentifier>
+			<Abstract type="html">Original size of the trimmed image in points.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat friction</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGSize originalSize</Declaration>
 			
 			
-			<Anchor>//api/name/friction</Anchor>
+			<Anchor>//api/name/originalSize</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setElasticity:</TokenIdentifier>
-			<Abstract type="html">Surface friction of the shape.
-When two objects collide, their elaticity is multiplied together.
-The calculated value can be ovrriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to 0.2.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/originalSize</TokenIdentifier>
+			<Abstract type="html">Original size of the trimmed image in points.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat elasticity</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGSize originalSize</Declaration>
 			
 			
-			<Anchor>//api/name/elasticity</Anchor>
+			<Anchor>//api/name/originalSize</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/elasticity</TokenIdentifier>
-			<Abstract type="html">Surface friction of the shape.
-When two objects collide, their elaticity is multiplied together.
-The calculated value can be ovrriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to 0.2.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteFrame/originalSize</TokenIdentifier>
+			<Abstract type="html">Original size of the trimmed image in points.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat elasticity</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGSize originalSize</Declaration>
 			
 			
-			<Anchor>//api/name/elasticity</Anchor>
+			<Anchor>//api/name/originalSize</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/elasticity</TokenIdentifier>
-			<Abstract type="html">Surface friction of the shape.
-When two objects collide, their elaticity is multiplied together.
-The calculated value can be ovrriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to 0.2.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/setTexture:</TokenIdentifier>
+			<Abstract type="html">Texture of the frame.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGFloat elasticity</Declaration>
+			<Declaration>@property (nonatomic, strong, readonly) CCTexture *texture</Declaration>
 			
 			
-			<Anchor>//api/name/elasticity</Anchor>
+			<Anchor>//api/name/texture</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setSurfaceVelocity:</TokenIdentifier>
-			<Abstract type="html">Velocity of the surface of the shape relative to its normal velocity.
-This is useful for modeling conveyor belts or the feet of a player character.
-The calculated surface velocity of two colliding shapes by default only affects their friction.
-The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to CGPointZero.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/texture</TokenIdentifier>
+			<Abstract type="html">Texture of the frame.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGPoint surfaceVelocity</Declaration>
+			<Declaration>@property (nonatomic, strong, readonly) CCTexture *texture</Declaration>
 			
 			
-			<Anchor>//api/name/surfaceVelocity</Anchor>
+			<Anchor>//api/name/texture</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/surfaceVelocity</TokenIdentifier>
-			<Abstract type="html">Velocity of the surface of the shape relative to its normal velocity.
-This is useful for modeling conveyor belts or the feet of a player character.
-The calculated surface velocity of two colliding shapes by default only affects their friction.
-The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to CGPointZero.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteFrame/texture</TokenIdentifier>
+			<Abstract type="html">Texture of the frame.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGPoint surfaceVelocity</Declaration>
+			<Declaration>@property (nonatomic, strong, readonly) CCTexture *texture</Declaration>
 			
 			
-			<Anchor>//api/name/surfaceVelocity</Anchor>
+			<Anchor>//api/name/texture</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/surfaceVelocity</TokenIdentifier>
-			<Abstract type="html">Velocity of the surface of the shape relative to its normal velocity.
-This is useful for modeling conveyor belts or the feet of a player character.
-The calculated surface velocity of two colliding shapes by default only affects their friction.
-The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
-Defaults to CGPointZero.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/setTextureFilename:</TokenIdentifier>
+			<Abstract type="html">Texture image file name, when created from a texture image.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CGPoint surfaceVelocity</Declaration>
+			<Declaration>@property (nonatomic, strong, readonly) NSString *textureFilename</Declaration>
 			
 			
-			<Anchor>//api/name/surfaceVelocity</Anchor>
+			<Anchor>//api/name/textureFilename</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setSensor:</TokenIdentifier>
-			<Abstract type="html">Sensors call collision delegate methods, but don&apos;t cause collisions between bodies.
-Defaults to NO.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/textureFilename</TokenIdentifier>
+			<Abstract type="html">Texture image file name, when created from a texture image.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) BOOL sensor</Declaration>
+			<Declaration>@property (nonatomic, strong, readonly) NSString *textureFilename</Declaration>
 			
 			
-			<Anchor>//api/name/sensor</Anchor>
+			<Anchor>//api/name/textureFilename</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/sensor</TokenIdentifier>
-			<Abstract type="html">Sensors call collision delegate methods, but don&apos;t cause collisions between bodies.
-Defaults to NO.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteFrame/textureFilename</TokenIdentifier>
+			<Abstract type="html">Texture image file name, when created from a texture image.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) BOOL sensor</Declaration>
+			<Declaration>@property (nonatomic, strong, readonly) NSString *textureFilename</Declaration>
 			
 			
-			<Anchor>//api/name/sensor</Anchor>
+			<Anchor>//api/name/textureFilename</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/sensor</TokenIdentifier>
-			<Abstract type="html">Sensors call collision delegate methods, but don&apos;t cause collisions between bodies.
-Defaults to NO.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSpriteFrame/frameWithImageNamed:</TokenIdentifier>
+			<Abstract type="html">Create and return a sprite frame object from the specified image name.  On first attempt it will check CCSpriteFrameCache and if not available will then try and create from an image file of the same name.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) BOOL sensor</Declaration>
-			
-			
-			<Anchor>//api/name/sensor</Anchor>
+			<Declaration>+ (id)frameWithImageNamed:(NSString *)imageName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>imageName</Name>
+					<Abstract type="html">Image name.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSpriteFrame Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/frameWithImageNamed:</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setCollisionGroup:</TokenIdentifier>
-			<Abstract type="html">If two shapes share the same group identifier, then they don&apos;t collide.
-Defaults to nil.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSpriteFrame/frameWithTexture:rectInPixels:rotated:offset:originalSize:</TokenIdentifier>
+			<Abstract type="html">Create and return a sprite frame object from the specified texture, texture rectangle, rotation status, offset and originalSize values.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id collisionGroup</Declaration>
-			
-			
-			<Anchor>//api/name/collisionGroup</Anchor>
+			<Declaration>+ (id)frameWithTexture:(CCTexture *)texture rectInPixels:(CGRect)rect rotated:(BOOL)rotated offset:(CGPoint)offset originalSize:(CGSize)originalSize</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Texture rectangle (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rotated</Name>
+					<Abstract type="html">Is rectangle rotated?</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">Offset (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>originalSize</Name>
+					<Abstract type="html">Original size (in pixels) before being trimmed.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSpriteFrame Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/frameWithTexture:rectInPixels:rotated:offset:originalSize:</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/collisionGroup</TokenIdentifier>
-			<Abstract type="html">If two shapes share the same group identifier, then they don&apos;t collide.
-Defaults to nil.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCSpriteFrame/frameWithTextureFilename:rectInPixels:rotated:offset:originalSize:</TokenIdentifier>
+			<Abstract type="html">Create and return a sprite frame object from the specified texture file name, texture rectangle, rotation status, offset and originalSize values.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id collisionGroup</Declaration>
-			
-			
-			<Anchor>//api/name/collisionGroup</Anchor>
+			<Declaration>+ (id)frameWithTextureFilename:(NSString *)filename rectInPixels:(CGRect)rect rotated:(BOOL)rotated offset:(CGPoint)offset originalSize:(CGSize)originalSize</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>filename</Name>
+					<Abstract type="html">Image file name to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Texture rectangle (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rotated</Name>
+					<Abstract type="html">Is rectangle rotated?</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">Offset (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>originalSize</Name>
+					<Abstract type="html">Original size (in pixels) before being trimmed.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCSpriteFrame Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/frameWithTextureFilename:rectInPixels:rotated:offset:originalSize:</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/collisionGroup</TokenIdentifier>
-			<Abstract type="html">If two shapes share the same group identifier, then they don&apos;t collide.
-Defaults to nil.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/initWithTexture:rectInPixels:rotated:offset:originalSize:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a sprite frame object from the specified texture, texture rectangle, rotation status, offset and originalSize values.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id collisionGroup</Declaration>
-			
-			
-			<Anchor>//api/name/collisionGroup</Anchor>
+			<Declaration>- (id)initWithTexture:(CCTexture *)texture rectInPixels:(CGRect)rect rotated:(BOOL)rotated offset:(CGPoint)offset originalSize:(CGSize)originalSize</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Texture rectangle (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rotated</Name>
+					<Abstract type="html">Is rectangle rotated?</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">Offset (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>originalSize</Name>
+					<Abstract type="html">Original size (in pixels) before being trimmed.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCSpriteFrame Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTexture:rectInPixels:rotated:offset:originalSize:</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setCollisionType:</TokenIdentifier>
-			<Abstract type="html">A string that identifies which collision pair delegate method should be called when this shape collides.
-Defaults to @&quot;default&quot;.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteFrame/initWithTextureFilename:rectInPixels:rotated:offset:originalSize:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a sprite frame object from the specified texture file name, texture rectangle, rotation status, offset and originalSize values.</Abstract>
+			<DeclaredIn>CCSpriteFrame.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *collisionType</Declaration>
-			
-			
-			<Anchor>//api/name/collisionType</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/collisionType</TokenIdentifier>
-			<Abstract type="html">A string that identifies which collision pair delegate method should be called when this shape collides.
-Defaults to @&quot;default&quot;.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *collisionType</Declaration>
-			
-			
-			<Anchor>//api/name/collisionType</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/collisionType</TokenIdentifier>
-			<Abstract type="html">A string that identifies which collision pair delegate method should be called when this shape collides.
-Defaults to @&quot;default&quot;.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *collisionType</Declaration>
-			
-			
-			<Anchor>//api/name/collisionType</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setCollisionCategories:</TokenIdentifier>
-			<Abstract type="html">An array of NSStrings of category names of which this shape is a member of.
-Up to 32 categories can be used in a single scene.
-The default value is nil, which means the shape exists in all categories.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSArray *collisionCategories</Declaration>
-			
-			
-			<Anchor>//api/name/collisionCategories</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/collisionCategories</TokenIdentifier>
-			<Abstract type="html">An array of NSStrings of category names of which this shape is a member of.
-Up to 32 categories can be used in a single scene.
-The default value is nil, which means the shape exists in all categories.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSArray *collisionCategories</Declaration>
-			
-			
-			<Anchor>//api/name/collisionCategories</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/collisionCategories</TokenIdentifier>
-			<Abstract type="html">An array of NSStrings of category names of which this shape is a member of.
-Up to 32 categories can be used in a single scene.
-The default value is nil, which means the shape exists in all categories.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSArray *collisionCategories</Declaration>
-			
-			
-			<Anchor>//api/name/collisionCategories</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setCollisionMask:</TokenIdentifier>
-			<Abstract type="html">An array of NSStrings of category names this shape will collide with.
-The default value is nil, which means the shape collides with all categories.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSArray *collisionMask</Declaration>
-			
-			
-			<Anchor>//api/name/collisionMask</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/collisionMask</TokenIdentifier>
-			<Abstract type="html">An array of NSStrings of category names this shape will collide with.
-The default value is nil, which means the shape collides with all categories.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSArray *collisionMask</Declaration>
-			
-			
-			<Anchor>//api/name/collisionMask</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/collisionMask</TokenIdentifier>
-			<Abstract type="html">An array of NSStrings of category names this shape will collide with.
-The default value is nil, which means the shape collides with all categories.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSArray *collisionMask</Declaration>
-			
-			
-			<Anchor>//api/name/collisionMask</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setNode:</TokenIdentifier>
-			<Abstract type="html">The CCNode this shape is attached to.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) CCNode *node</Declaration>
-			
-			
-			<Anchor>//api/name/node</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/node</TokenIdentifier>
-			<Abstract type="html">The CCNode this shape is attached to.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) CCNode *node</Declaration>
-			
-			
-			<Anchor>//api/name/node</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/node</TokenIdentifier>
-			<Abstract type="html">The CCNode this shape is attached to.</Abstract>
-			<DeclaredIn>CCPhysicsShape.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) CCNode *node</Declaration>
-			
-			
-			<Anchor>//api/name/node</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setShape:</TokenIdentifier>
-			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) ChipmunkShape *shape</Declaration>
-			
-			
-			<Anchor>//api/name/shape</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/shape</TokenIdentifier>
-			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) ChipmunkShape *shape</Declaration>
-			
-			
-			<Anchor>//api/name/shape</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/shape</TokenIdentifier>
-			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) ChipmunkShape *shape</Declaration>
-			
-			
-			<Anchor>//api/name/shape</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setNext:</TokenIdentifier>
-			<Abstract type="html">Next shape in the linked list.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) CCPhysicsShape *next</Declaration>
-			
-			
-			<Anchor>//api/name/next</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/next</TokenIdentifier>
-			<Abstract type="html">Next shape in the linked list.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) CCPhysicsShape *next</Declaration>
-			
-			
-			<Anchor>//api/name/next</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/next</TokenIdentifier>
-			<Abstract type="html">Next shape in the linked list.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) CCPhysicsShape *next</Declaration>
-			
-			
-			<Anchor>//api/name/next</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/setBody:</TokenIdentifier>
-			<Abstract type="html">Body this shape is attached to.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, weak) CCPhysicsBody *body</Declaration>
-			
-			
-			<Anchor>//api/name/body</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsShape/body</TokenIdentifier>
-			<Abstract type="html">Body this shape is attached to.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, weak) CCPhysicsBody *body</Declaration>
-			
-			
-			<Anchor>//api/name/body</Anchor>
-            <NodeRef refid="94"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsShape/body</TokenIdentifier>
-			<Abstract type="html">Body this shape is attached to.</Abstract>
-			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, weak) CCPhysicsBody *body</Declaration>
-			
-			
-			<Anchor>//api/name/body</Anchor>
+			<Declaration>- (id)initWithTextureFilename:(NSString *)filename rectInPixels:(CGRect)rect rotated:(BOOL)rotated offset:(CGPoint)offset originalSize:(CGSize)originalSize</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>filename</Name>
+					<Abstract type="html">Image file name to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Texture rectangle (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>rotated</Name>
+					<Abstract type="html">Is rectangle rotated?</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">Offset (in pixels) to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>originalSize</Name>
+					<Abstract type="html">Original size (in pixels) before being trimmed.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCSpriteFrame Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTextureFilename:rectInPixels:rotated:offset:originalSize:</Anchor>
             <NodeRef refid="94"/>
 		</Token>
 		

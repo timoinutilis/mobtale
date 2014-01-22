@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionTintBy.html">
+	<File path="Classes/CCActionTween.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionTintBy</TokenIdentifier>
-			<Abstract type="html">Tints a CCNode that implements the CCNodeRGB protocol from current tint to a custom one.</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionTween</TokenIdentifier>
+			<Abstract type="html">CCActionTween is an action that lets you modify over time any property of a node.</Abstract>
+			<DeclaredIn>CCActionTween.h</DeclaredIn>
             
 			
 			<NodeRef refid="60"/>
@@ -13,54 +13,54 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionTintBy/actionWithDuration:red:green:blue:</TokenIdentifier>
-			<Abstract type="html">Creates a tint to action</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionTween/actionWithDuration:key:from:to:</TokenIdentifier>
+			<Abstract type="html">Creates an initializes a tween action.</Abstract>
+			<DeclaredIn>CCActionTween.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration red:(GLshort)deltaRed green:(GLshort)deltaGreen blue:(GLshort)deltaBlue</Declaration>
+			<Declaration>+ (id)actionWithDuration:(CCTime)aDuration key:(NSString *)key from:(float)from to:(float)to</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>aDuration</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaRed</Name>
-					<Abstract type="html">Red delta color to tint</Abstract>
+					<Name>key</Name>
+					<Abstract type="html">Property key to modify.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaGreen</Name>
-					<Abstract type="html">Green delta color to tint</Abstract>
+					<Name>from</Name>
+					<Abstract type="html">Value to tween from.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaBlue</Name>
-					<Abstract type="html">Blue delta color to tint</Abstract>
+					<Name>to</Name>
+					<Abstract type="html">Value to tween to.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New tint by action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:red:green:blue:</Anchor>
+			<ReturnValue><Abstract type="html">New tween action.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithDuration:key:from:to:</Anchor>
             <NodeRef refid="60"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionTintBy/initWithDuration:red:green:blue:</TokenIdentifier>
-			<Abstract type="html">Initalizes a tint to action</Abstract>
-			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionTween/initWithDuration:key:from:to:</TokenIdentifier>
+			<Abstract type="html">Initializes an initializes a tween action.</Abstract>
+			<DeclaredIn>CCActionTween.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)duration red:(GLshort)deltaRed green:(GLshort)deltaGreen blue:(GLshort)deltaBlue</Declaration>
+			<Declaration>- (id)initWithDuration:(CCTime)aDuration key:(NSString *)key from:(float)from to:(float)to</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
+					<Name>aDuration</Name>
+					<Abstract type="html">Action duration.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaRed</Name>
-					<Abstract type="html">Red delta color to tint</Abstract>
+					<Name>key</Name>
+					<Abstract type="html">Property key to modify.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaGreen</Name>
-					<Abstract type="html">Green delta color to tint</Abstract>
+					<Name>from</Name>
+					<Abstract type="html">Value to tween from.</Abstract>
 				</Parameter><Parameter>
-					<Name>deltaBlue</Name>
-					<Abstract type="html">Blue delta color to tint</Abstract>
+					<Name>to</Name>
+					<Abstract type="html">Value to tween to.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New tint by action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:red:green:blue:</Anchor>
+			<ReturnValue><Abstract type="html">New tween action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:key:from:to:</Anchor>
             <NodeRef refid="60"/>
 		</Token>
 		

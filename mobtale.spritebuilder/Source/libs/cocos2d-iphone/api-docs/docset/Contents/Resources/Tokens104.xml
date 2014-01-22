@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCSpriteBatchNode.html">
+	<File path="Protocols/CCPhysicsCollisionDelegate.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCSpriteBatchNode</TokenIdentifier>
-			<Abstract type="html">A CCSpriteBatchNode offers improved rendering performance for multiple sprite rendering by utilising a single OpenGL call to render all sprites from one (and only one) texture (one image file, one texture atlas), often knows as a &apos;batch draw&apos;.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intf/CCPhysicsCollisionDelegate</TokenIdentifier>
+			<Abstract type="html">Delegate type called when two physics bodies collide.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
             
 			
 			<NodeRef refid="104"/>
@@ -13,132 +13,99 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteBatchNode/setBlendFunc:</TokenIdentifier>
-			<Abstract type="html">Blend mode.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intfm/CCPhysicsCollisionDelegate/ccPhysicsCollisionBegin:typeA:typeB:</TokenIdentifier>
+			<Abstract type="html">Begin methods are called on the first fixed time step when two bodies begin colliding.
+If you return NO from a begin method, the collision between the two bodies will be ignored.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
-			
-			
-			<Anchor>//api/name/blendFunc</Anchor>
-            <NodeRef refid="104"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteBatchNode/blendFunc</TokenIdentifier>
-			<Abstract type="html">Blend mode.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
-			
-			
-			<Anchor>//api/name/blendFunc</Anchor>
-            <NodeRef refid="104"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCSpriteBatchNode/blendFunc</TokenIdentifier>
-			<Abstract type="html">Blend mode.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
-			
-			
-			<Anchor>//api/name/blendFunc</Anchor>
-            <NodeRef refid="104"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCSpriteBatchNode/batchNodeWithTexture:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a batch node with the specified texture value.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
-			
-			<Declaration>+ (id)batchNodeWithTexture:(CCTexture *)tex</Declaration>
+			<Declaration>- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>tex</Name>
-					<Abstract type="html">Texture to use.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">The CCSpriteBatchNode Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/batchNodeWithTexture:</Anchor>
-            <NodeRef refid="104"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCSpriteBatchNode/batchNodeWithFile:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a batch node with the specified image file value.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
-			
-			<Declaration>+ (id)batchNodeWithFile:(NSString *)fileImage</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>fileImage</Name>
-					<Abstract type="html">Image file name.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">The CCSpriteBatchNode Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/batchNodeWithFile:</Anchor>
-            <NodeRef refid="104"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteBatchNode/initWithTexture:capacity:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a batch node with the specified texture and capacity values.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
-			
-			<Declaration>- (id)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>tex</Name>
-					<Abstract type="html">Texture to use.</Abstract>
+					<Name>pair</Name>
+					<Abstract type="html">Collision pair.</Abstract>
 				</Parameter><Parameter>
-					<Name>capacity</Name>
-					<Abstract type="html">Initial capacity.</Abstract>
+					<Name>nodeA</Name>
+					<Abstract type="html">Node A.</Abstract>
+				</Parameter><Parameter>
+					<Name>nodeB</Name>
+					<Abstract type="html">Node B.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized CCSpriteBatchNode Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithTexture:capacity:</Anchor>
+			<ReturnValue><Abstract type="html">BOOL</Abstract></ReturnValue>
+			<Anchor>//api/name/ccPhysicsCollisionBegin:typeA:typeB:</Anchor>
             <NodeRef refid="104"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteBatchNode/initWithFile:capacity:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a batch node with the specified texture and capacity values.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intfm/CCPhysicsCollisionDelegate/ccPhysicsCollisionPreSolve:typeA:typeB:</TokenIdentifier>
+			<Abstract type="html">Pre-solve methods are called every fixed time step when two bodies are in contact before the physics solver runs.
+This gives you a chance to modify the collision&apos;s outcome by setting properties such as friction, restitution, or surfaceVelocity on CCPhysicsCollisionPair
+Since the collisions have not been solved yet, you cannot access the outcome by using properties such as totalKineticEnergy or totalImpulse.
+If you return NO from a pre-solve method, the collision will be ignored for the current time step.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithFile:(NSString *)fileImage capacity:(NSUInteger)capacity</Declaration>
+			<Declaration>- (BOOL)ccPhysicsCollisionPreSolve:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>fileImage</Name>
-					<Abstract type="html">Image file name.</Abstract>
+					<Name>pair</Name>
+					<Abstract type="html">Collision pair.</Abstract>
 				</Parameter><Parameter>
-					<Name>capacity</Name>
-					<Abstract type="html">Initial capacity.</Abstract>
+					<Name>nodeA</Name>
+					<Abstract type="html">Node A.</Abstract>
+				</Parameter><Parameter>
+					<Name>nodeB</Name>
+					<Abstract type="html">Node B.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized CCSpriteBatchNode Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithFile:capacity:</Anchor>
+			<ReturnValue><Abstract type="html">BOOL</Abstract></ReturnValue>
+			<Anchor>//api/name/ccPhysicsCollisionPreSolve:typeA:typeB:</Anchor>
             <NodeRef refid="104"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCSpriteBatchNode/removeChild:cleanup:</TokenIdentifier>
-			<Abstract type="html">Removes a sprite from the batch node.</Abstract>
-			<DeclaredIn>CCSpriteBatchNode.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intfm/CCPhysicsCollisionDelegate/ccPhysicsCollisionPostSolve:typeA:typeB:</TokenIdentifier>
+			<Abstract type="html">Post-solve methods are called every fixed time step when two bodies are in contact after the physics solver runs.
+You can call use properties such as totalKineticEnergy and totalImpulse on CCPhysicsCollisionPair from a post-solve method.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
 			
-			<Declaration>- (void)removeChild:(CCSprite *)sprite cleanup:(BOOL)doCleanup</Declaration>
+			<Declaration>- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>sprite</Name>
-					<Abstract type="html">Sprite reference.</Abstract>
+					<Name>pair</Name>
+					<Abstract type="html">Collision pair.</Abstract>
 				</Parameter><Parameter>
-					<Name>doCleanup</Name>
-					<Abstract type="html">Perform additional cleanup.</Abstract>
+					<Name>nodeA</Name>
+					<Abstract type="html">Node A.</Abstract>
+				</Parameter><Parameter>
+					<Name>nodeB</Name>
+					<Abstract type="html">Node B.</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/removeChild:cleanup:</Anchor>
+			<Anchor>//api/name/ccPhysicsCollisionPostSolve:typeA:typeB:</Anchor>
+            <NodeRef refid="104"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/CCPhysicsCollisionDelegate/ccPhysicsCollisionSeparate:typeA:typeB:</TokenIdentifier>
+			<Abstract type="html">Separate methods are called the first fixed time step after two bodies stop colliding.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>- (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pair</Name>
+					<Abstract type="html">Collision pair.</Abstract>
+				</Parameter><Parameter>
+					<Name>nodeA</Name>
+					<Abstract type="html">Node A.</Abstract>
+				</Parameter><Parameter>
+					<Name>nodeB</Name>
+					<Abstract type="html">Node B.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/ccPhysicsCollisionSeparate:typeA:typeB:</Anchor>
             <NodeRef refid="104"/>
 		</Token>
 		

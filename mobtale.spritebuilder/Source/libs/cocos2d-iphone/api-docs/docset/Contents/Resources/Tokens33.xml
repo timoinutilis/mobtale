@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionFlipX.html">
+	<File path="Classes/CCActionFollow.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionFlipX</TokenIdentifier>
-			<Abstract type="html">Flips the target in x direction.</Abstract>
-			<DeclaredIn>CCActionInstant.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionFollow</TokenIdentifier>
+			<Abstract type="html">Creates an action which follows a node.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
             
 			
 			<NodeRef refid="33"/>
@@ -13,36 +13,112 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionFlipX/actionWithFlipX:</TokenIdentifier>
-			<Abstract type="html">Creates a flip action with x direction flipped or non flipped</Abstract>
-			<DeclaredIn>CCActionInstant.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFollow/setBoundarySet:</TokenIdentifier>
+			<Abstract type="html">Turns boundary behaviour on / off.  If set to YES, movement will be clamped to boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithFlipX:(BOOL)x</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>x</Name>
-					<Abstract type="html">Defines if target is flipped</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">New flip action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithFlipX:</Anchor>
+			<Declaration>@property (nonatomic, readwrite) BOOL boundarySet</Declaration>
+			
+			
+			<Anchor>//api/name/boundarySet</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionFlipX/initWithFlipX:</TokenIdentifier>
-			<Abstract type="html">Initializes a flip action with x direction flipped or non flipped</Abstract>
-			<DeclaredIn>CCActionInstant.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFollow/boundarySet</TokenIdentifier>
+			<Abstract type="html">Turns boundary behaviour on / off.  If set to YES, movement will be clamped to boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithFlipX:(BOOL)x</Declaration>
+			<Declaration>@property (nonatomic, readwrite) BOOL boundarySet</Declaration>
+			
+			
+			<Anchor>//api/name/boundarySet</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCActionFollow/boundarySet</TokenIdentifier>
+			<Abstract type="html">Turns boundary behaviour on / off.  If set to YES, movement will be clamped to boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL boundarySet</Declaration>
+			
+			
+			<Anchor>//api/name/boundarySet</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionFollow/actionWithTarget:</TokenIdentifier>
+			<Abstract type="html">Creates a follow action with no boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>+ (id)actionWithTarget:(CCNode *)followedNode</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>x</Name>
-					<Abstract type="html">Defines if target is flipped</Abstract>
+					<Name>followedNode</Name>
+					<Abstract type="html">Node to follow.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New flip action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithFlipX:</Anchor>
+			<ReturnValue><Abstract type="html">The follow action object.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithTarget:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionFollow/actionWithTarget:worldBoundary:</TokenIdentifier>
+			<Abstract type="html">Creates a follow action with boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>+ (id)actionWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>followedNode</Name>
+					<Abstract type="html">Node to follow.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Boundary rect.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The follow action object.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithTarget:worldBoundary:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFollow/initWithTarget:</TokenIdentifier>
+			<Abstract type="html">Initalizes a follow action with no boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTarget:(CCNode *)followedNode</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>followedNode</Name>
+					<Abstract type="html">Node to follow.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized follow action object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTarget:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFollow/initWithTarget:worldBoundary:</TokenIdentifier>
+			<Abstract type="html">Initalizes a follow action with boundaries.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>followedNode</Name>
+					<Abstract type="html">Node to follow.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Boundary rect.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The initalized follow action object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTarget:worldBoundary:</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		

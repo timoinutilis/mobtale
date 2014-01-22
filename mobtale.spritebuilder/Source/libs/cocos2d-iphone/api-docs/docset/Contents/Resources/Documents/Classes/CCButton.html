@@ -6,13 +6,13 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 961)" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2D</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -77,6 +77,8 @@
 	<option value="//api/name/setBackgroundOpacity:forState:">&nbsp;&nbsp;&nbsp;&nbsp;- setBackgroundOpacity:forState:</option>
 	
 	<option value="//api/name/setBackgroundSpriteFrame:forState:">&nbsp;&nbsp;&nbsp;&nbsp;- setBackgroundSpriteFrame:forState:</option>
+	
+	<option value="//api/name/setColor:">&nbsp;&nbsp;&nbsp;&nbsp;- setColor:</option>
 	
 	<option value="//api/name/setLabelColor:forState:">&nbsp;&nbsp;&nbsp;&nbsp;- setLabelColor:forState:</option>
 	
@@ -147,6 +149,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setBackgroundOpacity:forState:">setBackgroundOpacity:forState:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setBackgroundSpriteFrame:forState:">setBackgroundSpriteFrame:forState:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setColor:">setColor:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLabelColor:forState:">setLabelColor:forState:</a></span></li>
 	
@@ -276,6 +280,12 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/backgroundOpacityForState:">&ndash;&nbsp;backgroundOpacityForState:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setColor:">&ndash;&nbsp;setColor:</a></code>
 	</span>
 	
 	
@@ -584,7 +594,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (ccColor3B)backgroundColorForState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CCColor *)backgroundColorForState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -635,7 +645,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (GLubyte)backgroundOpacityForState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CGFloat)backgroundOpacityForState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -971,7 +981,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (ccColor3B)labelColorForState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CCColor *)labelColorForState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -1022,7 +1032,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (GLubyte)labelOpacityForState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CGFloat)labelOpacityForState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -1073,7 +1083,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setBackgroundColor:(ccColor3B)<em>color</em> forState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setBackgroundColor:(CCColor *)<em>color</em> forState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -1124,7 +1134,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setBackgroundOpacity:(GLubyte)<em>opacity</em> forState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setBackgroundOpacity:(CGFloat)<em>opacity</em> forState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -1215,6 +1225,52 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/setColor:" title="setColor:"></a>
+	<h3 class="subsubtitle method-title">setColor:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Will set the label&rsquo;s color for the normal state.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setColor:(CCColor *)<em>color</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>Color applied to the label.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCButton.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/setLabelColor:forState:" title="setLabelColor:forState:"></a>
 	<h3 class="subsubtitle method-title">setLabelColor:forState:</h3>
 	
@@ -1226,7 +1282,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setLabelColor:(ccColor3B)<em>color</em> forState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setLabelColor:(CCColor *)<em>color</em> forState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -1277,7 +1333,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setLabelOpacity:(GLubyte)<em>opacity</em> forState:(CCControlState)<em>state</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setLabelOpacity:(CGFloat)<em>opacity</em> forState:(CCControlState)<em>state</em></code></div>
 
     
 	
@@ -1331,9 +1387,9 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
 					</div>
 				</div>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionEaseBackIn.html">
+	<File path="Classes/CCActionEaseBackInOut.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseBackIn</TokenIdentifier>
-			<Abstract type="html">Ease back in action.
-Starts the action with a reversed acceleration
-Note:
-This action doesn&apos;t use a bijective function. Actions like Sequence might have an unexpected result when used with this action.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseBackInOut</TokenIdentifier>
+			<Abstract type="html">This action will start and end the specified action with a reversed acceleration.</Abstract>
 			<DeclaredIn>CCActionEase.h</DeclaredIn>
             
 			

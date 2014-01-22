@@ -6,13 +6,13 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 961)" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2D</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -43,7 +43,15 @@
 	
 	<option value="//api/name/anchorPointInPoints">&nbsp;&nbsp;&nbsp;&nbsp;anchorPointInPoints</option>
 	
+	<option value="//api/name/cascadeColorEnabled">&nbsp;&nbsp;&nbsp;&nbsp;cascadeColorEnabled</option>
+	
+	<option value="//api/name/cascadeOpacityEnabled">&nbsp;&nbsp;&nbsp;&nbsp;cascadeOpacityEnabled</option>
+	
 	<option value="//api/name/children">&nbsp;&nbsp;&nbsp;&nbsp;children</option>
+	
+	<option value="//api/name/color">&nbsp;&nbsp;&nbsp;&nbsp;color</option>
+	
+	<option value="//api/name/colorRGBA">&nbsp;&nbsp;&nbsp;&nbsp;colorRGBA</option>
 	
 	<option value="//api/name/contentSize">&nbsp;&nbsp;&nbsp;&nbsp;contentSize</option>
 	
@@ -51,9 +59,15 @@
 	
 	<option value="//api/name/contentSizeType">&nbsp;&nbsp;&nbsp;&nbsp;contentSizeType</option>
 	
+	<option value="//api/name/displayedColor">&nbsp;&nbsp;&nbsp;&nbsp;displayedColor</option>
+	
+	<option value="//api/name/displayedOpacity">&nbsp;&nbsp;&nbsp;&nbsp;displayedOpacity</option>
+	
 	<option value="//api/name/hitAreaExpansion">&nbsp;&nbsp;&nbsp;&nbsp;hitAreaExpansion</option>
 	
 	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
+	
+	<option value="//api/name/opacity">&nbsp;&nbsp;&nbsp;&nbsp;opacity</option>
 	
 	<option value="//api/name/parent">&nbsp;&nbsp;&nbsp;&nbsp;parent</option>
 	
@@ -77,9 +91,17 @@
 	
 	<option value="//api/name/scale">&nbsp;&nbsp;&nbsp;&nbsp;scale</option>
 	
+	<option value="//api/name/scaleInPoints">&nbsp;&nbsp;&nbsp;&nbsp;scaleInPoints</option>
+	
+	<option value="//api/name/scaleType">&nbsp;&nbsp;&nbsp;&nbsp;scaleType</option>
+	
 	<option value="//api/name/scaleX">&nbsp;&nbsp;&nbsp;&nbsp;scaleX</option>
 	
+	<option value="//api/name/scaleXInPoints">&nbsp;&nbsp;&nbsp;&nbsp;scaleXInPoints</option>
+	
 	<option value="//api/name/scaleY">&nbsp;&nbsp;&nbsp;&nbsp;scaleY</option>
+	
+	<option value="//api/name/scaleYInPoints">&nbsp;&nbsp;&nbsp;&nbsp;scaleYInPoints</option>
 	
 	<option value="//api/name/scene">&nbsp;&nbsp;&nbsp;&nbsp;scene</option>
 	
@@ -121,11 +143,13 @@
 	
 	<option value="//api/name/convertToWorldSpaceAR:">&nbsp;&nbsp;&nbsp;&nbsp;- convertToWorldSpaceAR:</option>
 	
+	<option value="//api/name/doesOpacityModifyRGB">&nbsp;&nbsp;&nbsp;&nbsp;- doesOpacityModifyRGB</option>
+	
 	<option value="//api/name/draw">&nbsp;&nbsp;&nbsp;&nbsp;- draw</option>
 	
 	<option value="//api/name/getActionByTag:">&nbsp;&nbsp;&nbsp;&nbsp;- getActionByTag:</option>
 	
-	<option value="//api/name/getChildByName:">&nbsp;&nbsp;&nbsp;&nbsp;- getChildByName:</option>
+	<option value="//api/name/getChildByName:recursively:">&nbsp;&nbsp;&nbsp;&nbsp;- getChildByName:recursively:</option>
 	
 	<option value="//api/name/hitTestWithWorldPos:">&nbsp;&nbsp;&nbsp;&nbsp;- hitTestWithWorldPos:</option>
 	
@@ -175,6 +199,8 @@
 	
 	<option value="//api/name/scheduleOnce:delay:">&nbsp;&nbsp;&nbsp;&nbsp;- scheduleOnce:delay:</option>
 	
+	<option value="//api/name/setOpacityModifyRGB:">&nbsp;&nbsp;&nbsp;&nbsp;- setOpacityModifyRGB:</option>
+	
 	<option value="//api/name/stopAction:">&nbsp;&nbsp;&nbsp;&nbsp;- stopAction:</option>
 	
 	<option value="//api/name/stopActionByTag:">&nbsp;&nbsp;&nbsp;&nbsp;- stopActionByTag:</option>
@@ -186,6 +212,10 @@
 	<option value="//api/name/unschedule:">&nbsp;&nbsp;&nbsp;&nbsp;- unschedule:</option>
 	
 	<option value="//api/name/unscheduleAllSelectors">&nbsp;&nbsp;&nbsp;&nbsp;- unscheduleAllSelectors</option>
+	
+	<option value="//api/name/updateDisplayedColor:">&nbsp;&nbsp;&nbsp;&nbsp;- updateDisplayedColor:</option>
+	
+	<option value="//api/name/updateDisplayedOpacity:">&nbsp;&nbsp;&nbsp;&nbsp;- updateDisplayedOpacity:</option>
 	
 	<option value="//api/name/visit">&nbsp;&nbsp;&nbsp;&nbsp;- visit</option>
 	
@@ -233,9 +263,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Rendering (Used by Subclasses)">Rendering (Used by Subclasses)</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_CCPhysics Methods">CCPhysics Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Debug Methods">Debug Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_CCPhysics Methods">CCPhysics Methods</a></span></li>
 	
 </ul></li>
 
@@ -249,7 +279,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/anchorPointInPoints">anchorPointInPoints</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cascadeColorEnabled">cascadeColorEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cascadeOpacityEnabled">cascadeOpacityEnabled</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/children">children</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/color">color</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/colorRGBA">colorRGBA</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/contentSize">contentSize</a></span></li>
 	
@@ -257,9 +295,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/contentSizeType">contentSizeType</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayedColor">displayedColor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayedOpacity">displayedOpacity</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hitAreaExpansion">hitAreaExpansion</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/opacity">opacity</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/parent">parent</a></span></li>
 	
@@ -283,9 +327,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scale">scale</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scaleInPoints">scaleInPoints</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scaleType">scaleType</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scaleX">scaleX</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scaleXInPoints">scaleXInPoints</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scaleY">scaleY</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scaleYInPoints">scaleYInPoints</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scene">scene</a></span></li>
 	
@@ -329,11 +381,13 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/convertToWorldSpaceAR:">convertToWorldSpaceAR:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doesOpacityModifyRGB">doesOpacityModifyRGB</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/draw">draw</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getActionByTag:">getActionByTag:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getChildByName:">getChildByName:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getChildByName:recursively:">getChildByName:recursively:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hitTestWithWorldPos:">hitTestWithWorldPos:</a></span></li>
 	
@@ -383,6 +437,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scheduleOnce:delay:">scheduleOnce:delay:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setOpacityModifyRGB:">setOpacityModifyRGB:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopAction:">stopAction:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopActionByTag:">stopActionByTag:</a></span></li>
@@ -394,6 +450,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unschedule:">unschedule:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unscheduleAllSelectors">unscheduleAllSelectors</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateDisplayedColor:">updateDisplayedColor:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateDisplayedOpacity:">updateDisplayedOpacity:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/visit">visit</a></span></li>
 	
@@ -473,10 +533,7 @@
 
 <p>A common user pattern in building a Cocos2d game is to subclass CCNode, add it to a <a href="../Classes/CCScene.html">CCScene</a> and override the methods for handling user input.</p>
 
-<p>This extension disables lazy z-ordering.</p>
-
-<p>Debugging extensions of CCNode.
-They are available when the DEBUG macro is defined at compile time</p>
+<p>Debugging extensions of CCNode.  They are available when the DEBUG macro is defined at compile time.</p>
 					</div>
 					
 					
@@ -603,6 +660,30 @@ They are available when the DEBUG macro is defined at compile time</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/scaleY">&nbsp;&nbsp;scaleY</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scaleInPoints">&nbsp;&nbsp;scaleInPoints</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scaleXInPoints">&nbsp;&nbsp;scaleXInPoints</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scaleYInPoints">&nbsp;&nbsp;scaleYInPoints</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scaleType">&nbsp;&nbsp;scaleType</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -742,7 +823,7 @@ They are available when the DEBUG macro is defined at compile time</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/getChildByName:">&ndash;&nbsp;getChildByName:</a></code>
+		<code><a href="#//api/name/getChildByName:recursively:">&ndash;&nbsp;getChildByName:recursively:</a></code>
 	</span>
 	
 	
@@ -1000,17 +1081,69 @@ They are available when the DEBUG macro is defined at compile time</p>
 	</span>
 	
 	
-</li>
-						</ul>
-						
-						
-						<a title="CCPhysics Methods" name="task_CCPhysics Methods"></a>
-						<h3 class="subsubtitle task-title">CCPhysics Methods</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/physicsNode">&ndash;&nbsp;physicsNode</a></code>
+		<code><a href="#//api/name/color">&nbsp;&nbsp;color</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/colorRGBA">&nbsp;&nbsp;colorRGBA</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayedColor">&nbsp;&nbsp;displayedColor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cascadeColorEnabled">&nbsp;&nbsp;cascadeColorEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateDisplayedColor:">&ndash;&nbsp;updateDisplayedColor:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/opacity">&nbsp;&nbsp;opacity</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayedOpacity">&nbsp;&nbsp;displayedOpacity</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cascadeOpacityEnabled">&nbsp;&nbsp;cascadeOpacityEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateDisplayedOpacity:">&ndash;&nbsp;updateDisplayedOpacity:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setOpacityModifyRGB:">&ndash;&nbsp;setOpacityModifyRGB:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/doesOpacityModifyRGB">&ndash;&nbsp;doesOpacityModifyRGB</a></code>
 	</span>
 	
 	
@@ -1025,6 +1158,20 @@ They are available when the DEBUG macro is defined at compile time</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/walkSceneGraph:">&ndash;&nbsp;walkSceneGraph:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="CCPhysics Methods" name="task_CCPhysics Methods"></a>
+						<h3 class="subsubtitle task-title">CCPhysics Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/physicsNode">&ndash;&nbsp;physicsNode</a></code>
 	</span>
 	
 	
@@ -1048,7 +1195,7 @@ They are available when the DEBUG macro is defined at compile time</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>anchorPoint is the point around which all transformations and positioning manipulations take place.
+		<p>The anchorPoint is the point around which all transformations and positioning manipulations take place.
 It&rsquo;s like a pin in the <a href="#//api/name/node">node</a> where it is &ldquo;attached&rdquo; to its <a href="#//api/name/parent">parent</a>.
 The anchorPoint is normalized, like a percentage. (0,0) means the bottom-left corner and (1,1) means the top-right corner.
 But you can use values higher than (1,1) and lower than (0,0) too.
@@ -1088,13 +1235,88 @@ The default anchorPoint is (0,0). It starts in the bottom-left corner. <a href="
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The <a href="#//api/name/anchorPoint">anchorPoint</a> in absolute pixels.
-Since v0.8 you can only read it. If you wish to modify it, use <a href="#//api/name/anchorPoint">anchorPoint</a> instead</p>
+		<p>The <a href="#//api/name/anchorPoint">anchorPoint</a> in absolute pixels.  Since v0.8 you can only read it. If you wish to modify it, use <a href="#//api/name/anchorPoint">anchorPoint</a> instead.</p>
 	</div>		
 	
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGPoint anchorPointInPoints</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cascadeColorEnabled" title="cascadeColorEnabled"></a>
+	<h3 class="subsubtitle method-title">cascadeColorEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>CascadeColorEnabled causes changes to this node&rsquo;s <a href="#//api/name/color">color</a> to cascade down to it&rsquo;s <a href="#//api/name/children">children</a>. The new <a href="#//api/name/color">color</a> is multiplied
+in with the <a href="#//api/name/color">color</a> of each child, so it doesn&rsquo;t bash the current <a href="#//api/name/color">color</a> of those nodes. Opacity is unaffected by this
+property, see <a href="#//api/name/cascadeOpacityEnabled">cascadeOpacityEnabled</a> to change the alpha of nodes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isCascadeColorEnabled) BOOL cascadeColorEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cascadeOpacityEnabled" title="cascadeOpacityEnabled"></a>
+	<h3 class="subsubtitle method-title">cascadeOpacityEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>CascadeOpacity causes changes to this node&rsquo;s <a href="#//api/name/opacity">opacity</a> to cascade down to it&rsquo;s <a href="#//api/name/children">children</a>. The new <a href="#//api/name/opacity">opacity</a> is multiplied
+in with the <a href="#//api/name/opacity">opacity</a> of each child, so it doesn&rsquo;t bash the current <a href="#//api/name/opacity">opacity</a> of those nodes. Color is unaffected by this
+property, see <a href="#//api/name/cascadeColorEnabled">cascadeColorEnabled</a> for <a href="#//api/name/color">color</a> tint changes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isCascadeOpacityEnabled) BOOL cascadeOpacityEnabled</code></div>
 
     
 	
@@ -1125,12 +1347,84 @@ Since v0.8 you can only read it. If you wish to modify it, use <a href="#//api/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Array of children</p>
+		<p>Array of child nodes.</p>
 	</div>		
 	
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray *children</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/color" title="color"></a>
+	<h3 class="subsubtitle method-title">color</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets and returns the color (tint), alpha is ignored when setting.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) CCColor *color</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/colorRGBA" title="colorRGBA"></a>
+	<h3 class="subsubtitle method-title">colorRGBA</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets and returns the <a href="#//api/name/color">color</a> (tint) with alpha.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) CCColor *colorRGBA</code></div>
 
     
 	
@@ -1161,7 +1455,7 @@ Since v0.8 you can only read it. If you wish to modify it, use <a href="#//api/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The untransformed size of the <a href="#//api/name/node">node</a> in the unit specified by <a href="#//api/name/contentSizeType">contentSizeType</a> property. The contentSize remains the same no matter the <a href="#//api/name/node">node</a> is scaled or rotated.</p>
+		<p>The untransformed size of the <a href="#//api/name/node">node</a> in the unit specified by <a href="#//api/name/contentSizeType">contentSizeType</a> property. The contentSize remains the same no matter the <a href="#//api/name/node">node</a> is scaled or rotated. contentSize is relative to the <a href="#//api/name/node">node</a>.</p>
 	</div>		
 	
     
@@ -1197,7 +1491,7 @@ Since v0.8 you can only read it. If you wish to modify it, use <a href="#//api/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The untransformed size of the <a href="#//api/name/node">node</a> in Points. The <a href="#//api/name/contentSize">contentSize</a> remains the same no matter the <a href="#//api/name/node">node</a> is scaled or rotated.</p>
+		<p>The untransformed size of the node in Points. The contentSize remains the same no matter the node is scaled or rotated. contentSizeInPoints is affected by the contentSizeType and will be scaled by the <a href="../Classes/CCDirector.html#//api/name/sharedDirector">[CCDirector sharedDirector]</a>.UIScaleFactor if the type is CCSizeUnitUIPoints.</p>
 	</div>		
 	
     
@@ -1239,6 +1533,78 @@ Since v0.8 you can only read it. If you wish to modify it, use <a href="#//api/n
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) CCSizeType contentSizeType</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayedColor" title="displayedColor"></a>
+	<h3 class="subsubtitle method-title">displayedColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the displayed <a href="#//api/name/color">color</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CCColor *displayedColor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayedOpacity" title="displayedOpacity"></a>
+	<h3 class="subsubtitle method-title">displayedOpacity</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the displayed <a href="#//api/name/opacity">opacity</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat displayedOpacity</code></div>
 
     
 	
@@ -1306,7 +1672,7 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>A tag used to identify the <a href="#//api/name/node">node</a> easily</p>
+		<p>A name tag used to help identify the <a href="#//api/name/node">node</a> easily.</p>
 	</div>		
 	
     
@@ -1336,13 +1702,55 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/opacity" title="opacity"></a>
+	<h3 class="subsubtitle method-title">opacity</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets and returns the opacity.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGFloat opacity</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> If the the texture has premultiplied alpha then, the R, G and B channels will be modified.
+Values goes from 0 to 1, where 1 means fully opaque.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/parent" title="parent"></a>
 	<h3 class="subsubtitle method-title">parent</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>A weak reference to the parent</p>
+		<p>A weak reference to the parent.</p>
 	</div>		
 	
     
@@ -1486,7 +1894,7 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Position (x,y) of the <a href="#//api/name/node">node</a> in points from the bottom left corner</p>
+		<p>Position (x,y) of the <a href="#//api/name/node">node</a> in points from the bottom left corner.</p>
 	</div>		
 	
     
@@ -1522,7 +1930,7 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Defines the <a href="#//api/name/position">position</a> type used for the X component of the <a href="#//api/name/position">position</a> property</p>
+		<p>Defines the position type used for the position property. Changing the position type affects the meaning of the position, and allows you to change the referenceCorner, relative to the parent container. It allso allows changing from points to UIPoints. UIPoints are scaled by <a href="../Classes/CCDirector.html#//api/name/sharedDirector">[CCDirector sharedDirector]</a>.UIScaleFactor. See &ldquo;Coordinate System and Positioning&rdquo; for more information.</p>
 	</div>		
 	
     
@@ -1594,7 +2002,7 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The <a href="#//api/name/rotation">rotation</a> (angle) of the <a href="#//api/name/node">node</a> in degrees. 0 is the default <a href="#//api/name/rotation">rotation</a> angle. Positive values rotate <a href="#//api/name/node">node</a> CW. It only modifies the X <a href="#//api/name/rotation">rotation</a> performing a horizontal rotational skew .</p>
+		<p>The <a href="#//api/name/rotation">rotation</a> (angle) of the <a href="#//api/name/node">node</a> in degrees. 0 is the default <a href="#//api/name/rotation">rotation</a> angle. Positive values rotate <a href="#//api/name/node">node</a> CW. It only modifies the X <a href="#//api/name/rotation">rotation</a> performing a horizontal rotational skew.</p>
 	</div>		
 	
     
@@ -1630,7 +2038,7 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The <a href="#//api/name/rotation">rotation</a> (angle) of the <a href="#//api/name/node">node</a> in degrees. 0 is the default <a href="#//api/name/rotation">rotation</a> angle. Positive values rotate <a href="#//api/name/node">node</a> CW. It only modifies the Y <a href="#//api/name/rotation">rotation</a> performing a vertical rotational skew .</p>
+		<p>The <a href="#//api/name/rotation">rotation</a> (angle) of the <a href="#//api/name/node">node</a> in degrees. 0 is the default <a href="#//api/name/rotation">rotation</a> angle. Positive values rotate <a href="#//api/name/node">node</a> CW. It only modifies the Y <a href="#//api/name/rotation">rotation</a> performing a vertical rotational skew.</p>
 	</div>		
 	
     
@@ -1732,6 +2140,78 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/scaleInPoints" title="scaleInPoints"></a>
+	<h3 class="subsubtitle method-title">scaleInPoints</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The scaleInPoints is the <a href="#//api/name/scale">scale</a> factor of the <a href="#//api/name/node">node</a> in both X and Y, measured in points. The <a href="#//api/name/scaleType">scaleType</a> indicates if the scaleInPoints will be scaled byt the UIScaleFactor or not. See &ldquo;Coordinate System and Positioning&rdquo; for more information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) float scaleInPoints</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/scaleType" title="scaleType"></a>
+	<h3 class="subsubtitle method-title">scaleType</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The scaleType defines scale behavior for this node. CCScaleTypeScaled indicates that the node will be scaled by <a href="../Classes/CCDirector.html#//api/name/sharedDirector">[CCDirector sharedDirector]</a>.UIScaleFactor. This property is analagous to <a href="#//api/name/positionType">positionType</a>. ScaleType affects the <a href="#//api/name/scaleInPoints">scaleInPoints</a> of a CCNode. See &ldquo;Coordinate System and Positioning&rdquo; for more information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CCScaleType scaleType</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/scaleX" title="scaleX"></a>
 	<h3 class="subsubtitle method-title">scaleX</h3>
 	
@@ -1768,6 +2248,42 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/scaleXInPoints" title="scaleXInPoints"></a>
+	<h3 class="subsubtitle method-title">scaleXInPoints</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="#//api/name/scaleInPoints">scaleInPoints</a> is the <a href="#//api/name/scale">scale</a> factor of the <a href="#//api/name/node">node</a> in X, measured in points.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) float scaleXInPoints</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/scaleY" title="scaleY"></a>
 	<h3 class="subsubtitle method-title">scaleY</h3>
 	
@@ -1780,6 +2296,42 @@ The expansion is in normalized content size. Ie a hit area expansion of 2, will 
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) float scaleY</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/scaleYInPoints" title="scaleYInPoints"></a>
+	<h3 class="subsubtitle method-title">scaleYInPoints</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="#//api/name/scaleInPoints">scaleInPoints</a> is the <a href="#//api/name/scale">scale</a> factor of the <a href="#//api/name/node">node</a> in Y, measured in points.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) float scaleYInPoints</code></div>
 
     
 	
@@ -1924,7 +2476,7 @@ The default skewY angle is 0. Positive values distort the <a href="#//api/name/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Similar to userData, but instead of holding a void* it holds an id</p>
+		<p>Similar to userData, but instead of holding a void* it holds an id.</p>
 	</div>		
 	
     
@@ -1960,7 +2512,7 @@ The default skewY angle is 0. Positive values distort the <a href="#//api/name/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Whether of not the <a href="#//api/name/node">node</a> is visible. Default is YES</p>
+		<p>Whether of not the <a href="#//api/name/node">node</a> is visible. Default is YES.</p>
 	</div>		
 	
     
@@ -1996,7 +2548,7 @@ The default skewY angle is 0. Positive values distort the <a href="#//api/name/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The z order of the <a href="#//api/name/node">node</a> relative to its &ldquo;siblings&rdquo;: <a href="#//api/name/children">children</a> of the same <a href="#//api/name/parent">parent</a></p>
+		<p>The z order of the <a href="#//api/name/node">node</a> relative to its &ldquo;siblings&rdquo;: <a href="#//api/name/children">children</a> of the same <a href="#//api/name/parent">parent</a>.</p>
 	</div>		
 	
     
@@ -2040,8 +2592,7 @@ The default skewY angle is 0. Positive values distort the <a href="#//api/name/n
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Allocates and initializes a node.
-The node will be created as &ldquo;autorelease&rdquo;.</p>
+		<p>Allocates and initializes a node. The node will be created as &ldquo;autorelease&rdquo;.</p>
 	</div>		
 	
     
@@ -2100,7 +2651,7 @@ If the child is added to a &lsquo;running&rsquo; <a href="#//api/name/node">node
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>node</em></dt>
-			<dd><p>CCNode to add as a child</p></dd>
+			<dd><p>CCNode to add as a child.</p></dd>
 		</dl>
 		
 	</div>
@@ -2147,12 +2698,12 @@ If the child is added to a &lsquo;running&rsquo; <a href="#//api/name/node">node
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>node</em></dt>
-			<dd><p>CCNode to add as a child</p></dd>
+			<dd><p>CCNode to add as a child.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>z</em></dt>
-			<dd><p>Z depth of <a href="#//api/name/node">node</a></p></dd>
+			<dd><p>Z depth of <a href="#//api/name/node">node</a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -2199,17 +2750,17 @@ If the child is added to a &lsquo;running&rsquo; <a href="#//api/name/node">node
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>node</em></dt>
-			<dd><p>CCNode to add as a child</p></dd>
+			<dd><p>CCNode to add as a child.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>z</em></dt>
-			<dd><p>Z depth of <a href="#//api/name/node">node</a></p></dd>
+			<dd><p>Z depth of <a href="#//api/name/node">node</a>.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>name</em></dt>
-			<dd><p><a href="#//api/name/name">name</a> tag</p></dd>
+			<dd><p><a href="#//api/name/name">name</a> tag.</p></dd>
 		</dl>
 		
 	</div>
@@ -2241,7 +2792,7 @@ If the child is added to a &lsquo;running&rsquo; <a href="#//api/name/node">node
 	
 	
 	<div class="method-subsection brief-description">
-		<p>returns a &ldquo;local&rdquo; axis aligned bounding box of the <a href="#//api/name/node">node</a> in points.
+		<p>Returns a &ldquo;local&rdquo; axis aligned bounding box of the <a href="#//api/name/node">node</a> in points.
 The returned box is relative only to its <a href="#//api/name/parent">parent</a>.
 The returned box is in Points.</p>
 	</div>		
@@ -2479,6 +3030,42 @@ Treats the returned/received <a href="#//api/name/node">node</a> point as anchor
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/doesOpacityModifyRGB" title="doesOpacityModifyRGB"></a>
+	<h3 class="subsubtitle method-title">doesOpacityModifyRGB</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether or not the <a href="#//api/name/opacity">opacity</a> will be applied using glColor(R,G,B,<a href="#//api/name/opacity">opacity</a>) or glColor(<a href="#//api/name/opacity">opacity</a>, <a href="#//api/name/opacity">opacity</a>, <a href="#//api/name/opacity">opacity</a>, <a href="#//api/name/opacity">opacity</a>).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)doesOpacityModifyRGB</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/draw" title="draw"></a>
 	<h3 class="subsubtitle method-title">draw</h3>
 	
@@ -2524,7 +3111,7 @@ You shall NOT call [super draw];</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Gets an action from the running action list given its tag</p>
+		<p>Gets an action from the running action list given its tag.</p>
 	</div>		
 	
     
@@ -2538,7 +3125,7 @@ You shall NOT call [super draw];</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>tag</em></dt>
-			<dd><p>Tag to retrieve</p></dd>
+			<dd><p>Tag to retrieve.</p></dd>
 		</dl>
 		
 	</div>
@@ -2547,7 +3134,7 @@ You shall NOT call [super draw];</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>the Action the with the given tag</p>
+		<p>the Action the with the given tag.</p>
 	</div>
 	
 	
@@ -2569,18 +3156,20 @@ You shall NOT call [super draw];</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/getChildByName:" title="getChildByName:"></a>
-	<h3 class="subsubtitle method-title">getChildByName:</h3>
+	<a name="//api/name/getChildByName:recursively:" title="getChildByName:recursively:"></a>
+	<h3 class="subsubtitle method-title">getChildByName:recursively:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Gets a child from the container given its <a href="#//api/name/name">name</a> tag</p>
+		<p>Search through the <a href="#//api/name/children">children</a> of the container for one matching the <a href="#//api/name/name">name</a> tag.
+If recursive, it returns the first matching <a href="#//api/name/node">node</a>, via a depth first search.
+Otherwise, only immediate <a href="#//api/name/children">children</a> are checked.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (CCNode *)getChildByName:(NSString *)<em>name</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CCNode *)getChildByName:(NSString *)<em>name</em> recursively:(bool)<em>isRecursive</em></code></div>
 
     
 	
@@ -2589,7 +3178,12 @@ You shall NOT call [super draw];</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>name</em></dt>
-			<dd><p>Name tag</p></dd>
+			<dd><p>Name tag.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>isRecursive</em></dt>
+			<dd><p>Search recursively through <a href="#//api/name/children">children</a> of <a href="#//api/name/children">children</a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -2598,7 +3192,7 @@ You shall NOT call [super draw];</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns a CCNode</p>
+		<p>Returns a CCNode, or nil if no marching nodes are found.</p>
 	</div>
 	
 	
@@ -2627,7 +3221,7 @@ You shall NOT call [super draw];</p>
 	
 	<div class="method-subsection brief-description">
 		<p>Check if a touch is inside the <a href="#//api/name/node">node</a>.
-To allow for custom detection, override this method</p>
+To allow for custom detection, override this method.</p>
 	</div>		
 	
     
@@ -2641,7 +3235,7 @@ To allow for custom detection, override this method</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>pos</em></dt>
-			<dd><p>world <a href="#//api/name/position">position</a></p></dd>
+			<dd><p>World <a href="#//api/name/position">position</a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -2650,7 +3244,7 @@ To allow for custom detection, override this method</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>returns true, if the <a href="#//api/name/position">position</a> is inside the <a href="#//api/name/node">node</a></p>
+		<p>Returns true, if the <a href="#//api/name/position">position</a> is inside the <a href="#//api/name/node">node</a>.</p>
 	</div>
 	
 	
@@ -2678,7 +3272,7 @@ To allow for custom detection, override this method</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initializes the <a href="#//api/name/node">node</a></p>
+		<p>Initializes the <a href="#//api/name/node">node</a>.</p>
 	</div>		
 	
     
@@ -2942,7 +3536,7 @@ If you override onExit, you shall call [super onExit].</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>callback that is called every time the CCNode leaves the &lsquo;stage&rsquo;.
+		<p>Callback that is called every time the CCNode leaves the &lsquo;stage&rsquo;.
 If the CCNode leaves the &lsquo;stage&rsquo; with a transition, this callback is called when the transition starts.</p>
 	</div>		
 	
@@ -2979,8 +3573,7 @@ If the CCNode leaves the &lsquo;stage&rsquo; with a transition, this callback is
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the matrix that <a href="#//api/name/transform">transform</a> parent&rsquo;s space coordinates to the node&rsquo;s (local) space coordinates.
-The matrix is in Pixels.</p>
+		<p>Returns the matrix that <a href="#//api/name/transform">transform</a> parent&rsquo;s space coordinates to the node&rsquo;s (local) space coordinates. The matrix is in Pixels.</p>
 	</div>		
 	
     
@@ -3103,7 +3696,7 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>cleanup</em></dt>
-			<dd><p>Stops all scheduled events and actions</p></dd>
+			<dd><p>Stops all scheduled events and actions.</p></dd>
 		</dl>
 		
 	</div>
@@ -3135,7 +3728,7 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes a child from the container forcing a cleanup</p>
+		<p>Removes a child from the container forcing a cleanup. This method checks to ensure the parameter <a href="#//api/name/node">node</a> is actually a child of this <a href="#//api/name/node">node</a>.</p>
 	</div>		
 	
     
@@ -3149,7 +3742,7 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>child</em></dt>
-			<dd><p>The child <a href="#//api/name/node">node</a> to remove</p></dd>
+			<dd><p>The child <a href="#//api/name/node">node</a> to remove.</p></dd>
 		</dl>
 		
 	</div>
@@ -3181,7 +3774,8 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter.</p>
+		<p>Removes a child from the container. It will also cleanup all running and scheduled actions depending on the cleanup parameter.
+This method checks to ensure the parameter <a href="#//api/name/node">node</a> is actually a child of this <a href="#//api/name/node">node</a>.</p>
 	</div>		
 	
     
@@ -3195,12 +3789,12 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>node</em></dt>
-			<dd><p>The child <a href="#//api/name/node">node</a> to remove</p></dd>
+			<dd><p>The child <a href="#//api/name/node">node</a> to remove.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>cleanup</em></dt>
-			<dd><p>Stops all scheduled events and actions</p></dd>
+			<dd><p>Stops all scheduled events and actions.</p></dd>
 		</dl>
 		
 	</div>
@@ -3232,7 +3826,7 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes a child from the container by tag value forcing a cleanup.</p>
+		<p>Removes a child from the container by <a href="#//api/name/name">name</a> value forcing a cleanup.</p>
 	</div>		
 	
     
@@ -3246,7 +3840,7 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>name</em></dt>
-			<dd><p>Name of <a href="#//api/name/node">node</a> to be removed</p></dd>
+			<dd><p>Name of <a href="#//api/name/node">node</a> to be removed.</p></dd>
 		</dl>
 		
 	</div>
@@ -3278,7 +3872,7 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes a child from the container by tag value. It will also cleanup all running actions depending on the cleanup parameter</p>
+		<p>Removes a child from the container by <a href="#//api/name/name">name</a> value. It will also cleanup all running actions depending on the cleanup parameter</p>
 	</div>		
 	
     
@@ -3292,12 +3886,12 @@ Unlike <a href="../Classes/CCPhysicsBody.html">CCPhysicsBody</a>.physicsNode, th
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>name</em></dt>
-			<dd><p>Name of <a href="#//api/name/node">node</a> to be removed</p></dd>
+			<dd><p>Name of <a href="#//api/name/node">node</a> to be removed.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>cleanup</em></dt>
-			<dd><p>Stops all scheduled events and actions</p></dd>
+			<dd><p>Stops all scheduled events and actions.</p></dd>
 		</dl>
 		
 	</div>
@@ -3381,7 +3975,7 @@ If the <a href="#//api/name/node">node</a> orphan, then nothing happens.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>cleanup</em></dt>
-			<dd><p>Stops all scheduled events and actions</p></dd>
+			<dd><p>Stops all scheduled events and actions.</p></dd>
 		</dl>
 		
 	</div>
@@ -3617,7 +4211,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTimer object</p>
+		<p>A newly initialized CCTimer object.</p>
 	</div>
 	
 	
@@ -3645,7 +4239,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Schedules a selector that runs only once, with a delay of 0 or larger</p>
+		<p>Schedules a selector that runs only once, with a delay of 0 or larger.</p>
 	</div>		
 	
     
@@ -3695,13 +4289,68 @@ If the selector is already scheduled, then the interval parameter will be update
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/setOpacityModifyRGB:" title="setOpacityModifyRGB:"></a>
+	<h3 class="subsubtitle method-title">setOpacityModifyRGB:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the premultipliedAlphaOpacity property.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setOpacityModifyRGB:(BOOL)<em>boolean</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>boolean</em></dt>
+			<dd><p>Enables or disables setting of <a href="#//api/name/opacity">opacity</a> with <a href="#//api/name/color">color</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If set to NO then <a href="#//api/name/opacity">opacity</a> will be applied as: glColor(R,G,B,<a href="#//api/name/opacity">opacity</a>);</p>
+
+<p>If set to YES then <a href="#//api/name/opacity">opacity</a> will be applied as: glColor(<a href="#//api/name/opacity">opacity</a>, <a href="#//api/name/opacity">opacity</a>, <a href="#//api/name/opacity">opacity</a>, <a href="#//api/name/opacity">opacity</a> );</p>
+
+<p>Textures with premultiplied alpha will have this property by default on YES. Otherwise the default value is NO.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/stopAction:" title="stopAction:"></a>
 	<h3 class="subsubtitle method-title">stopAction:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes an action from the running action list</p>
+		<p>Removes an action from the running action list.</p>
 	</div>		
 	
     
@@ -3715,7 +4364,7 @@ If the selector is already scheduled, then the interval parameter will be update
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>action</em></dt>
-			<dd><p>Action to remove</p></dd>
+			<dd><p>Action to remove.</p></dd>
 		</dl>
 		
 	</div>
@@ -3747,7 +4396,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Removes an action from the running action list given its tag</p>
+		<p>Removes an action from the running action list given its tag.</p>
 	</div>		
 	
     
@@ -3761,7 +4410,7 @@ If the selector is already scheduled, then the interval parameter will be update
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>tag</em></dt>
-			<dd><p>Tag to remove</p></dd>
+			<dd><p>Tag to remove.</p></dd>
 		</dl>
 		
 	</div>
@@ -3829,7 +4478,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
 	
 	<div class="method-subsection brief-description">
-		<p>performs OpenGL view-matrix transformation based on <a href="#//api/name/position">position</a>, <a href="#//api/name/scale">scale</a>, <a href="#//api/name/rotation">rotation</a> and other attributes.</p>
+		<p>Performs OpenGL view-matrix transformation based on <a href="#//api/name/position">position</a>, <a href="#//api/name/scale">scale</a>, <a href="#//api/name/rotation">rotation</a> and other attributes.</p>
 	</div>		
 	
     
@@ -3865,7 +4514,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Unschedule a scheduled selector</p>
+		<p>Unschedule a scheduled selector.</p>
 	</div>		
 	
     
@@ -3941,13 +4590,105 @@ If the selector is already scheduled, then the interval parameter will be update
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/updateDisplayedColor:" title="updateDisplayedColor:"></a>
+	<h3 class="subsubtitle method-title">updateDisplayedColor:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Recursive method that updates display <a href="#//api/name/color">color</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateDisplayedColor:(ccColor4F)<em>color</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>Color used for update.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateDisplayedOpacity:" title="updateDisplayedOpacity:"></a>
+	<h3 class="subsubtitle method-title">updateDisplayedOpacity:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Recursive method that updates the displayed <a href="#//api/name/opacity">opacity</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateDisplayedOpacity:(CGFloat)<em>opacity</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>opacity</em></dt>
+			<dd><p>Opacity to use for update.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/visit" title="visit"></a>
 	<h3 class="subsubtitle method-title">visit</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>recursive method that visit its <a href="#//api/name/children">children</a> and <a href="#//api/name/draw">draw</a> them</p>
+		<p>Recursive method that visit its <a href="#//api/name/children">children</a> and <a href="#//api/name/draw">draw</a> them.</p>
 	</div>		
 	
     
@@ -4073,9 +4814,9 @@ If the selector is already scheduled, then the interval parameter will be update
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
 					</div>
 				</div>

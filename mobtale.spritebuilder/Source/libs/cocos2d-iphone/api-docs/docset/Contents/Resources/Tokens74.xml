@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCLabelAtlas.html">
+	<File path="Classes/CCNodeColor.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCLabelAtlas</TokenIdentifier>
-			<Abstract type="html">CCLabelAtlas is the original alternative to CCLabel offering improved performance.</Abstract>
-			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCNodeColor</TokenIdentifier>
+			<Abstract type="html">CCNodeColor is a subclass of CCNode that is used to generate solid colors.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
             
 			
 			<NodeRef refid="74"/>
@@ -13,129 +13,118 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCLabelAtlas/labelWithString:charMapFile:itemWidth:itemHeight:startCharMap:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a label object using the specified text, character map bitmap file, element width, element height and the starting character index values.</Abstract>
-			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCNodeColor/nodeWithColor:width:height:</TokenIdentifier>
+			<Abstract type="html">Creates a node with color, width and height in Points.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
 			
-			<Declaration>+ (id)labelWithString:(NSString *)string charMapFile:(NSString *)charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)firstElement</Declaration>
+			<Declaration>+ (id)nodeWithColor:(CCColor *)color width:(GLfloat)w height:(GLfloat)h</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>string</Name>
-					<Abstract type="html">Label text.</Abstract>
-				</Parameter><Parameter>
-					<Name>charmapfile</Name>
-					<Abstract type="html">Character map bitmap file.</Abstract>
+					<Name>color</Name>
+					<Abstract type="html">Color of the node.</Abstract>
 				</Parameter><Parameter>
 					<Name>w</Name>
-					<Abstract type="html">element width in points.</Abstract>
+					<Abstract type="html">Width of the node.</Abstract>
 				</Parameter><Parameter>
 					<Name>h</Name>
-					<Abstract type="html">element height in points.</Abstract>
-				</Parameter><Parameter>
-					<Name>firstElement</Name>
-					<Abstract type="html">Starting character index.</Abstract>
+					<Abstract type="html">Height of the node.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">The CCLabelAtlas Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/labelWithString:charMapFile:itemWidth:itemHeight:startCharMap:</Anchor>
+			<ReturnValue><Abstract type="html">The CCNodeColor Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/nodeWithColor:width:height:</Anchor>
             <NodeRef refid="74"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCLabelAtlas/labelWithString:fntFile:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a label object using the specified text and font configuration file values.</Abstract>
-			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCNodeColor/nodeWithColor:</TokenIdentifier>
+			<Abstract type="html">Creates a node with color. Width and height are the window size.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
 			
-			<Declaration>+ (id)labelWithString:(NSString *)string fntFile:(NSString *)fontFile</Declaration>
+			<Declaration>+ (id)nodeWithColor:(CCColor *)color</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>string</Name>
-					<Abstract type="html">Label text.</Abstract>
-				</Parameter><Parameter>
-					<Name>fontFile</Name>
-					<Abstract type="html">Label font configuration file.</Abstract>
+					<Name>color</Name>
+					<Abstract type="html">Color of the node.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">The CCLabelAtlas Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/labelWithString:fntFile:</Anchor>
+			<ReturnValue><Abstract type="html">The CCNodeColor Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/nodeWithColor:</Anchor>
             <NodeRef refid="74"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLabelAtlas/initWithString:charMapFile:itemWidth:itemHeight:startCharMap:</TokenIdentifier>
-			<Abstract type="html">Initializes and returns a label object using the specified text, character map bitmap file, element width, element height and the starting character index values.</Abstract>
-			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeColor/initWithColor:width:height:</TokenIdentifier>
+			<Abstract type="html">Initializes a node with color, width and height in Points.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithString:(NSString *)string charMapFile:(NSString *)charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)firstElement</Declaration>
+			<Declaration>- (id)initWithColor:(CCColor *)color width:(GLfloat)w height:(GLfloat)h</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>string</Name>
-					<Abstract type="html">Label text.</Abstract>
-				</Parameter><Parameter>
-					<Name>charmapfile</Name>
-					<Abstract type="html">Character map bitmap file (the Atlas).</Abstract>
+					<Name>color</Name>
+					<Abstract type="html">Color of the node.</Abstract>
 				</Parameter><Parameter>
 					<Name>w</Name>
-					<Abstract type="html">element width in points.</Abstract>
+					<Abstract type="html">Width of the node.</Abstract>
 				</Parameter><Parameter>
 					<Name>h</Name>
-					<Abstract type="html">element height in points.</Abstract>
-				</Parameter><Parameter>
-					<Name>firstElement</Name>
-					<Abstract type="html">Starting character of the atlas.</Abstract>
+					<Abstract type="html">Height of the node.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized CCLabelAtlas Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithString:charMapFile:itemWidth:itemHeight:startCharMap:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized CCNodeColor Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithColor:width:height:</Anchor>
             <NodeRef refid="74"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLabelAtlas/initWithString:texture:itemWidth:itemHeight:startCharMap:</TokenIdentifier>
-			<Abstract type="html">Initializes and returns a label object using the specified text, texure, element width, element height and the starting character index values.</Abstract>
-			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeColor/initWithColor:</TokenIdentifier>
+			<Abstract type="html">Initializes a node with color. Width and height are the window size.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithString:(NSString *)theString texture:(CCTexture *)texture itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)c</Declaration>
+			<Declaration>- (id)initWithColor:(CCColor *)color</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>theString</Name>
-					<Abstract type="html">Label text.</Abstract>
-				</Parameter><Parameter>
-					<Name>texture</Name>
-					<Abstract type="html">The texture to use.</Abstract>
-				</Parameter><Parameter>
-					<Name>w</Name>
-					<Abstract type="html">Element width in points.</Abstract>
-				</Parameter><Parameter>
-					<Name>h</Name>
-					<Abstract type="html">Element height in points.</Abstract>
-				</Parameter><Parameter>
-					<Name>c</Name>
-					<Abstract type="html">Index of character.</Abstract>
+					<Name>color</Name>
+					<Abstract type="html">Color of the node.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized CCLabelAtlas Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithString:texture:itemWidth:itemHeight:startCharMap:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized CCNodeColor Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithColor:</Anchor>
             <NodeRef refid="74"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLabelAtlas/initWithString:fntFile:</TokenIdentifier>
-			<Abstract type="html">Initializes and returns a label object using the specified text and font configuration file values.</Abstract>
-			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeColor/setBlendFunc:</TokenIdentifier>
+			<Abstract type="html">Blend method to use.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithString:(NSString *)string fntFile:(NSString *)fontFile</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>string</Name>
-					<Abstract type="html">Label text.</Abstract>
-				</Parameter><Parameter>
-					<Name>fontFile</Name>
-					<Abstract type="html">Label font configuration file.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized CCLabelAtlas Object.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithString:fntFile:</Anchor>
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeColor/blendFunc</TokenIdentifier>
+			<Abstract type="html">Blend method to use.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeColor/blendFunc</TokenIdentifier>
+			<Abstract type="html">Blend method to use.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="74"/>
 		</Token>
 		

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCLayout.html">
+	<File path="Classes/CCParallaxNode.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCLayout</TokenIdentifier>
-			<Abstract type="html">*  A layout will take control of its childrens&apos; positions. Any node added as a child will be position according to the rules of the specific layout type. If you are using a layout you should not set the position of the children manually.</Abstract>
-			<DeclaredIn>CCLayout.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCParallaxNode</TokenIdentifier>
+			<Abstract type="html">CCParallaxNode is a node that simulates a classic parallax scroller.</Abstract>
+			<DeclaredIn>CCParallaxNode.h</DeclaredIn>
             
 			
 			<NodeRef refid="77"/>
@@ -13,26 +13,64 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLayout/needsLayout</TokenIdentifier>
-			<Abstract type="html">Called whenever the node needs to layout its children again. Normally, there is no need to call this method directly.</Abstract>
-			<DeclaredIn>CCLayout.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParallaxNode/setParallaxArray:</TokenIdentifier>
+			<Abstract type="html">Array that holds the offset / ratio of the child nodes.</Abstract>
+			<DeclaredIn>CCParallaxNode.h</DeclaredIn>
 			
-			<Declaration>- (void)needsLayout</Declaration>
+			<Declaration>@property (nonatomic, readonly) NSArray *parallaxArray</Declaration>
 			
 			
-			<Anchor>//api/name/needsLayout</Anchor>
+			<Anchor>//api/name/parallaxArray</Anchor>
             <NodeRef refid="77"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLayout/layout</TokenIdentifier>
-			<Abstract type="html">The layout method layouts the children according to the rules of the specific layout.</Abstract>
-			<DeclaredIn>CCLayout.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParallaxNode/parallaxArray</TokenIdentifier>
+			<Abstract type="html">Array that holds the offset / ratio of the child nodes.</Abstract>
+			<DeclaredIn>CCParallaxNode.h</DeclaredIn>
 			
-			<Declaration>- (void)layout</Declaration>
+			<Declaration>@property (nonatomic, readonly) NSArray *parallaxArray</Declaration>
 			
 			
-			<Anchor>//api/name/layout</Anchor>
+			<Anchor>//api/name/parallaxArray</Anchor>
+            <NodeRef refid="77"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCParallaxNode/parallaxArray</TokenIdentifier>
+			<Abstract type="html">Array that holds the offset / ratio of the child nodes.</Abstract>
+			<DeclaredIn>CCParallaxNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSArray *parallaxArray</Declaration>
+			
+			
+			<Anchor>//api/name/parallaxArray</Anchor>
+            <NodeRef refid="77"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParallaxNode/addChild:z:parallaxRatio:positionOffset:</TokenIdentifier>
+			<Abstract type="html">Adds the specified child node with z-order, ratio and offset values to the container.</Abstract>
+			<DeclaredIn>CCParallaxNode.h</DeclaredIn>
+			
+			<Declaration>- (void)addChild:(CCNode *)node z:(NSInteger)z parallaxRatio:(CGPoint)c positionOffset:(CGPoint)positionOffset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>node</Name>
+					<Abstract type="html">Node to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>z</Name>
+					<Abstract type="html">Z Order to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>c</Name>
+					<Abstract type="html">Parallax ratio to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>positionOffset</Name>
+					<Abstract type="html">Parallax offset to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addChild:z:parallaxRatio:positionOffset:</Anchor>
             <NodeRef refid="77"/>
 		</Token>
 		

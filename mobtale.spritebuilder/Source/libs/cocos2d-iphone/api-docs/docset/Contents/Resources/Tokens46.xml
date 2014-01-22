@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionProgressTo.html">
+	<File path="Classes/CCActionReverse.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionProgressTo</TokenIdentifier>
-			<Abstract type="html">Progress actions to a percentage.</Abstract>
-			<DeclaredIn>CCActionProgressTimer.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionReverse</TokenIdentifier>
+			<Abstract type="html">This action executes the specified action in reverse order.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
             
 			
 			<NodeRef refid="46"/>
@@ -13,42 +13,36 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCActionProgressTo/actionWithDuration:percent:</TokenIdentifier>
-			<Abstract type="html">Creates a progress action.</Abstract>
-			<DeclaredIn>CCActionProgressTimer.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionReverse/actionWithAction:</TokenIdentifier>
+			<Abstract type="html">Creates a reverse action.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>+ (id)actionWithDuration:(CCTime)duration percent:(float)percent</Declaration>
+			<Declaration>+ (id)actionWithAction:(CCActionFiniteTime *)action</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>percent</Name>
-					<Abstract type="html">Percentage</Abstract>
+					<Name>action</Name>
+					<Abstract type="html">Action to reverse.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New prgress action</Abstract></ReturnValue>
-			<Anchor>//api/name/actionWithDuration:percent:</Anchor>
+			<ReturnValue><Abstract type="html">New reverse action.</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithAction:</Anchor>
             <NodeRef refid="46"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCActionProgressTo/initWithDuration:percent:</TokenIdentifier>
-			<Abstract type="html">Initializes a progress action.</Abstract>
-			<DeclaredIn>CCActionProgressTimer.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionReverse/initWithAction:</TokenIdentifier>
+			<Abstract type="html">Initalizes a reverse action.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithDuration:(CCTime)duration percent:(float)percent</Declaration>
+			<Declaration>- (id)initWithAction:(CCActionFiniteTime *)action</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>duration</Name>
-					<Abstract type="html">Action duration</Abstract>
-				</Parameter><Parameter>
-					<Name>percent</Name>
-					<Abstract type="html">Percentage</Abstract>
+					<Name>action</Name>
+					<Abstract type="html">Action to reverse.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">New progress action</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDuration:percent:</Anchor>
+			<ReturnValue><Abstract type="html">New reverse action.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithAction:</Anchor>
             <NodeRef refid="46"/>
 		</Token>
 		

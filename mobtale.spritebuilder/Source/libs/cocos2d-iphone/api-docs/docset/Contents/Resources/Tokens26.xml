@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCActionEaseInOut.html">
+	<File path="Classes/CCActionEaseOut.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseInOut</TokenIdentifier>
-			<Abstract type="html">CCEaseInOut action
-Action both accelerates and deaccelerates with same rate</Abstract>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseOut</TokenIdentifier>
+			<Abstract type="html">This action will deccelerate the specified action by the rate.</Abstract>
 			<DeclaredIn>CCActionEase.h</DeclaredIn>
             
 			

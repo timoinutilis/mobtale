@@ -276,13 +276,13 @@ static inline float readFloat(CCBReader *self)
     }
     else
     {
-        // using a memcpy since the compiler isn't
-        // doing the float ptr math correctly on device.
-        float* pF = (float*)(self->bytes+self->currentByte);
-        float f = 0;
-        memcpy(&f, pF, sizeof(float));
+        volatile union {
+            float f;
+            int i;
+        } t;
+        t.i = *(int *)(self->bytes + self->currentByte);
         self->currentByte+=4;
-        return f;
+        return t.f;
     }
 }
 
@@ -690,7 +690,9 @@ static inline float readFloat(CCBReader *self)
         // Load sub file
         NSString* path = [[CCFileUtils sharedFileUtils] fullPathForFilename:ccbFileName];
         NSData* d = [NSData dataWithContentsOfFile:path];
-        
+
+        NSAssert(d,@"Failed to find ccb file: %@",ccbFileName);
+
         CCBReader* reader = [[CCBReader alloc] init];
         reader.animationManager.rootContainerSize = parent.contentSize;
         
@@ -762,7 +764,7 @@ static inline float readFloat(CCBReader *self)
         
         value = [CCColor colorWithRed:r green:g blue:b alpha:a];
     }
-    else if (type == kCCBPropTypeDegrees)
+    else if (type == kCCBPropTypeDegrees || type == kCCBPropTypeFloat)
     {
         value = [NSNumber numberWithFloat:readFloat(self)];
     }
@@ -811,7 +813,7 @@ static inline float readFloat(CCBReader *self)
     Class class = NSClassFromString(className);
     if (!class)
     {
-        NSLog(@"CCBReader: Could not create class of type %@",className);
+        NSAssert(false,@"CCBReader: Could not create class of type %@",className);
         return NULL;
     }
     CCNode* node = [[class alloc] init];
@@ -946,8 +948,10 @@ static inline float readFloat(CCBReader *self)
         }
         else if (bodyShape == 1)
         {
-            body = [CCPhysicsBody bodyWithCircleOfRadius:cornerRadius andCenter:points[0]];
+            if (numPoints > 0)
+                body = [CCPhysicsBody bodyWithCircleOfRadius:cornerRadius andCenter:points[0]];
         }
+        NSAssert(body, @"Unknown body shape");
         
         BOOL dynamic = readBool(self);
         BOOL affectedByGravity = readBool(self);
@@ -972,6 +976,7 @@ static inline float readFloat(CCBReader *self)
         
         node.physicsBody = body;
 #endif
+        free(points);
     }
     
     // Read and add children
@@ -981,6 +986,7 @@ static inline float readFloat(CCBReader *self)
         CCNode* child = [self readNodeGraphParent:node];
         [node addChild:child];
     }
+    
     
     return node;
 }
@@ -1144,14 +1150,14 @@ static inline float readFloat(CCBReader *self)
 
 + (void) callDidLoadFromCCBForNodeGraph:(CCNode*)nodeGraph
 {
-    if ([nodeGraph respondsToSelector:@selector(didLoadFromCCB)])
-    {
-        [nodeGraph performSelector:@selector(didLoadFromCCB)];
-    }
-    
     for (CCNode* child in nodeGraph.children)
     {
         [CCBReader callDidLoadFromCCBForNodeGraph:child];
+    }
+    
+    if ([nodeGraph respondsToSelector:@selector(didLoadFromCCB)])
+    {
+        [nodeGraph performSelector:@selector(didLoadFromCCB)];
     }
 }
 

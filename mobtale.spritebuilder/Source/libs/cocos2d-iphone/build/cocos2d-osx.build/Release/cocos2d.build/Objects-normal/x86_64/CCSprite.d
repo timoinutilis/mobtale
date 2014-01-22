@@ -21,8 +21,7 @@ dependencies: \
   cocos2d/CCSprite.h cocos2d/CCSpriteFrame.h \
   cocos2d/CCSpriteFrameCache.h cocos2d/CCAnimation.h \
   cocos2d/CCAnimationCache.h cocos2d/CCTextureCache.h \
-  cocos2d/CCDrawingPrimitives.h cocos2d/CCShaderCache.h \
-  cocos2d/CCGLProgram.h cocos2d/CCDirector.h \
+  cocos2d/CCShaderCache.h cocos2d/CCGLProgram.h cocos2d/CCDirector.h \
   cocos2d/Support/TransformUtils.h cocos2d/Support/CCProfiling.h \
   cocos2d/Support/OpenGL_Internal.h cocos2d/CCNode_Private.h \
   cocos2d/CCSprite_Private.h cocos2d/CCSpriteBatchNode_Private.h \

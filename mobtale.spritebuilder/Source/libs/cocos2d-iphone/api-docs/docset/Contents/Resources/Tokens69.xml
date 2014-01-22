@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCButton.html">
+	<File path="Classes/CCLabelTTF.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCButton</TokenIdentifier>
-			<Abstract type="html">The CCButton represents a button on the screen. The button is presented with a stretchable background image and/or a title label. Different images, colors and opacity can be set for each of the buttons different states.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCLabelTTF</TokenIdentifier>
+			<Abstract type="html">CCLabelTTF displays a rendered TTF font texture. The label is created from a platform font.
+Attributed strings are supported on Mac and iOS6+ which allows for greater text formatting control.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
             
 			
 			<NodeRef refid="69"/>
@@ -13,359 +14,892 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCButton/buttonWithTitle:</TokenIdentifier>
-			<Abstract type="html">Creates a new button with a title and no background. Uses default font and font size.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setString:</TokenIdentifier>
+			<Abstract type="html">The label text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>+ (id)buttonWithTitle:(NSString *)title</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/buttonWithTitle:</Anchor>
+			<Declaration>@property (nonatomic, copy) NSString *string</Declaration>
+			
+			
+			<Anchor>//api/name/string</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCButton/buttonWithTitle:fontName:fontSize:</TokenIdentifier>
-			<Abstract type="html">Creates a new button with a title and no background.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/string</TokenIdentifier>
+			<Abstract type="html">The label text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>+ (id)buttonWithTitle:(NSString *)title fontName:(NSString *)fontName fontSize:(float)size</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *string</Declaration>
+			
+			
+			<Anchor>//api/name/string</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/string</TokenIdentifier>
+			<Abstract type="html">The label text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *string</Declaration>
+			
+			
+			<Anchor>//api/name/string</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setAttributedString:</TokenIdentifier>
+			<Abstract type="html">The label attributed text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSAttributedString *attributedString</Declaration>
+			
+			
+			<Anchor>//api/name/attributedString</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/attributedString</TokenIdentifier>
+			<Abstract type="html">The label attributed text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSAttributedString *attributedString</Declaration>
+			
+			
+			<Anchor>//api/name/attributedString</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/attributedString</TokenIdentifier>
+			<Abstract type="html">The label attributed text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSAttributedString *attributedString</Declaration>
+			
+			
+			<Anchor>//api/name/attributedString</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setFontName:</TokenIdentifier>
+			<Abstract type="html">The platform font to use for the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fontName</Declaration>
+			
+			
+			<Anchor>//api/name/fontName</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/fontName</TokenIdentifier>
+			<Abstract type="html">The platform font to use for the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fontName</Declaration>
+			
+			
+			<Anchor>//api/name/fontName</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/fontName</TokenIdentifier>
+			<Abstract type="html">The platform font to use for the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fontName</Declaration>
+			
+			
+			<Anchor>//api/name/fontName</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setFontSize:</TokenIdentifier>
+			<Abstract type="html">The font size of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float fontSize</Declaration>
+			
+			
+			<Anchor>//api/name/fontSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/fontSize</TokenIdentifier>
+			<Abstract type="html">The font size of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float fontSize</Declaration>
+			
+			
+			<Anchor>//api/name/fontSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/fontSize</TokenIdentifier>
+			<Abstract type="html">The font size of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float fontSize</Declaration>
+			
+			
+			<Anchor>//api/name/fontSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setFontColor:</TokenIdentifier>
+			<Abstract type="html">The color of the text (If not using shadow or outline).</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *fontColor</Declaration>
+			
+			
+			<Anchor>//api/name/fontColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/fontColor</TokenIdentifier>
+			<Abstract type="html">The color of the text (If not using shadow or outline).</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *fontColor</Declaration>
+			
+			
+			<Anchor>//api/name/fontColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/fontColor</TokenIdentifier>
+			<Abstract type="html">The color of the text (If not using shadow or outline).</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *fontColor</Declaration>
+			
+			
+			<Anchor>//api/name/fontColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setHorizontalAlignment:</TokenIdentifier>
+			<Abstract type="html">The horizontal alignment technique of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCTextAlignment horizontalAlignment</Declaration>
+			
+			
+			<Anchor>//api/name/horizontalAlignment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/horizontalAlignment</TokenIdentifier>
+			<Abstract type="html">The horizontal alignment technique of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCTextAlignment horizontalAlignment</Declaration>
+			
+			
+			<Anchor>//api/name/horizontalAlignment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/horizontalAlignment</TokenIdentifier>
+			<Abstract type="html">The horizontal alignment technique of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCTextAlignment horizontalAlignment</Declaration>
+			
+			
+			<Anchor>//api/name/horizontalAlignment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setVerticalAlignment:</TokenIdentifier>
+			<Abstract type="html">The vertical alignment technique of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCVerticalTextAlignment verticalAlignment</Declaration>
+			
+			
+			<Anchor>//api/name/verticalAlignment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/verticalAlignment</TokenIdentifier>
+			<Abstract type="html">The vertical alignment technique of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCVerticalTextAlignment verticalAlignment</Declaration>
+			
+			
+			<Anchor>//api/name/verticalAlignment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/verticalAlignment</TokenIdentifier>
+			<Abstract type="html">The vertical alignment technique of the text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCVerticalTextAlignment verticalAlignment</Declaration>
+			
+			
+			<Anchor>//api/name/verticalAlignment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setDimensions:</TokenIdentifier>
+			<Abstract type="html">Dimensions of the label in Points.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGSize dimensions</Declaration>
+			
+			
+			<Anchor>//api/name/dimensions</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/dimensions</TokenIdentifier>
+			<Abstract type="html">Dimensions of the label in Points.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGSize dimensions</Declaration>
+			
+			
+			<Anchor>//api/name/dimensions</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/dimensions</TokenIdentifier>
+			<Abstract type="html">Dimensions of the label in Points.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGSize dimensions</Declaration>
+			
+			
+			<Anchor>//api/name/dimensions</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setDimensionsType:</TokenIdentifier>
+			<Abstract type="html">Dimension type of the label.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCSizeType dimensionsType</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionsType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/dimensionsType</TokenIdentifier>
+			<Abstract type="html">Dimension type of the label.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCSizeType dimensionsType</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionsType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/dimensionsType</TokenIdentifier>
+			<Abstract type="html">Dimension type of the label.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCSizeType dimensionsType</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionsType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setAdjustsFontSizeToFit:</TokenIdentifier>
+			<Abstract type="html">If true, the label will be scaled down to fit into the size provided by the dimensions property. Only has an effect if dimensions are set.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL adjustsFontSizeToFit</Declaration>
+			
+			
+			<Anchor>//api/name/adjustsFontSizeToFit</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/adjustsFontSizeToFit</TokenIdentifier>
+			<Abstract type="html">If true, the label will be scaled down to fit into the size provided by the dimensions property. Only has an effect if dimensions are set.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL adjustsFontSizeToFit</Declaration>
+			
+			
+			<Anchor>//api/name/adjustsFontSizeToFit</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/adjustsFontSizeToFit</TokenIdentifier>
+			<Abstract type="html">If true, the label will be scaled down to fit into the size provided by the dimensions property. Only has an effect if dimensions are set.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL adjustsFontSizeToFit</Declaration>
+			
+			
+			<Anchor>//api/name/adjustsFontSizeToFit</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setMinimumFontSize:</TokenIdentifier>
+			<Abstract type="html">Used together with adjustsFontSizeToFit. Fonts will not be scaled down below this size (the label will instead be clipped).</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float minimumFontSize</Declaration>
+			
+			
+			<Anchor>//api/name/minimumFontSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/minimumFontSize</TokenIdentifier>
+			<Abstract type="html">Used together with adjustsFontSizeToFit. Fonts will not be scaled down below this size (the label will instead be clipped).</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float minimumFontSize</Declaration>
+			
+			
+			<Anchor>//api/name/minimumFontSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/minimumFontSize</TokenIdentifier>
+			<Abstract type="html">Used together with adjustsFontSizeToFit. Fonts will not be scaled down below this size (the label will instead be clipped).</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float minimumFontSize</Declaration>
+			
+			
+			<Anchor>//api/name/minimumFontSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setBaselineAdjustment:</TokenIdentifier>
+			<Abstract type="html">Adjusts the fonts baseline, the value is set in points.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float baselineAdjustment</Declaration>
+			
+			
+			<Anchor>//api/name/baselineAdjustment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/baselineAdjustment</TokenIdentifier>
+			<Abstract type="html">Adjusts the fonts baseline, the value is set in points.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float baselineAdjustment</Declaration>
+			
+			
+			<Anchor>//api/name/baselineAdjustment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/baselineAdjustment</TokenIdentifier>
+			<Abstract type="html">Adjusts the fonts baseline, the value is set in points.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float baselineAdjustment</Declaration>
+			
+			
+			<Anchor>//api/name/baselineAdjustment</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setShadowColor:</TokenIdentifier>
+			<Abstract type="html">The color of the text shadow. If the color is transparent, no shadow will be used.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *shadowColor</Declaration>
+			
+			
+			<Anchor>//api/name/shadowColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/shadowColor</TokenIdentifier>
+			<Abstract type="html">The color of the text shadow. If the color is transparent, no shadow will be used.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *shadowColor</Declaration>
+			
+			
+			<Anchor>//api/name/shadowColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/shadowColor</TokenIdentifier>
+			<Abstract type="html">The color of the text shadow. If the color is transparent, no shadow will be used.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *shadowColor</Declaration>
+			
+			
+			<Anchor>//api/name/shadowColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setShadowOffset:</TokenIdentifier>
+			<Abstract type="html">The offset of the shadow.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGPoint shadowOffset</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffset</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/shadowOffset</TokenIdentifier>
+			<Abstract type="html">The offset of the shadow.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGPoint shadowOffset</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffset</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/shadowOffset</TokenIdentifier>
+			<Abstract type="html">The offset of the shadow.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGPoint shadowOffset</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffset</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setShadowOffsetInPoints:</TokenIdentifier>
+			<Abstract type="html">The offset of the shadow in points</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGPoint shadowOffsetInPoints</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffsetInPoints</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/shadowOffsetInPoints</TokenIdentifier>
+			<Abstract type="html">The offset of the shadow in points</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGPoint shadowOffsetInPoints</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffsetInPoints</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/shadowOffsetInPoints</TokenIdentifier>
+			<Abstract type="html">The offset of the shadow in points</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGPoint shadowOffsetInPoints</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffsetInPoints</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setShadowOffsetType:</TokenIdentifier>
+			<Abstract type="html">The position type to be used for the shadow offset.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCPositionType shadowOffsetType</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffsetType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/shadowOffsetType</TokenIdentifier>
+			<Abstract type="html">The position type to be used for the shadow offset.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCPositionType shadowOffsetType</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffsetType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/shadowOffsetType</TokenIdentifier>
+			<Abstract type="html">The position type to be used for the shadow offset.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCPositionType shadowOffsetType</Declaration>
+			
+			
+			<Anchor>//api/name/shadowOffsetType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setShadowBlurRadius:</TokenIdentifier>
+			<Abstract type="html">The blur radius of the shadow.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float shadowBlurRadius</Declaration>
+			
+			
+			<Anchor>//api/name/shadowBlurRadius</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/shadowBlurRadius</TokenIdentifier>
+			<Abstract type="html">The blur radius of the shadow.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float shadowBlurRadius</Declaration>
+			
+			
+			<Anchor>//api/name/shadowBlurRadius</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/shadowBlurRadius</TokenIdentifier>
+			<Abstract type="html">The blur radius of the shadow.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float shadowBlurRadius</Declaration>
+			
+			
+			<Anchor>//api/name/shadowBlurRadius</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setOutlineColor:</TokenIdentifier>
+			<Abstract type="html">The color of the text&apos;s outline.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *outlineColor</Declaration>
+			
+			
+			<Anchor>//api/name/outlineColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/outlineColor</TokenIdentifier>
+			<Abstract type="html">The color of the text&apos;s outline.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *outlineColor</Declaration>
+			
+			
+			<Anchor>//api/name/outlineColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/outlineColor</TokenIdentifier>
+			<Abstract type="html">The color of the text&apos;s outline.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCColor *outlineColor</Declaration>
+			
+			
+			<Anchor>//api/name/outlineColor</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setOutlineWidth:</TokenIdentifier>
+			<Abstract type="html">The width of the text&apos;s outline.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float outlineWidth</Declaration>
+			
+			
+			<Anchor>//api/name/outlineWidth</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/outlineWidth</TokenIdentifier>
+			<Abstract type="html">The width of the text&apos;s outline.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float outlineWidth</Declaration>
+			
+			
+			<Anchor>//api/name/outlineWidth</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCLabelTTF/outlineWidth</TokenIdentifier>
+			<Abstract type="html">The width of the text&apos;s outline.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) float outlineWidth</Declaration>
+			
+			
+			<Anchor>//api/name/outlineWidth</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelTTF/labelWithString:fontName:fontSize:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a label object using the specified text, font name and font size.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>+ (id)labelWithString:(NSString *)string fontName:(NSString *)name fontSize:(CGFloat)size</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
 				</Parameter><Parameter>
-					<Name>fontName</Name>
-					<Abstract type="html">Name of the TTF font to use for the title label.</Abstract>
+					<Name>name</Name>
+					<Abstract type="html">Label font name.</Abstract>
 				</Parameter><Parameter>
 					<Name>size</Name>
-					<Abstract type="html">Font size for the title label.</Abstract>
+					<Abstract type="html">Label font size (in points).</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/buttonWithTitle:fontName:fontSize:</Anchor>
+			<ReturnValue><Abstract type="html">The CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/labelWithString:fontName:fontSize:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCButton/buttonWithTitle:spriteFrame:</TokenIdentifier>
-			<Abstract type="html">Creates a new button with the specified title for the label and sprite frame for its background.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelTTF/labelWithString:fontName:fontSize:dimensions:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a label object using the specified text, font name, font size and dimensions.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>+ (id)buttonWithTitle:(NSString *)title spriteFrame:(CCSpriteFrame *)spriteFrame</Declaration>
+			<Declaration>+ (id)labelWithString:(NSString *)string fontName:(NSString *)name fontSize:(CGFloat)size dimensions:(CGSize)dimensions</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
 				</Parameter><Parameter>
-					<Name>spriteFrame</Name>
-					<Abstract type="html">Stretchable background image.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/buttonWithTitle:spriteFrame:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCButton/buttonWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:</TokenIdentifier>
-			<Abstract type="html">Creates a new button with the speicified title for the label, sprite frames for its background in different states.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>+ (id)buttonWithTitle:(NSString *)title spriteFrame:(CCSpriteFrame *)spriteFrame highlightedSpriteFrame:(CCSpriteFrame *)highlighted disabledSpriteFrame:(CCSpriteFrame *)disabled</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
-				</Parameter><Parameter>
-					<Name>spriteFrame</Name>
-					<Abstract type="html">Stretchable background image for the normal state.</Abstract>
-				</Parameter><Parameter>
-					<Name>highlighted</Name>
-					<Abstract type="html">Stretchable background image for the highlighted state.</Abstract>
-				</Parameter><Parameter>
-					<Name>disabled</Name>
-					<Abstract type="html">Stretchable background image for the disabled state.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/buttonWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/initWithTitle:</TokenIdentifier>
-			<Abstract type="html">Initializes a new button with a title and no background. Uses default font and font size.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (id)initWithTitle:(NSString *)title</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithTitle:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/initWithTitle:fontName:fontSize:</TokenIdentifier>
-			<Abstract type="html">Initializes a new button with a title and no background.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (id)initWithTitle:(NSString *)title fontName:(NSString *)fontName fontSize:(float)size</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
-				</Parameter><Parameter>
-					<Name>fontName</Name>
-					<Abstract type="html">Name of the TTF font to use for the title label.</Abstract>
+					<Name>name</Name>
+					<Abstract type="html">Label font name.</Abstract>
 				</Parameter><Parameter>
 					<Name>size</Name>
-					<Abstract type="html">Font size for the title label.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithTitle:fontName:fontSize:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/initWithTitle:spriteFrame:</TokenIdentifier>
-			<Abstract type="html">Initializes a new button with the specified title for the label and sprite frame for its background.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (id)initWithTitle:(NSString *)title spriteFrame:(CCSpriteFrame *)spriteFrame</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
+					<Abstract type="html">Label font size (in points).</Abstract>
 				</Parameter><Parameter>
-					<Name>spriteFrame</Name>
-					<Abstract type="html">Stretchable background image.</Abstract>
+					<Name>dimensions</Name>
+					<Abstract type="html">Label dimensions.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithTitle:spriteFrame:</Anchor>
+			<ReturnValue><Abstract type="html">The CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/labelWithString:fontName:fontSize:dimensions:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/initWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:</TokenIdentifier>
-			<Abstract type="html">Initializes a new button with the speicified title for the label, sprite frames for its background in different states.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelTTF/labelWithAttributedString:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a label object using the specified attributed text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>- (id)initWithTitle:(NSString *)title spriteFrame:(CCSpriteFrame *)spriteFrame highlightedSpriteFrame:(CCSpriteFrame *)highlighted disabledSpriteFrame:(CCSpriteFrame *)disabled</Declaration>
+			<Declaration>+ (id)labelWithAttributedString:(NSAttributedString *)attrString</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>title</Name>
-					<Abstract type="html">The title text of the button.</Abstract>
+					<Name>attrString</Name>
+					<Abstract type="html">Label Attributed text.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/labelWithAttributedString:</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelTTF/labelWithAttributedString:dimensions:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a label object using the specified attributed text and dimensions.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>+ (id)labelWithAttributedString:(NSAttributedString *)attrString dimensions:(CGSize)dimensions</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>attrString</Name>
+					<Abstract type="html">Label Attributed text.</Abstract>
 				</Parameter><Parameter>
-					<Name>spriteFrame</Name>
-					<Abstract type="html">Stretchable background image for the normal state.</Abstract>
+					<Name>dimensions</Name>
+					<Abstract type="html">Label dimensions.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/labelWithAttributedString:dimensions:</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/initWithString:fontName:fontSize:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified text, font name and font size.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithString:(NSString *)string fontName:(NSString *)name fontSize:(CGFloat)size</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
 				</Parameter><Parameter>
-					<Name>highlighted</Name>
-					<Abstract type="html">Stretchable background image for the highlighted state.</Abstract>
+					<Name>name</Name>
+					<Abstract type="html">Label font name.</Abstract>
 				</Parameter><Parameter>
-					<Name>disabled</Name>
-					<Abstract type="html">Stretchable background image for the disabled state.</Abstract>
+					<Name>size</Name>
+					<Abstract type="html">Label font size (in points).</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">A new button.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:fontName:fontSize:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/setBackgroundColor:forState:</TokenIdentifier>
-			<Abstract type="html">Sets the background color for the specified state. The color is multiplied into the background sprite frame.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/initWithString:fontName:fontSize:dimensions:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified text, font name, font size and dimensions.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>- (void)setBackgroundColor:(ccColor3B)color forState:(CCControlState)state</Declaration>
+			<Declaration>- (id)initWithString:(NSString *)string fontName:(NSString *)name fontSize:(CGFloat)size dimensions:(CGSize)dimensions</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>color</Name>
-					<Abstract type="html">Color applied to background image.</Abstract>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
 				</Parameter><Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to apply the color to.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/setBackgroundColor:forState:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/backgroundColorForState:</TokenIdentifier>
-			<Abstract type="html">Gets the background color for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (ccColor3B)backgroundColorForState:(CCControlState)state</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to get the color for.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">Background color.</Abstract></ReturnValue>
-			<Anchor>//api/name/backgroundColorForState:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/setBackgroundOpacity:forState:</TokenIdentifier>
-			<Abstract type="html">Sets the background&apos;s opacity for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (void)setBackgroundOpacity:(GLubyte)opacity forState:(CCControlState)state</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>opacity</Name>
-					<Abstract type="html">Opacity to apply to the background image</Abstract>
+					<Name>name</Name>
+					<Abstract type="html">Label font name.</Abstract>
 				</Parameter><Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to apply the opacity to.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/setBackgroundOpacity:forState:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/backgroundOpacityForState:</TokenIdentifier>
-			<Abstract type="html">Gets the background opacity for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (GLubyte)backgroundOpacityForState:(CCControlState)state</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to get the opacity for.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">Opacity.</Abstract></ReturnValue>
-			<Anchor>//api/name/backgroundOpacityForState:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/setLabelColor:forState:</TokenIdentifier>
-			<Abstract type="html">Sets the label&apos;s color for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (void)setLabelColor:(ccColor3B)color forState:(CCControlState)state</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>color</Name>
-					<Abstract type="html">Color applied to the label.</Abstract>
+					<Name>size</Name>
+					<Abstract type="html">Label font size (in points).</Abstract>
 				</Parameter><Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to set the color for.</Abstract>
+					<Name>dimensions</Name>
+					<Abstract type="html">Label dimensions.</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/setLabelColor:forState:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:fontName:fontSize:dimensions:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/labelColorForState:</TokenIdentifier>
-			<Abstract type="html">Gets the label&apos;s color for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/initWithAttributedString:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified attributed text.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>- (ccColor3B)labelColorForState:(CCControlState)state</Declaration>
+			<Declaration>- (id)initWithAttributedString:(NSAttributedString *)attrString</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to get the color for.</Abstract>
+					<Name>attrString</Name>
+					<Abstract type="html">Label Attributed text.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">Label color.</Abstract></ReturnValue>
-			<Anchor>//api/name/labelColorForState:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithAttributedString:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/setLabelOpacity:forState:</TokenIdentifier>
-			<Abstract type="html">Sets the label&apos;s opacity for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/initWithAttributedString:dimensions:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified attributed text and dimensions.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>- (void)setLabelOpacity:(GLubyte)opacity forState:(CCControlState)state</Declaration>
+			<Declaration>- (id)initWithAttributedString:(NSAttributedString *)attrString dimensions:(CGSize)dimensions</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>opacity</Name>
-					<Abstract type="html">Opacity applied to the label.</Abstract>
+					<Name>attrString</Name>
+					<Abstract type="html">Label Attributed text.</Abstract>
 				</Parameter><Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to set the opacity for.</Abstract>
+					<Name>dimensions</Name>
+					<Abstract type="html">Label dimensions.</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/setLabelOpacity:forState:</Anchor>
+			<ReturnValue><Abstract type="html">An initialized CCLabelTTF Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithAttributedString:dimensions:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/labelOpacityForState:</TokenIdentifier>
-			<Abstract type="html">Gets the label&apos;s opacity for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelTTF/setHTML:</TokenIdentifier>
+			<Abstract type="html">(OS X) HTML Label</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>- (GLubyte)labelOpacityForState:(CCControlState)state</Declaration>
+			<Declaration>- (void)setHTML:(NSString *)html</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to get the opacity for.</Abstract>
+					<Name>html</Name>
+					<Abstract type="html">HTML Description.</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">Label opacity.</Abstract></ReturnValue>
-			<Anchor>//api/name/labelOpacityForState:</Anchor>
+			
+			<Anchor>//api/name/setHTML:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/setBackgroundSpriteFrame:forState:</TokenIdentifier>
-			<Abstract type="html">Sets the background&apos;s sprite frame for the specified state. The sprite frame will be stretched to the preferred size of the label. If set to NULL no background will be drawn.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelTTF/registerCustomTTF:</TokenIdentifier>
+			<Abstract type="html">Register a TTF font resource.</Abstract>
+			<DeclaredIn>CCLabelTTF.h</DeclaredIn>
 			
-			<Declaration>- (void)setBackgroundSpriteFrame:(CCSpriteFrame *)spriteFrame forState:(CCControlState)state</Declaration>
+			<Declaration>+ (void)registerCustomTTF:(NSString *)fontFile</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>spriteFrame</Name>
-					<Abstract type="html">Sprite frame to use for drawing the background.</Abstract>
-				</Parameter><Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to set the background for.</Abstract>
+					<Name>fontFile</Name>
+					<Abstract type="html">Font file path.</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/setBackgroundSpriteFrame:forState:</Anchor>
-            <NodeRef refid="69"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCButton/backgroundSpriteFrameForState:</TokenIdentifier>
-			<Abstract type="html">Gets the background&apos;s sprite frame for the specified state.</Abstract>
-			<DeclaredIn>CCButton.h</DeclaredIn>
-			
-			<Declaration>- (CCSpriteFrame *)backgroundSpriteFrameForState:(CCControlState)state</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>state</Name>
-					<Abstract type="html">State to get the sprite frame for.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">Background sprite frame.</Abstract></ReturnValue>
-			<Anchor>//api/name/backgroundSpriteFrameForState:</Anchor>
+			<Anchor>//api/name/registerCustomTTF:</Anchor>
             <NodeRef refid="69"/>
 		</Token>
 		

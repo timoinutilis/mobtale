@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCDirector.html">
+	<File path="Classes/CCMotionStreak.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCDirector</TokenIdentifier>
-			<Abstract type="html">Class that creates and handle the main Window and manages how
-and when to execute the Scenes.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCMotionStreak</TokenIdentifier>
+			<Abstract type="html">CCMotionStreak creates a motion trail special effect.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
             
 			
 			<NodeRef refid="72"/>
@@ -14,857 +13,238 @@ and when to execute the Scenes.</Abstract>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setRunningThread:</TokenIdentifier>
-			<Abstract type="html">returns the cocos2d thread.
-If you want to run any cocos2d task, run it in this thread.
-Typically this is the main thread.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/setBlendFunc:</TokenIdentifier>
+			<Abstract type="html">Blend method.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (unsafe_unretained, readonly, nonatomic) NSThread *runningThread</Declaration>
+			<Declaration>@property (nonatomic, readwrite, assign) ccBlendFunc blendFunc</Declaration>
 			
 			
-			<Anchor>//api/name/runningThread</Anchor>
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/runningThread</TokenIdentifier>
-			<Abstract type="html">returns the cocos2d thread.
-If you want to run any cocos2d task, run it in this thread.
-Typically this is the main thread.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/blendFunc</TokenIdentifier>
+			<Abstract type="html">Blend method.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (unsafe_unretained, readonly, nonatomic) NSThread *runningThread</Declaration>
+			<Declaration>@property (nonatomic, readwrite, assign) ccBlendFunc blendFunc</Declaration>
 			
 			
-			<Anchor>//api/name/runningThread</Anchor>
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/runningThread</TokenIdentifier>
-			<Abstract type="html">returns the cocos2d thread.
-If you want to run any cocos2d task, run it in this thread.
-Typically this is the main thread.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCMotionStreak/blendFunc</TokenIdentifier>
+			<Abstract type="html">Blend method.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (unsafe_unretained, readonly, nonatomic) NSThread *runningThread</Declaration>
+			<Declaration>@property (nonatomic, readwrite, assign) ccBlendFunc blendFunc</Declaration>
 			
 			
-			<Anchor>//api/name/runningThread</Anchor>
+			<Anchor>//api/name/blendFunc</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setRunningScene:</TokenIdentifier>
-			<Abstract type="html">The current running Scene. Director can only run one Scene at the time</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/setFastMode:</TokenIdentifier>
+			<Abstract type="html">Fast mode toggle.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CCScene *runningScene</Declaration>
+			<Declaration>@property (nonatomic, readwrite, assign, getter=isFastMode) BOOL fastMode</Declaration>
 			
 			
-			<Anchor>//api/name/runningScene</Anchor>
+			<Anchor>//api/name/fastMode</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/runningScene</TokenIdentifier>
-			<Abstract type="html">The current running Scene. Director can only run one Scene at the time</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/isFastMode</TokenIdentifier>
+			<Abstract type="html">Fast mode toggle.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CCScene *runningScene</Declaration>
+			<Declaration>@property (nonatomic, readwrite, assign, getter=isFastMode) BOOL fastMode</Declaration>
 			
 			
-			<Anchor>//api/name/runningScene</Anchor>
+			<Anchor>//api/name/fastMode</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/runningScene</TokenIdentifier>
-			<Abstract type="html">The current running Scene. Director can only run one Scene at the time</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCMotionStreak/fastMode</TokenIdentifier>
+			<Abstract type="html">Fast mode toggle.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) CCScene *runningScene</Declaration>
+			<Declaration>@property (nonatomic, readwrite, assign, getter=isFastMode) BOOL fastMode</Declaration>
 			
 			
-			<Anchor>//api/name/runningScene</Anchor>
+			<Anchor>//api/name/fastMode</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setAnimationInterval:</TokenIdentifier>
-			<Abstract type="html">The FPS value</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/setTexture:</TokenIdentifier>
+			<Abstract type="html">Trail texture.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readwrite, assign) NSTimeInterval animationInterval</Declaration>
+			<Declaration>@property (nonatomic, strong) CCTexture *texture</Declaration>
 			
 			
-			<Anchor>//api/name/animationInterval</Anchor>
+			<Anchor>//api/name/texture</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/animationInterval</TokenIdentifier>
-			<Abstract type="html">The FPS value</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/texture</TokenIdentifier>
+			<Abstract type="html">Trail texture.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readwrite, assign) NSTimeInterval animationInterval</Declaration>
+			<Declaration>@property (nonatomic, strong) CCTexture *texture</Declaration>
 			
 			
-			<Anchor>//api/name/animationInterval</Anchor>
+			<Anchor>//api/name/texture</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/animationInterval</TokenIdentifier>
-			<Abstract type="html">The FPS value</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/CCMotionStreak/texture</TokenIdentifier>
+			<Abstract type="html">Trail texture.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readwrite, assign) NSTimeInterval animationInterval</Declaration>
+			<Declaration>@property (nonatomic, strong) CCTexture *texture</Declaration>
 			
 			
-			<Anchor>//api/name/animationInterval</Anchor>
+			<Anchor>//api/name/texture</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setDisplayStats:</TokenIdentifier>
-			<Abstract type="html">Whether or not to display director statistics</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign) BOOL displayStats</Declaration>
-			
-			
-			<Anchor>//api/name/displayStats</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/displayStats</TokenIdentifier>
-			<Abstract type="html">Whether or not to display director statistics</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign) BOOL displayStats</Declaration>
-			
-			
-			<Anchor>//api/name/displayStats</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/displayStats</TokenIdentifier>
-			<Abstract type="html">Whether or not to display director statistics</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign) BOOL displayStats</Declaration>
-			
-			
-			<Anchor>//api/name/displayStats</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setNextDeltaTimeZero:</TokenIdentifier>
-			<Abstract type="html">whether or not the next delta time will be zero</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign, getter=isNextDeltaTimeZero) BOOL nextDeltaTimeZero</Declaration>
-			
-			
-			<Anchor>//api/name/nextDeltaTimeZero</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/isNextDeltaTimeZero</TokenIdentifier>
-			<Abstract type="html">whether or not the next delta time will be zero</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign, getter=isNextDeltaTimeZero) BOOL nextDeltaTimeZero</Declaration>
-			
-			
-			<Anchor>//api/name/nextDeltaTimeZero</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/nextDeltaTimeZero</TokenIdentifier>
-			<Abstract type="html">whether or not the next delta time will be zero</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign, getter=isNextDeltaTimeZero) BOOL nextDeltaTimeZero</Declaration>
-			
-			
-			<Anchor>//api/name/nextDeltaTimeZero</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setPaused:</TokenIdentifier>
-			<Abstract type="html">Whether or not the Director is paused</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, getter=isPaused) BOOL paused</Declaration>
-			
-			
-			<Anchor>//api/name/paused</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/isPaused</TokenIdentifier>
-			<Abstract type="html">Whether or not the Director is paused</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, getter=isPaused) BOOL paused</Declaration>
-			
-			
-			<Anchor>//api/name/paused</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/paused</TokenIdentifier>
-			<Abstract type="html">Whether or not the Director is paused</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, getter=isPaused) BOOL paused</Declaration>
-			
-			
-			<Anchor>//api/name/paused</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setAnimating:</TokenIdentifier>
-			<Abstract type="html">Whether or not the Director is active (animating)</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, getter=isAnimating) BOOL animating</Declaration>
-			
-			
-			<Anchor>//api/name/animating</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/isAnimating</TokenIdentifier>
-			<Abstract type="html">Whether or not the Director is active (animating)</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, getter=isAnimating) BOOL animating</Declaration>
-			
-			
-			<Anchor>//api/name/animating</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/animating</TokenIdentifier>
-			<Abstract type="html">Whether or not the Director is active (animating)</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, getter=isAnimating) BOOL animating</Declaration>
-			
-			
-			<Anchor>//api/name/animating</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setProjection:</TokenIdentifier>
-			<Abstract type="html">Sets an OpenGL projection</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite) CCDirectorProjection projection</Declaration>
-			
-			
-			<Anchor>//api/name/projection</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/projection</TokenIdentifier>
-			<Abstract type="html">Sets an OpenGL projection</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite) CCDirectorProjection projection</Declaration>
-			
-			
-			<Anchor>//api/name/projection</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/projection</TokenIdentifier>
-			<Abstract type="html">Sets an OpenGL projection</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite) CCDirectorProjection projection</Declaration>
-			
-			
-			<Anchor>//api/name/projection</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setTotalFrames:</TokenIdentifier>
-			<Abstract type="html">How many frames were called since the director started</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) NSUInteger totalFrames</Declaration>
-			
-			
-			<Anchor>//api/name/totalFrames</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/totalFrames</TokenIdentifier>
-			<Abstract type="html">How many frames were called since the director started</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) NSUInteger totalFrames</Declaration>
-			
-			
-			<Anchor>//api/name/totalFrames</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/totalFrames</TokenIdentifier>
-			<Abstract type="html">How many frames were called since the director started</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) NSUInteger totalFrames</Declaration>
-			
-			
-			<Anchor>//api/name/totalFrames</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setSecondsPerFrame:</TokenIdentifier>
-			<Abstract type="html">seconds per frame</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) CCTime secondsPerFrame</Declaration>
-			
-			
-			<Anchor>//api/name/secondsPerFrame</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/secondsPerFrame</TokenIdentifier>
-			<Abstract type="html">seconds per frame</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) CCTime secondsPerFrame</Declaration>
-			
-			
-			<Anchor>//api/name/secondsPerFrame</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/secondsPerFrame</TokenIdentifier>
-			<Abstract type="html">seconds per frame</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) CCTime secondsPerFrame</Declaration>
-			
-			
-			<Anchor>//api/name/secondsPerFrame</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setResponderManager:</TokenIdentifier>
-			<Abstract type="html">Sets the touch manager</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) CCResponderManager *responderManager</Declaration>
-			
-			
-			<Anchor>//api/name/responderManager</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/responderManager</TokenIdentifier>
-			<Abstract type="html">Sets the touch manager</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) CCResponderManager *responderManager</Declaration>
-			
-			
-			<Anchor>//api/name/responderManager</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/responderManager</TokenIdentifier>
-			<Abstract type="html">Sets the touch manager</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) CCResponderManager *responderManager</Declaration>
-			
-			
-			<Anchor>//api/name/responderManager</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setDelegate:</TokenIdentifier>
-			<Abstract type="html">CCDirector delegate. It shall implement the CCDirectorDelegate protocol</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, unsafe_unretained) id&lt;CCDirectorDelegate&gt; delegate</Declaration>
-			
-			
-			<Anchor>//api/name/delegate</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/delegate</TokenIdentifier>
-			<Abstract type="html">CCDirector delegate. It shall implement the CCDirectorDelegate protocol</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, unsafe_unretained) id&lt;CCDirectorDelegate&gt; delegate</Declaration>
-			
-			
-			<Anchor>//api/name/delegate</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/delegate</TokenIdentifier>
-			<Abstract type="html">CCDirector delegate. It shall implement the CCDirectorDelegate protocol</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, unsafe_unretained) id&lt;CCDirectorDelegate&gt; delegate</Declaration>
-			
-			
-			<Anchor>//api/name/delegate</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setContentScaleFactor:</TokenIdentifier>
-			<Abstract type="html">Content scaling factor. Sets the ratio of Cocos2D &quot;points&quot; to pixels. Default value is initalized from the content scale of the GL view used by the director.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) CGFloat contentScaleFactor</Declaration>
-			
-			
-			<Anchor>//api/name/contentScaleFactor</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/contentScaleFactor</TokenIdentifier>
-			<Abstract type="html">Content scaling factor. Sets the ratio of Cocos2D &quot;points&quot; to pixels. Default value is initalized from the content scale of the GL view used by the director.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) CGFloat contentScaleFactor</Declaration>
-			
-			
-			<Anchor>//api/name/contentScaleFactor</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/contentScaleFactor</TokenIdentifier>
-			<Abstract type="html">Content scaling factor. Sets the ratio of Cocos2D &quot;points&quot; to pixels. Default value is initalized from the content scale of the GL view used by the director.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) CGFloat contentScaleFactor</Declaration>
-			
-			
-			<Anchor>//api/name/contentScaleFactor</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setUIScaleFactor:</TokenIdentifier>
-			<Abstract type="html">UI scaling factor, default value is 1. Positions and content sizes are scale by this factor if the position type is set to scale.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign) float UIScaleFactor</Declaration>
-			
-			
-			<Anchor>//api/name/UIScaleFactor</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/UIScaleFactor</TokenIdentifier>
-			<Abstract type="html">UI scaling factor, default value is 1. Positions and content sizes are scale by this factor if the position type is set to scale.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign) float UIScaleFactor</Declaration>
-			
-			
-			<Anchor>//api/name/UIScaleFactor</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCDirector/UIScaleFactor</TokenIdentifier>
-			<Abstract type="html">UI scaling factor, default value is 1. Positions and content sizes are scale by this factor if the position type is set to scale.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readwrite, assign) float UIScaleFactor</Declaration>
-			
-			
-			<Anchor>//api/name/UIScaleFactor</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/CCDirector/sharedDirector</TokenIdentifier>
-			<Abstract type="html">returns a shared instance of the director</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>+ (CCDirector *)sharedDirector</Declaration>
-			
-			
-			<Anchor>//api/name/sharedDirector</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/viewSize</TokenIdentifier>
-			<Abstract type="html">returns the size of the OpenGL view in points</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (CGSize)viewSize</Declaration>
-			
-			
-			<Anchor>//api/name/viewSize</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/viewSizeInPixels</TokenIdentifier>
-			<Abstract type="html">returns the size of the OpenGL view in pixels.
-On Mac winSize and winSizeInPixels return the same value.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (CGSize)viewSizeInPixels</Declaration>
-			
-			
-			<Anchor>//api/name/viewSizeInPixels</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/reshapeProjection:</TokenIdentifier>
-			<Abstract type="html">changes the projection size</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)reshapeProjection:(CGSize)newWindowSize</Declaration>
-			
-			
-			<Anchor>//api/name/reshapeProjection:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/convertToGL:</TokenIdentifier>
-			<Abstract type="html">converts a UIKit coordinate to an OpenGL coordinate
-Useful to convert (multi) touch coordinates to the current layout (portrait or landscape)</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (CGPoint)convertToGL:(CGPoint)p</Declaration>
-			
-			
-			<Anchor>//api/name/convertToGL:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/convertToUI:</TokenIdentifier>
-			<Abstract type="html">converts an OpenGL coordinate to a UIKit coordinate
-Useful to convert node points to window points for calls such as glScissor</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (CGPoint)convertToUI:(CGPoint)p</Declaration>
-			
-			
-			<Anchor>//api/name/convertToUI:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/runWithScene:</TokenIdentifier>
-			<Abstract type="html">Enters the Director&apos;s main loop with the given Scene.
-Call it to run only your FIRST scene.
-Don&apos;t call it if there is already a running scene.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)runWithScene:(CCScene *)scene</Declaration>
-			
-			
-			<Anchor>//api/name/runWithScene:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/pushScene:</TokenIdentifier>
-			<Abstract type="html">Suspends the execution of the running scene, pushing it on the stack of suspended scenes.
-The new scene will be executed.
-Try to avoid big stacks of pushed scenes to reduce memory allocation.
-ONLY call it if there is a running scene.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)pushScene:(CCScene *)scene</Declaration>
-			
-			
-			<Anchor>//api/name/pushScene:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/popScene</TokenIdentifier>
-			<Abstract type="html">Pops out a scene from the queue.
-This scene will replace the running one.
-The running scene will be deleted. If there are no more scenes in the stack the execution is terminated.
-ONLY call it if there is a running scene.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)popScene</Declaration>
-			
-			
-			<Anchor>//api/name/popScene</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/popToRootScene</TokenIdentifier>
-			<Abstract type="html">Pops out all scenes from the queue until the root scene in the queue.
-This scene will replace the running one.
-Internally it will call popToSceneStackLevel:1</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)popToRootScene</Declaration>
-			
-			
-			<Anchor>//api/name/popToRootScene</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/replaceScene:</TokenIdentifier>
-			<Abstract type="html">Replaces the running scene with a new one. The running scene is terminated.
-ONLY call it if there is a running scene.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)replaceScene:(CCScene *)scene</Declaration>
-			
-			
-			<Anchor>//api/name/replaceScene:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/replaceScene:withTransition:</TokenIdentifier>
-			<Abstract type="html">Presents a new scene by either starting first scene, or replacing the running
-Performs a transition between the outgoing and the incoming scene</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)replaceScene:(CCScene *)scene withTransition:(CCTransition *)transition</Declaration>
+			<TokenIdentifier>//apple_ref/occ/clm/CCMotionStreak/streakWithFade:minSeg:width:color:textureFilename:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a motion streak object from the specified fade time, segments, stroke, color and texture file path values.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
+			
+			<Declaration>+ (id)streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(CCColor *)color textureFilename:(NSString *)path</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>scene</Name>
-					<Abstract type="html">The incoming scene</Abstract>
+					<Name>fade</Name>
+					<Abstract type="html">Fade time.</Abstract>
 				</Parameter><Parameter>
-					<Name>transition</Name>
-					<Abstract type="html">The transition to perform</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/replaceScene:withTransition:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/pushScene:withTransition:</TokenIdentifier>
-			<Abstract type="html">Pushes the running scene onto the scene stack, and presents the incoming scene, using a transition</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)pushScene:(CCScene *)scene withTransition:(CCTransition *)transition</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>scene</Name>
-					<Abstract type="html">The scene to present</Abstract>
+					<Name>minSeg</Name>
+					<Abstract type="html">Minimum segments.</Abstract>
 				</Parameter><Parameter>
-					<Name>transition</Name>
-					<Abstract type="html">The transition to use</Abstract>
+					<Name>stroke</Name>
+					<Abstract type="html">Stroke width.</Abstract>
+				</Parameter><Parameter>
+					<Name>color</Name>
+					<Abstract type="html">Color.</Abstract>
+				</Parameter><Parameter>
+					<Name>path</Name>
+					<Abstract type="html">Texture file path.</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/pushScene:withTransition:</Anchor>
+			<ReturnValue><Abstract type="html">The CCMotionStreak object.</Abstract></ReturnValue>
+			<Anchor>//api/name/streakWithFade:minSeg:width:color:textureFilename:</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/popSceneWithTransition:</TokenIdentifier>
-			<Abstract type="html">Replaces the running scene, with the last scene pushed to the stack, using a transition</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/CCMotionStreak/streakWithFade:minSeg:width:color:texture:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a motion streak object from the specified fade time, segments, stroke, color and texture values.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>- (void)popSceneWithTransition:(CCTransition *)transition</Declaration>
+			<Declaration>+ (id)streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(CCColor *)color texture:(CCTexture *)texture</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>transition</Name>
-					<Abstract type="html">The transition to use</Abstract>
+					<Name>fade</Name>
+					<Abstract type="html">Fade time.</Abstract>
+				</Parameter><Parameter>
+					<Name>minSeg</Name>
+					<Abstract type="html">Minimum segments.</Abstract>
+				</Parameter><Parameter>
+					<Name>stroke</Name>
+					<Abstract type="html">Stroke width.</Abstract>
+				</Parameter><Parameter>
+					<Name>color</Name>
+					<Abstract type="html">Color.</Abstract>
+				</Parameter><Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture.</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/popSceneWithTransition:</Anchor>
+			<ReturnValue><Abstract type="html">The CCMotionStreak object.</Abstract></ReturnValue>
+			<Anchor>//api/name/streakWithFade:minSeg:width:color:texture:</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/end</TokenIdentifier>
-			<Abstract type="html">Ends the execution, releases the running scene.
-It doesn&apos;t remove the OpenGL view from its parent. You have to do it manually.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/initWithFade:minSeg:width:color:textureFilename:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a motion streak object from the specified fade time, segments, stroke, color and texture file path values.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>- (void)end</Declaration>
-			
-			
-			<Anchor>//api/name/end</Anchor>
+			<Declaration>- (id)initWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(CCColor *)color textureFilename:(NSString *)path</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>fade</Name>
+					<Abstract type="html">Fade time.</Abstract>
+				</Parameter><Parameter>
+					<Name>minSeg</Name>
+					<Abstract type="html">Minimum segments.</Abstract>
+				</Parameter><Parameter>
+					<Name>stroke</Name>
+					<Abstract type="html">Stroke width.</Abstract>
+				</Parameter><Parameter>
+					<Name>color</Name>
+					<Abstract type="html">Color.</Abstract>
+				</Parameter><Parameter>
+					<Name>path</Name>
+					<Abstract type="html">Texture file path.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCMotionStreak object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithFade:minSeg:width:color:textureFilename:</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/pause</TokenIdentifier>
-			<Abstract type="html">Pauses the running scene.
-The running scene will be drawed but all scheduled timers will be paused
-While paused, the draw rate will be 4 FPS to reduce CPU consumption</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/initWithFade:minSeg:width:color:texture:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a motion streak object from the specified fade time, segments, stroke, color and texture values.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>- (void)pause</Declaration>
-			
-			
-			<Anchor>//api/name/pause</Anchor>
+			<Declaration>- (id)initWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(CCColor *)color texture:(CCTexture *)texture</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>fade</Name>
+					<Abstract type="html">Fade time.</Abstract>
+				</Parameter><Parameter>
+					<Name>minSeg</Name>
+					<Abstract type="html">Minimum segments.</Abstract>
+				</Parameter><Parameter>
+					<Name>stroke</Name>
+					<Abstract type="html">Stroke width.</Abstract>
+				</Parameter><Parameter>
+					<Name>color</Name>
+					<Abstract type="html">Color.</Abstract>
+				</Parameter><Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCMotionStreak object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithFade:minSeg:width:color:texture:</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/resume</TokenIdentifier>
-			<Abstract type="html">Resumes the paused scene
-The scheduled timers will be activated again.
-The &quot;delta time&quot; will be 0 (as if the game wasn&apos;t paused</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCMotionStreak/reset</TokenIdentifier>
+			<Abstract type="html">Remove all living segments.</Abstract>
+			<DeclaredIn>CCMotionStreak.h</DeclaredIn>
 			
-			<Declaration>- (void)resume</Declaration>
+			<Declaration>- (void)reset</Declaration>
 			
 			
-			<Anchor>//api/name/resume</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/stopAnimation</TokenIdentifier>
-			<Abstract type="html">Stops the animation. Nothing will be drawn. The main loop won&apos;t be triggered anymore.
-If you want to pause your animation call [pause] instead.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)stopAnimation</Declaration>
-			
-			
-			<Anchor>//api/name/stopAnimation</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/startAnimation</TokenIdentifier>
-			<Abstract type="html">The main loop is triggered again.
-Call this function only if [stopAnimation] was called earlier</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)startAnimation</Declaration>
-			
-			
-			<Anchor>//api/name/startAnimation</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setView:</TokenIdentifier>
-			<Abstract type="html">sets the openGL view</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)setView:(CCGLView *)view</Declaration>
-			
-			
-			<Anchor>//api/name/setView:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/view</TokenIdentifier>
-			<Abstract type="html">returns the OpenGL view</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (CCGLView *)view</Declaration>
-			
-			
-			<Anchor>//api/name/view</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/purgeCachedData</TokenIdentifier>
-			<Abstract type="html">Removes all the cocos2d data that was cached automatically.
-It will purge the CCTextureCache, CCLabelBMFont cache.
-IMPORTANT: The CCSpriteFrameCache won&apos;t be purged. If you want to purge it, you have to purge it manually.</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)purgeCachedData</Declaration>
-			
-			
-			<Anchor>//api/name/purgeCachedData</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setGLDefaultValues</TokenIdentifier>
-			<Abstract type="html">sets the OpenGL default values</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)setGLDefaultValues</Declaration>
-			
-			
-			<Anchor>//api/name/setGLDefaultValues</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setAlphaBlending:</TokenIdentifier>
-			<Abstract type="html">enables/disables OpenGL alpha blending</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)setAlphaBlending:(BOOL)on</Declaration>
-			
-			
-			<Anchor>//api/name/setAlphaBlending:</Anchor>
-            <NodeRef refid="72"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCDirector/setDepthTest:</TokenIdentifier>
-			<Abstract type="html">enables/disables OpenGL depth test</Abstract>
-			<DeclaredIn>CCDirector.h</DeclaredIn>
-			
-			<Declaration>- (void)setDepthTest:(BOOL)on</Declaration>
-			
-			
-			<Anchor>//api/name/setDepthTest:</Anchor>
+			<Anchor>//api/name/reset</Anchor>
             <NodeRef refid="72"/>
 		</Token>
 		

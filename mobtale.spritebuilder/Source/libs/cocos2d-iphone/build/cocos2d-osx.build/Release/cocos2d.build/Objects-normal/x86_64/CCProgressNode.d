@@ -21,7 +21,6 @@ dependencies: \
   cocos2d/CCTextureAtlas.h cocos2d/CCTexture.h cocos2d/Platforms/CCNS.h \
   cocos2d/CCTextureCache.h cocos2d/CCGLProgram.h cocos2d/CCShaderCache.h \
   cocos2d/CCDirector.h cocos2d/Support/TransformUtils.h \
-  cocos2d/CCDrawingPrimitives.h cocos2d/CCSprite_Private.h \
-  cocos2d/CCNode_Private.h cocos2d/CCProgressNode_Private.h \
-  cocos2d/CCTexture_Private.h \
+  cocos2d/CCSprite_Private.h cocos2d/CCNode_Private.h \
+  cocos2d/CCProgressNode_Private.h cocos2d/CCTexture_Private.h \
   external/kazmath/include/kazmath/GL/matrix.h

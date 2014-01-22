@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/CCLayoutBox.html">
+	<File path="Classes/CCParticleSystem.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/CCLayoutBox</TokenIdentifier>
-			<Abstract type="html">The box layout lays out its children in a horizontal or vertical row. Optionally you can set a spacing between the child nodes.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/CCParticleSystem</TokenIdentifier>
+			<Abstract type="html">CCParticleSytem improves upon the performance in CCParticleSystemBase and is the default class
+for adding particles.  Please see CCParticleSystemBase documentation.</Abstract>
+			<DeclaredIn>CCParticleSystem.h</DeclaredIn>
             
 			
 			<NodeRef refid="78"/>
@@ -13,74 +14,22 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLayoutBox/setDirection:</TokenIdentifier>
-			<Abstract type="html">The direction is either horizontal or vertical.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleSystem/setTexture:withRect:</TokenIdentifier>
+			<Abstract type="html">Set particle system texture using specified texture and texture coords value.</Abstract>
+			<DeclaredIn>CCParticleSystem.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) CCLayoutBoxDirection direction</Declaration>
+			<Declaration>- (void)setTexture:(CCTexture *)texture withRect:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Texture coords.</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			
-			<Anchor>//api/name/direction</Anchor>
-            <NodeRef refid="78"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLayoutBox/direction</TokenIdentifier>
-			<Abstract type="html">The direction is either horizontal or vertical.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) CCLayoutBoxDirection direction</Declaration>
-			
-			
-			<Anchor>//api/name/direction</Anchor>
-            <NodeRef refid="78"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCLayoutBox/direction</TokenIdentifier>
-			<Abstract type="html">The direction is either horizontal or vertical.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) CCLayoutBoxDirection direction</Declaration>
-			
-			
-			<Anchor>//api/name/direction</Anchor>
-            <NodeRef refid="78"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLayoutBox/setSpacing:</TokenIdentifier>
-			<Abstract type="html">The spacing in points between the child nodes.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) float spacing</Declaration>
-			
-			
-			<Anchor>//api/name/spacing</Anchor>
-            <NodeRef refid="78"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/CCLayoutBox/spacing</TokenIdentifier>
-			<Abstract type="html">The spacing in points between the child nodes.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) float spacing</Declaration>
-			
-			
-			<Anchor>//api/name/spacing</Anchor>
-            <NodeRef refid="78"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/CCLayoutBox/spacing</TokenIdentifier>
-			<Abstract type="html">The spacing in points between the child nodes.</Abstract>
-			<DeclaredIn>CCLayoutBox.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) float spacing</Declaration>
-			
-			
-			<Anchor>//api/name/spacing</Anchor>
+			<Anchor>//api/name/setTexture:withRect:</Anchor>
             <NodeRef refid="78"/>
 		</Token>
 		

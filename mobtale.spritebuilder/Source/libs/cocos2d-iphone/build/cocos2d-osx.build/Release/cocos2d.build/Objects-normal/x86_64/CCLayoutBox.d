@@ -17,4 +17,5 @@ dependencies: \
   external/kazmath/include/kazmath/plane.h \
   external/kazmath/include/kazmath/aabb.h \
   external/kazmath/include/kazmath/ray2.h cocos2d/CCResponder.h \
-  cocos2d/CCResponderManager.h cocos2d/CCScheduler.h
+  cocos2d/CCResponderManager.h cocos2d/CCScheduler.h \
+  cocos2d/CCNode_Private.h

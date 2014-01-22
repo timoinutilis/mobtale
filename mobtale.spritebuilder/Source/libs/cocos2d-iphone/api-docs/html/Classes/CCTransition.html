@@ -6,13 +6,13 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 961)" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2D</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -86,7 +86,9 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating transitions">Creating transitions</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Accessing the Transition Attributes">Accessing the Transition Attributes</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating a CCTransition Object">Creating a CCTransition Object</a></span></li>
 	
 </ul></li>
 
@@ -166,8 +168,8 @@
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>Creates a transition.
-The transition will replace the outgoing scene, with the incoming scene
-Both scenes can be animated during the transition ( default disabled )</p>
+The transition will replace the outgoing scene, with the incoming scene.
+Both scenes can be animated during the transition ( default disabled ).</p>
 
 <p>Complex animated scenes on retina devices might run slow during transitions.
 In that case, try disabling retina transitions, and check if the render quality is adequate.</p>
@@ -182,8 +184,8 @@ In that case, try disabling retina transitions, and check if the render quality 
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
+						<a title="Accessing the Transition Attributes" name="task_Accessing the Transition Attributes"></a>
+						<h3 class="subsubtitle task-title">Accessing the Transition Attributes</h3>
 
 						<ul class="task-list">
 							<li>
@@ -226,8 +228,8 @@ In that case, try disabling retina transitions, and check if the render quality 
 						</ul>
 						
 						
-						<a title="Creating transitions" name="task_Creating transitions"></a>
-						<h3 class="subsubtitle task-title">Creating transitions</h3>
+						<a title="Creating a CCTransition Object" name="task_Creating a CCTransition Object"></a>
+						<h3 class="subsubtitle task-title">Creating a CCTransition Object</h3>
 
 						<ul class="task-list">
 							<li>
@@ -286,9 +288,9 @@ In that case, try disabling retina transitions, and check if the render quality 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Will downscale incoming and outgoing scene
-Can be used as an effect, or to decrease render time on complex scenes
-Default 1.0</p>
+		<p>Will downscale incoming and outgoing scene.
+Can be used as an effect, or to decrease render time on complex scenes.
+Default 1.0.</p>
 	</div>		
 	
     
@@ -324,8 +326,8 @@ Default 1.0</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Defines whether incoming and outgoing scene will be animated during transition
-Default NO</p>
+		<p>Defines whether incoming and outgoing scene will be animated during transition.
+Default NO.</p>
 	</div>		
 	
     
@@ -361,7 +363,7 @@ Default NO</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Normalized transition progress</p>
+		<p>Normalized transition progress.</p>
 	</div>		
 	
     
@@ -397,9 +399,9 @@ Default NO</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Transition will be performed in retina resolution
-Will force <a href="#//api/name/outgoingDownScale">outgoingDownScale</a> and incomingDownScale to 1.0 on non retina devices, and 2.0 on retina devices if not set
-Default YES</p>
+		<p>Transition will be performed in retina resolution.
+Will force <a href="#//api/name/outgoingDownScale">outgoingDownScale</a> and incomingDownScale to 1.0 on non retina devices, and 2.0 on retina devices if not set.
+Default YES.</p>
 	</div>		
 	
     
@@ -435,7 +437,7 @@ Default YES</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The actual transition runtime in seconds</p>
+		<p>The actual transition runtime in seconds.</p>
 	</div>		
 	
     
@@ -471,8 +473,8 @@ Default YES</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Pixel format used for transition
-Default kCCTexture2DPixelFormat_RGB565</p>
+		<p>Pixel format used for transition.
+Default CCTexturePixelFormat_RGBA8888.</p>
 	</div>		
 	
     
@@ -539,7 +541,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTransition.</p>
+		<p>The CCTransition Object.</p>
 	</div>
 	
 	
@@ -567,12 +569,12 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Creates a fade transition from outgoing to incoming scene, through color</p>
+		<p>Creates a fade transition from outgoing to incoming scene, through color.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (CCTransition *)transitionFadeWithColor:(ccColor3B)<em>color</em> duration:(NSTimeInterval)<em>duration</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (CCTransition *)transitionFadeWithColor:(CCColor *)<em>color</em> duration:(NSTimeInterval)<em>duration</em></code></div>
 
     
 	
@@ -595,7 +597,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTransition.</p>
+		<p>The CCTransition Object.</p>
 	</div>
 	
 	
@@ -623,7 +625,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Creates a fade transition from outgoing to incoming scene, through black</p>
+		<p>Creates a fade transition from outgoing to incoming scene, through black.</p>
 	</div>		
 	
     
@@ -646,7 +648,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTransition.</p>
+		<p>The CCTransition Object.</p>
 	</div>
 	
 	
@@ -674,7 +676,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Creates a transition where the incoming scene is moved in over the outgoing scene</p>
+		<p>Creates a transition where the incoming scene is moved in over the outgoing scene.</p>
 	</div>		
 	
     
@@ -702,7 +704,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTransition.</p>
+		<p>The CCTransition Object.</p>
 	</div>
 	
 	
@@ -730,7 +732,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Creates a transition where the incoming scene pushed the outgoing scene out</p>
+		<p>Creates a transition where the incoming scene pushed the outgoing scene out.</p>
 	</div>		
 	
     
@@ -758,7 +760,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTransition.</p>
+		<p>The CCTransition Object.</p>
 	</div>
 	
 	
@@ -814,7 +816,7 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A newly initialized CCTransition.</p>
+		<p>The CCTransition Object.</p>
 	</div>
 	
 	
@@ -852,9 +854,9 @@ Default kCCTexture2DPixelFormat_RGB565</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
 					</div>
 				</div>

@@ -4,7 +4,8 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/CCAction</TokenIdentifier>
-			<Abstract type="html">Base class for CCAction objects.</Abstract>
+			<Abstract type="html">CCAction forms the foundation for one the great areas of Cocos2D functionality.
+The manipulatinon of node properties such as position, rotation, scale and opacity over time, to create fun effects.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
             
 			
@@ -59,8 +60,7 @@ The target is &apos;assigned&apos;, it is not &apos;retained&apos;.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/setOriginalTarget:</TokenIdentifier>
-			<Abstract type="html">The original target, since target can be nil.
-Is the target that were used to run the action. Unless you are doing something complex, like CCActionManager, you should NOT call this method.</Abstract>
+			<Abstract type="html">The original target, since target can be nil.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, unsafe_unretained) id originalTarget</Declaration>
@@ -72,8 +72,7 @@ Is the target that were used to run the action. Unless you are doing something c
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/originalTarget</TokenIdentifier>
-			<Abstract type="html">The original target, since target can be nil.
-Is the target that were used to run the action. Unless you are doing something complex, like CCActionManager, you should NOT call this method.</Abstract>
+			<Abstract type="html">The original target, since target can be nil.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, unsafe_unretained) id originalTarget</Declaration>
@@ -85,8 +84,7 @@ Is the target that were used to run the action. Unless you are doing something c
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/CCAction/originalTarget</TokenIdentifier>
-			<Abstract type="html">The original target, since target can be nil.
-Is the target that were used to run the action. Unless you are doing something complex, like CCActionManager, you should NOT call this method.</Abstract>
+			<Abstract type="html">The original target, since target can be nil.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, unsafe_unretained) id originalTarget</Declaration>
@@ -98,7 +96,7 @@ Is the target that were used to run the action. Unless you are doing something c
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/setTag:</TokenIdentifier>
-			<Abstract type="html">The action tag. An identifier of the action</Abstract>
+			<Abstract type="html">The action tag. An identifier of the action.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readwrite, assign) NSInteger tag</Declaration>
@@ -110,7 +108,7 @@ Is the target that were used to run the action. Unless you are doing something c
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/tag</TokenIdentifier>
-			<Abstract type="html">The action tag. An identifier of the action</Abstract>
+			<Abstract type="html">The action tag. An identifier of the action.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readwrite, assign) NSInteger tag</Declaration>
@@ -122,7 +120,7 @@ Is the target that were used to run the action. Unless you are doing something c
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/CCAction/tag</TokenIdentifier>
-			<Abstract type="html">The action tag. An identifier of the action</Abstract>
+			<Abstract type="html">The action tag. An identifier of the action.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readwrite, assign) NSInteger tag</Declaration>
@@ -134,24 +132,24 @@ Is the target that were used to run the action. Unless you are doing something c
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/CCAction/action</TokenIdentifier>
-			<Abstract type="html">Allocates and initializes the action</Abstract>
+			<Abstract type="html">Creates and returns an action object.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>+ (id)action</Declaration>
 			
-			<ReturnValue><Abstract type="html">A new action</Abstract></ReturnValue>
+			<ReturnValue><Abstract type="html">The CCAction Object.</Abstract></ReturnValue>
 			<Anchor>//api/name/action</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/init</TokenIdentifier>
-			<Abstract type="html">Initializes the action</Abstract>
+			<Abstract type="html">Initializes and returns an action object.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>- (id)init</Declaration>
 			
-			<ReturnValue><Abstract type="html">A new action</Abstract></ReturnValue>
+			<ReturnValue><Abstract type="html">An initialized CCAction Object.</Abstract></ReturnValue>
 			<Anchor>//api/name/init</Anchor>
             <NodeRef refid="1"/>
 		</Token>
@@ -178,7 +176,7 @@ Called before the action is started.</Abstract>
 			<Parameters>
 				<Parameter>
 					<Name>target</Name>
-					<Abstract type="html">Target to assign to action (weak reference)</Abstract>
+					<Abstract type="html">Target to assign to action (weak reference).</Abstract>
 				</Parameter>
 			</Parameters>
 			
@@ -204,17 +202,15 @@ In stead use: [target stopAction:action]</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/step:</TokenIdentifier>
-			<Abstract type="html">Steps the action
-Called for every frame with step interval
-Note:
-Do not override unless you know what you are doing.</Abstract>
+			<Abstract type="html">Steps the action.
+Called for every frame with step interval.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>- (void)step:(CCTime)dt</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>dt</Name>
-					<Abstract type="html">Ellapsed interval since last step</Abstract>
+					<Abstract type="html">Ellapsed interval since last step.</Abstract>
 				</Parameter>
 			</Parameters>
 			
@@ -224,16 +220,14 @@ Do not override unless you know what you are doing.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/CCAction/update:</TokenIdentifier>
-			<Abstract type="html">Updates the action with normalized value
-For example:
-A value of 0.5 indicates that the action is 50% complete.</Abstract>
+			<Abstract type="html">Updates the action with normalized value.</Abstract>
 			<DeclaredIn>CCAction.h</DeclaredIn>
 			
 			<Declaration>- (void)update:(CCTime)time</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>time</Name>
-					<Abstract type="html">Normalized action progress</Abstract>
+					<Abstract type="html">Normalized action progress.</Abstract>
 				</Parameter>
 			</Parameters>
 			
