@@ -32,9 +32,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Configure Cocos2d with the options set in SpriteBuilder
-    NSMutableDictionary* cocos2dSetup = [NSMutableDictionary dictionaryWithContentsOfFile:[[CCFileUtils sharedFileUtils] fullPathFromRelativePath:@"configCocos2d.plist"]];
-    
     // Note: this needs to happen before configureCCFileUtils is called, because we need apportable to correctly setup the screen scale factor.
 #ifdef APPORTABLE
     if([cocos2dSetup[CCSetupScreenMode] isEqual:CCScreenModeFixed])
@@ -45,6 +42,9 @@
     
     // Configure CCFileUtils to work with SpriteBuilder
     [CCBReader configureCCFileUtils];
+
+    // Configure Cocos2d with the options set in SpriteBuilder
+    NSMutableDictionary* cocos2dSetup = [NSMutableDictionary dictionaryWithContentsOfFile:[[CCFileUtils sharedFileUtils] fullPathFromRelativePath:@"configCocos2d.plist"]];
     
     // Do any extra configuration of Cocos2d here (the example line changes the pixel format for faster rendering, but with less colors)
     //[cocos2dSetup setObject:kEAGLColorFormatRGB565 forKey:CCConfigPixelFormat];
