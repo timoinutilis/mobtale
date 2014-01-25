@@ -7,6 +7,25 @@
 //
 
 #import "AdvParser.h"
+#import "AdvLocation.h"
+#import "AdvItem.h"
+#import "AdvObject.h"
+#import "AdvActionHandler.h"
+#import "AdvCommand.h"
+
+@interface AdvParser()
+{
+    Adventure* _adventure;
+    AdvLocation* _currentLocation;
+    AdvItem* _currentItem;
+    AdvObject* _currentObject;
+    AdvActionHandler* _currentActionHandler;
+    AdvCommand* _currentCommand;
+    
+    NSMutableArray* _commandsTarget;
+    NSMutableArray* _commandsTargetStack;
+}
+@end
 
 @implementation AdvParser
 

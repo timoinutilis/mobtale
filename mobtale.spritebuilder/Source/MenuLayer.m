@@ -10,6 +10,13 @@
 #import "AdvController.h"
 #import "CCBReader.h"
 
+@interface MenuLayer()
+{
+    CCButton* _buttonContinue;
+    CCNode* _image;
+}
+@end
+
 @implementation MenuLayer
 
 -(void)dealloc

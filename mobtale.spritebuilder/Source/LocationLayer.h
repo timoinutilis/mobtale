@@ -10,8 +10,6 @@
 #import "AdvNode.h"
 
 @interface LocationLayer : CCNode
-{
-}
 
 @property (readonly) CCNode* currentLocationLayer;
 

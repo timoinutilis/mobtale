@@ -11,14 +11,9 @@
 #import "Adventure.h"
 #import "AdvLocation.h"
 #import "IngameLayer.h"
-#import "AdvPlayer.h"
 #import "AdvNode.h"
 
 @interface AdvController : NSObject
-{
-    Adventure* _adventure;
-    AdvPlayer* _player;
-}
 
 @property (readonly) AdvLocation* currentLocation;
 @property (readonly) IngameLayer* ingameLayer;

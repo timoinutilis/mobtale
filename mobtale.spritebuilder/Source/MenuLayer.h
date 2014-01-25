@@ -9,11 +9,6 @@
 #import "cocos2d.h"
 
 @interface MenuLayer : CCScene
-{
-    CCButton* _buttonContinue;
-    
-    CCNode* _image;
-}
 
 -(void) loadImage:(NSString*)name;
 

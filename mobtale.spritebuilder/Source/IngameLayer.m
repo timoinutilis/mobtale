@@ -9,6 +9,29 @@
 #import "IngameLayer.h"
 #import "AdvController.h"
 
+@interface IngameLayer()
+{
+    CCButton* _buttonMenu;
+    CCButton* _buttonInventory;
+    CCButton* _buttonTake;
+    CCButton* _buttonUse;
+    CCNode* _nodeCenter;
+    CCNode* _nodeTextWindow;
+    CCNode* _nodeActionsContainer;
+    CCLabelTTF* _labelText;
+    CCNode* _nodeInventoryWindow;
+    CCNode* _inventoryBox;
+    
+    NSString* _selectedObjectId;
+    BOOL _selectedIsItem;
+    AdvObjectSprite* _draggingObject;
+    AdvNode* _draggingOverNode;
+    AdvObjectSprite* _draggingOverObject;
+    BOOL _dragginOverLocation;
+    NSMutableArray* _inventorySprites;
+}
+@end
+
 @implementation IngameLayer
 
 - (id) init

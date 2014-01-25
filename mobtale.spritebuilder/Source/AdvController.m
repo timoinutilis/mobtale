@@ -11,6 +11,16 @@
 #import "MenuLayer.h"
 #import "IngameLayer.h"
 #import "AdvParser.h"
+#import "AdvPlayer.h"
+#import "AdvCommand.h"
+#import "AdvActionHandler.h"
+
+@interface AdvController()
+{
+    Adventure* _adventure;
+    AdvPlayer* _player;
+}
+@end
 
 @implementation AdvController
 
