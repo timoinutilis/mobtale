@@ -31,9 +31,9 @@
 -(void) useItem:(NSString*)objectId;
 -(void) takeObject:(NSString*)objectId;
 -(BOOL) lookAtItem:(NSString*)objectId;
--(void) useObject:(NSString*)objectId;
+-(BOOL) useObject:(NSString*)objectId;
 -(void) useObject:(NSString*)object1Id with:(NSString*)object2Id;
--(void) lookAtObject:(NSString*)objectId inventory:(BOOL)inventory;
+-(void) lookAtObject:(NSString*)objectId;
 -(void) giveObject:(NSString*)objectId;
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;

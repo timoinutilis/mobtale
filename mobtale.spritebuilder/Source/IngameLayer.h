@@ -25,12 +25,11 @@
 - (void) showText:(NSString*)text;
 - (void) hideText;
 - (BOOL) isTextVisible;
-- (void) showTakeForObjectId:(NSString*)objectId;
-- (void) showUseForObjectId:(NSString*)objectId isItem:(BOOL)isItem;
 - (void) openInventory;
 - (void) closeInventory;
 - (void) addInventoryObject:(NSString*)objectId;
 - (void) removeInventoryObject:(NSString*)objectId;
 - (void) updateInventoryPositionsAnimated:(BOOL)animated;
+- (void) unselect;
 
 @end

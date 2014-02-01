@@ -10,14 +10,21 @@
 #import "CCBReader.h"
 #import "AdvController.h"
 
+@interface LocationLayer()
+{
+    AdvNode* _selectedNode;
+    AdvNode* _overNode;
+}
+@end
+
 @implementation LocationLayer
 
 - (id) init
 {
     if (self = [super init])
     {
-//        self.userInteractionEnabled = YES;
-//        self.exclusiveTouch = YES;
+        self.userInteractionEnabled = YES;
+        self.claimsUserInteraction = YES;
 
         CGSize winSize = [[CCDirector sharedDirector] viewSize];
         self.contentSize = winSize;
@@ -63,6 +70,11 @@
     node.visible = visible;
 }
 
+- (void) unselect
+{
+    _selectedNode = nil;
+}
+
 - (AdvNode*) getNodeById:(NSString*)itemId
 {
     for (int i = _currentLocationLayer.children.count - 1; i >= 0; i--)
@@ -103,29 +115,60 @@
 {
     CGPoint location = [touch locationInWorld];
     
+    [[[AdvController sharedController] ingameLayer] unselect];
     [[[AdvController sharedController] ingameLayer] closeInventory];
     
+    _overNode =  [self getNodeAtPosition:location];
+}
+
+- (void) touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+}
+
+- (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint location = [touch locationInWorld];
+
     AdvNode* advNode = [self getNodeAtPosition:location];
-    if (advNode)
+    if (advNode && advNode == _overNode)
     {
-        if (advNode.isObject)
+        if (advNode == _selectedNode)
         {
-            CCLOG(@"clicked object %@", advNode.itemId);
-            [[AdvController sharedController] lookAtObject:advNode.itemId inventory:NO];
-        }
-        else
-        {
-            CCLOG(@"clicked item %@", advNode.itemId);
-            BOOL handled = [[AdvController sharedController] lookAtItem:advNode.itemId];
-            if (!handled)
+            // second tap
+            if (advNode.isObject)
+            {
+                [[AdvController sharedController] takeObject:advNode.itemId];
+            }
+            else
             {
                 [[AdvController sharedController] useItem:advNode.itemId];
             }
+            _selectedNode = nil;
         }
-        return;
+        else
+        {
+            // first tap
+            _selectedNode = advNode;
+            if (advNode.isObject)
+            {
+                [[AdvController sharedController] lookAtObject:advNode.itemId];
+            }
+            else
+            {
+                BOOL handled = [[AdvController sharedController] lookAtItem:advNode.itemId];
+                if (!handled)
+                {
+                    [[AdvController sharedController] useItem:advNode.itemId];
+                }
+            }
+        }
     }
-    
-//    [super touchBegan:touch withEvent:event];
+    else
+    {
+        _selectedNode = nil;
+        [[[AdvController sharedController] ingameLayer] hideText];
+    }
+    _overNode = nil;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "IngameLayer.h"
 #import "AdvController.h"
+#import "Support/CGPointExtension.h"
 
 @interface IngameLayer()
 {
@@ -22,12 +23,14 @@
     CCNode* _nodeInventoryWindow;
     CCNode* _inventoryBox;
     
-    NSString* _selectedObjectId;
-    BOOL _selectedIsItem;
+    BOOL _objectMoved;
+    CGPoint _dragStartPoint;
     AdvObjectSprite* _draggingObject;
     AdvNode* _draggingOverNode;
     AdvObjectSprite* _draggingOverObject;
     BOOL _dragginOverLocation;
+    AdvObjectSprite* _selectedObject;
+    
     NSMutableArray* _inventorySprites;
 }
 @end
@@ -41,10 +44,10 @@
         _inventorySprites = [[NSMutableArray alloc] init];
         
         _locationLayer = [[LocationLayer alloc] init];
-        [self addChild:_locationLayer];
+        [self addChild:_locationLayer z:-1];
         
         self.userInteractionEnabled = YES;
-        self.exclusiveTouch = YES;
+        self.claimsUserInteraction = YES;
     }
     return self;
 }
@@ -70,64 +73,22 @@
     }
 }
 
-- (void) onTake
-{
-    CCLOG(@"Click Take");
-    [[AdvController sharedController] takeObject:_selectedObjectId];
-}
-
-- (void) onUse
-{
-    CCLOG(@"Click Use");
-    if (_selectedIsItem)
-    {
-        [[AdvController sharedController] useItem:_selectedObjectId];
-    }
-    else
-    {
-        [[AdvController sharedController] useObject:_selectedObjectId];
-    }
-}
-
 - (void) showText:(NSString*)text
 {
-    _selectedObjectId = nil;
     _nodeActionsContainer.visible = NO;
     _labelText.string = text;
     _nodeTextWindow.visible = YES;
-//    [_nodeTextWindow stopAllActions];
-//    [_nodeTextWindow runAction: [CCFadeIn actionWithDuration:0.5f]];
 }
 
 - (void) hideText
 {
     _nodeActionsContainer.visible = NO;
-    _selectedObjectId = nil;
     _nodeTextWindow.visible = NO;
-//    [_nodeTextWindow stopAllActions];
-//    [_nodeTextWindow runAction: [CCFadeOut actionWithDuration:0.5f]];
 }
 
 - (BOOL) isTextVisible
 {
     return _nodeTextWindow.visible;
-}
-
-- (void) showTakeForObjectId:(NSString*)objectId
-{
-    _selectedObjectId = objectId;
-    _nodeActionsContainer.visible = YES;
-    _buttonTake.visible = YES;
-    _buttonUse.visible = NO;
-}
-
-- (void) showUseForObjectId:(NSString*)objectId isItem:(BOOL)isItem
-{
-    _selectedObjectId = objectId;
-    _selectedIsItem = isItem;
-    _nodeActionsContainer.visible = YES;
-    _buttonTake.visible = NO;
-    _buttonUse.visible = YES;
 }
 
 - (void) openInventory
@@ -159,36 +120,21 @@
 {
     CGPoint location = [touch locationInWorld];
 
-    // text window
-    if ([self isTextVisible])
-    {
-        BOOL clickedInsideText = [_nodeTextWindow hitTestWithWorldPos:location];
-        [self hideText];
-        if (clickedInsideText)
-        {
-            return;
-        }
-    }
-
     // inventory
     if ([_nodeInventoryWindow hitTestWithWorldPos:location])
     {
+        [_locationLayer unselect];
         AdvObjectSprite *sprite = [self getAdvObjectAtPosition:location];
         if (sprite)
         {
-            CCLOG(@"  object: %@", sprite.objectId);
-            [sprite removeFromParent];
-            
-            sprite.position = [self convertToNodeSpace:location];
-            [self addChild:sprite];
-            sprite.scale *= 1.5f;
+            _dragStartPoint = location;
             _draggingObject = sprite;
+            _objectMoved = NO;
         }
         return;
     }
     
-    [_locationLayer touchBegan:touch withEvent:event];
-//    [super touchBegan:touch withEvent:event];
+    [super touchBegan:touch withEvent:event];
 }
 
 - (void) touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
@@ -196,44 +142,61 @@
     if (_draggingObject)
     {
         CGPoint location = [touch locationInWorld];
-        _draggingObject.position = [self convertToNodeSpace:location];
         
-        // inventory
-        if ([_nodeInventoryWindow hitTestWithWorldPos:location])
+        if (!_objectMoved)
         {
-            _dragginOverLocation = NO;
-            if (_draggingOverNode)
+            CGFloat dist = ccpDistance(location, _dragStartPoint);
+            if (dist >= 10)
             {
-                _draggingOverNode = nil;
+                [self hideText];
+                
+                _objectMoved = YES;
+                _selectedObject = nil;
+
+                [_draggingObject removeFromParent];
+                _draggingObject.position = [self convertToNodeSpace:location];
+                [self addChild:_draggingObject];
+                _draggingObject.scale *= 1.5f;
             }
-            AdvObjectSprite *sprite = [self getAdvObjectAtPosition:location];
-            if (sprite != _draggingOverObject)
+        }
+        else
+        {
+            _draggingObject.position = [self convertToNodeSpace:location];
+            
+            // inventory
+            if ([_nodeInventoryWindow hitTestWithWorldPos:location])
             {
-                CCLOG(@"Drag over %@", sprite.objectId);
-                _draggingOverObject = sprite;
+                _dragginOverLocation = NO;
+                if (_draggingOverNode)
+                {
+                    _draggingOverNode = nil;
+                }
+                AdvObjectSprite *sprite = [self getAdvObjectAtPosition:location];
+                if (sprite != _draggingOverObject)
+                {
+                    _draggingOverObject = sprite;
+                }
+                return;
             }
-            return;
-        }
 
-        // location
-        _dragginOverLocation = YES;
-        if (_draggingOverObject)
-        {
-            _draggingOverObject = nil;
-        }
+            // location
+            _dragginOverLocation = YES;
+            if (_draggingOverObject)
+            {
+                _draggingOverObject = nil;
+            }
 
-        AdvNode* overNode = [_locationLayer getNodeAtPosition:location];
-        if (overNode != _draggingOverNode)
-        {
-            CCLOG(@"Drag over %@", overNode.itemId);
-            _draggingOverNode = overNode;
+            AdvNode* overNode = [_locationLayer getNodeAtPosition:location];
+            if (overNode != _draggingOverNode)
+            {
+                _draggingOverNode = overNode;
+            }
+            
+            if ([self isInventoryOpen])
+            {
+                [self closeInventory];
+            }
         }
-        
-        if ([self isInventoryOpen])
-        {
-            [self closeInventory];
-        }
-
     }
 }
 
@@ -241,43 +204,73 @@
 {
     if (_draggingObject)
     {
-        CGPoint worldPoint = [_draggingObject convertToWorldSpaceAR:ccp(0,0)];
-        [_draggingObject removeFromParent];
-        [_inventoryBox addChild:_draggingObject];
-        _draggingObject.position = [_inventoryBox convertToNodeSpace:worldPoint];
-
-        if (_dragginOverLocation)
+        if (_objectMoved)
         {
-            if (_draggingOverNode)
+            CGPoint worldPoint = [_draggingObject convertToWorldSpaceAR:ccp(0,0)];
+            [_draggingObject removeFromParent];
+            [_inventoryBox addChild:_draggingObject];
+            _draggingObject.position = [_inventoryBox convertToNodeSpace:worldPoint];
+
+            if (_dragginOverLocation)
             {
-                [[AdvController sharedController] useObject:_draggingObject.objectId with:_draggingOverNode.itemId];
+                if (_draggingOverNode)
+                {
+                    [[AdvController sharedController] useObject:_draggingObject.objectId with:_draggingOverNode.itemId];
+                }
+                else if ([[AdvController sharedController] currentLocation].type == AdvLocationTypePerson)
+                {
+                    [[AdvController sharedController] giveObject:_draggingObject.objectId];
+                }
+                else
+                {
+                    [self updateInventoryPositionsAnimated:YES];
+                    if (!_isInventoryOpen)
+                    {
+                        [self openInventory];
+                    }
+                }
             }
-            else if ([[AdvController sharedController] currentLocation].type == AdvLocationTypePerson)
+            else if (_draggingOverObject)
             {
-                [[AdvController sharedController] giveObject:_draggingObject.objectId];
+                [[AdvController sharedController] useObject:_draggingObject.objectId with:_draggingOverObject.objectId];
             }
             else
             {
                 [self updateInventoryPositionsAnimated:YES];
-                if (!_isInventoryOpen)
-                {
-                    [self openInventory];
-                }
             }
-        }
-        else if (_draggingOverObject)
-        {
-            [[AdvController sharedController] useObject:_draggingObject.objectId with:_draggingOverObject.objectId];
         }
         else
         {
-            [[AdvController sharedController] lookAtObject:_draggingObject.objectId inventory:YES];
+            // tapped
+            if (_draggingObject == _selectedObject)
+            {
+                // second tap
+                BOOL handled = [[AdvController sharedController] useObject:_draggingObject.objectId];
+                if (handled)
+                {
+                    _selectedObject = nil;
+                }
+            }
+            else
+            {
+                // first tap
+                [[AdvController sharedController] lookAtObject:_draggingObject.objectId];
+                _selectedObject = _draggingObject;
+            }
         }
         
         _draggingObject = nil;
         _draggingOverNode = nil;
         _draggingOverObject = nil;
         _dragginOverLocation = NO;
+    }
+    else
+    {
+        if ([self isTextVisible])
+        {
+            [self hideText];
+        }
+        _selectedObject = nil;
     }
 }
 
@@ -356,6 +349,11 @@
         }
         point.x -= distX;
     }
+}
+
+- (void) unselect
+{
+    _selectedObject = nil;
 }
 
 @end

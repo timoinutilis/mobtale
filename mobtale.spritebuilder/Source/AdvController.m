@@ -170,13 +170,13 @@ static AdvController *_sharedController = nil;
             else if ([commandName isEqualToString:@"set"])
             {
                 NSString* var = command.attributeDict[@"var"];
-                int value = command.attributeDict[@"value"];
+                int value = [command.attributeDict[@"value"] intValue];
                 [_player setVariable:var value:(value ? value : 1)];
             }
             else if ([commandName isEqualToString:@"add"])
             {
                 NSString* var = command.attributeDict[@"var"];
-                int value = command.attributeDict[@"value"];
+                int value = [command.attributeDict[@"value"] intValue];
                 [_player addVariable:var value:(value ? value : 1)];
             }
             else if ([commandName isEqualToString:@"showimage"])
@@ -322,18 +322,21 @@ static AdvController *_sharedController = nil;
         {
             [self execute:handler.commands];
             [_ingameLayer updateInventoryPositionsAnimated:YES];
-            [_ingameLayer showUseForObjectId:objectId isItem:YES];
             return YES;
         }
     }
     return NO;
 }
 
--(void) useObject:(NSString*)objectId
+-(BOOL) useObject:(NSString*)objectId
 {
-    [_ingameLayer closeInventory];
-    [self handleObject:objectId event:@"onuse"];
-    [_ingameLayer updateInventoryPositionsAnimated:YES];
+    BOOL handled = [self handleObject:objectId event:@"onuse"];
+    if (handled)
+    {
+        [_ingameLayer updateInventoryPositionsAnimated:YES];
+        return YES;
+    }
+    return NO;
 }
 
 -(void) useObject:(NSString*)objectId with:(NSString*)useWithId
@@ -375,20 +378,12 @@ static AdvController *_sharedController = nil;
 }
 
 
--(void) lookAtObject:(NSString*)objectId inventory:(BOOL)inventory
+-(void) lookAtObject:(NSString*)objectId
 {
     AdvObject* object = [_adventure getObjectById:objectId];
     if (![self handleObject:objectId event:@"onlookat"])
     {
         [_ingameLayer showText:object.name];
-    }
-    if (inventory)
-    {
-        [_ingameLayer showUseForObjectId:object.objectId isItem:NO];
-    }
-    else
-    {
-        [_ingameLayer showTakeForObjectId:object.objectId];
     }
     [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
@@ -469,6 +464,5 @@ static AdvController *_sharedController = nil;
     }
     return YES;
 }
-
 
 @end

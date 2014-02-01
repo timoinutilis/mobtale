@@ -62,7 +62,7 @@
 
 - (void) addVariable:(NSString*)var value:(int)value
 {
-    int varValue = [_variables objectForKey:var];
+    int varValue = [[_variables objectForKey:var] intValue];
     varValue += value ? value : 1;
     [_variables setObject:[NSNumber numberWithInt:varValue] forKey:var];
 }
