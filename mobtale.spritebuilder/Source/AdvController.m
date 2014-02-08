@@ -14,11 +14,13 @@
 #import "AdvPlayer.h"
 #import "AdvCommand.h"
 #import "AdvActionHandler.h"
+#import "AdvExecution.h"
 
 @interface AdvController()
 {
-    Adventure* _adventure;
-    AdvPlayer* _player;
+    Adventure *_adventure;
+    AdvPlayer *_player;
+    NSMutableArray *_stack;
 }
 @end
 
@@ -47,6 +49,15 @@ static AdvController *_sharedController = nil;
 - (void) dealloc
 {
 	_sharedController = nil;
+}
+
+- (id) init
+{
+    if (self = [super init])
+    {
+        _stack = [NSMutableArray array];
+    }
+    return self;
 }
 
 #pragma mark - Controller
@@ -103,99 +114,133 @@ static AdvController *_sharedController = nil;
     _player.locationId = locationId;
     
     _currentLocation = [_adventure getLocationById:locationId];
-    CCLOG(@"Location %@", _currentLocation.locationId);
     
     [_ingameLayer.locationLayer showLocationImage:_currentLocation.image];
     [self execute:_currentLocation.locationInitCommands];
+}
+
+-(void) execute:(NSMutableArray*)commands
+{
+    AdvExecution *exec = [[AdvExecution alloc] initWithCommands:commands];
+    [_stack addObject:exec];
+
+    [self executeCommands];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
 
--(BOOL) execute:(NSMutableArray*)commands
+- (BOOL) isExecuting
 {
-    for (AdvCommand *command in commands)
+    return _stack.count > 0;
+}
+
+- (void) continueExecution
+{
+    [self executeCommands];
+    [_ingameLayer updateInventoryPositionsAnimated:YES];
+}
+
+- (void) executeCommands
+{
+    while (_stack.count > 0)
     {
-        if (command.condition == nil || [self isExpressionTrue:command.condition])
+        BOOL enteredSub = NO;
+        AdvExecution *exec = [_stack lastObject];
+        
+        while (![exec finished])
         {
-            NSString *commandName = command.type;
-            if ([commandName isEqualToString:@"write"])
+            AdvCommand *command = [exec getNextCommand];
+            
+            if (command.condition == nil || [self isExpressionTrue:command.condition])
             {
-                NSString* text = command.attributeDict[@"text"];
-                [_ingameLayer showText:text];
-            }
-            else if ([commandName isEqualToString:@"jump"])
-            {
-                NSString* locationId = command.attributeDict[@"to"];
-                [self setLocation:locationId];
-                return YES;
-            }
-            else if ([commandName isEqualToString:@"do"])
-            {
-                [self execute:command.commands];
-            }
-            else if ([commandName isEqualToString:@"get"])
-            {
-                NSString* objectId = command.attributeDict[@"id"];
-                [self takeObjectPrivate:objectId];
-            }
-            else if ([commandName isEqualToString:@"drop"])
-            {
-                NSString* objectId = command.attributeDict[@"id"];
-                if ([_currentLocation getObjectById:objectId])
+                NSString *commandName = command.type;
+                if ([commandName isEqualToString:@"write"])
                 {
-                    [_ingameLayer.locationLayer setNodeVisible:objectId visible:NO];
+                    NSString* text = command.attributeDict[@"text"];
+                    [_ingameLayer showText:text];
+                    return;
                 }
-                [_player drop:objectId];
-                [_ingameLayer removeInventoryObject:objectId];
-            }
-            else if ([commandName isEqualToString:@"show"])
-            {
-                NSString* itemId = command.attributeDict[@"id"];
-                NSString* locationId = command.attributeDict[@"location"];
-                [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:@"visible" overwrite:true];
-                if (!locationId || locationId == _currentLocation.locationId)
+                else if ([commandName isEqualToString:@"jump"])
                 {
-                    [_ingameLayer.locationLayer setNodeVisible:itemId visible:YES];
+                    NSString* locationId = command.attributeDict[@"to"];
+                    [_stack removeAllObjects];
+                    [self setLocation:locationId];
+                    return;
                 }
-            }
-            else if ([commandName isEqualToString:@"hide"])
-            {
-                NSString* itemId = command.attributeDict[@"id"];
-                NSString* locationId = command.attributeDict[@"location"];
-                [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:@"hidden" overwrite:true];
-                if (!locationId || locationId == _currentLocation.locationId)
+                else if ([commandName isEqualToString:@"do"])
                 {
-                    [_ingameLayer.locationLayer setNodeVisible:itemId visible:NO];
+                    AdvExecution *subExec = [[AdvExecution alloc] initWithCommands:command.commands];
+                    [_stack addObject:subExec];
+                    enteredSub = YES;
+                    break;
                 }
-            }
-            else if ([commandName isEqualToString:@"set"])
-            {
-                NSString* var = command.attributeDict[@"var"];
-                int value = [command.attributeDict[@"value"] intValue];
-                [_player setVariable:var value:(value ? value : 1)];
-            }
-            else if ([commandName isEqualToString:@"add"])
-            {
-                NSString* var = command.attributeDict[@"var"];
-                int value = [command.attributeDict[@"value"] intValue];
-                [_player addVariable:var value:(value ? value : 1)];
-            }
-            else if ([commandName isEqualToString:@"showimage"])
-            {
-                //TODO
-            }
-            else if ([commandName isEqualToString:@"share"])
-            {
-    /*            if (shareFunction)
+                else if ([commandName isEqualToString:@"get"])
                 {
-                    shareTitle = element.getAttribute("title");
-                    shareText = element.getAttribute("text");
-                    sharePicture = element.getAttribute("picture");
-                    shareFunction(shareTitle, shareText, sharePicture);
-                }*/
+                    NSString* objectId = command.attributeDict[@"id"];
+                    [self takeObjectPrivate:objectId];
+                }
+                else if ([commandName isEqualToString:@"drop"])
+                {
+                    NSString* objectId = command.attributeDict[@"id"];
+                    if ([_currentLocation getObjectById:objectId])
+                    {
+                        [_ingameLayer.locationLayer setNodeVisible:objectId visible:NO];
+                    }
+                    [_player drop:objectId];
+                    [_ingameLayer removeInventoryObject:objectId];
+                }
+                else if ([commandName isEqualToString:@"show"])
+                {
+                    NSString* itemId = command.attributeDict[@"id"];
+                    NSString* locationId = command.attributeDict[@"location"];
+                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:@"visible" overwrite:true];
+                    if (!locationId || locationId == _currentLocation.locationId)
+                    {
+                        [_ingameLayer.locationLayer setNodeVisible:itemId visible:YES];
+                    }
+                }
+                else if ([commandName isEqualToString:@"hide"])
+                {
+                    NSString* itemId = command.attributeDict[@"id"];
+                    NSString* locationId = command.attributeDict[@"location"];
+                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:@"hidden" overwrite:true];
+                    if (!locationId || locationId == _currentLocation.locationId)
+                    {
+                        [_ingameLayer.locationLayer setNodeVisible:itemId visible:NO];
+                    }
+                }
+                else if ([commandName isEqualToString:@"set"])
+                {
+                    NSString* var = command.attributeDict[@"var"];
+                    int value = [command.attributeDict[@"value"] intValue];
+                    [_player setVariable:var value:(value ? value : 1)];
+                }
+                else if ([commandName isEqualToString:@"add"])
+                {
+                    NSString* var = command.attributeDict[@"var"];
+                    int value = [command.attributeDict[@"value"] intValue];
+                    [_player addVariable:var value:(value ? value : 1)];
+                }
+                else if ([commandName isEqualToString:@"showimage"])
+                {
+                    //TODO
+                }
+                else if ([commandName isEqualToString:@"share"])
+                {
+        /*            if (shareFunction)
+                    {
+                        shareTitle = element.getAttribute("title");
+                        shareText = element.getAttribute("text");
+                        sharePicture = element.getAttribute("picture");
+                        shareFunction(shareTitle, shareText, sharePicture);
+                    }*/
+                }
             }
         }
+        if (!enteredSub)
+        {
+            [_stack removeLastObject];
+        }
     }
-    return YES;
 }
 
 -(BOOL) isExpressionTrue:(NSString*)expression
@@ -294,7 +339,6 @@ static AdvController *_sharedController = nil;
             break;
         }
     }
-    [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
 
 -(void) takeObject:(NSString*)objectId
@@ -321,7 +365,6 @@ static AdvController *_sharedController = nil;
         if ([handler.type isEqualToString:@"onlookat"])
         {
             [self execute:handler.commands];
-            [_ingameLayer updateInventoryPositionsAnimated:YES];
             return YES;
         }
     }
@@ -333,7 +376,6 @@ static AdvController *_sharedController = nil;
     BOOL handled = [self handleObject:objectId event:@"onuse"];
     if (handled)
     {
-        [_ingameLayer updateInventoryPositionsAnimated:YES];
         return YES;
     }
     return NO;
@@ -341,7 +383,6 @@ static AdvController *_sharedController = nil;
 
 -(void) useObject:(NSString*)objectId with:(NSString*)useWithId
 {
-    CCLOG(@"Use %@ with %@", objectId, useWithId);
     BOOL openInventory = YES;
     if (![self handleUseWith:useWithId handlers:[_adventure getObjectById:objectId].actionHandlers])
 	{
@@ -351,13 +392,16 @@ static AdvController *_sharedController = nil;
 			{
                 openInventory = NO;
 			}
+            else
+            {
+                [_ingameLayer updateInventoryPositionsAnimated:YES];
+            }
 		}
 	}
     if (openInventory && ![_ingameLayer isInventoryOpen])
     {
         [_ingameLayer openInventory];
     }
-    [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
 
 -(BOOL) handleUseWith:(NSString*)useWithId handlers:(NSMutableArray*)handlers
@@ -381,11 +425,10 @@ static AdvController *_sharedController = nil;
 -(void) lookAtObject:(NSString*)objectId
 {
     AdvObject* object = [_adventure getObjectById:objectId];
-    if (![self handleObject:objectId event:@"onlookat"])
+//    if (![self handleObject:objectId event:@"onlookat"])
     {
         [_ingameLayer showText:object.name];
     }
-    [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
 
 -(void) giveObject:(NSString*)objectId
@@ -397,16 +440,21 @@ static AdvController *_sharedController = nil;
     else
     {
         // not given
+        BOOL handled = NO;
         for (AdvActionHandler* handler in _currentLocation.objectActionHandlers)
         {
             if ([handler.type isEqualToString:@"onnoneed"])
             {
                 [self execute:handler.commands];
+                handled = YES;
                 break;
             }
         }
+        if (!handled)
+        {
+            [_ingameLayer updateInventoryPositionsAnimated:YES];
+        }
     }
-    [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
 
 -(BOOL) handleObject:(NSString*)objectId event:(NSString*)event

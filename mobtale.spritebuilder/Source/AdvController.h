@@ -20,21 +20,23 @@
 
 +(AdvController*) sharedController;
 
--(void) loadXML;
--(void) goToMenu;
--(void) startNewGame;
--(void) continueGame;
--(void) setLocation:(NSString*)locationId;
--(BOOL) execute:(NSMutableArray*)commands;
--(BOOL) isExpressionTrue:(NSString*)expression;
+- (void) loadXML;
+- (void) goToMenu;
+- (void) startNewGame;
+- (void) continueGame;
+- (void) setLocation:(NSString*)locationId;
+- (void) execute:(NSMutableArray*)commands;
+- (void) continueExecution;
+- (BOOL) isExecuting;
+- (BOOL) isExpressionTrue:(NSString*)expression;
 
--(void) useItem:(NSString*)objectId;
--(void) takeObject:(NSString*)objectId;
--(BOOL) lookAtItem:(NSString*)objectId;
--(BOOL) useObject:(NSString*)objectId;
--(void) useObject:(NSString*)object1Id with:(NSString*)object2Id;
--(void) lookAtObject:(NSString*)objectId;
--(void) giveObject:(NSString*)objectId;
+- (void) useItem:(NSString*)objectId;
+- (void) takeObject:(NSString*)objectId;
+- (BOOL) lookAtItem:(NSString*)objectId;
+- (BOOL) useObject:(NSString*)objectId;
+- (void) useObject:(NSString*)object1Id with:(NSString*)object2Id;
+- (void) lookAtObject:(NSString*)objectId;
+- (void) giveObject:(NSString*)objectId;
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;
 

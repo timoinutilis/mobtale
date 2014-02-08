@@ -110,7 +110,6 @@
     return nil;
 }
 
-
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint location = [touch locationInWorld];
@@ -155,7 +154,7 @@
             }
             else
             {
-                BOOL handled = [[AdvController sharedController] lookAtItem:advNode.itemId];
+                BOOL handled = NO; //[[AdvController sharedController] lookAtItem:advNode.itemId];
                 if (!handled)
                 {
                     [[AdvController sharedController] useItem:advNode.itemId];

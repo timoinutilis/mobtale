@@ -119,6 +119,11 @@
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint location = [touch locationInWorld];
+    
+    if ([[AdvController sharedController] isExecuting])
+    {
+        return;
+    }
 
     // inventory
     if ([_nodeInventoryWindow hitTestWithWorldPos:location])
@@ -202,7 +207,16 @@
 
 - (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    if (_draggingObject)
+    if ([[AdvController sharedController] isExecuting])
+    {
+        if ([self isTextVisible])
+        {
+            [self hideText];
+        }
+        [[AdvController sharedController] continueExecution];
+        return;
+    }
+    else if (_draggingObject)
     {
         if (_objectMoved)
         {

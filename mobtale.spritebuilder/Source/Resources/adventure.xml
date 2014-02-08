@@ -7,37 +7,14 @@
 		\n
 		Created this year.\n
 	</info>
-	
-	<!-- SERVER (without these values, savegames will be stored locally in the browser) -->
-
-	<!--
-	<serverurl>//example.com/game/server/</serverurl>
-	<servergameid>your_adv_game</servergameid>
-	-->
-
-	<!-- STANDARD TEXTS -->
-	
-	<text id="DefaultUseItem">% doesn't seem to work.</text>
-	<text id="DefaultLookAt">% looks normal.</text>
-	<text id="DefaultUseObject">% cannot be used like this.</text>
-	<text id="DefaultUseWith">% cannot be used with %.</text>
-	<text id="DefaultGive">% is not needed here.</text>
-	<text id="ButtonLookAt">Look at</text>
-	<text id="ButtonTake">Take</text>
-	<text id="ButtonGive">Give</text>
-	<text id="ButtonUse">Use</text>
-	<text id="ButtonUseWith">Use with</text>
-	<text id="ButtonCancel">Cancel</text>
-	<text id="ButtonShowInventory">Show inventory</text>
-	<text id="ButtonHide">Hide</text>
-	<text id="Inventory">Your Inventory</text>
-	<text id="UseWith">use % with...</text>
-	
+		
 	<!-- LOCATIONS AND PERSONS -->
 	
 	<location id="example_house" name="Example House" image="house.ccbi">
 		<init>
-			This is a quite boring example house.
+			<write text="This is a quite boring example house."/>
+			<write text="But when you look exactly..."/>
+			<write text="...it's still boring."/>
 		</init>
 		<item id="table" name="Table">
 			<onuse>
