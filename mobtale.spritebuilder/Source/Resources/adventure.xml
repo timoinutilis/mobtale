@@ -12,9 +12,9 @@
 	
 	<location id="example_house" name="Example House" image="house.ccbi">
 		<init>
-			<write text="This is a quite boring example house."/>
-			<write text="But when you look exactly..."/>
-			<write text="...it's still boring."/>
+			<write>This is a quite boring example house.</write>
+			<write>But when you look exactly...</write>
+			<write>...it's still boring.</write>
 		</init>
 		<item id="table" name="Table">
 			<onuse>
@@ -124,10 +124,10 @@
 			You shouldn't use the duck. It wouldn't be nice.
 		</onuse>
 		<onusewith id="hat">
-			You put the hat on the duck.
 			<get id="duck_with_hat" />
 			<drop id="hat" />
 			<drop id="duck" />
+			You put the hat on the duck.
 		</onusewith>
 		<onlookat>
 			The duck looks boring.

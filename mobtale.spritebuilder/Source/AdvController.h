@@ -31,7 +31,7 @@
 - (BOOL) isExpressionTrue:(NSString*)expression;
 
 - (void) useItem:(NSString*)objectId;
-- (void) takeObject:(NSString*)objectId;
+- (void) takeObject:(NSString*)objectId fromPosition:(CGPoint)point;
 - (BOOL) lookAtItem:(NSString*)objectId;
 - (BOOL) useObject:(NSString*)objectId;
 - (void) useObject:(NSString*)object1Id with:(NSString*)object2Id;

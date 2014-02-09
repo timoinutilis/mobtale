@@ -11,10 +11,10 @@
 @interface AdvCommand : NSObject
 
 @property (retain) NSString* type;
-@property (retain) NSDictionary* attributeDict;
+@property (retain) NSMutableDictionary* attributeDict;
 @property (readonly) NSMutableArray* commands;
 
-- (id) initWithType:(NSString*)type attributes:(NSDictionary*)attributeDict;
+- (id) initWithType:(NSString*)type attributes:(NSMutableDictionary*)attributeDict;
 - (NSMutableArray*) createCommandsArray;
 - (NSString*) condition;
 

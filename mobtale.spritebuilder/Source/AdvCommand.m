@@ -10,7 +10,7 @@
 
 @implementation AdvCommand
 
-- (id) initWithType:(NSString*)type attributes:(NSDictionary*)attributeDict
+- (id) initWithType:(NSString*)type attributes:(NSMutableDictionary*)attributeDict
 {
     if (self = [super init])
     {

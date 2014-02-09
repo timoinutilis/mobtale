@@ -58,18 +58,38 @@
 
 - (void) onMenu
 {
-    [[AdvController sharedController] goToMenu];
+    if (![[AdvController sharedController] isExecuting])
+    {
+        [[AdvController sharedController] goToMenu];
+    }
 }
 
 - (void) onInventory
 {
-    if (_isInventoryOpen)
+    if (![[AdvController sharedController] isExecuting])
     {
-        [self closeInventory];
+        if (_isInventoryOpen)
+        {
+            [self closeInventory];
+        }
+        else
+        {
+            [self openInventory];
+        }
+    }
+}
+
+- (void) setExecutionMode:(BOOL)active
+{
+    if (active)
+    {
+        _buttonInventory.visible = NO;
+        _buttonMenu.visible = NO;
     }
     else
     {
-        [self openInventory];
+        _buttonInventory.visible = YES;
+        _buttonMenu.visible = YES;
     }
 }
 
@@ -94,12 +114,14 @@
 - (void) openInventory
 {
     _isInventoryOpen = YES;
+    [_nodeCenter stopAllActions];
     [_nodeCenter runAction: [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:0.3f position:ccp(_nodeCenter.position.x, 50.0f)] rate:3.0f]];
 }
 
 - (void) closeInventory
 {
     _isInventoryOpen = NO;
+    [_nodeCenter stopAllActions];
     [_nodeCenter runAction: [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:0.3f position:ccp(_nodeCenter.position.x, 0.0f)] rate:3.0f]];
 }
 
@@ -290,9 +312,7 @@
 
 - (void) addInventoryObject:(NSString*)objectId
 {
-    NSString* filename = @"objects/";
-    filename = [filename stringByAppendingString:objectId];
-    filename = [filename stringByAppendingString:@".png"];
+    NSString* filename = [self getFilenameForObject:objectId];
     AdvObjectSprite* sprite = [AdvObjectSprite spriteWithImageNamed:filename];
     sprite.objectId = objectId;
     
@@ -368,6 +388,43 @@
 - (void) unselect
 {
     _selectedObject = nil;
+}
+
+- (void) moveObjectToInventory:(NSString*)objectId fromPosition:(CGPoint)point
+{
+    NSString* filename = [self getFilenameForObject:objectId];
+    CCSprite* sprite = [AdvObjectSprite spriteWithImageNamed:filename];
+    sprite.scale = 0.3f;
+    sprite.position = point;
+    [self addChild:sprite z:1];
+    CGPoint toPoint = [_buttonInventory convertToWorldSpaceAR:ccp(0, 0)];
+    
+    CCActionFadeIn *actionFadeIn = [CCActionFadeIn actionWithDuration:0.5f];
+//    CCActionEaseInOut *actionMove = [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:1.0f position:toPoint] rate:3.0f];
+
+    CGPoint control1 = ccp(point.x * 0.75 + toPoint.x * 0.25f, point.y * 0.75f + toPoint.y * 0.25f + 100.0f);
+    CGPoint control2 = ccp(point.x * 0.25 + toPoint.x * 0.75f, point.y * 0.25f + toPoint.y * 0.75f + 100.0f);
+    ccBezierConfig bezier = {toPoint, control1, control2};
+    CCActionBezierTo *actionMove = [CCActionBezierTo actionWithDuration:1.0f bezier:bezier];
+    
+    CCActionSpawn *actionFadeOut = [CCActionSpawn actions:
+                                   [CCActionFadeOut actionWithDuration:0.25f],
+                                   [CCActionScaleTo actionWithDuration:0.25f scale:0.1f],
+                                   nil];
+    CCActionCallBlock *actionCall = [CCActionCallBlock actionWithBlock:^{
+        [sprite removeFromParent];
+    }];
+
+    [sprite runAction:[CCActionSequence actions:[CCActionSpawn actionOne:actionFadeIn two:actionMove], actionFadeOut, actionCall, nil]];
+
+}
+
+- (NSString*) getFilenameForObject:(NSString*)objectId
+{
+    NSString* filename = @"objects/";
+    filename = [filename stringByAppendingString:objectId];
+    filename = [filename stringByAppendingString:@".png"];
+    return filename;
 }
 
 @end

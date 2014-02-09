@@ -22,6 +22,7 @@
 @property (readonly) LocationLayer* locationLayer;
 @property (readonly) BOOL isInventoryOpen;
 
+- (void) setExecutionMode:(BOOL)active;
 - (void) showText:(NSString*)text;
 - (void) hideText;
 - (BOOL) isTextVisible;
@@ -31,5 +32,6 @@
 - (void) removeInventoryObject:(NSString*)objectId;
 - (void) updateInventoryPositionsAnimated:(BOOL)animated;
 - (void) unselect;
+- (void) moveObjectToInventory:(NSString*)objectId fromPosition:(CGPoint)point;
 
 @end

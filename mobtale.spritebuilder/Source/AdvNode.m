@@ -10,4 +10,13 @@
 
 @implementation AdvNode
 
+- (id) init
+{
+    if (self = [super init])
+    {
+        self.cascadeOpacityEnabled = YES;
+    }
+    return self;
+}
+
 @end

@@ -67,7 +67,16 @@
 - (void) setNodeVisible:(NSString*)itemId visible:(BOOL)visible
 {
     CCNode *node = [self getNodeById:itemId];
-    node.visible = visible;
+    if (visible)
+    {
+        node.opacity = 0.0f;
+        node.visible = YES;
+        [node runAction:[CCActionFadeIn actionWithDuration:0.25f]];
+    }
+    else
+    {
+        [node runAction:[CCActionSequence actionOne:[CCActionFadeOut actionWithDuration:0.25f] two:[CCActionHide action]]];
+    }
 }
 
 - (void) unselect
@@ -136,7 +145,7 @@
             // second tap
             if (advNode.isObject)
             {
-                [[AdvController sharedController] takeObject:advNode.itemId];
+                [[AdvController sharedController] takeObject:advNode.itemId fromPosition:location];
             }
             else
             {

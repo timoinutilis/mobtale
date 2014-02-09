@@ -135,7 +135,7 @@
     
     if (_commandsTarget)
     {
-        _currentCommand = [[AdvCommand alloc] initWithType:elementName attributes:attributeDict];
+        _currentCommand = [[AdvCommand alloc] initWithType:elementName attributes:[NSMutableDictionary dictionaryWithDictionary:attributeDict]];
         [_commandsTarget addObject:_currentCommand];
 
         if ([elementName isEqualToString:@"do"])
@@ -157,10 +157,17 @@
         if ([text length] > 0)
         {
             text = [self cleanString:text];
-            NSMutableDictionary* attributeDict = [[NSMutableDictionary alloc] init];
-            [attributeDict setValue:text forKey:@"text"];
-            AdvCommand* textCommand = [[AdvCommand alloc] initWithType:@"write" attributes:attributeDict];
-            [_commandsTarget addObject:textCommand];
+            if (_currentCommand != nil && [_currentCommand.type isEqualToString:@"write"])
+            {
+                [_currentCommand.attributeDict setValue:text forKey:@"text"];
+            }
+            else
+            {
+                NSMutableDictionary* attributeDict = [[NSMutableDictionary alloc] init];
+                [attributeDict setValue:text forKey:@"text"];
+                AdvCommand* textCommand = [[AdvCommand alloc] initWithType:@"write" attributes:attributeDict];
+                [_commandsTarget addObject:textCommand];
+            }
         }
     }
 }

@@ -126,6 +126,7 @@ static AdvController *_sharedController = nil;
 
     [self executeCommands];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
+    [_ingameLayer setExecutionMode:[self isExecuting]];
 }
 
 - (BOOL) isExecuting
@@ -137,6 +138,7 @@ static AdvController *_sharedController = nil;
 {
     [self executeCommands];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
+    [_ingameLayer setExecutionMode:[self isExecuting]];
 }
 
 - (void) executeCommands
@@ -341,11 +343,12 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(void) takeObject:(NSString*)objectId
+-(void) takeObject:(NSString*)objectId fromPosition:(CGPoint)point
 {
     [_ingameLayer hideText];
     
     [self takeObjectPrivate:objectId];
+    [_ingameLayer moveObjectToInventory:objectId fromPosition:point];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
 }
 
