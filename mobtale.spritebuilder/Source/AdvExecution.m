@@ -24,11 +24,15 @@
     return _index >= _commands.count;
 }
 
-- (AdvCommand*) getNextCommand
+- (AdvCommand*) getCurrentCommand
 {
     AdvCommand *command = _commands[_index];
-    _index++;
     return command;
+}
+
+- (void) next
+{
+    _index++;
 }
 
 @end

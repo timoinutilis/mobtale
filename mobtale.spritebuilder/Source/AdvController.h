@@ -24,6 +24,7 @@
 - (void) goToMenu;
 - (void) startNewGame;
 - (void) continueGame;
+- (void) onViewEvent:(ViewEventType)event;
 - (void) setLocation:(NSString*)locationId;
 - (void) execute:(NSMutableArray*)commands;
 - (void) continueExecution;
@@ -39,5 +40,6 @@
 - (void) giveObject:(NSString*)objectId;
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;
+- (AdvObject*) getAdvObject:(NSString*)objectId;
 
 @end

@@ -12,9 +12,14 @@
 	
 	<location id="example_house" name="Example House" image="house.ccbi">
 		<init>
-			<write>This is a quite boring example house.</write>
-			<write>But when you look exactly...</write>
-			<write>...it's still boring.</write>
+            <do if="not house_visited">
+                <write>
+                    This is a quite boring example house.\n
+                    But when you look exactly...
+                </write>
+                <write>...it's still boring.</write>
+                <set var="house_visited"/>
+            </do>
 		</init>
 		<item id="table" name="Table">
 			<onuse>
@@ -56,7 +61,10 @@
 	
 	<location id="example_garden" name="Example Garden" image="garden.ccbi">
 		<init>
-			This is a super boring example garden.
+            <do if="not garden_visited">
+                This is a super boring example garden.
+                <set var="garden_visited"/>
+            </do>
 		</init>
 		<item id="lake" name="Lake">
 			There is a little lake with some animals.

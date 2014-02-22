@@ -19,10 +19,21 @@
 
 @interface IngameLayer : CCScene
 
+typedef NS_ENUM(int, ViewEventType)
+{
+    ViewEventNone,
+    ViewEventTextHidden,
+    ViewEventInventoryOpened,
+    ViewEventInventoryClosed,
+    ViewEventObjectsMoved
+};
+
 @property (readonly) LocationLayer* locationLayer;
 @property (readonly) BOOL isInventoryOpen;
 
 - (void) setExecutionMode:(BOOL)active;
+- (void) showObjectInfoFor:(CCNode*)node text:(NSString*)text;
+- (void) hideObjectInfo;
 - (void) showText:(NSString*)text;
 - (void) hideText;
 - (BOOL) isTextVisible;
@@ -31,6 +42,8 @@
 - (void) addInventoryObject:(NSString*)objectId;
 - (void) removeInventoryObject:(NSString*)objectId;
 - (void) updateInventoryPositionsAnimated:(BOOL)animated;
+- (BOOL) areObjectsMoving;
+- (BOOL) isDragging:(NSString*)objectId;
 - (void) unselect;
 - (void) moveObjectToInventory:(NSString*)objectId fromPosition:(CGPoint)point;
 

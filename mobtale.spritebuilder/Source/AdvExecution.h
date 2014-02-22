@@ -16,6 +16,7 @@
 
 - (id) initWithCommands:(NSMutableArray*)commands;
 - (BOOL) finished;
-- (AdvCommand*) getNextCommand;
+- (AdvCommand*) getCurrentCommand;
+- (void) next;
 
 @end

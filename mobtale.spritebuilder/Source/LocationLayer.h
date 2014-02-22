@@ -13,6 +13,7 @@
 
 @property (readonly) CCNode* currentLocationLayer;
 
+- (id) initWithIngameLayer:(id)ingame;
 - (void) showLocationImage:(NSString*)filename;
 - (void) setNodeVisible:(NSString*)itemId visible:(BOOL)visible;
 - (void) unselect;

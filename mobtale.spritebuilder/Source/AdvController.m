@@ -21,6 +21,7 @@
     Adventure *_adventure;
     AdvPlayer *_player;
     NSMutableArray *_stack;
+    int _waitingFor;
 }
 @end
 
@@ -56,6 +57,7 @@ static AdvController *_sharedController = nil;
     if (self = [super init])
     {
         _stack = [NSMutableArray array];
+        _waitingFor = ViewEventNone;
     }
     return self;
 }
@@ -109,6 +111,19 @@ static AdvController *_sharedController = nil;
     
 }
 
+- (void) onViewEvent:(ViewEventType)event
+{
+    CCLOG(@"onViewEvent: %d - waiting for: %d", event, _waitingFor);
+    if (event == _waitingFor)
+    {
+        _waitingFor = ViewEventNone;
+        if ([self isExecuting])
+        {
+            [self continueExecution];
+        }
+    }
+}
+
 -(void) setLocation:(NSString*)locationId
 {
     _player.locationId = locationId;
@@ -150,15 +165,47 @@ static AdvController *_sharedController = nil;
         
         while (![exec finished])
         {
-            AdvCommand *command = [exec getNextCommand];
+            AdvCommand *command = [exec getCurrentCommand];
+            NSString *commandName = command.type;
+            
+            // preconditions
+            
+            if ([commandName isEqualToString:@"get"] || [commandName isEqualToString:@"drop"])
+            {
+                NSString* objectId = command.attributeDict[@"id"];
+                if (![_ingameLayer isInventoryOpen] && ![_ingameLayer isDragging:objectId])
+                {
+                    [_ingameLayer openInventory];
+                    _waitingFor = ViewEventInventoryOpened;
+                    return;
+                }
+            }
+            else if ([commandName isEqualToString:@"write"])
+            {
+                if ([_ingameLayer areObjectsMoving])
+                {
+                    _waitingFor = ViewEventObjectsMoved;
+                    return;
+                }
+                if ([_ingameLayer isInventoryOpen])
+                {
+                    [_ingameLayer closeInventory];
+                    _waitingFor = ViewEventInventoryClosed;
+                    return;
+                }
+            }
+            
+            // command executions
+            
+            [exec next];
             
             if (command.condition == nil || [self isExpressionTrue:command.condition])
             {
-                NSString *commandName = command.type;
                 if ([commandName isEqualToString:@"write"])
                 {
                     NSString* text = command.attributeDict[@"text"];
                     [_ingameLayer showText:text];
+                    _waitingFor = ViewEventTextHidden;
                     return;
                 }
                 else if ([commandName isEqualToString:@"jump"])
@@ -424,11 +471,10 @@ static AdvController *_sharedController = nil;
 	return NO;
 }
 
-
 -(void) lookAtObject:(NSString*)objectId
 {
     AdvObject* object = [_adventure getObjectById:objectId];
-//    if (![self handleObject:objectId event:@"onlookat"])
+    if (![self handleObject:objectId event:@"onlookat"])
     {
         [_ingameLayer showText:object.name];
     }
@@ -514,6 +560,11 @@ static AdvController *_sharedController = nil;
         }
     }
     return YES;
+}
+
+- (AdvObject*) getAdvObject:(NSString*)objectId
+{
+    return [_adventure getObjectById:objectId];
 }
 
 @end

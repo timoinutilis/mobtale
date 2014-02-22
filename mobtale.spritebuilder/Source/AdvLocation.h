@@ -10,11 +10,11 @@
 #import "AdvItem.h"
 #import "AdvObject.h"
 
-enum AdvLocationType : NSInteger {
+enum AdvLocationType : int {
     AdvLocationTypeNormal,
     AdvLocationTypePerson
 };
-typedef enum AdvLocationType : NSInteger AdvLocationType;
+typedef enum AdvLocationType : int AdvLocationType;
 
 
 @interface AdvLocation : NSObject

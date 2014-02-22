@@ -12,6 +12,7 @@
 
 @interface LocationLayer()
 {
+    IngameLayer* _ingameLayer;
     AdvNode* _selectedNode;
     AdvNode* _overNode;
 }
@@ -19,10 +20,12 @@
 
 @implementation LocationLayer
 
-- (id) init
+- (id) initWithIngameLayer:(IngameLayer*)ingame
 {
     if (self = [super init])
     {
+        _ingameLayer = ingame;
+
         self.userInteractionEnabled = YES;
         self.claimsUserInteraction = YES;
 
@@ -34,7 +37,15 @@
 
 - (void) showLocationImage:(NSString*)filename
 {
-    [_currentLocationLayer removeFromParent];
+    if (_currentLocationLayer)
+    {
+        CCNode* oldLayer = _currentLocationLayer;
+        oldLayer.zOrder = 1;
+        oldLayer.cascadeOpacityEnabled = YES;
+        [oldLayer runAction:[CCActionSequence actionOne:[CCActionFadeOut actionWithDuration:0.5f] two:[CCActionCallBlock actionWithBlock:^{
+            [oldLayer removeFromParent];
+        }]]];
+    }
     
     _currentLocationLayer = [CCBReader load:filename];
     
@@ -123,8 +134,8 @@
 {
     CGPoint location = [touch locationInWorld];
     
-    [[[AdvController sharedController] ingameLayer] unselect];
-    [[[AdvController sharedController] ingameLayer] closeInventory];
+    [_ingameLayer unselect];
+    [_ingameLayer closeInventory];
     
     _overNode =  [self getNodeAtPosition:location];
 }
@@ -147,10 +158,6 @@
             {
                 [[AdvController sharedController] takeObject:advNode.itemId fromPosition:location];
             }
-            else
-            {
-                [[AdvController sharedController] useItem:advNode.itemId];
-            }
             _selectedNode = nil;
         }
         else
@@ -159,22 +166,20 @@
             _selectedNode = advNode;
             if (advNode.isObject)
             {
-                [[AdvController sharedController] lookAtObject:advNode.itemId];
+                AdvObject *advObject = [[AdvController sharedController] getAdvObject:advNode.itemId];
+                [_ingameLayer showObjectInfoFor:advNode text:advObject.name];
             }
             else
             {
-                BOOL handled = NO; //[[AdvController sharedController] lookAtItem:advNode.itemId];
-                if (!handled)
-                {
-                    [[AdvController sharedController] useItem:advNode.itemId];
-                }
+                [[AdvController sharedController] useItem:advNode.itemId];
+                _selectedNode = nil;
             }
         }
     }
     else
     {
         _selectedNode = nil;
-        [[[AdvController sharedController] ingameLayer] hideText];
+        [_ingameLayer hideObjectInfo];
     }
     _overNode = nil;
 }

@@ -23,15 +23,21 @@
     CCNode* _nodeInventoryWindow;
     CCNode* _inventoryBox;
     
+    CCNode* _objectInfo;
+    CCNode* _objectInfoTarget;
+    CCLabelTTF* _infoLabel;
+    
     BOOL _objectMoved;
     CGPoint _dragStartPoint;
     AdvObjectSprite* _draggingObject;
     AdvNode* _draggingOverNode;
     AdvObjectSprite* _draggingOverObject;
-    BOOL _dragginOverLocation;
+    BOOL _draggingOverLocation;
     AdvObjectSprite* _selectedObject;
     
     NSMutableArray* _inventorySprites;
+    BOOL _areObjectsMoving;
+    BOOL _objectsDirty;
 }
 @end
 
@@ -43,11 +49,13 @@
     {
         _inventorySprites = [[NSMutableArray alloc] init];
         
-        _locationLayer = [[LocationLayer alloc] init];
+        _locationLayer = [[LocationLayer alloc] initWithIngameLayer:self];
         [self addChild:_locationLayer z:-1];
         
         self.userInteractionEnabled = YES;
         self.claimsUserInteraction = YES;
+        
+        _objectInfo = [CCBReader load:@"ObjectInfo.ccbi" owner:self];
     }
     return self;
 }
@@ -93,6 +101,65 @@
     }
 }
 
+- (void) showObjectInfoFor:(CCNode*)node text:(NSString*)text
+{
+    [self hideObjectInfo];
+    
+    _objectInfoTarget = node;
+    _infoLabel.string = text;
+    [self addChild:_objectInfo];
+    [self updateObjectInfo];
+}
+
+- (void) showObjectInfoFor:(CCNode *)node useObjectId:(NSString*)objectId
+{
+    AdvObject* advObject = [[AdvController sharedController] getAdvObject:objectId];
+    NSString *info = [NSString stringWithFormat:@"Use %@ with...", advObject.name];
+    [self showObjectInfoFor:node text:info];
+}
+
+- (void) showObjectInfoFor:(CCNode *)node useObjectId:(NSString*)objectId1 withObjectId:(NSString*)objectId2
+{
+    AdvObject* advObject1 = [[AdvController sharedController] getAdvObject:objectId1];
+    AdvObject* advObject2 = [[AdvController sharedController] getAdvObject:objectId2];
+    NSString *info = [NSString stringWithFormat:@"Use %@ with %@", advObject1.name, advObject2.name];
+    [self showObjectInfoFor:node text:info];
+}
+
+- (void) showObjectInfoFor:(CCNode *)node useObjectId:(NSString*)objectId withItemId:(NSString*)itemId
+{
+    AdvObject* advObject = [[AdvController sharedController] getAdvObject:objectId];
+    AdvItem* advItem = [[[AdvController sharedController] currentLocation] getItemById:itemId];
+    NSString *info = [NSString stringWithFormat:@"Use %@ with %@", advObject.name, advItem.name];
+    [self showObjectInfoFor:node text:info];
+}
+
+- (void) showObjectInfoFor:(CCNode *)node giveObjectId:(NSString*)objectId
+{
+    AdvObject* advObject = [[AdvController sharedController] getAdvObject:objectId];
+    NSString *info = [NSString stringWithFormat:@"Give %@", advObject.name];
+    [self showObjectInfoFor:node text:info];
+}
+
+- (void) hideObjectInfo
+{
+    if (_objectInfoTarget)
+    {
+        [_objectInfo removeFromParent];
+        _objectInfoTarget = nil;
+    }
+}
+
+- (void) updateObjectInfo
+{
+    if (_objectInfoTarget)
+    {
+        CGSize size = _objectInfoTarget.contentSize;
+        CGPoint point = [_objectInfoTarget convertToWorldSpace:ccp(size.width * 0.5f, size.height)];
+        _objectInfo.position = [self convertToNodeSpace:point];
+    }
+}
+
 - (void) showText:(NSString*)text
 {
     _nodeActionsContainer.visible = NO;
@@ -115,14 +182,23 @@
 {
     _isInventoryOpen = YES;
     [_nodeCenter stopAllActions];
-    [_nodeCenter runAction: [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:0.3f position:ccp(_nodeCenter.position.x, 50.0f)] rate:3.0f]];
+    CCActionEaseInOut *actionMove = [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:0.3f position:ccp(_nodeCenter.position.x, 50.0f)] rate:3.0f];
+    [_nodeCenter runAction:[CCActionSequence actionOne:actionMove two:[CCActionCallBlock actionWithBlock:^{
+        [[AdvController sharedController] onViewEvent:ViewEventInventoryOpened];
+    }]]];
 }
 
 - (void) closeInventory
 {
-    _isInventoryOpen = NO;
-    [_nodeCenter stopAllActions];
-    [_nodeCenter runAction: [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:0.3f position:ccp(_nodeCenter.position.x, 0.0f)] rate:3.0f]];
+    if (_isInventoryOpen)
+    {
+        _isInventoryOpen = NO;
+        [_nodeCenter stopAllActions];
+        CCActionEaseInOut *actionMove = [CCActionEaseInOut actionWithAction:[CCActionMoveTo actionWithDuration:0.3f position:ccp(_nodeCenter.position.x, 0.0f)] rate:3.0f];
+        [_nodeCenter runAction:[CCActionSequence actionOne:actionMove two:[CCActionCallBlock actionWithBlock:^{
+            [[AdvController sharedController] onViewEvent:ViewEventInventoryClosed];
+        }]]];
+    }
 }
 
 - (AdvObjectSprite*) getAdvObjectAtPosition:(CGPoint)location
@@ -175,7 +251,7 @@
             CGFloat dist = ccpDistance(location, _dragStartPoint);
             if (dist >= 10)
             {
-                [self hideText];
+                [self showObjectInfoFor:_draggingObject useObjectId:_draggingObject.objectId];
                 
                 _objectMoved = YES;
                 _selectedObject = nil;
@@ -189,11 +265,12 @@
         else
         {
             _draggingObject.position = [self convertToNodeSpace:location];
+            [self updateObjectInfo];
             
             // inventory
             if ([_nodeInventoryWindow hitTestWithWorldPos:location])
             {
-                _dragginOverLocation = NO;
+                _draggingOverLocation = NO;
                 if (_draggingOverNode)
                 {
                     _draggingOverNode = nil;
@@ -202,12 +279,29 @@
                 if (sprite != _draggingOverObject)
                 {
                     _draggingOverObject = sprite;
+                    
+                    if (_draggingOverObject)
+                    {
+                        [self showObjectInfoFor:_draggingObject useObjectId:_draggingObject.objectId withObjectId:_draggingOverObject.objectId];
+                    }
+                    else
+                    {
+                        [self showObjectInfoFor:_draggingObject useObjectId:_draggingObject.objectId];
+                    }
                 }
                 return;
             }
 
             // location
-            _dragginOverLocation = YES;
+            if (!_draggingOverLocation)
+            {
+                [self closeInventory];
+                if ([[[AdvController sharedController] currentLocation] type] == AdvLocationTypePerson)
+                {
+                    [self showObjectInfoFor:_draggingObject giveObjectId:_draggingObject.objectId];
+                }
+            }
+            _draggingOverLocation = YES;
             if (_draggingOverObject)
             {
                 _draggingOverObject = nil;
@@ -217,11 +311,22 @@
             if (overNode != _draggingOverNode)
             {
                 _draggingOverNode = overNode;
-            }
-            
-            if ([self isInventoryOpen])
-            {
-                [self closeInventory];
+                
+                if (_draggingOverNode)
+                {
+                    if (_draggingOverNode.isObject)
+                    {
+                        [self showObjectInfoFor:_draggingObject useObjectId:_draggingObject.objectId withObjectId:_draggingOverNode.itemId];
+                    }
+                    else
+                    {
+                        [self showObjectInfoFor:_draggingObject useObjectId:_draggingObject.objectId withItemId:_draggingOverNode.itemId];
+                    }
+                }
+                else
+                {
+                    [self showObjectInfoFor:_draggingObject useObjectId:_draggingObject.objectId];
+                }
             }
         }
     }
@@ -229,25 +334,26 @@
 
 - (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    if ([[AdvController sharedController] isExecuting])
+    if ([self isTextVisible])
     {
-        if ([self isTextVisible])
-        {
-            [self hideText];
-        }
-        [[AdvController sharedController] continueExecution];
+        [self hideText];
+        [[AdvController sharedController] onViewEvent:ViewEventTextHidden];
         return;
     }
-    else if (_draggingObject)
+
+    if (_draggingObject)
     {
         if (_objectMoved)
         {
+            [self hideObjectInfo];
+            
             CGPoint worldPoint = [_draggingObject convertToWorldSpaceAR:ccp(0,0)];
             [_draggingObject removeFromParent];
             [_inventoryBox addChild:_draggingObject];
             _draggingObject.position = [_inventoryBox convertToNodeSpace:worldPoint];
-
-            if (_dragginOverLocation)
+            _objectsDirty = YES;
+            
+            if (_draggingOverLocation)
             {
                 if (_draggingOverNode)
                 {
@@ -259,11 +365,11 @@
                 }
                 else
                 {
-                    [self updateInventoryPositionsAnimated:YES];
                     if (!_isInventoryOpen)
                     {
                         [self openInventory];
                     }
+                    [self updateInventoryPositionsAnimated:YES];
                 }
             }
             else if (_draggingOverObject)
@@ -284,13 +390,15 @@
                 BOOL handled = [[AdvController sharedController] useObject:_draggingObject.objectId];
                 if (handled)
                 {
+                    [self hideObjectInfo];
                     _selectedObject = nil;
                 }
             }
             else
             {
                 // first tap
-                [[AdvController sharedController] lookAtObject:_draggingObject.objectId];
+                AdvObject* advObject = [[AdvController sharedController] getAdvObject:_draggingObject.objectId];
+                [self showObjectInfoFor:_draggingObject text:advObject.name];
                 _selectedObject = _draggingObject;
             }
         }
@@ -298,14 +406,10 @@
         _draggingObject = nil;
         _draggingOverNode = nil;
         _draggingOverObject = nil;
-        _dragginOverLocation = NO;
+        _draggingOverLocation = NO;
     }
     else
     {
-        if ([self isTextVisible])
-        {
-            [self hideText];
-        }
         _selectedObject = nil;
     }
 }
@@ -318,6 +422,7 @@
     
     [_inventoryBox addChild:sprite];
     [_inventorySprites addObject:sprite];
+    _objectsDirty = YES;
 }
 
 - (void) removeInventoryObject:(NSString*)objectId
@@ -337,6 +442,7 @@
                                                    actionCall, nil]];
             
             [_inventorySprites removeObject:sprite];
+            _objectsDirty = YES;
             break;
         }
     }
@@ -344,6 +450,10 @@
 
 - (void) updateInventoryPositionsAnimated:(BOOL)animated
 {
+    if (!_objectsDirty)
+        return;
+    
+    CCLOG(@"updateInventoryPositionsAnimated");
     CGRect box = _inventoryBox.boundingBox;
     float distX = box.size.height;
     CGPoint point;
@@ -383,10 +493,30 @@
         }
         point.x -= distX;
     }
+    if (animated)
+    {
+        _areObjectsMoving = YES;
+        [self runAction:[CCActionSequence actionOne:[CCActionDelay actionWithDuration:0.5f] two:[CCActionCallBlock actionWithBlock:^{
+            _areObjectsMoving = NO;
+            [[AdvController sharedController] onViewEvent:ViewEventObjectsMoved];
+        }]]];
+    }
+    _objectsDirty = NO;
+}
+
+- (BOOL) areObjectsMoving
+{
+    return _objectsDirty || _areObjectsMoving;
+}
+
+- (BOOL) isDragging:(NSString*)objectId
+{
+    return _draggingObject != nil && [_draggingObject.objectId isEqualToString:objectId];
 }
 
 - (void) unselect
 {
+    [self hideObjectInfo];
     _selectedObject = nil;
 }
 
