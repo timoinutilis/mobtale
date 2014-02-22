@@ -78,7 +78,7 @@
 				You find a grey stone and you take it, so you forget that you wanted to leave the garden.
 			</do>
 		</item>
-		<item id="house" name="House">
+		<item id="house" name="Path">
 			<jump to="example_house" />
 		</item>
 		<object id="duck" name="Duck" />
