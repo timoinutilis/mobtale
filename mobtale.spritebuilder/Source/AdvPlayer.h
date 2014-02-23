@@ -9,12 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface AdvPlayer : NSObject
-{
-    NSMutableArray* _inventory;
-    NSMutableArray* _takenObjects;
-    NSMutableDictionary* _variables;
-    NSMutableDictionary* _locationItemStatus;
-}
 
 @property (retain) NSString* locationId;
 

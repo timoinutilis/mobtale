@@ -9,6 +9,8 @@
 #import "LocationLayer.h"
 #import "CCBReader.h"
 #import "AdvController.h"
+#import "AdvNode.h"
+#import "AdvObject.h"
 
 @interface LocationLayer()
 {

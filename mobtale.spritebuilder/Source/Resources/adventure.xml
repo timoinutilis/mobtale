@@ -132,9 +132,9 @@
 			You shouldn't use the duck. It wouldn't be nice.
 		</onuse>
 		<onusewith id="hat">
-			<get id="duck_with_hat" />
 			<drop id="hat" />
 			<drop id="duck" />
+			<get id="duck_with_hat" />
 			You put the hat on the duck.
 		</onusewith>
 		<onlookat>

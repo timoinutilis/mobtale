@@ -8,8 +8,16 @@
 
 #import "AdvPlayer.h"
 
-@implementation AdvPlayer
+@interface AdvPlayer()
+{
+    NSMutableArray* _inventory;
+    NSMutableArray* _takenObjects;
+    NSMutableDictionary* _variables;
+    NSMutableDictionary* _locationItemStatus;
+}
+@end
 
+@implementation AdvPlayer
 
 - (id) init
 {

@@ -7,13 +7,15 @@
 //
 
 #import "cocos2d.h"
-#import "AdvNode.h"
+
+@class IngameLayer;
+@class AdvNode;
 
 @interface LocationLayer : CCNode
 
 @property (readonly) CCNode* currentLocationLayer;
 
-- (id) initWithIngameLayer:(id)ingame;
+- (id) initWithIngameLayer:(IngameLayer*)ingame;
 - (void) showLocationImage:(NSString*)filename;
 - (void) setNodeVisible:(NSString*)itemId visible:(BOOL)visible;
 - (void) unselect;

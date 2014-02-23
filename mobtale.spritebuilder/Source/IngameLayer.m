@@ -9,6 +9,11 @@
 #import "IngameLayer.h"
 #import "AdvController.h"
 #import "Support/CGPointExtension.h"
+#import "DialogLayer.h"
+#import "LocationLayer.h"
+#import "AdvObject.h"
+#import "Adventure.h"
+#import "AdvNode.h"
 
 @interface IngameLayer()
 {
@@ -50,7 +55,7 @@
         _inventorySprites = [[NSMutableArray alloc] init];
         
         _locationLayer = [[LocationLayer alloc] initWithIngameLayer:self];
-        [self addChild:_locationLayer z:-1];
+        [self addChild:_locationLayer z:-2];
         
         self.userInteractionEnabled = YES;
         self.claimsUserInteraction = YES;
@@ -62,6 +67,8 @@
 
 - (void) didLoadFromCCB
 {
+    _dialogLayer.zOrder = -1;
+    _dialogLayer.visible = NO;
 }
 
 - (void) onMenu
@@ -260,6 +267,8 @@
                 _draggingObject.position = [self convertToNodeSpace:location];
                 [self addChild:_draggingObject];
                 _draggingObject.scale *= 1.5f;
+
+                [self updateObjectInfo];
             }
         }
         else

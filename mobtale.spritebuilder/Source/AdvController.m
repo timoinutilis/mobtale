@@ -9,12 +9,16 @@
 #import "AdvController.h"
 #import "CCBReader.h"
 #import "MenuLayer.h"
-#import "IngameLayer.h"
 #import "AdvParser.h"
 #import "AdvPlayer.h"
 #import "AdvCommand.h"
 #import "AdvActionHandler.h"
 #import "AdvExecution.h"
+#import "LocationLayer.h"
+#import "Adventure.h"
+#import "AdvLocation.h"
+#import "AdvNode.h"
+#import "DialogLayer.h"
 
 @interface AdvController()
 {
@@ -136,6 +140,8 @@ static AdvController *_sharedController = nil;
 
 -(void) execute:(NSMutableArray*)commands
 {
+    _ingameLayer.dialogLayer.visible = NO;
+    
     AdvExecution *exec = [[AdvExecution alloc] initWithCommands:commands];
     [_stack addObject:exec];
 
@@ -170,10 +176,19 @@ static AdvController *_sharedController = nil;
             
             // preconditions
             
-            if ([commandName isEqualToString:@"get"] || [commandName isEqualToString:@"drop"])
+            if ([commandName isEqualToString:@"drop"])
             {
                 NSString* objectId = command.attributeDict[@"id"];
-                if (![_ingameLayer isInventoryOpen] && ![_ingameLayer isDragging:objectId])
+                if (![_ingameLayer isInventoryOpen] && ![_ingameLayer isDragging:objectId] && [_player isObjectTaken:objectId])
+                {
+                    [_ingameLayer openInventory];
+                    _waitingFor = ViewEventInventoryOpened;
+                    return;
+                }
+            }
+            else if ([commandName isEqualToString:@"get"])
+            {
+                if (![_ingameLayer isInventoryOpen])
                 {
                     [_ingameLayer openInventory];
                     _waitingFor = ViewEventInventoryOpened;
@@ -289,6 +304,12 @@ static AdvController *_sharedController = nil;
         {
             [_stack removeLastObject];
         }
+    }
+    
+    // end of current script
+    if (_currentLocation.type == AdvLocationTypePerson)
+    {
+        _ingameLayer.dialogLayer.visible = YES;
     }
 }
 

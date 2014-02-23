@@ -7,7 +7,9 @@
 //
 
 #import "cocos2d.h"
-#import "LocationLayer.h"
+
+@class LocationLayer;
+@class DialogLayer;
 
 @interface AdvObjectSprite : CCSprite
 
@@ -29,6 +31,8 @@ typedef NS_ENUM(int, ViewEventType)
 };
 
 @property (readonly) LocationLayer* locationLayer;
+@property (readonly) DialogLayer* dialogLayer;
+
 @property (readonly) BOOL isInventoryOpen;
 
 - (void) setExecutionMode:(BOOL)active;

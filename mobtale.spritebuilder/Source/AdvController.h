@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "Adventure.h"
-#import "AdvLocation.h"
 #import "IngameLayer.h"
-#import "AdvNode.h"
+
+@class Adventure;
+@class AdvLocation;
+@class AdvNode;
+@class AdvObject;
 
 @interface AdvController : NSObject
 
