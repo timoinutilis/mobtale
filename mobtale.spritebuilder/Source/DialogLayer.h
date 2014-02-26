@@ -10,4 +10,7 @@
 
 @interface DialogLayer : CCNodeColor
 
+- (void) clearItems;
+- (void) addItemWithText:(NSString*)text itemId:(NSString*)itemId;
+
 @end

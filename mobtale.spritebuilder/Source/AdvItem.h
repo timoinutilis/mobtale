@@ -8,12 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+enum AdvItemStatus : int {
+    AdvItemStatusUndefined,
+    AdvItemStatusVisible,
+    AdvItemStatusHidden
+};
+typedef enum AdvItemStatus : int AdvItemStatus;
+
+
 @interface AdvItem : NSObject
 
 @property (retain) NSString *itemId;
 @property (retain) NSString *name;
 @property (readonly) NSMutableArray *actionHandlers;
+@property (readonly) AdvItemStatus defaultStatus;
 
-- (id) initWithId:(NSString*)itemId name:(NSString*)name;
+- (id) initWithId:(NSString*)itemId name:(NSString*)name defaultStatus:(AdvItemStatus)status;
 
 @end

@@ -44,10 +44,11 @@
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    NSString* attrId;
-    NSString* attrName;
-    NSString* attrImage;
-    NSString* attrType;
+    NSString *attrId;
+    NSString *attrName;
+    NSString *attrImage;
+    NSString *attrType;
+    NSString *attrStatus;
     
     if ([elementName isEqualToString:@"adventure"])
     {
@@ -86,7 +87,13 @@
     {
         attrId = [attributeDict objectForKey:@"id"];
         attrName = [attributeDict objectForKey:@"name"];
-        _currentItem = [[AdvItem alloc] initWithId:attrId name:attrName];
+        attrStatus = [attributeDict objectForKey:@"status"];
+        AdvItemStatus status = AdvItemStatusVisible;
+        if ([attrStatus isEqualToString:@"hidden"])
+        {
+            status = AdvItemStatusHidden;
+        }
+        _currentItem = [[AdvItem alloc] initWithId:attrId name:attrName defaultStatus:status];
         
         // default action handler "onuse"
         _currentActionHandler = [[AdvActionHandler alloc] initWithType:@"onuse"];
@@ -112,8 +119,8 @@
             _currentObject = [[AdvObject alloc] initWithId:attrId name:attrName];
         }
 
-        // default action handler "onlookat"
-        _currentActionHandler = [[AdvActionHandler alloc] initWithType:@"onlookat"];
+        // default action handler "onuse"
+        _currentActionHandler = [[AdvActionHandler alloc] initWithType:@"onuse"];
         _commandsTarget = _currentActionHandler.commands;
         return;
     }
@@ -157,7 +164,7 @@
         if ([text length] > 0)
         {
             text = [self cleanString:text];
-            if (_currentCommand != nil && [_currentCommand.type isEqualToString:@"write"])
+            if (_currentCommand != nil && [_currentCommand.type isEqualToString:@"say"])
             {
                 [_currentCommand.attributeDict setValue:text forKey:@"text"];
             }
@@ -165,7 +172,7 @@
             {
                 NSMutableDictionary* attributeDict = [[NSMutableDictionary alloc] init];
                 [attributeDict setValue:text forKey:@"text"];
-                AdvCommand* textCommand = [[AdvCommand alloc] initWithType:@"write" attributes:attributeDict];
+                AdvCommand* textCommand = [[AdvCommand alloc] initWithType:@"say" attributes:attributeDict];
                 [_commandsTarget addObject:textCommand];
             }
         }

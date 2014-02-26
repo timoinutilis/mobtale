@@ -135,7 +135,21 @@ static AdvController *_sharedController = nil;
     _currentLocation = [_adventure getLocationById:locationId];
     
     [_ingameLayer.locationLayer showLocationImage:_currentLocation.image];
+    
+    [_ingameLayer.dialogLayer clearItems];
     [self execute:_currentLocation.locationInitCommands];
+}
+
+- (void) updateDialog
+{
+    [_ingameLayer.dialogLayer clearItems];
+    for (AdvItem *item in _currentLocation.items)
+    {
+        if ([self getItemStatus:item.itemId] == AdvItemStatusVisible)
+        {
+            [_ingameLayer.dialogLayer addItemWithText:item.name itemId:item.itemId];
+        }
+    }
 }
 
 -(void) execute:(NSMutableArray*)commands
@@ -195,7 +209,7 @@ static AdvController *_sharedController = nil;
                     return;
                 }
             }
-            else if ([commandName isEqualToString:@"write"])
+            else if ([commandName isEqualToString:@"say"])
             {
                 if ([_ingameLayer areObjectsMoving])
                 {
@@ -216,7 +230,7 @@ static AdvController *_sharedController = nil;
             
             if (command.condition == nil || [self isExpressionTrue:command.condition])
             {
-                if ([commandName isEqualToString:@"write"])
+                if ([commandName isEqualToString:@"say"])
                 {
                     NSString* text = command.attributeDict[@"text"];
                     [_ingameLayer showText:text];
@@ -256,7 +270,7 @@ static AdvController *_sharedController = nil;
                 {
                     NSString* itemId = command.attributeDict[@"id"];
                     NSString* locationId = command.attributeDict[@"location"];
-                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:@"visible" overwrite:true];
+                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:AdvItemStatusVisible overwrite:true];
                     if (!locationId || locationId == _currentLocation.locationId)
                     {
                         [_ingameLayer.locationLayer setNodeVisible:itemId visible:YES];
@@ -266,7 +280,7 @@ static AdvController *_sharedController = nil;
                 {
                     NSString* itemId = command.attributeDict[@"id"];
                     NSString* locationId = command.attributeDict[@"location"];
-                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:@"hidden" overwrite:true];
+                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:AdvItemStatusHidden overwrite:true];
                     if (!locationId || locationId == _currentLocation.locationId)
                     {
                         [_ingameLayer.locationLayer setNodeVisible:itemId visible:NO];
@@ -309,6 +323,7 @@ static AdvController *_sharedController = nil;
     // end of current script
     if (_currentLocation.type == AdvLocationTypePerson)
     {
+        [self updateDialog];
         _ingameLayer.dialogLayer.visible = YES;
     }
 }
@@ -575,12 +590,22 @@ static AdvController *_sharedController = nil;
     }
     else
     {
-        if ([_player getLocationItemStatus:_currentLocation.locationId itemId:advNode.itemId])
+        if ([self getItemStatus:advNode.itemId] != AdvItemStatusVisible)
         {
             return NO;
         }
     }
     return YES;
+}
+
+- (AdvItemStatus) getItemStatus:(NSString*)itemId
+{
+    AdvItemStatus storedStatus = [_player getLocationItemStatus:_currentLocation.locationId itemId:itemId];
+    if (storedStatus != AdvItemStatusUndefined)
+    {
+        return storedStatus;
+    }
+    return [_currentLocation getItemById:itemId].defaultStatus;
 }
 
 - (AdvObject*) getAdvObject:(NSString*)objectId

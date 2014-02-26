@@ -75,7 +75,7 @@
     [_variables setObject:[NSNumber numberWithInt:varValue] forKey:var];
 }
 
-- (void) setLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId status:(NSString*)status overwrite:(BOOL)overwrite
+- (void) setLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId status:(AdvItemStatus)status overwrite:(BOOL)overwrite
 {
     NSMutableDictionary* locationItems = [_locationItemStatus objectForKey:locationId];
 	if (!locationItems)
@@ -85,22 +85,22 @@
 	}
 	if (overwrite || ![locationItems objectForKey:itemId])
 	{
-        [locationItems setObject:[status copy] forKey:itemId];
+        [locationItems setObject:[NSNumber numberWithInt:status] forKey:itemId];
 	}
 }
 
-- (NSString*) getLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId
+- (AdvItemStatus) getLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId
 {
     NSMutableDictionary* locationItems = [_locationItemStatus objectForKey:locationId];
 	if (locationItems)
 	{
-        NSString* status = [locationItems objectForKey:itemId];
-		if (status)
+        NSNumber *statusNumber = [locationItems objectForKey:itemId];
+		if (statusNumber)
 		{
-			return status;
+			return [statusNumber intValue];
 		}
 	}
-	return nil;
+	return AdvItemStatusUndefined;
 }
 
 @end

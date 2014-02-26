@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AdvItem.h"
 
 @interface AdvPlayer : NSObject
 
@@ -19,7 +20,7 @@
 - (void) setVariable:(NSString*)var value:(int)value;
 - (int) getVariable:(NSString*)var;
 - (void) addVariable:(NSString*)var value:(int)value;
-- (void) setLocationItemStatus:(NSString*)locationId itemId:(NSString*)id status:(NSString*)status overwrite:(BOOL)overwrite;
-- (NSString*) getLocationItemStatus:(NSString*)locationId itemId:(NSString*)id;
+- (void) setLocationItemStatus:(NSString*)locationId itemId:(NSString*)id status:(AdvItemStatus)status overwrite:(BOOL)overwrite;
+- (AdvItemStatus) getLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId;
 
 @end

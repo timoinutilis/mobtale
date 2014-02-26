@@ -13,26 +13,23 @@
 	<location id="example_house" name="Example House" image="house.ccbi">
 		<init>
             <do if="not house_visited">
-                <write>
+                <say>
                     This is a quite boring example house.\n
                     But when you look exactly...
-                </write>
-                <write>...it's still boring.</write>
+                </say>
+                <say>...it's still boring.</say>
                 <set var="house_visited"/>
             </do>
 		</init>
 		<item id="table" name="Table">
 			<onuse>
-				You don't want to sit down there now.
-			</onuse>
-			<onlookat>
 				<do if="duck_on_table">
 					There is a duck with a hat on the table.
 				</do>
 				<do if="not duck_on_table">
 					The table looks boring.
 				</do>
-			</onlookat>
+			</onuse>
 			<onusewith id="duck">
 				The duck looks too boring for this table.
 			</onusewith>
@@ -103,7 +100,7 @@
 				"You did all you can already, thank you."
 			</do>
 			<do if="not man_is_friendly">
-				"Close my wardrobe and let me alone!"
+				"Close my wardrobe and let me alone! Without my stone nothing has sense."
 			</do>
 		</item>
 		<item id="man_3" name="How did you lose your stone?" status="hidden">
@@ -129,21 +126,17 @@
 	
 	<objectdef id="duck">
 		<onuse>
-			You shouldn't use the duck. It wouldn't be nice.
+			The duck looks boring.
 		</onuse>
 		<onusewith id="hat">
 			<drop id="hat" />
 			<drop id="duck" />
 			<get id="duck_with_hat" />
-			You put the hat on the duck.
 		</onusewith>
-		<onlookat>
-			The duck looks boring.
-		</onlookat>
 	</objectdef>
 	
 	<objectdef id="duck_with_hat" name="Duck with hat">
-		The duck looks funny with the hat.
+        The duck looks funny with the hat.
 	</objectdef>
 
 	<objectdef id="grey_stone" name="Grey stone" />

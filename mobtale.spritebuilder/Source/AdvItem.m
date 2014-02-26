@@ -10,12 +10,13 @@
 
 @implementation AdvItem
 
-- (id) initWithId:(NSString*)itemId name:(NSString*)name
+- (id) initWithId:(NSString*)itemId name:(NSString*)name defaultStatus:(AdvItemStatus)status
 {
     if (self = [super init])
     {
         self.itemId = itemId;
         self.name = name;
+        _defaultStatus = status;
         _actionHandlers = [[NSMutableArray alloc] init];
     }
     return self;
