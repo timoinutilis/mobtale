@@ -400,13 +400,15 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>5.8034248352050781</real>
-							<real>1.9048864841461182</real>
+							<real>5.7824726104736328</real>
+							<real>2.5040829181671143</real>
 							<false/>
 							<integer>0</integer>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>

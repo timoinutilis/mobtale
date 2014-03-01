@@ -31,7 +31,6 @@
 - (void) didLoadFromCCB
 {
     _labelTemplate.visible = NO;
-    _currentPosition = _labelTemplate.position;
 }
 
 - (void) clearItems
@@ -41,7 +40,7 @@
         [item removeFromParent];
     }
     [_items removeAllObjects];
-    _currentPosition = _labelTemplate.position;
+    _currentPosition = _labelTemplate.positionInPoints;
 }
 
 - (void) addItemWithText:(NSString*)text itemId:(NSString*)itemId

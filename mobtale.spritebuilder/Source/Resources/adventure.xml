@@ -36,6 +36,7 @@
 			<onusewith id="duck_with_hat">
 				<drop id="duck_with_hat" />
 				<set var="duck_on_table" />
+                <show id="duck_on_table" />
 				You put the funny looking duck on the table.
 			</onusewith>
 		</item>
@@ -53,6 +54,9 @@
 		<item id="door" name="Door">
 			<jump to="example_garden" />
 		</item>
+		<item id="duck_on_table" name="Duck on table" status="hidden">
+            That's the duck, man!
+        </item>
 		<object id="hat" name="Hat" />
 	</location>
 	
@@ -71,8 +75,8 @@
 				You don't want to leave this garden. You are too bored.
 			</do>
 			<do if="hasnot grey_stone">
-				<get id="grey_stone" />
 				You find a grey stone and you take it, so you forget that you wanted to leave the garden.
+				<get id="grey_stone" />
 			</do>
 		</item>
 		<item id="house" name="Path">
