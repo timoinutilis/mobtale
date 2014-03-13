@@ -9,12 +9,12 @@
 #import "AdvPlayer.h"
 
 @interface AdvPlayer()
-{
-    NSMutableArray* _inventory;
-    NSMutableArray* _takenObjects;
-    NSMutableDictionary* _variables;
-    NSMutableDictionary* _locationItemStatus;
-}
+
+@property NSMutableArray* inventory;
+@property NSMutableArray* takenObjects;
+@property NSMutableDictionary* variables;
+@property NSMutableDictionary* locationItemStatus;
+
 @end
 
 @implementation AdvPlayer
@@ -23,12 +23,38 @@
 {
     if (self = [super init])
     {
-        _inventory = [[NSMutableArray alloc] init];
-        _takenObjects = [[NSMutableArray alloc] init];
-        _variables = [[NSMutableDictionary alloc] init];
-        _locationItemStatus = [[NSMutableDictionary alloc] init];
+        self.inventory = [NSMutableArray array];
+        self.takenObjects = [NSMutableArray array];
+        self.variables = [NSMutableDictionary dictionary];
+        self.locationItemStatus = [NSMutableDictionary dictionary];
     }
     return self;
+}
+
+- (id) initFromURL:(NSURL*)url
+{
+    if (self = [super init])
+    {
+        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithContentsOfURL:url];
+        
+        self.locationId = data[@"locationId"];
+        self.inventory = data[@"inventory"];
+        self.takenObjects = data[@"takenObjects"];
+        self.variables = data[@"variables"];
+        self.locationItemStatus = data[@"locationItemStatus"];
+    }
+    return self;
+}
+
+- (void) writeToURL:(NSURL*)url
+{
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    data[@"locationId"] = _locationId;
+    data[@"inventory"] = _inventory;
+    data[@"takenObjects"] = _takenObjects;
+    data[@"variables"] = _variables;
+    data[@"locationItemStatus"] = _locationItemStatus;
+    [data writeToURL:url atomically:NO];
 }
 
 - (void) take:(NSString*)objectId

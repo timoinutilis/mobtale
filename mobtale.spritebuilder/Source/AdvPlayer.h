@@ -13,6 +13,9 @@
 
 @property (retain) NSString* locationId;
 
+- (id) initFromURL:(NSURL*)url;
+- (void) writeToURL:(NSURL*)url;
+
 - (void) take:(NSString*)objectId;
 - (void) drop:(NSString*)objectId;
 - (BOOL) has:(NSString*)objectId;

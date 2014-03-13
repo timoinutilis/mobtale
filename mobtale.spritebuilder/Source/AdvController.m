@@ -22,11 +22,13 @@
 
 @interface AdvController()
 {
-    Adventure *_adventure;
-    AdvPlayer *_player;
-    NSMutableArray *_stack;
     int _waitingFor;
 }
+
+@property Adventure *adventure;
+@property AdvPlayer *player;
+@property NSMutableArray *stack;
+
 @end
 
 @implementation AdvController
@@ -60,7 +62,7 @@ static AdvController *_sharedController = nil;
 {
     if (self = [super init])
     {
-        _stack = [NSMutableArray array];
+        self.stack = [NSMutableArray array];
         _waitingFor = ViewEventNone;
     }
     return self;
@@ -76,7 +78,7 @@ static AdvController *_sharedController = nil;
     NSString* filepath = [mainBundle pathForResource:@"adventure" ofType:@"xml"];
 
     AdvParser* parser = [[AdvParser alloc] init];
-    _adventure = [parser createAdventureFromXMLFile:filepath];
+    self.adventure = [parser createAdventureFromXMLFile:filepath];
     
     // go to menu
     
@@ -86,6 +88,8 @@ static AdvController *_sharedController = nil;
 -(void) goToMenu
 {
     _ingameLayer = nil;
+    
+    [_player writeToURL:[self playerURL]];
     
     MenuLayer* node = (MenuLayer*) [CCBReader load:@"MenuLayer.ccbi"];
     [node loadImage:@"title.ccbi"];
@@ -97,7 +101,7 @@ static AdvController *_sharedController = nil;
 
 -(void) startNewGame
 {
-    _player = [[AdvPlayer alloc] init];
+    self.player = [[AdvPlayer alloc] init];
 
     _ingameLayer = (IngameLayer*) [CCBReader load:@"IngameLayer.ccbi"];
     
@@ -112,7 +116,21 @@ static AdvController *_sharedController = nil;
 
 -(void) continueGame
 {
+    self.player = [[AdvPlayer alloc] initFromURL:[self playerURL]];
     
+    _ingameLayer = (IngameLayer*) [CCBReader load:@"IngameLayer.ccbi"];
+    
+    CCScene* scene = [CCScene node];
+    [scene addChild:_ingameLayer];
+    
+    [self setLocation:_player.locationId];
+    
+    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:0.5f]];
+}
+
+- (NSURL*) playerURL
+{
+    return @"";
 }
 
 - (void) onViewEvent:(ViewEventType)event
