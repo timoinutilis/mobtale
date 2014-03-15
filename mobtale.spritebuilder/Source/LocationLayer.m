@@ -63,7 +63,7 @@
 - (void) refreshNodes
 {
     AdvController* controller = [AdvController sharedController];
-    for (int i = _currentLocationLayer.children.count - 1; i >= 0; i--)
+    for (int i = (int)_currentLocationLayer.children.count - 1; i >= 0; i--)
     {
         CCNode *node = [_currentLocationLayer.children objectAtIndex:i];
         if ([node isKindOfClass:[AdvNode class]])
@@ -99,7 +99,7 @@
 
 - (AdvNode*) getNodeById:(NSString*)itemId
 {
-    for (int i = _currentLocationLayer.children.count - 1; i >= 0; i--)
+    for (int i = (int)_currentLocationLayer.children.count - 1; i >= 0; i--)
     {
         CCNode *node = [_currentLocationLayer.children objectAtIndex:i];
         if ([node isKindOfClass:[AdvNode class]])
@@ -116,7 +116,7 @@
 
 - (AdvNode*) getNodeAtPosition:(CGPoint)location
 {
-    for (int i = _currentLocationLayer.children.count - 1; i >= 0; i--)
+    for (int i = (int)_currentLocationLayer.children.count - 1; i >= 0; i--)
     {
         CCNode *node = [_currentLocationLayer.children objectAtIndex:i];
         if ([node isKindOfClass:[AdvNode class]])

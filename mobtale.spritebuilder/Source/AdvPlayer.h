@@ -12,6 +12,7 @@
 @interface AdvPlayer : NSObject
 
 @property (retain) NSString* locationId;
+@property NSMutableArray *inventory;
 
 - (id) initFromURL:(NSURL*)url;
 - (void) writeToURL:(NSURL*)url;

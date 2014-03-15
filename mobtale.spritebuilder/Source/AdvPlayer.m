@@ -10,10 +10,9 @@
 
 @interface AdvPlayer()
 
-@property NSMutableArray* inventory;
-@property NSMutableArray* takenObjects;
-@property NSMutableDictionary* variables;
-@property NSMutableDictionary* locationItemStatus;
+@property NSMutableArray *takenObjects;
+@property NSMutableDictionary *variables;
+@property NSMutableDictionary *locationItemStatus;
 
 @end
 
@@ -35,13 +34,23 @@
 {
     if (self = [super init])
     {
-        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithContentsOfURL:url];
+        NSDictionary *data = [NSDictionary dictionaryWithContentsOfURL:url];
+        if (!data)
+        {
+            return nil;
+        }
         
         self.locationId = data[@"locationId"];
-        self.inventory = data[@"inventory"];
-        self.takenObjects = data[@"takenObjects"];
-        self.variables = data[@"variables"];
-        self.locationItemStatus = data[@"locationItemStatus"];
+        self.inventory = [NSMutableArray arrayWithArray:data[@"inventory"]];
+        self.takenObjects = [NSMutableArray arrayWithArray:data[@"takenObjects"]];
+        self.variables = [NSMutableDictionary dictionaryWithDictionary:data[@"variables"]];
+        
+        self.locationItemStatus = [NSMutableDictionary dictionary];
+        NSDictionary *locationItemStatusDict = data[@"locationItemStatus"];
+        for (NSString *key in locationItemStatusDict)
+        {
+            self.locationItemStatus[key] = [NSMutableDictionary dictionaryWithDictionary:locationItemStatusDict[key]];
+        }
     }
     return self;
 }

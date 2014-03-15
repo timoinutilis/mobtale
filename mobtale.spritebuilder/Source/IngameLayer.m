@@ -54,13 +54,8 @@
     {
         _inventorySprites = [[NSMutableArray alloc] init];
         
-        _locationLayer = [[LocationLayer alloc] initWithIngameLayer:self];
-        [self addChild:_locationLayer z:-2];
-        
         self.userInteractionEnabled = YES;
         self.claimsUserInteraction = YES;
-        
-        _objectInfo = [CCBReader load:@"ObjectInfo.ccbi" owner:self];
     }
     return self;
 }
@@ -69,6 +64,13 @@
 {
     _dialogLayer.zOrder = -1;
     _dialogLayer.visible = NO;
+
+    _locationLayer = [[LocationLayer alloc] initWithIngameLayer:self];
+    [self addChild:_locationLayer z:-2];
+    
+    _objectInfo = [CCBReader load:@"ObjectInfo.ccbi" owner:self];
+    
+    [self hideText];
 }
 
 - (void) onMenu
@@ -210,7 +212,7 @@
 
 - (AdvObjectSprite*) getAdvObjectAtPosition:(CGPoint)location
 {
-    for (int i = _inventoryBox.children.count - 1; i >= 0; i--)
+    for (int i = (int)_inventoryBox.children.count - 1; i >= 0; i--)
     {
         AdvObjectSprite *sprite = [_inventoryBox.children objectAtIndex:i];
         if (sprite != _draggingObject && [sprite hitTestWithWorldPos:location])
@@ -436,7 +438,7 @@
 
 - (void) removeInventoryObject:(NSString*)objectId
 {
-    for (int i = _inventorySprites.count - 1; i >= 0; i--)
+    for (int i = (int)_inventorySprites.count - 1; i >= 0; i--)
     {
         AdvObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
         if ([sprite.objectId isEqualToString:objectId])
@@ -468,7 +470,7 @@
     CGPoint point;
     point.x = box.size.width - distX * 0.5f;
     point.y = box.size.height * 0.5f;
-    for (int i = _inventorySprites.count - 1; i >= 0; i--)
+    for (int i = (int)_inventorySprites.count - 1; i >= 0; i--)
     {
         AdvObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
         float finalScale = box.size.height / sprite.contentSize.height;

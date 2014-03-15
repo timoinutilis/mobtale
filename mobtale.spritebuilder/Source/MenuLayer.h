@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface MenuLayer : CCScene
+@interface MenuLayer : CCScene <UIAlertViewDelegate>
 
 -(void) loadImage:(NSString*)name;
 

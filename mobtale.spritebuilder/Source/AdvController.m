@@ -70,7 +70,7 @@ static AdvController *_sharedController = nil;
 
 #pragma mark - Controller
 
--(void) loadXML
+-(void) start
 {
     // load and parse XML
     
@@ -80,6 +80,10 @@ static AdvController *_sharedController = nil;
     AdvParser* parser = [[AdvParser alloc] init];
     self.adventure = [parser createAdventureFromXMLFile:filepath];
     
+    // load player
+    
+    self.player = [[AdvPlayer alloc] initFromURL:[self playerURL]];
+    
     // go to menu
     
     [self goToMenu];
@@ -88,8 +92,6 @@ static AdvController *_sharedController = nil;
 -(void) goToMenu
 {
     _ingameLayer = nil;
-    
-    [_player writeToURL:[self playerURL]];
     
     MenuLayer* node = (MenuLayer*) [CCBReader load:@"MenuLayer.ccbi"];
     [node loadImage:@"title.ccbi"];
@@ -103,34 +105,51 @@ static AdvController *_sharedController = nil;
 {
     self.player = [[AdvPlayer alloc] init];
 
+    AdvLocation* firstLocation = _adventure.locations[0];
+    [self setLocation:firstLocation.locationId];
+
+    [self enterGameAtLocationId:firstLocation.locationId];
+}
+
+-(void) continueGame
+{
+    NSAssert(self.player, @"no player");
+    [self enterGameAtLocationId:_player.locationId];
+}
+
+- (void) enterGameAtLocationId:(NSString*)locationId
+{
     _ingameLayer = (IngameLayer*) [CCBReader load:@"IngameLayer.ccbi"];
     
     CCScene* scene = [CCScene node];
     [scene addChild:_ingameLayer];
     
+    for (NSString *objectId in _player.inventory)
+    {
+        [_ingameLayer addInventoryObject:objectId];
+    }
+
     AdvLocation* firstLocation = _adventure.locations[0];
     [self setLocation:firstLocation.locationId];
     
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:0.5f]];
 }
 
--(void) continueGame
+- (BOOL) canContinueGame
 {
-    self.player = [[AdvPlayer alloc] initFromURL:[self playerURL]];
-    
-    _ingameLayer = (IngameLayer*) [CCBReader load:@"IngameLayer.ccbi"];
-    
-    CCScene* scene = [CCScene node];
-    [scene addChild:_ingameLayer];
-    
-    [self setLocation:_player.locationId];
-    
-    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:0.5f]];
+    return (self.player != nil);
+}
+
+- (void) saveCurrentGame
+{
+    [_player writeToURL:[self playerURL]];
 }
 
 - (NSURL*) playerURL
 {
-    return @"";
+    NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = [NSURL URLWithString:@"savegame.plist" relativeToURL:urls[0]];
+    return url;
 }
 
 - (void) onViewEvent:(ViewEventType)event

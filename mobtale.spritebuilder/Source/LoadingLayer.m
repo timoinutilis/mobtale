@@ -13,7 +13,7 @@
 
 -(void) onEnter
 {
-    [[AdvController sharedController] loadXML];
+    [[AdvController sharedController] start];
     [super onEnter];
 }
 

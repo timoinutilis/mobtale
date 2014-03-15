@@ -235,8 +235,6 @@ ethetheth</string>
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -464,7 +462,7 @@ ethetheth</string>
 											<real>0.0</real>
 											<real>0.0</real>
 											<real>0.0</real>
-											<real>0.0</real>
+											<real>0.5</real>
 										</array>
 									</dict>
 									<dict>
@@ -473,7 +471,7 @@ ethetheth</string>
 										<key>type</key>
 										<string>Float</string>
 										<key>value</key>
-										<real>0.0</real>
+										<real>0.5</real>
 									</dict>
 									<dict>
 										<key>name</key>
@@ -485,7 +483,7 @@ ethetheth</string>
 											<real>0.0</real>
 											<real>0.0</real>
 											<real>0.0</real>
-											<real>0.5</real>
+											<real>0.10000000149011612</real>
 										</array>
 									</dict>
 									<dict>
@@ -494,7 +492,7 @@ ethetheth</string>
 										<key>type</key>
 										<string>Float</string>
 										<key>value</key>
-										<real>0.5</real>
+										<real>0.10000000149011612</real>
 									</dict>
 									<dict>
 										<key>name</key>
@@ -508,6 +506,8 @@ ethetheth</string>
 										</array>
 									</dict>
 								</array>
+								<key>selected</key>
+								<true/>
 							</dict>
 							<dict>
 								<key>baseClass</key>

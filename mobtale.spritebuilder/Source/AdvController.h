@@ -22,10 +22,13 @@
 
 +(AdvController*) sharedController;
 
-- (void) loadXML;
+- (void) start;
 - (void) goToMenu;
 - (void) startNewGame;
 - (void) continueGame;
+- (BOOL) canContinueGame;
+- (void) saveCurrentGame;
+
 - (void) onViewEvent:(ViewEventType)event;
 - (void) setLocation:(NSString*)locationId;
 - (void) execute:(NSMutableArray*)commands;

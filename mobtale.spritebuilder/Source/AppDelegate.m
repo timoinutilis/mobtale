@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import "AdvController.h"
 
 @implementation AppController
 
@@ -57,6 +58,12 @@
 - (CCScene*) startScene
 {
     return [CCBReader loadAsScene:@"LoadingLayer"];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    [super applicationDidEnterBackground:application];
+    [[AdvController sharedController] saveCurrentGame];
 }
 
 @end

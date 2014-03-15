@@ -27,6 +27,11 @@
     }
 }
 
+- (void) didLoadFromCCB
+{
+    _buttonContinue.visible = [[AdvController sharedController] canContinueGame];
+}
+
 -(void) loadImage:(NSString*)name
 {
     _image = (CCNode*) [CCBReader load:name owner:self];
@@ -40,13 +45,32 @@
 
 -(void) onContinue
 {
-    CCLOG(@"Click Continue");
+    [[AdvController sharedController] continueGame];
 }
 
 -(void) onStart
 {
-    CCLOG(@"Click Start");
-    [[AdvController sharedController] startNewGame];
+    if ([[AdvController sharedController] canContinueGame])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The Current Game Will Be Lost"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Start New Game", @"Cancel", nil];
+        [alert show];
+    }
+    else
+    {
+        [[AdvController sharedController] startNewGame];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == alertView.firstOtherButtonIndex)
+    {
+        [[AdvController sharedController] startNewGame];
+    }
 }
 
 -(void) onAbout
