@@ -63,7 +63,7 @@
     data[@"takenObjects"] = _takenObjects;
     data[@"variables"] = _variables;
     data[@"locationItemStatus"] = _locationItemStatus;
-    [data writeToURL:url atomically:NO];
+    [data writeToURL:url atomically:YES];
 }
 
 - (void) take:(NSString*)objectId

@@ -108,7 +108,7 @@
 							<real>0.0</real>
 							<real>0.0</real>
 							<real>0.0</real>
-							<real>0.5</real>
+							<real>0.75</real>
 						</array>
 					</dict>
 					<dict>
@@ -117,7 +117,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.5</real>
+						<real>0.75</real>
 					</dict>
 					<dict>
 						<key>name</key>

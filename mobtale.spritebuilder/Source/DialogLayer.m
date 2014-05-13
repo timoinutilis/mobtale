@@ -11,9 +11,13 @@
 
 @interface DialogLayer()
 {
+    CCNodeColor *_nodeBackground;
     CCLabelTTF *_labelTemplate;
+    CCNode *_nodeItemsContainer;
     NSMutableArray *_items;
     CGPoint _currentPosition;
+    CGFloat _bgOpacity;
+    BOOL _enabled;
 }
 @end
 
@@ -30,7 +34,11 @@
 
 - (void) didLoadFromCCB
 {
+    _bgOpacity = _nodeBackground.opacity;
     _labelTemplate.visible = NO;
+    _nodeItemsContainer = [CCNode node];
+    _nodeItemsContainer.cascadeOpacityEnabled = YES;
+    [[_labelTemplate parent] addChild:_nodeItemsContainer];
 }
 
 - (void) clearItems
@@ -49,9 +57,49 @@
     [_items addObject:item];
     
     item.position = _currentPosition;
-    [[_labelTemplate parent] addChild:item];
+    [_nodeItemsContainer addChild:item];
     
     _currentPosition.y -= item.contentSize.height;
+}
+
+- (void) show
+{
+    [self stopAllActions];
+    _enabled = YES;
+    self.opacity = 1;
+    self.visible = YES;
+}
+
+- (void) hide
+{
+    [self stopAllActions];
+    _enabled = NO;
+    self.visible = NO;
+}
+
+- (void) fadeIn
+{
+    if (_enabled)
+    {
+        [self stopAllActions];
+        self.visible = YES;
+        [self runAction:[CCActionFadeIn actionWithDuration:0.3]];
+    }
+}
+
+- (void) fadeOut
+{
+    if (_enabled)
+    {
+        [self stopAllActions];
+        [self runAction:[CCActionSequence actionOne:[CCActionFadeOut actionWithDuration:0.3] two:[CCActionHide action]]];
+    }
+}
+
+- (void) setOpacity:(CGFloat)opacity
+{
+    _nodeBackground.opacity = opacity * _bgOpacity;
+    _nodeItemsContainer.opacity = opacity;
 }
 
 @end

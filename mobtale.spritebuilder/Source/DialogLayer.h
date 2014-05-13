@@ -12,5 +12,9 @@
 
 - (void) clearItems;
 - (void) addItemWithText:(NSString*)text itemId:(NSString*)itemId;
+- (void) show;
+- (void) hide;
+- (void) fadeIn;
+- (void) fadeOut;
 
 @end

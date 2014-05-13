@@ -129,8 +129,7 @@ static AdvController *_sharedController = nil;
         [_ingameLayer addInventoryObject:objectId];
     }
 
-    AdvLocation* firstLocation = _adventure.locations[0];
-    [self setLocation:firstLocation.locationId];
+    [self setLocation:locationId];
     
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:0.5f]];
 }
@@ -191,7 +190,7 @@ static AdvController *_sharedController = nil;
 
 -(void) execute:(NSMutableArray*)commands
 {
-    _ingameLayer.dialogLayer.visible = NO;
+    [_ingameLayer.dialogLayer hide];
     
     AdvExecution *exec = [[AdvExecution alloc] initWithCommands:commands];
     [_stack addObject:exec];
@@ -361,7 +360,7 @@ static AdvController *_sharedController = nil;
     if (_currentLocation.type == AdvLocationTypePerson)
     {
         [self updateDialog];
-        _ingameLayer.dialogLayer.visible = YES;
+        [_ingameLayer.dialogLayer show];
     }
 }
 
