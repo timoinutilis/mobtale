@@ -46,5 +46,6 @@
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;
 - (AdvObject*) getAdvObject:(NSString*)objectId;
+- (NSString*) getAdvInfo;
 
 @end

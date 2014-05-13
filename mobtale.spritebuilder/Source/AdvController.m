@@ -650,4 +650,9 @@ static AdvController *_sharedController = nil;
     return [_adventure getObjectById:objectId];
 }
 
+- (NSString*) getAdvInfo
+{
+    return _adventure.info;
+}
+
 @end

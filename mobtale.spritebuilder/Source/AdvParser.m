@@ -21,6 +21,7 @@
     AdvObject* _currentObject;
     AdvActionHandler* _currentActionHandler;
     AdvCommand* _currentCommand;
+    NSString* _currentElement;
     
     NSMutableArray* _commandsTarget;
     NSMutableArray* _commandsTargetStack;
@@ -55,6 +56,11 @@
         attrName = [attributeDict objectForKey:@"name"];
         _adventure = [[Adventure alloc] initWithName:attrName];
         return;
+    }
+    
+    if ([elementName isEqualToString:@"info"])
+    {
+        _currentElement = elementName;
     }
     
     if ([elementName isEqualToString:@"location"])
@@ -177,6 +183,15 @@
             }
         }
     }
+    else if ([_currentElement isEqualToString:@"info"])
+    {
+        NSString* text = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([text length] > 0)
+        {
+            text = [self cleanString:text];
+            _adventure.info = text;
+        }
+    }
 }
 
 - (NSString*) cleanString:(NSString*)string
@@ -188,6 +203,11 @@
 
 - (void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if (_currentElement && [elementName isEqualToString:_currentElement])
+    {
+        _currentElement = nil;
+    }
+    
     if ([elementName isEqualToString:@"location"])
     {
         [_adventure.locations addObject:_currentLocation];

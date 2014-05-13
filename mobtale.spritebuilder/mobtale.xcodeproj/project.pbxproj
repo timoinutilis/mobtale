@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9202D267191D376E00604143 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9202D266191D376E00604143 /* AboutLayer.m */; };
 		92044228188F32C100FCE508 /* AdvActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204420D188F32C100FCE508 /* AdvActionHandler.m */; };
 		92044229188F32C100FCE508 /* AdvCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204420F188F32C100FCE508 /* AdvCommand.m */; };
 		9204422A188F32C100FCE508 /* AdvController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92044211188F32C100FCE508 /* AdvController.m */; };
@@ -73,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9202D265191D376E00604143 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutLayer.h; path = Source/AboutLayer.h; sourceTree = "<group>"; };
+		9202D266191D376E00604143 /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutLayer.m; path = Source/AboutLayer.m; sourceTree = "<group>"; };
 		9204420C188F32C100FCE508 /* AdvActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvActionHandler.h; path = Source/AdvActionHandler.h; sourceTree = "<group>"; };
 		9204420D188F32C100FCE508 /* AdvActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvActionHandler.m; path = Source/AdvActionHandler.m; sourceTree = "<group>"; };
 		9204420E188F32C100FCE508 /* AdvCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvCommand.h; path = Source/AdvCommand.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				9216C28A18BA7DB200E46195 /* DialogLayer.m */,
 				92468E1218BB33C2006F7D3B /* DialogItem.h */,
 				92468E1318BB33C2006F7D3B /* DialogItem.m */,
+				9202D265191D376E00604143 /* AboutLayer.h */,
+				9202D266191D376E00604143 /* AboutLayer.m */,
 			);
 			name = layers;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				92044235188F32C100FCE508 /* MenuLayer.m in Sources */,
 				92044232188F32C100FCE508 /* IngameLayer.m in Sources */,
 				9204422C188F32C100FCE508 /* AdvItem.m in Sources */,
+				9202D267191D376E00604143 /* AboutLayer.m in Sources */,
 				92044231188F32C100FCE508 /* AdvPlayer.m in Sources */,
 				9204422F188F32C100FCE508 /* AdvObject.m in Sources */,
 				9204422D188F32C100FCE508 /* AdvLocation.m in Sources */,
