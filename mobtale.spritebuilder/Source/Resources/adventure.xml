@@ -48,6 +48,7 @@
 			<onusewith id="key">
 				<set var="wardrobe_is_open" />
 				<drop id="key" />
+                <playsound file="take.wav" />
 				The key fits and you can open the wardrobe now.
 			</onusewith>
 		</item>
@@ -71,6 +72,7 @@
 			There is a little lake with some animals.
 		</item>
 		<item id="gate" name="Gate">
+            <playanim id="duck" timeline="crazy" />
 			<do if="has grey_stone">
 				You don't want to leave this garden. You are too bored.
 			</do>

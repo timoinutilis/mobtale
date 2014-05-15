@@ -18,6 +18,7 @@
 - (id) initWithIngameLayer:(IngameLayer*)ingame;
 - (void) showLocationImage:(NSString*)filename;
 - (void) setNodeVisible:(NSString*)itemId visible:(BOOL)visible;
+- (void) setNodeAnim:(NSString*)itemId timeline:(NSString*)timeline;
 - (void) unselect;
 - (AdvNode*) getNodeAtPosition:(CGPoint)location;
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event;

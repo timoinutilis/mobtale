@@ -366,6 +366,17 @@ static AdvController *_sharedController = nil;
                         shareFunction(shareTitle, shareText, sharePicture);
                     }*/
                 }
+                else if ([commandName isEqualToString:@"playanim"])
+                {
+                    NSString* objectId = command.attributeDict[@"id"];
+                    NSString* timeline = command.attributeDict[@"timeline"];
+                    [_ingameLayer.locationLayer setNodeAnim:objectId timeline:timeline];
+                }
+                else if ([commandName isEqualToString:@"playsound"])
+                {
+                    NSString* file = command.attributeDict[@"file"];
+                    [self playSound:file];
+                }
             }
         }
         if (!enteredSub)

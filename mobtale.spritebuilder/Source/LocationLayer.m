@@ -92,6 +92,17 @@
     }
 }
 
+- (void) setNodeAnim:(NSString*)itemId timeline:(NSString*)timeline
+{
+    CCNode *node = [self getNodeById:itemId];
+    if (node.visible)
+    {
+        CCNode *child = node.children[0];
+        CCBAnimationManager *animManager = child.userObject;
+        [animManager runAnimationsForSequenceNamed:timeline];
+    }
+}
+
 - (void) unselect
 {
     _selectedNode = nil;
