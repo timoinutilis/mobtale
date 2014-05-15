@@ -31,7 +31,7 @@
 
 - (void) onViewEvent:(ViewEventType)event;
 - (void) setLocation:(NSString*)locationId;
-- (void) execute:(NSMutableArray*)commands;
+- (void) execute:(NSMutableArray*)commands enteringLocation:(BOOL)enteredLocation;
 - (void) continueExecution;
 - (BOOL) isExecuting;
 - (BOOL) isExpressionTrue:(NSString*)expression;
@@ -47,5 +47,7 @@
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;
 - (AdvObject*) getAdvObject:(NSString*)objectId;
 - (NSString*) getAdvInfo;
+
+- (void) playSound:(NSString*)sound;
 
 @end

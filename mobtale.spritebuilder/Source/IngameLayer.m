@@ -249,6 +249,7 @@
             _dragStartPoint = location;
             _draggingObject = sprite;
             _objectMoved = NO;
+            [[AdvController sharedController] playSound:@"touch.wav"];
         }
         return;
     }
@@ -388,6 +389,7 @@
                         [self openInventory];
                     }
                     [self updateInventoryPositionsAnimated:YES];
+                    [[AdvController sharedController] playSound:@"move.wav"];
                 }
             }
             else if (_draggingOverObject)
@@ -397,6 +399,7 @@
             else
             {
                 [self updateInventoryPositionsAnimated:YES];
+                [[AdvController sharedController] playSound:@"move.wav"];
             }
         }
         else

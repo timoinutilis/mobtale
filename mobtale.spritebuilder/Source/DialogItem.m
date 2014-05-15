@@ -55,6 +55,7 @@
         return;
     }
     self.highlighted = YES;
+    [[AdvController sharedController] playSound:@"click.wav"];
 }
 
 - (void) touchExited:(UITouch *)touch withEvent:(UIEvent *)event

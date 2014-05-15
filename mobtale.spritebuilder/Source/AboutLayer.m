@@ -64,6 +64,10 @@
 
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    if (self.opacity == 1)
+    {
+        [[AdvController sharedController] playSound:@"click.wav"];
+    }
 }
 
 - (void) touchMoved:(UITouch *)touch withEvent:(UIEvent *)event

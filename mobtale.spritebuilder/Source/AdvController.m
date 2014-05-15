@@ -175,7 +175,7 @@ static AdvController *_sharedController = nil;
     [_ingameLayer.locationLayer showLocationImage:_currentLocation.image];
     
     [_ingameLayer.dialogLayer clearItems];
-    [self execute:_currentLocation.locationInitCommands];
+    [self execute:_currentLocation.locationInitCommands enteringLocation:YES];
     
     if (music)
     {
@@ -199,14 +199,14 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(void) execute:(NSMutableArray*)commands
+-(void) execute:(NSMutableArray*)commands enteringLocation:(BOOL)enteringLocation
 {
     [_ingameLayer.dialogLayer hide];
     
     AdvExecution *exec = [[AdvExecution alloc] initWithCommands:commands];
     [_stack addObject:exec];
 
-    [self executeCommands];
+    [self executeCommands_enteringLocation:enteringLocation];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
     [_ingameLayer setExecutionMode:[self isExecuting]];
 }
@@ -218,12 +218,12 @@ static AdvController *_sharedController = nil;
 
 - (void) continueExecution
 {
-    [self executeCommands];
+    [self executeCommands_enteringLocation:NO];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
     [_ingameLayer setExecutionMode:[self isExecuting]];
 }
 
-- (void) executeCommands
+- (void) executeCommands_enteringLocation:(BOOL)enteringLocation
 {
     while (_stack.count > 0)
     {
@@ -283,6 +283,10 @@ static AdvController *_sharedController = nil;
                     NSString* text = command.attributeDict[@"text"];
                     [_ingameLayer showText:text];
                     _waitingFor = ViewEventTextHidden;
+                    if (!enteringLocation)
+                    {
+                        [self playSound:@"text.wav"];
+                    }
                     return;
                 }
                 else if ([commandName isEqualToString:@"jump"])
@@ -290,6 +294,7 @@ static AdvController *_sharedController = nil;
                     NSString* locationId = command.attributeDict[@"to"];
                     [_stack removeAllObjects];
                     [self setLocation:locationId];
+                    [self playSound:@"walk.wav"];
                     return;
                 }
                 else if ([commandName isEqualToString:@"do"])
@@ -303,6 +308,7 @@ static AdvController *_sharedController = nil;
                 {
                     NSString* objectId = command.attributeDict[@"id"];
                     [self takeObjectPrivate:objectId];
+                    [self playSound:@"take.wav"];
                 }
                 else if ([commandName isEqualToString:@"drop"])
                 {
@@ -468,7 +474,7 @@ static AdvController *_sharedController = nil;
     {
         if ([handler.type isEqualToString:@"onuse"])
         {
-            [self execute:handler.commands];
+            [self execute:handler.commands enteringLocation:NO];
             break;
         }
     }
@@ -481,6 +487,7 @@ static AdvController *_sharedController = nil;
     [self takeObjectPrivate:objectId];
     [_ingameLayer moveObjectToInventory:objectId fromPosition:point];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
+    [self playSound:@"take.wav"];
 }
 
 - (void) takeObjectPrivate:(NSString*)objectId
@@ -498,7 +505,7 @@ static AdvController *_sharedController = nil;
     {
         if ([handler.type isEqualToString:@"onlookat"])
         {
-            [self execute:handler.commands];
+            [self execute:handler.commands enteringLocation:NO];
             return YES;
         }
     }
@@ -529,6 +536,7 @@ static AdvController *_sharedController = nil;
             else
             {
                 [_ingameLayer updateInventoryPositionsAnimated:YES];
+                [self playSound:@"move.wav"];
             }
 		}
 	}
@@ -547,7 +555,7 @@ static AdvController *_sharedController = nil;
             if (   [handler.type isEqualToString:@"onusewith"]
                 && [handler.objectId isEqualToString:useWithId])
             {
-                [self execute:handler.commands];
+                [self execute:handler.commands enteringLocation:NO];
                 return YES;
             }
         }
@@ -578,7 +586,7 @@ static AdvController *_sharedController = nil;
         {
             if ([handler.type isEqualToString:@"onnoneed"])
             {
-                [self execute:handler.commands];
+                [self execute:handler.commands enteringLocation:NO];
                 handled = YES;
                 break;
             }
@@ -606,7 +614,7 @@ static AdvController *_sharedController = nil;
     {
         if ([handler.type isEqualToString:event] && [handler.objectId isEqualToString:objectId])
         {
-            [self execute:handler.commands];
+            [self execute:handler.commands enteringLocation:NO];
             return YES;
         }
     }
@@ -620,7 +628,7 @@ static AdvController *_sharedController = nil;
     {
         if ([handler.type isEqualToString:event])
         {
-            [self execute:handler.commands];
+            [self execute:handler.commands enteringLocation:NO];
             return YES;
         }
     }
@@ -702,6 +710,13 @@ static AdvController *_sharedController = nil;
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     [audio stopBg];
     _currentMusic = nil;
+}
+
+- (void) playSound:(NSString*)sound
+{
+    NSString *soundFile = [@"sounds/" stringByAppendingString:sound];
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:soundFile];
 }
 
 @end

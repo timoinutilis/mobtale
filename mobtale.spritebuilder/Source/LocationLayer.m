@@ -139,7 +139,11 @@
     [_ingameLayer unselect];
     [_ingameLayer closeInventory];
     
-    _overNode =  [self getNodeAtPosition:location];
+    _overNode = [self getNodeAtPosition:location];
+    if (_overNode)
+    {
+        [[AdvController sharedController] playSound:@"touch.wav"];
+    }
 }
 
 - (void) touchMoved:(UITouch *)touch withEvent:(UIEvent *)event

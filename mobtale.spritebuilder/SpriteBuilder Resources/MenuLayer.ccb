@@ -35,7 +35,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>ClickButton</string>
 						<key>displayName</key>
 						<string>CCButton</string>
 						<key>memberVarAssignmentName</key>
@@ -352,6 +352,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -359,7 +361,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>ClickButton</string>
 						<key>displayName</key>
 						<string>CCButton</string>
 						<key>memberVarAssignmentName</key>
@@ -683,7 +685,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>ClickButton</string>
 						<key>displayName</key>
 						<string>CCButton</string>
 						<key>memberVarAssignmentName</key>
@@ -1140,8 +1142,6 @@
 						<string>AboutLayer.ccb</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

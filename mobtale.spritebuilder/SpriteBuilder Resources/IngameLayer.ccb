@@ -506,8 +506,6 @@ ethetheth</string>
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>baseClass</key>
@@ -591,7 +589,7 @@ ethetheth</string>
 								<key>children</key>
 								<array/>
 								<key>customClass</key>
-								<string></string>
+								<string>ClickButton</string>
 								<key>displayName</key>
 								<string>CCButton</string>
 								<key>memberVarAssignmentName</key>
@@ -908,6 +906,8 @@ ethetheth</string>
 										</array>
 									</dict>
 								</array>
+								<key>selected</key>
+								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -1059,7 +1059,7 @@ ethetheth</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string></string>
+				<string>ClickButton</string>
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>

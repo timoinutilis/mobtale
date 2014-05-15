@@ -24,6 +24,7 @@
 		92044235188F32C100FCE508 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92044227188F32C100FCE508 /* MenuLayer.m */; };
 		92044238188F332500FCE508 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 92044237188F332500FCE508 /* Default-Landscape@2x~ipad.png */; };
 		9216C28B18BA7DB200E46195 /* DialogLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9216C28A18BA7DB200E46195 /* DialogLayer.m */; };
+		923821301924CE640097C468 /* ClickButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238212F1924CE640097C468 /* ClickButton.m */; };
 		923D2D9D189075E800D516E3 /* adventure.xml in Resources */ = {isa = PBXBuildFile; fileRef = 923D2D9C189075E800D516E3 /* adventure.xml */; };
 		92468E1418BB33C2006F7D3B /* DialogItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92468E1318BB33C2006F7D3B /* DialogItem.m */; };
 		926C45DD18A6BA8C005C250F /* AdvExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C45DC18A6BA8C005C250F /* AdvExecution.m */; };
@@ -107,6 +108,8 @@
 		92044237188F332500FCE508 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		9216C28918BA7DB200E46195 /* DialogLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogLayer.h; path = Source/DialogLayer.h; sourceTree = "<group>"; };
 		9216C28A18BA7DB200E46195 /* DialogLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogLayer.m; path = Source/DialogLayer.m; sourceTree = "<group>"; };
+		9238212E1924CE640097C468 /* ClickButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClickButton.h; path = Source/ClickButton.h; sourceTree = "<group>"; };
+		9238212F1924CE640097C468 /* ClickButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClickButton.m; path = Source/ClickButton.m; sourceTree = "<group>"; };
 		923D2D9C189075E800D516E3 /* adventure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = adventure.xml; sourceTree = "<group>"; };
 		92468E1218BB33C2006F7D3B /* DialogItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogItem.h; path = Source/DialogItem.h; sourceTree = "<group>"; };
 		92468E1318BB33C2006F7D3B /* DialogItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogItem.m; path = Source/DialogItem.m; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				92468E1318BB33C2006F7D3B /* DialogItem.m */,
 				9202D265191D376E00604143 /* AboutLayer.h */,
 				9202D266191D376E00604143 /* AboutLayer.m */,
+				9238212E1924CE640097C468 /* ClickButton.h */,
+				9238212F1924CE640097C468 /* ClickButton.m */,
 			);
 			name = layers;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				9204422F188F32C100FCE508 /* AdvObject.m in Sources */,
 				9204422D188F32C100FCE508 /* AdvLocation.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				923821301924CE640097C468 /* ClickButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

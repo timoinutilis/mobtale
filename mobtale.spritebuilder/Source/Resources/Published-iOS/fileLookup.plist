@@ -10,6 +10,18 @@
 		<string>music/bonitobonito.m4a</string>
 		<key>music/title.wav</key>
 		<string>music/title.m4a</string>
+		<key>sounds/click.wav</key>
+		<string>sounds/click.caf</string>
+		<key>sounds/move.wav</key>
+		<string>sounds/move.caf</string>
+		<key>sounds/take.wav</key>
+		<string>sounds/take.caf</string>
+		<key>sounds/text.wav</key>
+		<string>sounds/text.caf</string>
+		<key>sounds/touch.wav</key>
+		<string>sounds/touch.caf</string>
+		<key>sounds/walk.wav</key>
+		<string>sounds/walk.caf</string>
 	</dict>
 	<key>metadata</key>
 	<dict>
