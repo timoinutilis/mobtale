@@ -23,6 +23,7 @@
 @interface AdvController()
 {
     int _waitingFor;
+    NSString *_currentMusic;
 }
 
 @property Adventure *adventure;
@@ -99,6 +100,8 @@ static AdvController *_sharedController = nil;
     [scene addChild:node];
     
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:0.5f]];
+    
+    [self playMusic:@"title.wav"];
 }
 
 -(void) startNewGame
@@ -168,10 +171,20 @@ static AdvController *_sharedController = nil;
     
     _currentLocation = [_adventure getLocationById:locationId];
     
+    NSString *music = _currentLocation.music;
     [_ingameLayer.locationLayer showLocationImage:_currentLocation.image];
     
     [_ingameLayer.dialogLayer clearItems];
     [self execute:_currentLocation.locationInitCommands];
+    
+    if (music)
+    {
+        [self playMusic:music];
+    }
+    else
+    {
+        [self stopMusic];
+    }
 }
 
 - (void) updateDialog
@@ -651,6 +664,44 @@ static AdvController *_sharedController = nil;
 - (NSString*) getAdvInfo
 {
     return _adventure.info;
+}
+
+- (void) playMusic:(NSString*)music
+{
+    if (!_currentMusic || ![_currentMusic isEqualToString:music])
+    {
+        _currentMusic = music;
+
+        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+        
+        if (audio.backgroundTrack.playing)
+        {
+            [audio.backgroundTrack fadeTo:0 duration:0.5 target:self selector:@selector(onMusicFadedOut:)];
+        }
+        else
+        {
+            [self onMusicFadedOut:nil];
+        }
+    }
+}
+
+- (void) onMusicFadedOut:(OALAudioTrack*)track
+{
+    if (_currentMusic)
+    {
+        NSString *musicFile = [@"music/" stringByAppendingString:_currentMusic];
+        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+        [audio stopBg];
+        audio.backgroundTrack.volume = 1;
+        [audio playBg:musicFile loop:TRUE];
+    }
+}
+
+- (void) stopMusic
+{
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio stopBg];
+    _currentMusic = nil;
 }
 
 @end

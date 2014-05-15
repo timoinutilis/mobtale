@@ -48,6 +48,7 @@
     NSString *attrId;
     NSString *attrName;
     NSString *attrImage;
+    NSString *attrMusic;
     NSString *attrType;
     NSString *attrStatus;
     
@@ -68,13 +69,14 @@
         attrId = [attributeDict objectForKey:@"id"];
         attrName = [attributeDict objectForKey:@"name"];
         attrImage = [attributeDict objectForKey:@"image"];
+        attrMusic = [attributeDict objectForKey:@"music"];
         attrType = [attributeDict objectForKey:@"type"];
         AdvLocationType type = AdvLocationTypeNormal;
         if ([attrType isEqualToString:@"person"])
         {
             type = AdvLocationTypePerson;
         }
-        _currentLocation = [[AdvLocation alloc] initWithId:attrId name:attrName image:attrImage type:type];
+        _currentLocation = [[AdvLocation alloc] initWithId:attrId name:attrName image:attrImage music:attrMusic type:type];
         return;
     }
 

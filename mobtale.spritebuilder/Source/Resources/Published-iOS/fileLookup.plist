@@ -3,7 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>filenames</key>
-	<dict/>
+	<dict>
+		<key>music/after_colors.wav</key>
+		<string>music/after_colors.m4a</string>
+		<key>music/bonitobonito.wav</key>
+		<string>music/bonitobonito.m4a</string>
+		<key>music/title.wav</key>
+		<string>music/title.m4a</string>
+	</dict>
 	<key>metadata</key>
 	<dict>
 		<key>version</key>

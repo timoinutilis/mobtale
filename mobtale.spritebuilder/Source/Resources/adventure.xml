@@ -5,12 +5,12 @@
 		Story: Mine\n
 		Images: Mine\n
 		\n
-		Created this year.
+		Created any year.
 	</info>
 		
 	<!-- LOCATIONS AND PERSONS -->
 	
-	<location id="example_house" name="Example House" image="house.ccbi">
+	<location id="example_house" name="Example House" image="house.ccbi" music="after_colors.wav">
 		<init>
             <do if="not house_visited">
                 <say>
@@ -60,7 +60,7 @@
 		<object id="hat" name="Hat" />
 	</location>
 	
-	<location id="example_garden" name="Example Garden" image="garden.ccbi">
+	<location id="example_garden" name="Example Garden" image="garden.ccbi" music="after_colors.wav">
 		<init>
             <do if="not garden_visited">
                 This is a super boring example garden.
@@ -86,7 +86,7 @@
 		<object id="key" name="Key" />
 	</location>
 	
-	<location id="wardrobe_man" name="Wardrobe Man" image="man.ccbi" type="person">
+	<location id="wardrobe_man" name="Wardrobe Man" image="man.ccbi" type="person" music="bonitobonito.wav">
 		<init>
 			<do if="man_is_friendly">
 				The man in the wardrobe looks friendly and says: "Welcome to my wardrobe!"

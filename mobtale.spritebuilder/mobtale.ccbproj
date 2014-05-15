@@ -103,6 +103,35 @@
 			<key>scaleFrom</key>
 			<integer>1</integer>
 		</dict>
+		<key>music/after_colors.wav</key>
+		<dict>
+			<key>format_android_sound</key>
+			<integer>0</integer>
+			<key>format_android_sound_quality</key>
+			<integer>0</integer>
+			<key>format_ios_sound</key>
+			<integer>1</integer>
+			<key>format_ios_sound_quality</key>
+			<integer>0</integer>
+		</dict>
+		<key>music/bonitobonito.wav</key>
+		<dict>
+			<key>format_android_sound</key>
+			<integer>0</integer>
+			<key>format_android_sound_quality</key>
+			<integer>0</integer>
+			<key>format_ios_sound</key>
+			<integer>1</integer>
+			<key>format_ios_sound_quality</key>
+			<integer>0</integer>
+		</dict>
+		<key>music/title.wav</key>
+		<dict>
+			<key>format_ios_sound</key>
+			<integer>1</integer>
+			<key>isDirty</key>
+			<true/>
+		</dict>
 		<key>objects/duck.png</key>
 		<dict>
 			<key>scaleFrom</key>

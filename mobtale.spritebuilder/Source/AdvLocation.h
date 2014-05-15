@@ -22,6 +22,7 @@ typedef enum AdvLocationType : int AdvLocationType;
 @property (retain) NSString* locationId;
 @property (retain) NSString* name;
 @property (retain) NSString* image;
+@property (retain) NSString* music;
 
 @property (readonly) NSMutableArray* items;
 @property (readonly) NSMutableArray* objects;
@@ -29,7 +30,7 @@ typedef enum AdvLocationType : int AdvLocationType;
 @property (readonly) NSMutableArray* locationInitCommands;
 @property (readonly) AdvLocationType type;
 
-- (id) initWithId:(NSString*)locationId name:(NSString*)name image:(NSString*)image type:(AdvLocationType)type;
+- (id) initWithId:(NSString*)locationId name:(NSString*)name image:(NSString*)image music:(NSString*)music type:(AdvLocationType)type;
 - (AdvItem*) getItemById:(NSString*)itemId;
 - (AdvObject*) getObjectById:(NSString*)objectId;
 
