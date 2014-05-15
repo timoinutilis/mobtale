@@ -209,11 +209,11 @@
         [_nodeCenter runAction:[CCActionSequence actionOne:actionMove two:[CCActionCallBlock actionWithBlock:^{
             [[AdvController sharedController] onViewEvent:ViewEventInventoryClosed];
         }]]];
-    }
-    
-    if (!_draggingObject)
-    {
-        [_dialogLayer fadeIn];
+
+        if (!_draggingObject)
+        {
+            [_dialogLayer fadeIn];
+        }
     }
 }
 

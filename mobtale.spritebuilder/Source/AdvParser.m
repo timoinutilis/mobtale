@@ -290,7 +290,7 @@
         return;
     }
     
-    if (_commandsTarget && _currentCommand)
+    if (_commandsTarget)
     {
         if ([elementName isEqualToString:@"do"])
         {

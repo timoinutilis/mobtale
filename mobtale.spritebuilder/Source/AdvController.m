@@ -106,8 +106,6 @@ static AdvController *_sharedController = nil;
     self.player = [[AdvPlayer alloc] init];
 
     AdvLocation* firstLocation = _adventure.locations[0];
-    [self setLocation:firstLocation.locationId];
-
     [self enterGameAtLocationId:firstLocation.locationId];
 }
 
@@ -153,7 +151,7 @@ static AdvController *_sharedController = nil;
 
 - (void) onViewEvent:(ViewEventType)event
 {
-    CCLOG(@"onViewEvent: %d - waiting for: %d", event, _waitingFor);
+//    CCLOG(@"onViewEvent: %d - waiting for: %d", event, _waitingFor);
     if (event == _waitingFor)
     {
         _waitingFor = ViewEventNone;
@@ -260,9 +258,10 @@ static AdvController *_sharedController = nil;
                 }
             }
             
-            // command executions
-            
+            // go to next command already, but this is still the execution of the last one
             [exec next];
+            
+            // command executions
             
             if (command.condition == nil || [self isExpressionTrue:command.condition])
             {
