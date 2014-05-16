@@ -9,7 +9,6 @@
 #import "AdvParser.h"
 #import "AdvLocation.h"
 #import "AdvItem.h"
-#import "AdvObject.h"
 #import "AdvActionHandler.h"
 #import "AdvCommand.h"
 
@@ -18,7 +17,7 @@
     Adventure* _adventure;
     AdvLocation* _currentLocation;
     AdvItem* _currentItem;
-    AdvObject* _currentObject;
+    AdvItem* _currentObject;
     AdvActionHandler* _currentActionHandler;
     AdvCommand* _currentCommand;
     NSString* _currentElement;
@@ -101,7 +100,7 @@
         {
             status = AdvItemStatusHidden;
         }
-        _currentItem = [[AdvItem alloc] initWithId:attrId name:attrName defaultStatus:status];
+        _currentItem = [[AdvItem alloc] initWithId:attrId isObject:NO name:attrName defaultStatus:status];
         
         // default action handler "onuse"
         _currentActionHandler = [[AdvActionHandler alloc] initWithType:@"onuse"];
@@ -113,7 +112,13 @@
     {
         attrId = [attributeDict objectForKey:@"id"];
         attrName = [attributeDict objectForKey:@"name"];
-        _currentObject = [[AdvObject alloc] initWithId:attrId name:attrName];
+        attrStatus = [attributeDict objectForKey:@"status"];
+        AdvItemStatus status = AdvItemStatusVisible;
+        if ([attrStatus isEqualToString:@"hidden"])
+        {
+            status = AdvItemStatusHidden;
+        }
+        _currentObject = [[AdvItem alloc] initWithId:attrId isObject:YES name:attrName defaultStatus:status];
         return;
     }
 
@@ -124,7 +129,7 @@
         if (!_currentObject)
         {
             attrName = [attributeDict objectForKey:@"name"];
-            _currentObject = [[AdvObject alloc] initWithId:attrId name:attrName];
+            _currentObject = [[AdvItem alloc] initWithId:attrId isObject:YES name:attrName defaultStatus:AdvItemStatusVisible];
         }
 
         // default action handler "onuse"
@@ -142,7 +147,7 @@
         _currentActionHandler = [[AdvActionHandler alloc] initWithType:elementName];
         if (attrId)
         {
-            _currentActionHandler.objectId = attrId;
+            _currentActionHandler.itemId = attrId;
         }
         _commandsTarget = _currentActionHandler.commands;
         return;
@@ -261,7 +266,7 @@
             _currentActionHandler = nil;
             _commandsTarget = nil;
         }
-        if ([_adventure getObjectById:_currentObject.objectId] == nil)
+        if ([_adventure getObjectById:_currentObject.itemId] == nil)
         {
             [_adventure.objects addObject:_currentObject];
         }

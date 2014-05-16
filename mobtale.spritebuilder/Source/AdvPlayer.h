@@ -17,10 +17,10 @@
 - (id) initFromURL:(NSURL*)url;
 - (void) writeToURL:(NSURL*)url;
 
-- (void) take:(NSString*)objectId;
-- (void) drop:(NSString*)objectId;
-- (BOOL) has:(NSString*)objectId;
-- (BOOL) isObjectTaken:(NSString*)objectId;
+- (void) take:(NSString*)itemId;
+- (void) drop:(NSString*)itemId;
+- (BOOL) has:(NSString*)itemId;
+- (BOOL) isObjectTaken:(NSString*)itemId;
 - (void) setVariable:(NSString*)var value:(int)value;
 - (int) getVariable:(NSString*)var;
 - (void) addVariable:(NSString*)var value:(int)value;

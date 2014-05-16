@@ -58,7 +58,7 @@
 		<item id="duck_on_table" name="Duck on table" status="hidden">
             That's the duck, man!
         </item>
-		<object id="hat" name="Hat" />
+		<object id="hat" name="Hat" status="hidden" />
 	</location>
 	
 	<location id="example_garden" name="Example Garden" image="garden.ccbi" music="after_colors.wav">
@@ -73,6 +73,7 @@
 		</item>
 		<item id="gate" name="Gate">
             <playanim id="duck" timeline="crazy" />
+            <show location="example_house" id="hat" />
 			<do if="has grey_stone">
 				You don't want to leave this garden. You are too bored.
 			</do>

@@ -15,7 +15,6 @@
 		9204422C188F32C100FCE508 /* AdvItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92044215188F32C100FCE508 /* AdvItem.m */; };
 		9204422D188F32C100FCE508 /* AdvLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 92044217188F32C100FCE508 /* AdvLocation.m */; };
 		9204422E188F32C100FCE508 /* AdvNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92044219188F32C100FCE508 /* AdvNode.m */; };
-		9204422F188F32C100FCE508 /* AdvObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204421B188F32C100FCE508 /* AdvObject.m */; };
 		92044230188F32C100FCE508 /* AdvParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204421D188F32C100FCE508 /* AdvParser.m */; };
 		92044231188F32C100FCE508 /* AdvPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204421F188F32C100FCE508 /* AdvPlayer.m */; };
 		92044232188F32C100FCE508 /* IngameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92044221188F32C100FCE508 /* IngameLayer.m */; };
@@ -91,8 +90,6 @@
 		92044217188F32C100FCE508 /* AdvLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvLocation.m; path = Source/AdvLocation.m; sourceTree = "<group>"; };
 		92044218188F32C100FCE508 /* AdvNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvNode.h; path = Source/AdvNode.h; sourceTree = "<group>"; };
 		92044219188F32C100FCE508 /* AdvNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvNode.m; path = Source/AdvNode.m; sourceTree = "<group>"; };
-		9204421A188F32C100FCE508 /* AdvObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvObject.h; path = Source/AdvObject.h; sourceTree = "<group>"; };
-		9204421B188F32C100FCE508 /* AdvObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvObject.m; path = Source/AdvObject.m; sourceTree = "<group>"; };
 		9204421C188F32C100FCE508 /* AdvParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvParser.h; path = Source/AdvParser.h; sourceTree = "<group>"; };
 		9204421D188F32C100FCE508 /* AdvParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvParser.m; path = Source/AdvParser.m; sourceTree = "<group>"; };
 		9204421E188F32C100FCE508 /* AdvPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvPlayer.h; path = Source/AdvPlayer.h; sourceTree = "<group>"; };
@@ -215,8 +212,6 @@
 				9204420D188F32C100FCE508 /* AdvActionHandler.m */,
 				9204420E188F32C100FCE508 /* AdvCommand.h */,
 				9204420F188F32C100FCE508 /* AdvCommand.m */,
-				9204421A188F32C100FCE508 /* AdvObject.h */,
-				9204421B188F32C100FCE508 /* AdvObject.m */,
 				9204421E188F32C100FCE508 /* AdvPlayer.h */,
 				9204421F188F32C100FCE508 /* AdvPlayer.m */,
 			);
@@ -449,7 +444,6 @@
 				9204422C188F32C100FCE508 /* AdvItem.m in Sources */,
 				9202D267191D376E00604143 /* AboutLayer.m in Sources */,
 				92044231188F32C100FCE508 /* AdvPlayer.m in Sources */,
-				9204422F188F32C100FCE508 /* AdvObject.m in Sources */,
 				9204422D188F32C100FCE508 /* AdvLocation.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				923821301924CE640097C468 /* ClickButton.m in Sources */,

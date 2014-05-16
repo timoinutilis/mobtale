@@ -13,7 +13,7 @@
 
 @interface AdvObjectSprite : CCSprite
 
-@property (retain) NSString* objectId;
+@property (retain) NSString* itemId;
 
 @end
 
@@ -43,12 +43,12 @@ typedef NS_ENUM(int, ViewEventType)
 - (BOOL) isTextVisible;
 - (void) openInventory;
 - (void) closeInventory;
-- (void) addInventoryObject:(NSString*)objectId;
-- (void) removeInventoryObject:(NSString*)objectId;
+- (void) addInventoryObject:(NSString*)itemId;
+- (void) removeInventoryObject:(NSString*)itemId;
 - (void) updateInventoryPositionsAnimated:(BOOL)animated;
 - (BOOL) areObjectsMoving;
-- (BOOL) isDragging:(NSString*)objectId;
+- (BOOL) isDragging:(NSString*)itemId;
 - (void) unselect;
-- (void) moveObjectToInventory:(NSString*)objectId fromPosition:(CGPoint)point;
+- (void) moveObjectToInventory:(NSString*)itemId fromPosition:(CGPoint)point;
 
 @end

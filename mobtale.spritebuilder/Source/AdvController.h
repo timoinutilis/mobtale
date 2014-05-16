@@ -13,7 +13,7 @@
 @class Adventure;
 @class AdvLocation;
 @class AdvNode;
-@class AdvObject;
+@class AdvItem;
 
 @interface AdvController : NSObject
 
@@ -36,16 +36,16 @@
 - (BOOL) isExecuting;
 - (BOOL) isExpressionTrue:(NSString*)expression;
 
-- (void) useItem:(NSString*)objectId;
-- (void) takeObject:(NSString*)objectId fromPosition:(CGPoint)point;
-- (BOOL) lookAtItem:(NSString*)objectId;
-- (BOOL) useObject:(NSString*)objectId;
-- (void) useObject:(NSString*)object1Id with:(NSString*)object2Id;
-- (void) lookAtObject:(NSString*)objectId;
-- (void) giveObject:(NSString*)objectId;
+- (void) useItem:(NSString*)itemId;
+- (void) takeObject:(NSString*)itemId fromPosition:(CGPoint)point;
+- (BOOL) lookAtItem:(NSString*)itemId;
+- (BOOL) useObject:(NSString*)itemId;
+- (void) useObject:(NSString*)item1Id with:(NSString*)item2Id;
+- (void) lookAtObject:(NSString*)itemId;
+- (void) giveObject:(NSString*)itemId;
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;
-- (AdvObject*) getAdvObject:(NSString*)objectId;
+- (AdvItem*) getAdvObject:(NSString*)itemId;
 - (NSString*) getAdvInfo;
 
 - (void) playSound:(NSString*)sound;

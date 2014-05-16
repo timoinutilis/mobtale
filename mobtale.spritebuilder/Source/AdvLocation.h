@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "AdvItem.h"
-#import "AdvObject.h"
 
 enum AdvLocationType : int {
     AdvLocationTypeNormal,
@@ -32,6 +31,6 @@ typedef enum AdvLocationType : int AdvLocationType;
 
 - (id) initWithId:(NSString*)locationId name:(NSString*)name image:(NSString*)image music:(NSString*)music type:(AdvLocationType)type;
 - (AdvItem*) getItemById:(NSString*)itemId;
-- (AdvObject*) getObjectById:(NSString*)objectId;
+- (AdvItem*) getObjectById:(NSString*)itemId;
 
 @end

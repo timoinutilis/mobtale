@@ -33,11 +33,11 @@
     return nil;
 }
 
-- (AdvObject*) getObjectById:(NSString*)objectId
+- (AdvItem*) getObjectById:(NSString*)itemId
 {
-    for (AdvObject* object in _objects)
+    for (AdvItem* object in _objects)
     {
-        if ([object.objectId isEqualToString:objectId])
+        if ([object.itemId isEqualToString:itemId])
         {
             return object;
         }

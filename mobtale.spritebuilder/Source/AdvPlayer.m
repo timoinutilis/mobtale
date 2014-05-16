@@ -66,26 +66,26 @@
     [data writeToURL:url atomically:YES];
 }
 
-- (void) take:(NSString*)objectId
+- (void) take:(NSString*)itemId
 {
-    [_inventory addObject:objectId];
-    [_takenObjects addObject:objectId];
+    [_inventory addObject:itemId];
+    [_takenObjects addObject:itemId];
 }
 
-- (void) drop:(NSString*)objectId
+- (void) drop:(NSString*)itemId
 {
-    [_inventory removeObject:objectId];
-    [_takenObjects addObject:objectId];
+    [_inventory removeObject:itemId];
+    [_takenObjects addObject:itemId];
 }
 
-- (BOOL) has:(NSString*)objectId
+- (BOOL) has:(NSString*)itemId
 {
-    return [_inventory indexOfObject:objectId] != NSNotFound;
+    return [_inventory indexOfObject:itemId] != NSNotFound;
 }
 
-- (BOOL) isObjectTaken:(NSString*)objectId
+- (BOOL) isObjectTaken:(NSString*)itemId
 {
-    return [_takenObjects indexOfObject:objectId] != NSNotFound;
+    return [_takenObjects indexOfObject:itemId] != NSNotFound;
 }
 
 - (void) setVariable:(NSString*)var value:(int)value

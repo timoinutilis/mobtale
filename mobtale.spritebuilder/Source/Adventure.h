@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdvObject.h"
+#import "AdvItem.h"
 #import "AdvLocation.h"
 
 @interface Adventure : NSObject
@@ -19,6 +19,6 @@
 
 - (id) initWithName:(NSString*)name;
 - (AdvLocation*) getLocationById:(NSString*)locationId;
-- (AdvObject*) getObjectById:(NSString*)objectId;
+- (AdvItem*) getObjectById:(NSString*)itemId;
 
 @end

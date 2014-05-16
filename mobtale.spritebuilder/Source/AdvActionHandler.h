@@ -11,7 +11,7 @@
 @interface AdvActionHandler : NSObject
 
 @property (retain) NSString* type;
-@property (retain) NSString* objectId;
+@property (retain) NSString* itemId;
 @property (readonly) NSMutableArray* commands;
 
 - (id) initWithType:(NSString*)type;

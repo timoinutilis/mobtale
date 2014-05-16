@@ -10,7 +10,7 @@
 #import "CCBReader.h"
 #import "AdvController.h"
 #import "AdvNode.h"
-#import "AdvObject.h"
+#import "AdvItem.h"
 
 @interface LocationLayer()
 {
@@ -183,7 +183,7 @@
             _selectedNode = advNode;
             if (advNode.isObject)
             {
-                AdvObject *advObject = [[AdvController sharedController] getAdvObject:advNode.itemId];
+                AdvItem *advObject = [[AdvController sharedController] getAdvObject:advNode.itemId];
                 [_ingameLayer showObjectInfoFor:advNode text:advObject.name];
             }
             else
