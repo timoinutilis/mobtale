@@ -34,11 +34,11 @@
     
     BOOL _objectMoved;
     CGPoint _dragStartPoint;
-    AdvObjectSprite* _draggingObject;
+    ObjectSprite* _draggingObject;
     AdvNode* _draggingOverNode;
-    AdvObjectSprite* _draggingOverObject;
+    ObjectSprite* _draggingOverObject;
     BOOL _draggingOverLocation;
-    AdvObjectSprite* _selectedObject;
+    ObjectSprite* _selectedObject;
     
     NSMutableArray* _inventorySprites;
     BOOL _areObjectsMoving;
@@ -122,27 +122,27 @@
 
 - (void) showObjectInfoFor:(CCNode *)node useItemId:(NSString*)itemId
 {
-    AdvItem* advObject = [[AdvController sharedController] getAdvObject:itemId];
-    NSString *info = [NSString stringWithFormat:@"Use %@ with...", advObject.name];
+    AdvItem* item = [[AdvController sharedController] getObjectItem:itemId];
+    NSString *info = [NSString stringWithFormat:@"Use %@ with...", item.name];
     [self showObjectInfoFor:node text:info];
 }
 
 - (void) showObjectInfoFor:(CCNode *)node useItemId:(NSString*)item1Id withItemId:(NSString*)item2Id
 {
-    AdvItem* advObject1 = [[AdvController sharedController] getAdvObject:item1Id];
-    AdvItem* advObject2 = [[AdvController sharedController] getAdvObject:item2Id];
-    if (!advObject2)
+    AdvItem* item1 = [[AdvController sharedController] getObjectItem:item1Id];
+    AdvItem* item2 = [[AdvController sharedController] getObjectItem:item2Id];
+    if (!item2)
     {
-        advObject2 = [[[AdvController sharedController] currentLocation] getItemById:item2Id];
+        item2 = [[[AdvController sharedController] currentLocation] getItemById:item2Id];
     }
-    NSString *info = [NSString stringWithFormat:@"Use %@ with %@", advObject1.name, advObject2.name];
+    NSString *info = [NSString stringWithFormat:@"Use %@ with %@", item1.name, item2.name];
     [self showObjectInfoFor:node text:info];
 }
 
 - (void) showObjectInfoFor:(CCNode *)node giveItemId:(NSString*)itemId
 {
-    AdvItem* advObject = [[AdvController sharedController] getAdvObject:itemId];
-    NSString *info = [NSString stringWithFormat:@"Give %@", advObject.name];
+    AdvItem* item = [[AdvController sharedController] getObjectItem:itemId];
+    NSString *info = [NSString stringWithFormat:@"Give %@", item.name];
     [self showObjectInfoFor:node text:info];
 }
 
@@ -213,11 +213,11 @@
     }
 }
 
-- (AdvObjectSprite*) getAdvObjectAtPosition:(CGPoint)location
+- (ObjectSprite*) getInventoryObjectAtPosition:(CGPoint)location
 {
     for (int i = (int)_inventoryBox.children.count - 1; i >= 0; i--)
     {
-        AdvObjectSprite *sprite = [_inventoryBox.children objectAtIndex:i];
+        ObjectSprite *sprite = [_inventoryBox.children objectAtIndex:i];
         if (sprite != _draggingObject && [sprite hitTestWithWorldPos:location])
         {
             return sprite;
@@ -239,7 +239,7 @@
     if ([_nodeInventoryWindow hitTestWithWorldPos:location])
     {
         [_locationLayer unselect];
-        AdvObjectSprite *sprite = [self getAdvObjectAtPosition:location];
+        ObjectSprite *sprite = [self getInventoryObjectAtPosition:location];
         if (sprite)
         {
             _dragStartPoint = location;
@@ -290,7 +290,7 @@
                 {
                     _draggingOverNode = nil;
                 }
-                AdvObjectSprite *sprite = [self getAdvObjectAtPosition:location];
+                ObjectSprite *sprite = [self getInventoryObjectAtPosition:location];
                 if (sprite != _draggingOverObject)
                 {
                     _draggingOverObject = sprite;
@@ -329,14 +329,7 @@
                 
                 if (_draggingOverNode)
                 {
-                    if (_draggingOverNode.isObject)
-                    {
-                        [self showObjectInfoFor:_draggingObject useItemId:_draggingObject.itemId withItemId:_draggingOverNode.itemId];
-                    }
-                    else
-                    {
-                        [self showObjectInfoFor:_draggingObject useItemId:_draggingObject.itemId withItemId:_draggingOverNode.itemId];
-                    }
+                    [self showObjectInfoFor:_draggingObject useItemId:_draggingObject.itemId withItemId:_draggingOverNode.itemId];
                 }
                 else
                 {
@@ -372,11 +365,11 @@
             {
                 if (_draggingOverNode)
                 {
-                    [[AdvController sharedController] useObject:_draggingObject.itemId with:_draggingOverNode.itemId];
+                    [[AdvController sharedController] useItem:_draggingObject.itemId with:_draggingOverNode.itemId];
                 }
                 else if ([[AdvController sharedController] currentLocation].type == AdvLocationTypePerson)
                 {
-                    [[AdvController sharedController] giveObject:_draggingObject.itemId];
+                    [[AdvController sharedController] giveItem:_draggingObject.itemId];
                 }
                 else
                 {
@@ -390,7 +383,7 @@
             }
             else if (_draggingOverObject)
             {
-                [[AdvController sharedController] useObject:_draggingObject.itemId with:_draggingOverObject.itemId];
+                [[AdvController sharedController] useItem:_draggingObject.itemId with:_draggingOverObject.itemId];
             }
             else
             {
@@ -404,7 +397,7 @@
             if (_draggingObject == _selectedObject)
             {
                 // second tap
-                BOOL handled = [[AdvController sharedController] useObject:_draggingObject.itemId];
+                BOOL handled = [[AdvController sharedController] useItem:_draggingObject.itemId];
                 if (handled)
                 {
                     [self hideObjectInfo];
@@ -414,8 +407,8 @@
             else
             {
                 // first tap
-                AdvItem* advObject = [[AdvController sharedController] getAdvObject:_draggingObject.itemId];
-                [self showObjectInfoFor:_draggingObject text:advObject.name];
+                AdvItem* item = [[AdvController sharedController] getObjectItem:_draggingObject.itemId];
+                [self showObjectInfoFor:_draggingObject text:item.name];
                 _selectedObject = _draggingObject;
             }
         }
@@ -434,7 +427,7 @@
 - (void) addInventoryObject:(NSString*)itemId
 {
     NSString* filename = [self getFilenameForObject:itemId];
-    AdvObjectSprite* sprite = [AdvObjectSprite spriteWithImageNamed:filename];
+    ObjectSprite* sprite = [ObjectSprite spriteWithImageNamed:filename];
     sprite.itemId = itemId;
     
     [_inventoryBox addChild:sprite];
@@ -446,7 +439,7 @@
 {
     for (int i = (int)_inventorySprites.count - 1; i >= 0; i--)
     {
-        AdvObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
+        ObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
         if ([sprite.itemId isEqualToString:itemId])
         {
             CCActionCallBlock* actionCall = [CCActionCallBlock actionWithBlock:^{
@@ -478,7 +471,7 @@
     point.y = box.size.height * 0.5f;
     for (int i = (int)_inventorySprites.count - 1; i >= 0; i--)
     {
-        AdvObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
+        ObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
         float finalScale = box.size.height / sprite.contentSize.height;
         [sprite stopAllActions];
         if (animated)
@@ -540,7 +533,7 @@
 - (void) moveObjectToInventory:(NSString*)itemId fromPosition:(CGPoint)point
 {
     NSString* filename = [self getFilenameForObject:itemId];
-    CCSprite* sprite = [AdvObjectSprite spriteWithImageNamed:filename];
+    CCSprite* sprite = [ObjectSprite spriteWithImageNamed:filename];
     sprite.scale = 0.3f;
     sprite.position = point;
     [self addChild:sprite z:1];
@@ -577,6 +570,6 @@
 @end
 
 
-@implementation AdvObjectSprite
+@implementation ObjectSprite
 
 @end

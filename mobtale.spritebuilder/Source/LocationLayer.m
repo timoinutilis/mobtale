@@ -11,6 +11,7 @@
 #import "AdvController.h"
 #import "AdvNode.h"
 #import "AdvItem.h"
+#import "AdvLocation.h"
 
 @interface LocationLayer()
 {
@@ -168,12 +169,14 @@
     AdvNode* advNode = [self getNodeAtPosition:location];
     if (advNode && advNode == _overNode)
     {
+        AdvItem *advItem = [[[AdvController sharedController] currentLocation] getItemById:advNode.itemId];
+        
         if (advNode == _selectedNode)
         {
             // second tap
-            if (advNode.isObject)
+            if (advItem.isObject)
             {
-                [[AdvController sharedController] takeObject:advNode.itemId fromPosition:location];
+                [[AdvController sharedController] takeItem:advItem.itemId fromPosition:location];
             }
             _selectedNode = nil;
         }
@@ -181,14 +184,13 @@
         {
             // first tap
             _selectedNode = advNode;
-            if (advNode.isObject)
+            if (advItem.isObject)
             {
-                AdvItem *advObject = [[AdvController sharedController] getAdvObject:advNode.itemId];
-                [_ingameLayer showObjectInfoFor:advNode text:advObject.name];
+                [_ingameLayer showObjectInfoFor:advNode text:advItem.name];
             }
             else
             {
-                [[AdvController sharedController] useItem:advNode.itemId];
+                [[AdvController sharedController] useItem:advItem.itemId];
                 _selectedNode = nil;
             }
         }

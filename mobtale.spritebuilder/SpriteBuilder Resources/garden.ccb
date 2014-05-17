@@ -130,16 +130,6 @@
 						<key>value</key>
 						<string>lake</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -229,16 +219,6 @@
 						<key>value</key>
 						<string>gate</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -327,16 +307,6 @@
 						<integer>3</integer>
 						<key>value</key>
 						<string>house</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
 					</dict>
 				</array>
 				<key>displayName</key>
@@ -800,16 +770,6 @@
 						<key>value</key>
 						<string>key</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>1</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -944,8 +904,6 @@
 								<string>garden_duck.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -961,16 +919,6 @@
 						<integer>3</integer>
 						<key>value</key>
 						<string>duck</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>1</string>
 					</dict>
 				</array>
 				<key>displayName</key>
@@ -1041,6 +989,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>

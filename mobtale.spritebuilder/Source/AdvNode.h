@@ -11,6 +11,5 @@
 @interface AdvNode : CCNode
 
 @property (retain) NSString* itemId;
-@property BOOL isObject;
 
 @end

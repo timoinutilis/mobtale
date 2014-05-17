@@ -21,7 +21,6 @@
         _type = type;
         
         _items = [[NSMutableArray alloc] init];
-        _objects = [[NSMutableArray alloc] init];
         _objectActionHandlers = [[NSMutableArray alloc] init];
         _locationInitCommands = [[NSMutableArray alloc] init];
     }
@@ -35,18 +34,6 @@
         if ([item.itemId isEqualToString:itemId])
         {
             return item;
-        }
-    }
-    return nil;
-}
-
-- (AdvItem*) getObjectById:(NSString*)itemId
-{
-    for (AdvItem* object in _objects)
-    {
-        if ([object.itemId isEqualToString:itemId])
-        {
-            return object;
         }
     }
     return nil;

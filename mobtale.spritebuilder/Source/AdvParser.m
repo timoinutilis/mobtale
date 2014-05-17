@@ -90,7 +90,8 @@
         return;
     }
     
-    if ([elementName isEqualToString:@"item"])
+    if (   [elementName isEqualToString:@"item"]
+        || [elementName isEqualToString:@"object"])
     {
         attrId = [attributeDict objectForKey:@"id"];
         attrName = [attributeDict objectForKey:@"name"];
@@ -100,32 +101,27 @@
         {
             status = AdvItemStatusHidden;
         }
-        _currentItem = [[AdvItem alloc] initWithId:attrId isObject:NO name:attrName defaultStatus:status];
         
-        // default action handler "onuse"
-        _currentActionHandler = [[AdvActionHandler alloc] initWithType:@"onuse"];
-        _commandsTarget = _currentActionHandler.commands;
+        if ([elementName isEqualToString:@"item"])
+        {
+            _currentItem = [[AdvItem alloc] initWithId:attrId isObject:NO name:attrName defaultStatus:status];
+            
+            // default action handler "onuse"
+            _currentActionHandler = [[AdvActionHandler alloc] initWithType:@"onuse"];
+            _commandsTarget = _currentActionHandler.commands;
+        }
+        else
+        {
+            _currentObject = [[AdvItem alloc] initWithId:attrId isObject:YES name:attrName defaultStatus:status];
+        }
+        
         return;
     }
     
-    if ([elementName isEqualToString:@"object"])
-    {
-        attrId = [attributeDict objectForKey:@"id"];
-        attrName = [attributeDict objectForKey:@"name"];
-        attrStatus = [attributeDict objectForKey:@"status"];
-        AdvItemStatus status = AdvItemStatusVisible;
-        if ([attrStatus isEqualToString:@"hidden"])
-        {
-            status = AdvItemStatusHidden;
-        }
-        _currentObject = [[AdvItem alloc] initWithId:attrId isObject:YES name:attrName defaultStatus:status];
-        return;
-    }
-
     if ([elementName isEqualToString:@"objectdef"])
     {
         attrId = [attributeDict objectForKey:@"id"];
-        _currentObject = [_adventure getObjectById:attrId];
+        _currentObject = [_adventure getObjectItemById:attrId];
         if (!_currentObject)
         {
             attrName = [attributeDict objectForKey:@"name"];
@@ -250,7 +246,7 @@
     if ([elementName isEqualToString:@"object"])
     {
         [_adventure.objects addObject:_currentObject];
-        [_currentLocation.objects addObject:_currentObject];
+        [_currentLocation.items addObject:_currentObject];
         _currentObject = nil;
         return;
     }
@@ -266,7 +262,7 @@
             _currentActionHandler = nil;
             _commandsTarget = nil;
         }
-        if ([_adventure getObjectById:_currentObject.itemId] == nil)
+        if ([_adventure getObjectItemById:_currentObject.itemId] == nil)
         {
             [_adventure.objects addObject:_currentObject];
         }

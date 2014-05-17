@@ -19,6 +19,6 @@
 
 - (id) initWithName:(NSString*)name;
 - (AdvLocation*) getLocationById:(NSString*)locationId;
-- (AdvItem*) getObjectById:(NSString*)itemId;
+- (AdvItem*) getObjectItemById:(NSString*)itemId;
 
 @end

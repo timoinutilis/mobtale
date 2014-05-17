@@ -36,16 +36,14 @@
 - (BOOL) isExecuting;
 - (BOOL) isExpressionTrue:(NSString*)expression;
 
-- (void) useItem:(NSString*)itemId;
-- (void) takeObject:(NSString*)itemId fromPosition:(CGPoint)point;
+- (BOOL) useItem:(NSString*)itemId;
+- (void) takeItem:(NSString*)itemId fromPosition:(CGPoint)point;
 - (BOOL) lookAtItem:(NSString*)itemId;
-- (BOOL) useObject:(NSString*)itemId;
-- (void) useObject:(NSString*)item1Id with:(NSString*)item2Id;
-- (void) lookAtObject:(NSString*)itemId;
-- (void) giveObject:(NSString*)itemId;
+- (void) useItem:(NSString*)item1Id with:(NSString*)item2Id;
+- (void) giveItem:(NSString*)itemId;
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode;
-- (AdvItem*) getAdvObject:(NSString*)itemId;
+- (AdvItem*) getObjectItem:(NSString*)itemId;
 - (NSString*) getAdvInfo;
 
 - (void) playSound:(NSString*)sound;

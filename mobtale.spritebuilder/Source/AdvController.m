@@ -307,13 +307,13 @@ static AdvController *_sharedController = nil;
                 else if ([commandName isEqualToString:@"get"])
                 {
                     NSString* itemId = command.attributeDict[@"id"];
-                    [self takeObjectPrivate:itemId];
+                    [self takeItemPrivate:itemId];
                     [self playSound:@"take.wav"];
                 }
                 else if ([commandName isEqualToString:@"drop"])
                 {
                     NSString* itemId = command.attributeDict[@"id"];
-                    if ([_currentLocation getObjectById:itemId])
+                    if ([_currentLocation getItemById:itemId])
                     {
                         [_ingameLayer.locationLayer setNodeVisible:itemId visible:NO];
                     }
@@ -478,30 +478,38 @@ static AdvController *_sharedController = nil;
 	return result;
 }
 
--(void) useItem:(NSString*)itemId
+-(BOOL) useItem:(NSString*)itemId
 {
     AdvItem* item = [_currentLocation getItemById:itemId];
-    for (AdvActionHandler* handler in item.actionHandlers)
+    if (item.isObject)
     {
-        if ([handler.type isEqualToString:@"onuse"])
+        return [self handleObject:itemId event:@"onuse"];
+    }
+    else
+    {
+        for (AdvActionHandler* handler in item.actionHandlers)
         {
-            [self execute:handler.commands enteringLocation:NO];
-            break;
+            if ([handler.type isEqualToString:@"onuse"])
+            {
+                [self execute:handler.commands enteringLocation:NO];
+                return YES;
+            }
         }
     }
+    return NO;
 }
 
--(void) takeObject:(NSString*)itemId fromPosition:(CGPoint)point
+-(void) takeItem:(NSString*)itemId fromPosition:(CGPoint)point
 {
     [_ingameLayer hideText];
     
-    [self takeObjectPrivate:itemId];
+    [self takeItemPrivate:itemId];
     [_ingameLayer moveObjectToInventory:itemId fromPosition:point];
     [_ingameLayer updateInventoryPositionsAnimated:YES];
     [self playSound:@"take.wav"];
 }
 
-- (void) takeObjectPrivate:(NSString*)itemId
+- (void) takeItemPrivate:(NSString*)itemId
 {
     [_player take:itemId];
     
@@ -512,33 +520,30 @@ static AdvController *_sharedController = nil;
 -(BOOL) lookAtItem:(NSString*)itemId
 {
     AdvItem* item = [_currentLocation getItemById:itemId];
-    for (AdvActionHandler* handler in item.actionHandlers)
+    if (!item || item.isObject) // if item is not in location, than maybe it's an object, too.
     {
-        if ([handler.type isEqualToString:@"onlookat"])
+        return [self handleObject:itemId event:@"onlookat"];
+    }
+    else
+    {
+        for (AdvActionHandler* handler in item.actionHandlers)
         {
-            [self execute:handler.commands enteringLocation:NO];
-            return YES;
+            if ([handler.type isEqualToString:@"onlookat"])
+            {
+                [self execute:handler.commands enteringLocation:NO];
+                return YES;
+            }
         }
     }
     return NO;
 }
 
--(BOOL) useObject:(NSString*)itemId
-{
-    BOOL handled = [self handleObject:itemId event:@"onuse"];
-    if (handled)
-    {
-        return YES;
-    }
-    return NO;
-}
-
-- (void) useObject:(NSString*)item1Id with:(NSString*)item2Id;
+- (void) useItem:(NSString*)item1Id with:(NSString*)item2Id;
 {
     BOOL openInventory = YES;
-    if (![self handleUseWith:item2Id handlers:[_adventure getObjectById:item1Id].actionHandlers])
+    if (![self handleUseWith:item2Id handlers:[_adventure getObjectItemById:item1Id].actionHandlers])
 	{
-		if (![self handleUseWith:item1Id handlers:[_adventure getObjectById:item2Id].actionHandlers])
+		if (![self handleUseWith:item1Id handlers:[_adventure getObjectItemById:item2Id].actionHandlers])
 		{
 			if ([self handleUseWith:item1Id handlers:[_currentLocation getItemById:item2Id].actionHandlers])
 			{
@@ -574,16 +579,7 @@ static AdvController *_sharedController = nil;
 	return NO;
 }
 
--(void) lookAtObject:(NSString*)itemId
-{
-    AdvItem* object = [_adventure getObjectById:itemId];
-    if (![self handleObject:itemId event:@"onlookat"])
-    {
-        [_ingameLayer showText:object.name];
-    }
-}
-
--(void) giveObject:(NSString*)itemId
+-(void) giveItem:(NSString*)itemId
 {
     if ([self handleObjectInLocation:itemId event:@"ongive"])
     {
@@ -634,8 +630,8 @@ static AdvController *_sharedController = nil;
 
 -(BOOL) handleObjectInDefs:(NSString*)itemId event:(NSString*)event
 {
-    AdvItem* object = [_adventure getObjectById:itemId];
-    for (AdvActionHandler* handler in object.actionHandlers)
+    AdvItem* item = [_adventure getObjectItemById:itemId];
+    for (AdvActionHandler* handler in item.actionHandlers)
     {
         if ([handler.type isEqualToString:event])
         {
@@ -648,16 +644,14 @@ static AdvController *_sharedController = nil;
 
 - (BOOL) isNodeAvailable:(AdvNode*)advNode
 {
-    if (advNode.isObject)
+    AdvItem *item = [self.currentLocation getItemById:advNode.itemId];
+    if ([self getItemStatus:item.itemId] != AdvItemStatusVisible)
     {
-        if ([_player isObjectTaken:advNode.itemId])
-        {
-            return NO;
-        }
+        return NO;
     }
-    else
+    if (item.isObject)
     {
-        if ([self getItemStatus:advNode.itemId] != AdvItemStatusVisible)
+        if ([_player isObjectTaken:item.itemId])
         {
             return NO;
         }
@@ -675,9 +669,9 @@ static AdvController *_sharedController = nil;
     return [_currentLocation getItemById:itemId].defaultStatus;
 }
 
-- (AdvItem*) getAdvObject:(NSString*)itemId
+- (AdvItem*) getObjectItem:(NSString*)itemId
 {
-    return [_adventure getObjectById:itemId];
+    return [_adventure getObjectItemById:itemId];
 }
 
 - (NSString*) getAdvInfo

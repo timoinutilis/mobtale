@@ -130,16 +130,6 @@
 						<key>value</key>
 						<string>wardrobe</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -229,16 +219,6 @@
 						<key>value</key>
 						<string>table</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -327,16 +307,6 @@
 						<integer>3</integer>
 						<key>value</key>
 						<string>door</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
 					</dict>
 				</array>
 				<key>displayName</key>
@@ -515,16 +485,6 @@
 						<key>value</key>
 						<string>hat</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>1</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -702,16 +662,6 @@
 						<key>value</key>
 						<string>duck_on_table</string>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>isObject</string>
-						<key>optimized</key>
-						<false/>
-						<key>type</key>
-						<integer>2</integer>
-						<key>value</key>
-						<string>0</string>
-					</dict>
 				</array>
 				<key>displayName</key>
 				<string>AdvNode</string>
@@ -781,6 +731,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>

@@ -11,7 +11,7 @@
 @class LocationLayer;
 @class DialogLayer;
 
-@interface AdvObjectSprite : CCSprite
+@interface ObjectSprite : CCSprite
 
 @property (retain) NSString* itemId;
 
