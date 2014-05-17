@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AdvItem.h"
 
+@class AdvLocationItemSettings;
+
 @interface AdvPlayer : NSObject
 
 @property (retain) NSString* locationId;
@@ -24,7 +26,6 @@
 - (void) setVariable:(NSString*)var value:(int)value;
 - (int) getVariable:(NSString*)var;
 - (void) addVariable:(NSString*)var value:(int)value;
-- (void) setLocationItemStatus:(NSString*)locationId itemId:(NSString*)id status:(AdvItemStatus)status overwrite:(BOOL)overwrite;
-- (AdvItemStatus) getLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId;
+- (AdvLocationItemSettings*) getLocationItemSettings:(NSString*)locationId itemId:(NSString*)itemId create:(BOOL)create;
 
 @end

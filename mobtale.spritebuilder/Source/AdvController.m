@@ -19,6 +19,8 @@
 #import "AdvLocation.h"
 #import "AdvNode.h"
 #import "DialogLayer.h"
+#import "AdvItem.h"
+#import "AdvLocationItemSettings.h"
 
 @interface AdvController()
 {
@@ -324,7 +326,8 @@ static AdvController *_sharedController = nil;
                 {
                     NSString* itemId = command.attributeDict[@"id"];
                     NSString* locationId = command.attributeDict[@"location"];
-                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:AdvItemStatusVisible overwrite:true];
+                    AdvLocationItemSettings *settings = [_player getLocationItemSettings:(locationId ? locationId : _currentLocation.locationId) itemId:itemId create:YES];
+                    settings.status = AdvItemStatusVisible;
                     if (!locationId || locationId == _currentLocation.locationId)
                     {
                         [_ingameLayer.locationLayer setNodeVisible:itemId visible:YES];
@@ -334,7 +337,8 @@ static AdvController *_sharedController = nil;
                 {
                     NSString* itemId = command.attributeDict[@"id"];
                     NSString* locationId = command.attributeDict[@"location"];
-                    [_player setLocationItemStatus:(locationId ? locationId : _currentLocation.locationId) itemId:itemId status:AdvItemStatusHidden overwrite:true];
+                    AdvLocationItemSettings *settings = [_player getLocationItemSettings:(locationId ? locationId : _currentLocation.locationId) itemId:itemId create:YES];
+                    settings.status = AdvItemStatusHidden;
                     if (!locationId || locationId == _currentLocation.locationId)
                     {
                         [_ingameLayer.locationLayer setNodeVisible:itemId visible:NO];
@@ -661,10 +665,10 @@ static AdvController *_sharedController = nil;
 
 - (AdvItemStatus) getItemStatus:(NSString*)itemId
 {
-    AdvItemStatus storedStatus = [_player getLocationItemStatus:_currentLocation.locationId itemId:itemId];
-    if (storedStatus != AdvItemStatusUndefined)
+    AdvLocationItemSettings *settings = [_player getLocationItemSettings:_currentLocation.locationId itemId:itemId create:NO];
+    if (settings && settings.status != AdvItemStatusUndefined)
     {
-        return storedStatus;
+        return settings.status;
     }
     return [_currentLocation getItemById:itemId].defaultStatus;
 }

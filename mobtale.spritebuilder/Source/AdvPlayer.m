@@ -7,12 +7,13 @@
 //
 
 #import "AdvPlayer.h"
+#import "AdvLocationItemSettings.h"
 
 @interface AdvPlayer()
 
 @property NSMutableArray *takenObjects;
 @property NSMutableDictionary *variables;
-@property NSMutableDictionary *locationItemStatus;
+@property NSMutableDictionary *locationItemSettings;
 
 @end
 
@@ -25,7 +26,7 @@
         self.inventory = [NSMutableArray array];
         self.takenObjects = [NSMutableArray array];
         self.variables = [NSMutableDictionary dictionary];
-        self.locationItemStatus = [NSMutableDictionary dictionary];
+        self.locationItemSettings = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -45,12 +46,12 @@
         self.takenObjects = [NSMutableArray arrayWithArray:data[@"takenObjects"]];
         self.variables = [NSMutableDictionary dictionaryWithDictionary:data[@"variables"]];
         
-        self.locationItemStatus = [NSMutableDictionary dictionary];
-        NSDictionary *locationItemStatusDict = data[@"locationItemStatus"];
-        for (NSString *key in locationItemStatusDict)
+        self.locationItemSettings = [NSMutableDictionary dictionary];
+/*        NSDictionary *locationItemSettingsDict = data[@"locationItemSettings"];
+        for (NSString *key in locationItemSettingsDict)
         {
-            self.locationItemStatus[key] = [NSMutableDictionary dictionaryWithDictionary:locationItemStatusDict[key]];
-        }
+            self.locationItemSettings[key] = [NSMutableDictionary dictionaryWithDictionary:locationItemSettingsDict[key]];
+        }*/
     }
     return self;
 }
@@ -62,7 +63,7 @@
     data[@"inventory"] = _inventory;
     data[@"takenObjects"] = _takenObjects;
     data[@"variables"] = _variables;
-    data[@"locationItemStatus"] = _locationItemStatus;
+//    data[@"locationItemSettings"] = _locationItemSettings;
     [data writeToURL:url atomically:YES];
 }
 
@@ -110,32 +111,25 @@
     [_variables setObject:[NSNumber numberWithInt:varValue] forKey:var];
 }
 
-- (void) setLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId status:(AdvItemStatus)status overwrite:(BOOL)overwrite
+- (AdvLocationItemSettings*) getLocationItemSettings:(NSString*)locationId itemId:(NSString*)itemId create:(BOOL)create
 {
-    NSMutableDictionary* locationItems = [_locationItemStatus objectForKey:locationId];
-	if (!locationItems)
-	{
-        locationItems = [[NSMutableDictionary alloc] init];
-        [_locationItemStatus setObject:locationItems forKey:locationId];
-	}
-	if (overwrite || ![locationItems objectForKey:itemId])
-	{
-        [locationItems setObject:[NSNumber numberWithInt:status] forKey:itemId];
-	}
-}
-
-- (AdvItemStatus) getLocationItemStatus:(NSString*)locationId itemId:(NSString*)itemId
-{
-    NSMutableDictionary* locationItems = [_locationItemStatus objectForKey:locationId];
+    AdvLocationItemSettings *settings = nil;
+    NSMutableDictionary *locationItems = [_locationItemSettings objectForKey:locationId];
 	if (locationItems)
 	{
-        NSNumber *statusNumber = [locationItems objectForKey:itemId];
-		if (statusNumber)
-		{
-			return [statusNumber intValue];
-		}
+        settings = [locationItems objectForKey:itemId];
 	}
-	return AdvItemStatusUndefined;
+    if (!settings && create)
+    {
+        settings = [[AdvLocationItemSettings alloc] init];
+        if (!locationItems)
+        {
+            locationItems = [[NSMutableDictionary alloc] init];
+            [_locationItemSettings setObject:locationItems forKey:locationId];
+        }
+        [locationItems setObject:settings forKey:itemId];
+    }
+	return settings;
 }
 
 @end
