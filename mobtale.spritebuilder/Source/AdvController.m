@@ -85,7 +85,11 @@ static AdvController *_sharedController = nil;
     
     // load player
     
-    self.player = [[AdvPlayer alloc] initFromURL:[self playerURL]];
+    NSData *codedData = [[NSData alloc] initWithContentsOfURL:[self playerURL]];
+    if (codedData)
+    {
+        self.player = [NSKeyedUnarchiver unarchiveObjectWithData:codedData];
+    }
     
     // go to menu
     
@@ -144,7 +148,8 @@ static AdvController *_sharedController = nil;
 
 - (void) saveCurrentGame
 {
-    [_player writeToURL:[self playerURL]];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_player];
+    [data writeToURL:[self playerURL] atomically:YES];
 }
 
 - (NSURL*) playerURL
@@ -381,6 +386,19 @@ static AdvController *_sharedController = nil;
                     NSString* file = command.attributeDict[@"file"];
                     [self playSound:file];
                 }
+                else if ([commandName isEqualToString:@"setanim"])
+                {
+                    NSString* itemId = command.attributeDict[@"id"];
+                    NSString* locationId = command.attributeDict[@"location"];
+                    NSString* timeline = command.attributeDict[@"timeline"];
+                    AdvLocationItemSettings *settings = [_player getLocationItemSettings:(locationId ? locationId : _currentLocation.locationId) itemId:itemId create:YES];
+                    settings.anim = timeline;
+                    if (!locationId || locationId == _currentLocation.locationId)
+                    {
+                        [_ingameLayer.locationLayer setNodeAnim:itemId timeline:timeline];
+                    }
+                }
+
             }
         }
         if (!enteredSub)
@@ -646,16 +664,16 @@ static AdvController *_sharedController = nil;
     return NO;
 }
 
-- (BOOL) isNodeAvailable:(AdvNode*)advNode
+- (BOOL) isItemAvailable:(NSString*)itemId
 {
-    AdvItem *item = [self.currentLocation getItemById:advNode.itemId];
-    if ([self getItemStatus:item.itemId] != AdvItemStatusVisible)
+    AdvItem *item = [self.currentLocation getItemById:itemId];
+    if ([self getItemStatus:itemId] != AdvItemStatusVisible)
     {
         return NO;
     }
     if (item.isObject)
     {
-        if ([_player isObjectTaken:item.itemId])
+        if ([_player isObjectTaken:itemId])
         {
             return NO;
         }
@@ -671,6 +689,16 @@ static AdvController *_sharedController = nil;
         return settings.status;
     }
     return [_currentLocation getItemById:itemId].defaultStatus;
+}
+
+- (NSString*) getItemAnim:(NSString*)itemId
+{
+    AdvLocationItemSettings *settings = [_player getLocationItemSettings:_currentLocation.locationId itemId:itemId create:NO];
+    if (settings && settings.anim)
+    {
+        return settings.anim;
+    }
+    return nil;
 }
 
 - (AdvItem*) getObjectItem:(NSString*)itemId

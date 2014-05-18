@@ -63,16 +63,21 @@
 
 - (void) refreshNodes
 {
-    AdvController* controller = [AdvController sharedController];
+    AdvController *controller = [AdvController sharedController];
     for (int i = (int)_currentLocationLayer.children.count - 1; i >= 0; i--)
     {
         CCNode *node = [_currentLocationLayer.children objectAtIndex:i];
         if ([node isKindOfClass:[AdvNode class]])
         {
-            AdvNode* advNode = (AdvNode*)node;
-            if (![controller isNodeAvailable:advNode])
+            AdvNode *advNode = (AdvNode*)node;
+            if (![controller isItemAvailable:advNode.itemId])
             {
                 advNode.visible = NO;
+            }
+            NSString *anim = [controller getItemAnim:advNode.itemId];
+            if (anim)
+            {
+                [self setNodeAnim:advNode.itemId timeline:anim];
             }
         }
     }
@@ -135,7 +140,7 @@
         {
             AdvNode* advNode = (AdvNode*)node;
             if (   [advNode hitTestWithWorldPos:location]
-                && [[AdvController sharedController] isNodeAvailable:advNode] )
+                && [[AdvController sharedController] isItemAvailable:advNode.itemId] )
             {
                 return advNode;
             }

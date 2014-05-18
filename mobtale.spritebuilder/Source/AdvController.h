@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "IngameLayer.h"
+#import "AdvItem.h"
 
 @class Adventure;
 @class AdvLocation;
@@ -42,7 +43,9 @@
 - (void) useItem:(NSString*)item1Id with:(NSString*)item2Id;
 - (void) giveItem:(NSString*)itemId;
 
-- (BOOL) isNodeAvailable:(AdvNode*)advNode;
+- (BOOL) isItemAvailable:(NSString*)itemId;
+- (AdvItemStatus) getItemStatus:(NSString*)itemId;
+- (NSString*) getItemAnim:(NSString*)itemId;
 - (AdvItem*) getObjectItem:(NSString*)itemId;
 - (NSString*) getAdvInfo;
 

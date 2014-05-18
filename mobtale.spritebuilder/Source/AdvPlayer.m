@@ -31,40 +31,27 @@
     return self;
 }
 
-- (id) initFromURL:(NSURL*)url
+- (void) encodeWithCoder:(NSCoder *)encoder
 {
-    if (self = [super init])
-    {
-        NSDictionary *data = [NSDictionary dictionaryWithContentsOfURL:url];
-        if (!data)
-        {
-            return nil;
-        }
-        
-        self.locationId = data[@"locationId"];
-        self.inventory = [NSMutableArray arrayWithArray:data[@"inventory"]];
-        self.takenObjects = [NSMutableArray arrayWithArray:data[@"takenObjects"]];
-        self.variables = [NSMutableDictionary dictionaryWithDictionary:data[@"variables"]];
-        
-        self.locationItemSettings = [NSMutableDictionary dictionary];
-/*        NSDictionary *locationItemSettingsDict = data[@"locationItemSettings"];
-        for (NSString *key in locationItemSettingsDict)
-        {
-            self.locationItemSettings[key] = [NSMutableDictionary dictionaryWithDictionary:locationItemSettingsDict[key]];
-        }*/
-    }
-    return self;
+    [encoder encodeObject:self.locationId forKey:@"locationId"];
+    [encoder encodeObject:self.inventory forKey:@"inventory"];
+    [encoder encodeObject:self.takenObjects forKey:@"takenObjects"];
+    [encoder encodeObject:self.variables forKey:@"variables"];
+    [encoder encodeObject:self.locationItemSettings forKey:@"locationItemSettings"];
 }
 
-- (void) writeToURL:(NSURL*)url
+- (id) initWithCoder:(NSCoder *)decoder
 {
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
-    data[@"locationId"] = _locationId;
-    data[@"inventory"] = _inventory;
-    data[@"takenObjects"] = _takenObjects;
-    data[@"variables"] = _variables;
-//    data[@"locationItemSettings"] = _locationItemSettings;
-    [data writeToURL:url atomically:YES];
+    AdvPlayer *player = [[AdvPlayer alloc] init];
+    if (player)
+    {
+        player.locationId = [decoder decodeObjectForKey:@"locationId"];
+        player.inventory = [decoder decodeObjectForKey:@"inventory"];
+        player.takenObjects = [decoder decodeObjectForKey:@"takenObjects"];
+        player.variables = [decoder decodeObjectForKey:@"variables"];
+        player.locationItemSettings = [decoder decodeObjectForKey:@"locationItemSettings"];
+    }
+    return player;
 }
 
 - (void) take:(NSString*)itemId

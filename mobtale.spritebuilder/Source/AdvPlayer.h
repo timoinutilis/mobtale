@@ -11,13 +11,10 @@
 
 @class AdvLocationItemSettings;
 
-@interface AdvPlayer : NSObject
+@interface AdvPlayer : NSObject <NSCoding>
 
 @property (retain) NSString* locationId;
 @property NSMutableArray *inventory;
-
-- (id) initFromURL:(NSURL*)url;
-- (void) writeToURL:(NSURL*)url;
 
 - (void) take:(NSString*)itemId;
 - (void) drop:(NSString*)itemId;

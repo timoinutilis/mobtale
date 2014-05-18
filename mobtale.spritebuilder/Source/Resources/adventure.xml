@@ -64,16 +64,17 @@
 	<location id="example_garden" name="Example Garden" image="garden.ccbi" music="after_colors.wav">
 		<init>
             <do if="not garden_visited">
+                <show location="example_house" id="hat" />
                 This is a super boring example garden.
                 <set var="garden_visited"/>
             </do>
 		</init>
 		<item id="lake" name="Lake">
+            <playanim id="duck" timeline="crazy" />
 			There is a little lake with some animals.
 		</item>
 		<item id="gate" name="Gate">
-            <playanim id="duck" timeline="crazy" />
-            <show location="example_house" id="hat" />
+            <setanim id="duck" timeline="nervous" />
 			<do if="has grey_stone">
 				You don't want to leave this garden. You are too bored.
 			</do>
