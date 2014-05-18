@@ -77,7 +77,7 @@
 {
     if (![[AdvController sharedController] isExecuting])
     {
-        [[AdvController sharedController] goToMenu];
+        [[AdvController sharedController] goToMenu:0.5];
     }
 }
 

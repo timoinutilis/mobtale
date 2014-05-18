@@ -56,7 +56,10 @@
 			<jump to="example_garden" />
 		</item>
 		<item id="duck_on_table" name="Duck on table" status="hidden">
-            That's the duck, man!
+            <say>That's the duck, man!</say>
+            <say>Nothing more to do, this is the end!</say>
+            <say>Thanks for playing!</say>
+            <end/>
         </item>
 		<object id="hat" name="Hat" status="hidden" />
 	</location>
@@ -64,7 +67,6 @@
 	<location id="example_garden" name="Example Garden" image="garden.ccbi" music="after_colors.wav">
 		<init>
             <do if="not garden_visited">
-                <show location="example_house" id="hat" />
                 This is a super boring example garden.
                 <set var="garden_visited"/>
             </do>
@@ -122,7 +124,9 @@
 				<set var="man_is_friendly" />
 				<drop id="grey_stone" />
 				<show id="man_3" />
-				"Wow! My stone! I missed it so much, thank you. I will be more friendly with you now."
+                <show location="example_house" id="hat" />
+				<say>"Wow! My stone! I missed it so much, thank you. I will be more friendly with you now."</say>
+                <say>"And you can have my hat, it's in the room now."</say>
 			</ongive>
 			<onnoneed>
 				"Leave me alone with your boring things!"

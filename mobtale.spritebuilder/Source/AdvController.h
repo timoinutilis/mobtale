@@ -24,7 +24,7 @@
 +(AdvController*) sharedController;
 
 - (void) start;
-- (void) goToMenu;
+- (void) goToMenu:(NSTimeInterval)duration;
 - (void) startNewGame;
 - (void) continueGame;
 - (BOOL) canContinueGame;

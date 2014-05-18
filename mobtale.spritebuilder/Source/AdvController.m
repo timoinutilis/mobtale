@@ -93,10 +93,10 @@ static AdvController *_sharedController = nil;
     
     // go to menu
     
-    [self goToMenu];
+    [self goToMenu:0.5];
 }
 
--(void) goToMenu
+-(void) goToMenu:(NSTimeInterval)duration
 {
     _ingameLayer = nil;
     
@@ -105,7 +105,7 @@ static AdvController *_sharedController = nil;
     CCScene* scene = [CCScene node];
     [scene addChild:node];
     
-    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:0.5f]];
+    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:duration]];
     
     [self playMusic:@"title.wav"];
 }
@@ -148,8 +148,11 @@ static AdvController *_sharedController = nil;
 
 - (void) saveCurrentGame
 {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_player];
-    [data writeToURL:[self playerURL] atomically:YES];
+    if (_player)
+    {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_player];
+        [data writeToURL:[self playerURL] atomically:YES];
+    }
 }
 
 - (NSURL*) playerURL
@@ -157,6 +160,15 @@ static AdvController *_sharedController = nil;
     NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     NSURL *url = [NSURL URLWithString:@"savegame.plist" relativeToURL:urls[0]];
     return url;
+}
+
+- (void) endGame
+{
+    // delete savegame
+    [[NSFileManager defaultManager] removeItemAtURL:[self playerURL] error:nil];
+    self.player = nil;
+    
+    [self goToMenu:4];
 }
 
 - (void) onViewEvent:(ViewEventType)event
@@ -398,7 +410,10 @@ static AdvController *_sharedController = nil;
                         [_ingameLayer.locationLayer setNodeAnim:itemId timeline:timeline];
                     }
                 }
-
+                else if ([commandName isEqualToString:@"end"])
+                {
+                    [self endGame];
+                }
             }
         }
         if (!enteredSub)
