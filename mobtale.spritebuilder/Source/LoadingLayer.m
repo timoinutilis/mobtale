@@ -3,7 +3,7 @@
 //  mobtale
 //
 //  Created by Timo Kloss on 12/01/14.
-//  Copyright (c) 2014 Apportable. All rights reserved.
+//  Copyright (c) 2014 Timo Kloss. All rights reserved.
 //
 
 #import "LoadingLayer.h"

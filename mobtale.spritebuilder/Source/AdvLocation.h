@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "AdvItem.h"
 
-enum AdvLocationType : int {
+typedef NS_ENUM(int, AdvLocationType)
+{
     AdvLocationTypeNormal,
     AdvLocationTypePerson
 };
-typedef enum AdvLocationType : int AdvLocationType;
-
 
 @interface AdvLocation : NSObject
 

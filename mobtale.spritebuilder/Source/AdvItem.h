@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-enum AdvItemStatus : int {
+typedef NS_ENUM(int, AdvItemStatus)
+{
     AdvItemStatusUndefined,
     AdvItemStatusVisible,
     AdvItemStatusHidden
 };
-typedef enum AdvItemStatus : int AdvItemStatus;
-
 
 @interface AdvItem : NSObject
 
