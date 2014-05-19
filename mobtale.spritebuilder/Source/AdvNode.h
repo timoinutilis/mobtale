@@ -10,6 +10,6 @@
 
 @interface AdvNode : CCNode
 
-@property (retain) NSString* itemId;
+@property NSString *itemId;
 
 @end

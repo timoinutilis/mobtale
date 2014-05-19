@@ -11,12 +11,12 @@
 
 @interface AdvExecution : NSObject
 
-@property (weak) NSMutableArray* commands;
+@property NSMutableArray* commands;
 @property int index;
 
-- (id) initWithCommands:(NSMutableArray*)commands;
+- (id) initWithCommands:(NSMutableArray *)commands;
 - (BOOL) finished;
-- (AdvCommand*) getCurrentCommand;
+- (AdvCommand *) getCurrentCommand;
 - (void) next;
 
 @end

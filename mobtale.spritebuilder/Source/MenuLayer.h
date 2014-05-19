@@ -10,7 +10,7 @@
 
 @interface MenuLayer : CCScene <UIAlertViewDelegate>
 
-- (void) loadImage:(NSString*)name;
+- (void) loadImage:(NSString *)name;
 - (void) hideAbout;
 
 @end

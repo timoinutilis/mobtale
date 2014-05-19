@@ -10,8 +10,8 @@
 
 @interface DialogItem : CCControl
 
-@property NSString* itemId;
+@property NSString *itemId;
 
-- (id) initWithText:(NSString*)text itemId:(NSString*)itemId labelTemplate:(CCLabelTTF*)labelTemplate;
+- (id) initWithText:(NSString *)text itemId:(NSString *)itemId labelTemplate:(CCLabelTTF *)labelTemplate;
 
 @end

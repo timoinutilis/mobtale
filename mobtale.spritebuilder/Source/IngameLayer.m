@@ -15,38 +15,35 @@
 #import "Adventure.h"
 #import "AdvNode.h"
 
-@interface IngameLayer()
+@implementation IngameLayer
 {
-    CCButton* _buttonMenu;
-    CCButton* _buttonInventory;
-    CCButton* _buttonTake;
-    CCButton* _buttonUse;
-    CCNode* _nodeCenter;
-    CCNode* _nodeTextWindow;
-    CCNode* _nodeActionsContainer;
-    CCLabelTTF* _labelText;
-    CCNode* _nodeInventoryWindow;
-    CCNode* _inventoryBox;
+    CCButton *_buttonMenu;
+    CCButton *_buttonInventory;
+    CCButton *_buttonTake;
+    CCButton *_buttonUse;
+    CCNode *_nodeCenter;
+    CCNode *_nodeTextWindow;
+    CCNode *_nodeActionsContainer;
+    CCLabelTTF *_labelText;
+    CCNode *_nodeInventoryWindow;
+    CCNode *_inventoryBox;
     
-    CCNode* _objectInfo;
-    CCNode* _objectInfoTarget;
-    CCLabelTTF* _infoLabel;
+    CCNode *_objectInfo;
+    CCNode *_objectInfoTarget;
+    CCLabelTTF *_infoLabel;
     
     BOOL _objectMoved;
     CGPoint _dragStartPoint;
-    ObjectSprite* _draggingObject;
-    AdvNode* _draggingOverNode;
-    ObjectSprite* _draggingOverObject;
+    ObjectSprite *_draggingObject;
+    AdvNode *_draggingOverNode;
+    ObjectSprite *_draggingOverObject;
     BOOL _draggingOverLocation;
-    ObjectSprite* _selectedObject;
+    ObjectSprite *_selectedObject;
     
-    NSMutableArray* _inventorySprites;
+    NSMutableArray *_inventorySprites;
     BOOL _areObjectsMoving;
     BOOL _objectsDirty;
 }
-@end
-
-@implementation IngameLayer
 
 - (id) init
 {
@@ -110,7 +107,7 @@
     }
 }
 
-- (void) showObjectInfoFor:(CCNode*)node text:(NSString*)text
+- (void) showObjectInfoFor:(CCNode *)node text:(NSString *)text
 {
     [self hideObjectInfo];
     
@@ -120,17 +117,17 @@
     [self updateObjectInfo];
 }
 
-- (void) showObjectInfoFor:(CCNode *)node useItemId:(NSString*)itemId
+- (void) showObjectInfoFor:(CCNode *)node useItemId:(NSString *)itemId
 {
-    AdvItem* item = [[AdvController sharedController] getObjectItem:itemId];
+    AdvItem *item = [[AdvController sharedController] getObjectItem:itemId];
     NSString *info = [NSString stringWithFormat:@"Use %@ with...", item.name];
     [self showObjectInfoFor:node text:info];
 }
 
-- (void) showObjectInfoFor:(CCNode *)node useItemId:(NSString*)item1Id withItemId:(NSString*)item2Id
+- (void) showObjectInfoFor:(CCNode *)node useItemId:(NSString *)item1Id withItemId:(NSString *)item2Id
 {
-    AdvItem* item1 = [[AdvController sharedController] getObjectItem:item1Id];
-    AdvItem* item2 = [[AdvController sharedController] getObjectItem:item2Id];
+    AdvItem *item1 = [[AdvController sharedController] getObjectItem:item1Id];
+    AdvItem *item2 = [[AdvController sharedController] getObjectItem:item2Id];
     if (!item2)
     {
         item2 = [[[AdvController sharedController] currentLocation] getItemById:item2Id];
@@ -139,9 +136,9 @@
     [self showObjectInfoFor:node text:info];
 }
 
-- (void) showObjectInfoFor:(CCNode *)node giveItemId:(NSString*)itemId
+- (void) showObjectInfoFor:(CCNode *)node giveItemId:(NSString *)itemId
 {
-    AdvItem* item = [[AdvController sharedController] getObjectItem:itemId];
+    AdvItem *item = [[AdvController sharedController] getObjectItem:itemId];
     NSString *info = [NSString stringWithFormat:@"Give %@", item.name];
     [self showObjectInfoFor:node text:info];
 }
@@ -165,7 +162,7 @@
     }
 }
 
-- (void) showText:(NSString*)text
+- (void) showText:(NSString *)text
 {
     _nodeActionsContainer.visible = NO;
     _labelText.string = text;
@@ -213,7 +210,7 @@
     }
 }
 
-- (ObjectSprite*) getInventoryObjectAtPosition:(CGPoint)location
+- (ObjectSprite *) getInventoryObjectAtPosition:(CGPoint)location
 {
     for (int i = (int)_inventoryBox.children.count - 1; i >= 0; i--)
     {
@@ -322,7 +319,7 @@
                 _draggingOverObject = nil;
             }
 
-            AdvNode* overNode = [_locationLayer getNodeAtPosition:location];
+            AdvNode *overNode = [_locationLayer getNodeAtPosition:location];
             if (overNode != _draggingOverNode)
             {
                 _draggingOverNode = overNode;
@@ -407,7 +404,7 @@
             else
             {
                 // first tap
-                AdvItem* item = [[AdvController sharedController] getObjectItem:_draggingObject.itemId];
+                AdvItem *item = [[AdvController sharedController] getObjectItem:_draggingObject.itemId];
                 [self showObjectInfoFor:_draggingObject text:item.name];
                 _selectedObject = _draggingObject;
             }
@@ -424,10 +421,10 @@
     }
 }
 
-- (void) addInventoryObject:(NSString*)itemId
+- (void) addInventoryObject:(NSString *)itemId
 {
-    NSString* filename = [self getFilenameForObject:itemId];
-    ObjectSprite* sprite = [ObjectSprite spriteWithImageNamed:filename];
+    NSString *filename = [self getFilenameForObject:itemId];
+    ObjectSprite *sprite = [ObjectSprite spriteWithImageNamed:filename];
     sprite.itemId = itemId;
     
     [_inventoryBox addChild:sprite];
@@ -435,14 +432,14 @@
     _objectsDirty = YES;
 }
 
-- (void) removeInventoryObject:(NSString*)itemId
+- (void) removeInventoryObject:(NSString *)itemId
 {
     for (int i = (int)_inventorySprites.count - 1; i >= 0; i--)
     {
         ObjectSprite *sprite = [_inventorySprites objectAtIndex:i];
         if ([sprite.itemId isEqualToString:itemId])
         {
-            CCActionCallBlock* actionCall = [CCActionCallBlock actionWithBlock:^{
+            CCActionCallBlock *actionCall = [CCActionCallBlock actionWithBlock:^{
                 [sprite removeFromParent];
             }];
             [sprite runAction:[CCActionSequence actions:[CCActionSpawn actions:
@@ -519,7 +516,7 @@
     return _objectsDirty || _areObjectsMoving;
 }
 
-- (BOOL) isDragging:(NSString*)itemId
+- (BOOL) isDragging:(NSString *)itemId
 {
     return _draggingObject != nil && [_draggingObject.itemId isEqualToString:itemId];
 }
@@ -530,10 +527,10 @@
     _selectedObject = nil;
 }
 
-- (void) moveObjectToInventory:(NSString*)itemId fromPosition:(CGPoint)point
+- (void) moveObjectToInventory:(NSString *)itemId fromPosition:(CGPoint)point
 {
-    NSString* filename = [self getFilenameForObject:itemId];
-    CCSprite* sprite = [ObjectSprite spriteWithImageNamed:filename];
+    NSString *filename = [self getFilenameForObject:itemId];
+    CCSprite *sprite = [ObjectSprite spriteWithImageNamed:filename];
     sprite.scale = 0.3f;
     sprite.position = point;
     [self addChild:sprite z:1];
@@ -559,9 +556,9 @@
 
 }
 
-- (NSString*) getFilenameForObject:(NSString*)itemId
+- (NSString *) getFilenameForObject:(NSString *)itemId
 {
-    NSString* filename = @"objects/";
+    NSString *filename = @"objects/";
     filename = [filename stringByAppendingString:itemId];
     filename = [filename stringByAppendingString:@".png"];
     return filename;

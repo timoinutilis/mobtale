@@ -10,25 +10,22 @@
 #import "CCControlSubclass.h"
 #import "AdvController.h"
 
-@interface DialogItem()
-
-@property CCLabelTTF *label;
-@property CCColor *colorNormal;
-@property CCColor *colorHighlight;
-
-@end
-
 @implementation DialogItem
+{
+    CCLabelTTF *_label;
+    CCColor *_colorNormal;
+    CCColor *_colorHighlight;
+}
 
-- (id) initWithText:(NSString*)text itemId:(NSString*)itemId labelTemplate:(CCLabelTTF*)labelTemplate
+- (id) initWithText:(NSString *)text itemId:(NSString *)itemId labelTemplate:(CCLabelTTF *)labelTemplate
 {
     if (self = [super init])
     {
-        self.itemId = itemId;
-        self.colorNormal = labelTemplate.fontColor;
-        self.colorHighlight = [CCColor colorWithRed:1.0f green:0.0f blue:0.0f];
+        _itemId = itemId;
+        _colorNormal = labelTemplate.fontColor;
+        _colorHighlight = [CCColor colorWithRed:1.0f green:0.0f blue:0.0f];
         
-        self.label = [[CCLabelTTF alloc] initWithString:text fontName:labelTemplate.fontName fontSize:labelTemplate.fontSize dimensions:labelTemplate.dimensions];
+        _label = [[CCLabelTTF alloc] initWithString:text fontName:labelTemplate.fontName fontSize:labelTemplate.fontSize dimensions:labelTemplate.dimensions];
         _label.anchorPoint = ccp(0, 0);
         _label.horizontalAlignment = labelTemplate.horizontalAlignment;
         _label.verticalAlignment = labelTemplate.verticalAlignment;

@@ -18,12 +18,12 @@ typedef enum AdvItemStatus : int AdvItemStatus;
 
 @interface AdvItem : NSObject
 
-@property (retain) NSString *itemId;
+@property NSString *itemId;
 @property BOOL isObject;
-@property (retain) NSString *name;
+@property NSString *name;
 @property (readonly) NSMutableArray *actionHandlers;
 @property (readonly) AdvItemStatus defaultStatus;
 
-- (id) initWithId:(NSString*)itemId isObject:(BOOL)isObject name:(NSString*)name defaultStatus:(AdvItemStatus)status;
+- (id) initWithId:(NSString *)itemId isObject:(BOOL)isObject name:(NSString *)name defaultStatus:(AdvItemStatus)status;
 
 @end

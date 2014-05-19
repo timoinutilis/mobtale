@@ -9,7 +9,7 @@
 #import "DialogLayer.h"
 #import "DialogItem.h"
 
-@interface DialogLayer()
+@implementation DialogLayer
 {
     CCNodeColor *_nodeBackground;
     CCLabelTTF *_labelTemplate;
@@ -19,9 +19,6 @@
     CGFloat _bgOpacity;
     BOOL _enabled;
 }
-@end
-
-@implementation DialogLayer
 
 - (id) init
 {
@@ -51,7 +48,7 @@
     _currentPosition = _labelTemplate.positionInPoints;
 }
 
-- (void) addItemWithText:(NSString*)text itemId:(NSString*)itemId
+- (void) addItemWithText:(NSString *)text itemId:(NSString *)itemId
 {
     DialogItem *item = [[DialogItem alloc] initWithText:text itemId:itemId labelTemplate:_labelTemplate];
     [_items addObject:item];

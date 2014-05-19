@@ -22,25 +22,20 @@
 #import "AdvItem.h"
 #import "AdvLocationItemSettings.h"
 
-@interface AdvController()
+@implementation AdvController
 {
+    Adventure *_adventure;
+    AdvPlayer *_player;
+    NSMutableArray *_stack;
     int _waitingFor;
     NSString *_currentMusic;
 }
-
-@property Adventure *adventure;
-@property AdvPlayer *player;
-@property NSMutableArray *stack;
-
-@end
-
-@implementation AdvController
 
 #pragma mark - Singleton
 
 static AdvController *_sharedController = nil;
 
-+ (AdvController*) sharedController
++ (AdvController *) sharedController
 {
 	if (!_sharedController)
     {
@@ -49,7 +44,7 @@ static AdvController *_sharedController = nil;
 	return _sharedController;
 }
 
-+(id)alloc
++ (id) alloc
 {
 	NSAssert(_sharedController == nil, @"Attempted to allocate a second instance of a singleton.");
     
@@ -65,7 +60,7 @@ static AdvController *_sharedController = nil;
 {
     if (self = [super init])
     {
-        self.stack = [NSMutableArray array];
+        _stack = [NSMutableArray array];
         _waitingFor = ViewEventNone;
     }
     return self;
@@ -73,22 +68,22 @@ static AdvController *_sharedController = nil;
 
 #pragma mark - Controller
 
--(void) start
+- (void) start
 {
     // load and parse XML
     
-    NSBundle* mainBundle = [NSBundle mainBundle];
-    NSString* filepath = [mainBundle pathForResource:@"adventure" ofType:@"xml"];
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *filepath = [mainBundle pathForResource:@"adventure" ofType:@"xml"];
 
-    AdvParser* parser = [[AdvParser alloc] init];
-    self.adventure = [parser createAdventureFromXMLFile:filepath];
+    AdvParser *parser = [[AdvParser alloc] init];
+    _adventure = [parser createAdventureFromXMLFile:filepath];
     
     // load player
     
     NSData *codedData = [[NSData alloc] initWithContentsOfURL:[self playerURL]];
     if (codedData)
     {
-        self.player = [NSKeyedUnarchiver unarchiveObjectWithData:codedData];
+        _player = [NSKeyedUnarchiver unarchiveObjectWithData:codedData];
     }
     
     // go to menu
@@ -96,13 +91,13 @@ static AdvController *_sharedController = nil;
     [self goToMenu:0.5];
 }
 
--(void) goToMenu:(NSTimeInterval)duration
+- (void) goToMenu:(NSTimeInterval)duration
 {
     _ingameLayer = nil;
     
-    MenuLayer* node = (MenuLayer*) [CCBReader load:@"MenuLayer.ccbi"];
+    MenuLayer *node = (MenuLayer *) [CCBReader load:@"MenuLayer.ccbi"];
     [node loadImage:@"title.ccbi"];
-    CCScene* scene = [CCScene node];
+    CCScene *scene = [CCScene node];
     [scene addChild:node];
     
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:duration]];
@@ -110,25 +105,25 @@ static AdvController *_sharedController = nil;
     [self playMusic:@"title.wav"];
 }
 
--(void) startNewGame
+- (void) startNewGame
 {
-    self.player = [[AdvPlayer alloc] init];
+    _player = [[AdvPlayer alloc] init];
 
-    AdvLocation* firstLocation = _adventure.locations[0];
+    AdvLocation *firstLocation = _adventure.locations[0];
     [self enterGameAtLocationId:firstLocation.locationId];
 }
 
--(void) continueGame
+- (void) continueGame
 {
-    NSAssert(self.player, @"no player");
+    NSAssert(_player, @"no player");
     [self enterGameAtLocationId:_player.locationId];
 }
 
-- (void) enterGameAtLocationId:(NSString*)locationId
+- (void) enterGameAtLocationId:(NSString *)locationId
 {
-    _ingameLayer = (IngameLayer*) [CCBReader load:@"IngameLayer.ccbi"];
+    _ingameLayer = (IngameLayer *) [CCBReader load:@"IngameLayer.ccbi"];
     
-    CCScene* scene = [CCScene node];
+    CCScene *scene = [CCScene node];
     [scene addChild:_ingameLayer];
     
     for (NSString *itemId in _player.inventory)
@@ -143,7 +138,7 @@ static AdvController *_sharedController = nil;
 
 - (BOOL) canContinueGame
 {
-    return (self.player != nil);
+    return (_player != nil);
 }
 
 - (void) saveCurrentGame
@@ -155,7 +150,7 @@ static AdvController *_sharedController = nil;
     }
 }
 
-- (NSURL*) playerURL
+- (NSURL *) playerURL
 {
     NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     NSURL *url = [NSURL URLWithString:@"savegame.plist" relativeToURL:urls[0]];
@@ -166,7 +161,7 @@ static AdvController *_sharedController = nil;
 {
     // delete savegame
     [[NSFileManager defaultManager] removeItemAtURL:[self playerURL] error:nil];
-    self.player = nil;
+    _player = nil;
     
     [self goToMenu:4];
 }
@@ -184,7 +179,7 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(void) setLocation:(NSString*)locationId
+- (void) setLocation:(NSString *)locationId
 {
     _player.locationId = locationId;
     
@@ -218,7 +213,7 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(void) execute:(NSMutableArray*)commands enteringLocation:(BOOL)enteringLocation
+- (void) execute:(NSMutableArray *)commands enteringLocation:(BOOL)enteringLocation
 {
     [_ingameLayer.dialogLayer hide];
     
@@ -258,7 +253,7 @@ static AdvController *_sharedController = nil;
             
             if ([commandName isEqualToString:@"drop"])
             {
-                NSString* itemId = command.attributeDict[@"id"];
+                NSString *itemId = command.attributeDict[@"id"];
                 if (![_ingameLayer isInventoryOpen] && ![_ingameLayer isDragging:itemId] && [_player isObjectTaken:itemId])
                 {
                     [_ingameLayer openInventory];
@@ -299,7 +294,7 @@ static AdvController *_sharedController = nil;
             {
                 if ([commandName isEqualToString:@"say"])
                 {
-                    NSString* text = command.attributeDict[@"text"];
+                    NSString *text = command.attributeDict[@"text"];
                     [_ingameLayer showText:text];
                     _waitingFor = ViewEventTextHidden;
                     if (!enteringLocation)
@@ -310,7 +305,7 @@ static AdvController *_sharedController = nil;
                 }
                 else if ([commandName isEqualToString:@"jump"])
                 {
-                    NSString* locationId = command.attributeDict[@"to"];
+                    NSString *locationId = command.attributeDict[@"to"];
                     [_stack removeAllObjects];
                     [self setLocation:locationId];
                     [self playSound:@"walk.wav"];
@@ -325,13 +320,13 @@ static AdvController *_sharedController = nil;
                 }
                 else if ([commandName isEqualToString:@"get"])
                 {
-                    NSString* itemId = command.attributeDict[@"id"];
+                    NSString *itemId = command.attributeDict[@"id"];
                     [self takeItemPrivate:itemId];
                     [self playSound:@"take.wav"];
                 }
                 else if ([commandName isEqualToString:@"drop"])
                 {
-                    NSString* itemId = command.attributeDict[@"id"];
+                    NSString *itemId = command.attributeDict[@"id"];
                     if ([_currentLocation getItemById:itemId])
                     {
                         [_ingameLayer.locationLayer setNodeVisible:itemId visible:NO];
@@ -341,8 +336,8 @@ static AdvController *_sharedController = nil;
                 }
                 else if ([commandName isEqualToString:@"show"])
                 {
-                    NSString* itemId = command.attributeDict[@"id"];
-                    NSString* locationId = command.attributeDict[@"location"];
+                    NSString *itemId = command.attributeDict[@"id"];
+                    NSString *locationId = command.attributeDict[@"location"];
                     AdvLocationItemSettings *settings = [_player getLocationItemSettings:(locationId ? locationId : _currentLocation.locationId) itemId:itemId create:YES];
                     settings.status = AdvItemStatusVisible;
                     if (!locationId || locationId == _currentLocation.locationId)
@@ -352,8 +347,8 @@ static AdvController *_sharedController = nil;
                 }
                 else if ([commandName isEqualToString:@"hide"])
                 {
-                    NSString* itemId = command.attributeDict[@"id"];
-                    NSString* locationId = command.attributeDict[@"location"];
+                    NSString *itemId = command.attributeDict[@"id"];
+                    NSString *locationId = command.attributeDict[@"location"];
                     AdvLocationItemSettings *settings = [_player getLocationItemSettings:(locationId ? locationId : _currentLocation.locationId) itemId:itemId create:YES];
                     settings.status = AdvItemStatusHidden;
                     if (!locationId || locationId == _currentLocation.locationId)
@@ -363,13 +358,13 @@ static AdvController *_sharedController = nil;
                 }
                 else if ([commandName isEqualToString:@"set"])
                 {
-                    NSString* var = command.attributeDict[@"var"];
+                    NSString *var = command.attributeDict[@"var"];
                     int value = [command.attributeDict[@"value"] intValue];
                     [_player setVariable:var value:(value ? value : 1)];
                 }
                 else if ([commandName isEqualToString:@"add"])
                 {
-                    NSString* var = command.attributeDict[@"var"];
+                    NSString *var = command.attributeDict[@"var"];
                     int value = [command.attributeDict[@"value"] intValue];
                     [_player addVariable:var value:(value ? value : 1)];
                 }
@@ -389,20 +384,20 @@ static AdvController *_sharedController = nil;
                 }
                 else if ([commandName isEqualToString:@"playanim"])
                 {
-                    NSString* itemId = command.attributeDict[@"id"];
-                    NSString* timeline = command.attributeDict[@"timeline"];
+                    NSString *itemId = command.attributeDict[@"id"];
+                    NSString *timeline = command.attributeDict[@"timeline"];
                     [_ingameLayer.locationLayer setNodeAnim:itemId timeline:timeline];
                 }
                 else if ([commandName isEqualToString:@"playsound"])
                 {
-                    NSString* file = command.attributeDict[@"file"];
+                    NSString *file = command.attributeDict[@"file"];
                     [self playSound:file];
                 }
                 else if ([commandName isEqualToString:@"setanim"])
                 {
-                    NSString* itemId = command.attributeDict[@"id"];
-                    NSString* locationId = command.attributeDict[@"location"];
-                    NSString* timeline = command.attributeDict[@"timeline"];
+                    NSString *itemId = command.attributeDict[@"id"];
+                    NSString *locationId = command.attributeDict[@"location"];
+                    NSString *timeline = command.attributeDict[@"timeline"];
                     AdvLocationItemSettings *settings = [_player getLocationItemSettings:(locationId ? locationId : _currentLocation.locationId) itemId:itemId create:YES];
                     settings.anim = timeline;
                     if (!locationId || locationId == _currentLocation.locationId)
@@ -430,26 +425,26 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(BOOL) isExpressionTrue:(NSString*)expression
+- (BOOL) isExpressionTrue:(NSString *)expression
 {
     if (expression.length == 0)
 	{
 		CCLOG(@"Error: IF expression is empty.");
 		return NO;
 	}
-	NSArray* parts = [expression componentsSeparatedByString:@" "];
+	NSArray *parts = [expression componentsSeparatedByString:@" "];
 	switch (parts.count)
 	{
 		case 1:
         {
-            NSString* part1 = parts[0];
+            NSString *part1 = parts[0];
 			return ([self parseValue:part1] != 0);
         }
 			
 		case 2:
         {
-            NSString* part1 = parts[0];
-            NSString* part2 = parts[1];
+            NSString *part1 = parts[0];
+            NSString *part2 = parts[1];
 
             if ([part1 isEqualToString:@"has"])
             {
@@ -468,9 +463,9 @@ static AdvController *_sharedController = nil;
 			
 		case 3:
         {
-            NSString* part1 = parts[0];
-            NSString* part2 = parts[1];
-            NSString* part3 = parts[2];
+            NSString *part1 = parts[0];
+            NSString *part2 = parts[1];
+            NSString *part3 = parts[2];
 
 			int value1 = [self parseValue:part1];
 			int value2 = [self parseValue:part3];
@@ -498,11 +493,11 @@ static AdvController *_sharedController = nil;
 	return false;
 }
 
-- (int) parseValue:(NSString*)string
+- (int) parseValue:(NSString *)string
 {
 	int result = 0;
-	NSString* numberChars = @"0123456789-";
-    NSString* firstChar = [string substringToIndex:1];
+	NSString *numberChars = @"0123456789-";
+    NSString *firstChar = [string substringToIndex:1];
     if ([numberChars rangeOfString:firstChar].location != NSNotFound)
 	{
 		// number
@@ -515,16 +510,16 @@ static AdvController *_sharedController = nil;
 	return result;
 }
 
--(BOOL) useItem:(NSString*)itemId
+- (BOOL) useItem:(NSString *)itemId
 {
-    AdvItem* item = [_currentLocation getItemById:itemId];
+    AdvItem *item = [_currentLocation getItemById:itemId];
     if (item.isObject)
     {
         return [self handleObject:itemId event:@"onuse"];
     }
     else
     {
-        for (AdvActionHandler* handler in item.actionHandlers)
+        for (AdvActionHandler *handler in item.actionHandlers)
         {
             if ([handler.type isEqualToString:@"onuse"])
             {
@@ -536,7 +531,7 @@ static AdvController *_sharedController = nil;
     return NO;
 }
 
--(void) takeItem:(NSString*)itemId fromPosition:(CGPoint)point
+- (void) takeItem:(NSString *)itemId fromPosition:(CGPoint)point
 {
     [_ingameLayer hideText];
     
@@ -546,7 +541,7 @@ static AdvController *_sharedController = nil;
     [self playSound:@"take.wav"];
 }
 
-- (void) takeItemPrivate:(NSString*)itemId
+- (void) takeItemPrivate:(NSString *)itemId
 {
     [_player take:itemId];
     
@@ -554,16 +549,16 @@ static AdvController *_sharedController = nil;
     [_ingameLayer addInventoryObject:itemId];
 }
 
--(BOOL) lookAtItem:(NSString*)itemId
+- (BOOL) lookAtItem:(NSString *)itemId
 {
-    AdvItem* item = [_currentLocation getItemById:itemId];
+    AdvItem *item = [_currentLocation getItemById:itemId];
     if (!item || item.isObject) // if item is not in location, than maybe it's an object, too.
     {
         return [self handleObject:itemId event:@"onlookat"];
     }
     else
     {
-        for (AdvActionHandler* handler in item.actionHandlers)
+        for (AdvActionHandler *handler in item.actionHandlers)
         {
             if ([handler.type isEqualToString:@"onlookat"])
             {
@@ -575,7 +570,7 @@ static AdvController *_sharedController = nil;
     return NO;
 }
 
-- (void) useItem:(NSString*)item1Id with:(NSString*)item2Id;
+- (void) useItem:(NSString *)item1Id with:(NSString *)item2Id;
 {
     BOOL openInventory = YES;
     if (![self handleUseWith:item2Id handlers:[_adventure getObjectItemById:item1Id].actionHandlers])
@@ -599,11 +594,11 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(BOOL) handleUseWith:(NSString*)useWithId handlers:(NSMutableArray*)handlers
+- (BOOL) handleUseWith:(NSString *)useWithId handlers:(NSMutableArray*)handlers
 {
     if (handlers)
     {
-        for (AdvActionHandler* handler in handlers)
+        for (AdvActionHandler *handler in handlers)
         {
             if (   [handler.type isEqualToString:@"onusewith"]
                 && [handler.itemId isEqualToString:useWithId])
@@ -616,7 +611,7 @@ static AdvController *_sharedController = nil;
 	return NO;
 }
 
--(void) giveItem:(NSString*)itemId
+- (void) giveItem:(NSString *)itemId
 {
     if ([self handleObjectInLocation:itemId event:@"ongive"])
     {
@@ -626,7 +621,7 @@ static AdvController *_sharedController = nil;
     {
         // not given
         BOOL handled = NO;
-        for (AdvActionHandler* handler in _currentLocation.objectActionHandlers)
+        for (AdvActionHandler *handler in _currentLocation.objectActionHandlers)
         {
             if ([handler.type isEqualToString:@"onnoneed"])
             {
@@ -642,7 +637,7 @@ static AdvController *_sharedController = nil;
     }
 }
 
--(BOOL) handleObject:(NSString*)itemId event:(NSString*)event
+- (BOOL) handleObject:(NSString *)itemId event:(NSString *)event
 {
     BOOL handled = [self handleObjectInLocation:itemId event:event];
     if (!handled)
@@ -652,9 +647,9 @@ static AdvController *_sharedController = nil;
     return handled;
 }
 
--(BOOL) handleObjectInLocation:(NSString*)itemId event:(NSString*)event
+- (BOOL) handleObjectInLocation:(NSString *)itemId event:(NSString *)event
 {
-    for (AdvActionHandler* handler in _currentLocation.objectActionHandlers)
+    for (AdvActionHandler *handler in _currentLocation.objectActionHandlers)
     {
         if ([handler.type isEqualToString:event] && [handler.itemId isEqualToString:itemId])
         {
@@ -665,10 +660,10 @@ static AdvController *_sharedController = nil;
     return NO;
 }
 
--(BOOL) handleObjectInDefs:(NSString*)itemId event:(NSString*)event
+- (BOOL) handleObjectInDefs:(NSString *)itemId event:(NSString *)event
 {
-    AdvItem* item = [_adventure getObjectItemById:itemId];
-    for (AdvActionHandler* handler in item.actionHandlers)
+    AdvItem *item = [_adventure getObjectItemById:itemId];
+    for (AdvActionHandler *handler in item.actionHandlers)
     {
         if ([handler.type isEqualToString:event])
         {
@@ -679,9 +674,9 @@ static AdvController *_sharedController = nil;
     return NO;
 }
 
-- (BOOL) isItemAvailable:(NSString*)itemId
+- (BOOL) isItemAvailable:(NSString *)itemId
 {
-    AdvItem *item = [self.currentLocation getItemById:itemId];
+    AdvItem *item = [_currentLocation getItemById:itemId];
     if ([self getItemStatus:itemId] != AdvItemStatusVisible)
     {
         return NO;
@@ -696,7 +691,7 @@ static AdvController *_sharedController = nil;
     return YES;
 }
 
-- (AdvItemStatus) getItemStatus:(NSString*)itemId
+- (AdvItemStatus) getItemStatus:(NSString *)itemId
 {
     AdvLocationItemSettings *settings = [_player getLocationItemSettings:_currentLocation.locationId itemId:itemId create:NO];
     if (settings && settings.status != AdvItemStatusUndefined)
@@ -706,7 +701,7 @@ static AdvController *_sharedController = nil;
     return [_currentLocation getItemById:itemId].defaultStatus;
 }
 
-- (NSString*) getItemAnim:(NSString*)itemId
+- (NSString *) getItemAnim:(NSString *)itemId
 {
     AdvLocationItemSettings *settings = [_player getLocationItemSettings:_currentLocation.locationId itemId:itemId create:NO];
     if (settings && settings.anim)
@@ -716,17 +711,17 @@ static AdvController *_sharedController = nil;
     return nil;
 }
 
-- (AdvItem*) getObjectItem:(NSString*)itemId
+- (AdvItem*) getObjectItem:(NSString *)itemId
 {
     return [_adventure getObjectItemById:itemId];
 }
 
-- (NSString*) getAdvInfo
+- (NSString *) getAdvInfo
 {
     return _adventure.info;
 }
 
-- (void) playMusic:(NSString*)music
+- (void) playMusic:(NSString *)music
 {
     if (!_currentMusic || ![_currentMusic isEqualToString:music])
     {
@@ -764,7 +759,7 @@ static AdvController *_sharedController = nil;
     _currentMusic = nil;
 }
 
-- (void) playSound:(NSString*)sound
+- (void) playSound:(NSString *)sound
 {
     NSString *soundFile = [@"sounds/" stringByAppendingString:sound];
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];

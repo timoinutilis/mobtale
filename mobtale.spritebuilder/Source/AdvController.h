@@ -18,10 +18,10 @@
 
 @interface AdvController : NSObject
 
-@property (readonly) AdvLocation* currentLocation;
-@property (readonly) IngameLayer* ingameLayer;
+@property (readonly) AdvLocation *currentLocation;
+@property (readonly) IngameLayer *ingameLayer;
 
-+(AdvController*) sharedController;
++ (AdvController *) sharedController;
 
 - (void) start;
 - (void) goToMenu:(NSTimeInterval)duration;
@@ -31,24 +31,24 @@
 - (void) saveCurrentGame;
 
 - (void) onViewEvent:(ViewEventType)event;
-- (void) setLocation:(NSString*)locationId;
-- (void) execute:(NSMutableArray*)commands enteringLocation:(BOOL)enteredLocation;
+- (void) setLocation:(NSString *)locationId;
+- (void) execute:(NSMutableArray *)commands enteringLocation:(BOOL)enteredLocation;
 - (void) continueExecution;
 - (BOOL) isExecuting;
-- (BOOL) isExpressionTrue:(NSString*)expression;
+- (BOOL) isExpressionTrue:(NSString *)expression;
 
-- (BOOL) useItem:(NSString*)itemId;
-- (void) takeItem:(NSString*)itemId fromPosition:(CGPoint)point;
-- (BOOL) lookAtItem:(NSString*)itemId;
-- (void) useItem:(NSString*)item1Id with:(NSString*)item2Id;
-- (void) giveItem:(NSString*)itemId;
+- (BOOL) useItem:(NSString *)itemId;
+- (void) takeItem:(NSString *)itemId fromPosition:(CGPoint)point;
+- (BOOL) lookAtItem:(NSString *)itemId;
+- (void) useItem:(NSString *)item1Id with:(NSString*)item2Id;
+- (void) giveItem:(NSString *)itemId;
 
-- (BOOL) isItemAvailable:(NSString*)itemId;
-- (AdvItemStatus) getItemStatus:(NSString*)itemId;
-- (NSString*) getItemAnim:(NSString*)itemId;
-- (AdvItem*) getObjectItem:(NSString*)itemId;
-- (NSString*) getAdvInfo;
+- (BOOL) isItemAvailable:(NSString *)itemId;
+- (AdvItemStatus) getItemStatus:(NSString *)itemId;
+- (NSString *) getItemAnim:(NSString *)itemId;
+- (AdvItem *) getObjectItem:(NSString *)itemId;
+- (NSString *) getAdvInfo;
 
-- (void) playSound:(NSString*)sound;
+- (void) playSound:(NSString *)sound;
 
 @end

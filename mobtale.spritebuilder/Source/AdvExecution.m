@@ -10,7 +10,7 @@
 
 @implementation AdvExecution
 
-- (id) initWithCommands:(NSMutableArray*)commands
+- (id) initWithCommands:(NSMutableArray *)commands
 {
     if (self = [super init])
     {
@@ -24,7 +24,7 @@
     return _index >= _commands.count;
 }
 
-- (AdvCommand*) getCurrentCommand
+- (AdvCommand *) getCurrentCommand
 {
     AdvCommand *command = _commands[_index];
     return command;

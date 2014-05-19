@@ -10,11 +10,11 @@
 
 @implementation AdvActionHandler
 
-- (id) initWithType:(NSString*)type
+- (id) initWithType:(NSString *)type
 {
     if (self = [super init])
     {
-        self.type = type;
+        _type = type;
         _commands = [[NSMutableArray alloc] init];
     }
     return self;

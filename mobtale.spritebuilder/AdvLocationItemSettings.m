@@ -14,16 +14,16 @@
 {
     if (self = [super init])
     {
-        self.status = AdvItemStatusUndefined;
-        self.anim = nil;
+        _status = AdvItemStatusUndefined;
+        _anim = nil;
     }
     return self;
 }
 
 - (void) encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeInt:self.status forKey:@"status"];
-    [encoder encodeObject:self.anim forKey:@"anim"];
+    [encoder encodeInt:_status forKey:@"status"];
+    [encoder encodeObject:_anim forKey:@"anim"];
 }
 
 - (id) initWithCoder:(NSCoder *)decoder
@@ -31,8 +31,8 @@
     AdvItemStatus status = [decoder decodeIntForKey:@"status"];
     NSString *anim = [decoder decodeObjectForKey:@"anim"];
     AdvLocationItemSettings *settings = [[AdvLocationItemSettings alloc] init];
-    settings.status = status;
-    settings.anim = anim;
+    settings->_status = status;
+    settings->_anim = anim;
     return settings;
 }
 

@@ -10,15 +10,12 @@
 #import "MenuLayer.h"
 #import "AdvController.h"
 
-@interface AboutLayer()
+@implementation AboutLayer
 {
     CCLabelTTF *_labelText;
     CCNodeColor *_nodeBackground;
     CGFloat _bgOpacity;
 }
-@end
-
-@implementation AboutLayer
 
 - (id) init
 {
@@ -40,18 +37,13 @@
     _bgOpacity = _nodeBackground.opacity;
 }
 
-- (void) setMenu:(MenuLayer*)menuLayer
-{
-    _menuLayer = menuLayer;
-}
-
 - (void) onShow
 {
-    NSString* text = [[AdvController sharedController] getAdvInfo];
+    NSString *text = [[AdvController sharedController] getAdvInfo];
     [self setText:text];
 }
 
-- (void) setText:(NSString*)text
+- (void) setText:(NSString *)text
 {
     _labelText.string = text;
 }
@@ -62,7 +54,7 @@
     _nodeBackground.opacity = opacity * _bgOpacity;
 }
 
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+- (void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (self.opacity == 1)
     {

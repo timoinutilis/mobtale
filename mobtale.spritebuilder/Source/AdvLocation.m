@@ -10,14 +10,14 @@
 
 @implementation AdvLocation
 
-- (id) initWithId:(NSString*)locationId name:(NSString*)name image:(NSString*)image music:(NSString*)music type:(AdvLocationType)type
+- (id) initWithId:(NSString *)locationId name:(NSString *)name image:(NSString *)image music:(NSString *)music type:(AdvLocationType)type
 {
     if (self = [super init])
     {
-        self.locationId = locationId;
-        self.name = name;
-        self.image = image;
-        self.music = music;
+        _locationId = locationId;
+        _name = name;
+        _image = image;
+        _music = music;
         _type = type;
         
         _items = [[NSMutableArray alloc] init];
@@ -27,9 +27,9 @@
     return self;
 }
 
-- (AdvItem*) getItemById:(NSString*)itemId
+- (AdvItem *) getItemById:(NSString *)itemId
 {
-    for (AdvItem* item in _items)
+    for (AdvItem *item in _items)
     {
         if ([item.itemId isEqualToString:itemId])
         {

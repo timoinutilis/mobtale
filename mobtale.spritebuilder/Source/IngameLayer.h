@@ -13,7 +13,7 @@
 
 @interface ObjectSprite : CCSprite
 
-@property (retain) NSString* itemId;
+@property NSString *itemId;
 
 @end
 
@@ -30,25 +30,24 @@ typedef NS_ENUM(int, ViewEventType)
     ViewEventObjectsMoved
 };
 
-@property (readonly) LocationLayer* locationLayer;
-@property (readonly) DialogLayer* dialogLayer;
-
+@property (readonly) LocationLayer *locationLayer;
+@property (readonly) DialogLayer *dialogLayer;
 @property (readonly) BOOL isInventoryOpen;
 
 - (void) setExecutionMode:(BOOL)active;
-- (void) showObjectInfoFor:(CCNode*)node text:(NSString*)text;
+- (void) showObjectInfoFor:(CCNode *)node text:(NSString *)text;
 - (void) hideObjectInfo;
-- (void) showText:(NSString*)text;
+- (void) showText:(NSString *)text;
 - (void) hideText;
 - (BOOL) isTextVisible;
 - (void) openInventory;
 - (void) closeInventory;
-- (void) addInventoryObject:(NSString*)itemId;
-- (void) removeInventoryObject:(NSString*)itemId;
+- (void) addInventoryObject:(NSString *)itemId;
+- (void) removeInventoryObject:(NSString *)itemId;
 - (void) updateInventoryPositionsAnimated:(BOOL)animated;
 - (BOOL) areObjectsMoving;
-- (BOOL) isDragging:(NSString*)itemId;
+- (BOOL) isDragging:(NSString *)itemId;
 - (void) unselect;
-- (void) moveObjectToInventory:(NSString*)itemId fromPosition:(CGPoint)point;
+- (void) moveObjectToInventory:(NSString *)itemId fromPosition:(CGPoint)point;
 
 @end

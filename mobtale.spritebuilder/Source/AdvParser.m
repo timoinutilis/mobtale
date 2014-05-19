@@ -12,29 +12,26 @@
 #import "AdvActionHandler.h"
 #import "AdvCommand.h"
 
-@interface AdvParser()
-{
-    Adventure* _adventure;
-    AdvLocation* _currentLocation;
-    AdvItem* _currentItem;
-    AdvItem* _currentObject;
-    AdvActionHandler* _currentActionHandler;
-    AdvCommand* _currentCommand;
-    NSString* _currentElement;
-    
-    NSMutableArray* _commandsTarget;
-    NSMutableArray* _commandsTargetStack;
-}
-@end
-
 @implementation AdvParser
+{
+    Adventure *_adventure;
+    AdvLocation *_currentLocation;
+    AdvItem *_currentItem;
+    AdvItem *_currentObject;
+    AdvActionHandler *_currentActionHandler;
+    AdvCommand *_currentCommand;
+    NSString *_currentElement;
+    
+    NSMutableArray *_commandsTarget;
+    NSMutableArray *_commandsTargetStack;
+}
 
-- (Adventure*) createAdventureFromXMLFile:(NSString *)pathToFile
+- (Adventure *) createAdventureFromXMLFile:(NSString *)pathToFile
 {
     _commandsTargetStack = [[NSMutableArray alloc] init];
     
     NSURL *xmlURL = [NSURL fileURLWithPath:pathToFile];
-    NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
     [parser setDelegate:self];
     [parser setShouldResolveExternalEntities:YES];
     [parser parse];
@@ -168,7 +165,7 @@
 {
     if (_commandsTarget)
     {
-        NSString* text = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *text = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if ([text length] > 0)
         {
@@ -179,16 +176,16 @@
             }
             else
             {
-                NSMutableDictionary* attributeDict = [[NSMutableDictionary alloc] init];
+                NSMutableDictionary *attributeDict = [[NSMutableDictionary alloc] init];
                 [attributeDict setValue:text forKey:@"text"];
-                AdvCommand* textCommand = [[AdvCommand alloc] initWithType:@"say" attributes:attributeDict];
+                AdvCommand *textCommand = [[AdvCommand alloc] initWithType:@"say" attributes:attributeDict];
                 [_commandsTarget addObject:textCommand];
             }
         }
     }
     else if ([_currentElement isEqualToString:@"info"])
     {
-        NSString* text = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *text = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if ([text length] > 0)
         {
             text = [self cleanString:text];
@@ -197,7 +194,7 @@
     }
 }
 
-- (NSString*) cleanString:(NSString*)string
+- (NSString *) cleanString:(NSString*)string
 {
     string = [string stringByReplacingOccurrencesOfString:@"\\s+" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, string.length)];
     string = [string stringByReplacingOccurrencesOfString:@" ?\\\\n ?" withString:@"\n" options:NSRegularExpressionSearch range:NSMakeRange(0, string.length)];

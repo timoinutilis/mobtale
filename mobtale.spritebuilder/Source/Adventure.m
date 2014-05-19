@@ -10,20 +10,20 @@
 
 @implementation Adventure
 
-- (id)initWithName:(NSString*)name
+- (id) initWithName:(NSString *)name
 {
     if (self = [super init])
     {
-        self.name = name;
+        _name = name;
         _locations = [[NSMutableArray alloc] init];
         _objects = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (AdvLocation*) getLocationById:(NSString*)locationId
+- (AdvLocation *) getLocationById:(NSString *)locationId
 {
-    for (AdvLocation* location in _locations)
+    for (AdvLocation *location in _locations)
     {
         if ([location.locationId isEqualToString:locationId])
         {
@@ -33,9 +33,9 @@
     return nil;
 }
 
-- (AdvItem*) getObjectItemById:(NSString*)itemId
+- (AdvItem *) getObjectItemById:(NSString *)itemId
 {
-    for (AdvItem* object in _objects)
+    for (AdvItem *object in _objects)
     {
         if ([object.itemId isEqualToString:itemId])
         {

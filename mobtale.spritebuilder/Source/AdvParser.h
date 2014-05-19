@@ -11,6 +11,6 @@
 
 @interface AdvParser : NSObject <NSXMLParserDelegate>
 
-- (Adventure*)createAdventureFromXMLFile:(NSString *)pathToFile;
+- (Adventure *) createAdventureFromXMLFile:(NSString *)pathToFile;
 
 @end

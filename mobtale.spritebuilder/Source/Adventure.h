@@ -12,13 +12,13 @@
 
 @interface Adventure : NSObject
 
-@property (retain) NSString* name;
-@property (retain) NSString* info;
-@property (readonly) NSMutableArray* locations;
-@property (readonly) NSMutableArray* objects;
+@property NSString *name;
+@property NSString *info;
+@property (readonly) NSMutableArray *locations;
+@property (readonly) NSMutableArray *objects;
 
-- (id) initWithName:(NSString*)name;
-- (AdvLocation*) getLocationById:(NSString*)locationId;
-- (AdvItem*) getObjectItemById:(NSString*)itemId;
+- (id) initWithName:(NSString *)name;
+- (AdvLocation *) getLocationById:(NSString *)locationId;
+- (AdvItem *) getObjectItemById:(NSString *)itemId;
 
 @end

@@ -9,35 +9,32 @@
 #import "AdvPlayer.h"
 #import "AdvLocationItemSettings.h"
 
-@interface AdvPlayer()
-
-@property NSMutableArray *takenObjects;
-@property NSMutableDictionary *variables;
-@property NSMutableDictionary *locationItemSettings;
-
-@end
-
 @implementation AdvPlayer
+{
+    NSMutableArray *_takenObjects;
+    NSMutableDictionary *_variables;
+    NSMutableDictionary *_locationItemSettings;
+}
 
 - (id) init
 {
     if (self = [super init])
     {
-        self.inventory = [NSMutableArray array];
-        self.takenObjects = [NSMutableArray array];
-        self.variables = [NSMutableDictionary dictionary];
-        self.locationItemSettings = [NSMutableDictionary dictionary];
+        _inventory = [NSMutableArray array];
+        _takenObjects = [NSMutableArray array];
+        _variables = [NSMutableDictionary dictionary];
+        _locationItemSettings = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 - (void) encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeObject:self.locationId forKey:@"locationId"];
-    [encoder encodeObject:self.inventory forKey:@"inventory"];
-    [encoder encodeObject:self.takenObjects forKey:@"takenObjects"];
-    [encoder encodeObject:self.variables forKey:@"variables"];
-    [encoder encodeObject:self.locationItemSettings forKey:@"locationItemSettings"];
+    [encoder encodeObject:_locationId forKey:@"locationId"];
+    [encoder encodeObject:_inventory forKey:@"inventory"];
+    [encoder encodeObject:_takenObjects forKey:@"takenObjects"];
+    [encoder encodeObject:_variables forKey:@"variables"];
+    [encoder encodeObject:_locationItemSettings forKey:@"locationItemSettings"];
 }
 
 - (id) initWithCoder:(NSCoder *)decoder
@@ -45,43 +42,43 @@
     AdvPlayer *player = [[AdvPlayer alloc] init];
     if (player)
     {
-        player.locationId = [decoder decodeObjectForKey:@"locationId"];
-        player.inventory = [decoder decodeObjectForKey:@"inventory"];
-        player.takenObjects = [decoder decodeObjectForKey:@"takenObjects"];
-        player.variables = [decoder decodeObjectForKey:@"variables"];
-        player.locationItemSettings = [decoder decodeObjectForKey:@"locationItemSettings"];
+        player->_locationId = [decoder decodeObjectForKey:@"locationId"];
+        player->_inventory = [decoder decodeObjectForKey:@"inventory"];
+        player->_takenObjects = [decoder decodeObjectForKey:@"takenObjects"];
+        player->_variables = [decoder decodeObjectForKey:@"variables"];
+        player->_locationItemSettings = [decoder decodeObjectForKey:@"locationItemSettings"];
     }
     return player;
 }
 
-- (void) take:(NSString*)itemId
+- (void) take:(NSString *)itemId
 {
     [_inventory addObject:itemId];
     [_takenObjects addObject:itemId];
 }
 
-- (void) drop:(NSString*)itemId
+- (void) drop:(NSString *)itemId
 {
     [_inventory removeObject:itemId];
     [_takenObjects addObject:itemId];
 }
 
-- (BOOL) has:(NSString*)itemId
+- (BOOL) has:(NSString *)itemId
 {
     return [_inventory indexOfObject:itemId] != NSNotFound;
 }
 
-- (BOOL) isObjectTaken:(NSString*)itemId
+- (BOOL) isObjectTaken:(NSString *)itemId
 {
     return [_takenObjects indexOfObject:itemId] != NSNotFound;
 }
 
-- (void) setVariable:(NSString*)var value:(int)value
+- (void) setVariable:(NSString *)var value:(int)value
 {
     [_variables setObject:[NSNumber numberWithInt:value] forKey:var];
 }
 
-- (int) getVariable:(NSString*)var
+- (int) getVariable:(NSString *)var
 {
     NSNumber* number = [_variables objectForKey:var];
     if (number)
@@ -91,14 +88,14 @@
     return 0;
 }
 
-- (void) addVariable:(NSString*)var value:(int)value
+- (void) addVariable:(NSString *)var value:(int)value
 {
     int varValue = [[_variables objectForKey:var] intValue];
     varValue += value ? value : 1;
     [_variables setObject:[NSNumber numberWithInt:varValue] forKey:var];
 }
 
-- (AdvLocationItemSettings*) getLocationItemSettings:(NSString*)locationId itemId:(NSString*)itemId create:(BOOL)create
+- (AdvLocationItemSettings *) getLocationItemSettings:(NSString *)locationId itemId:(NSString *)itemId create:(BOOL)create
 {
     AdvLocationItemSettings *settings = nil;
     NSMutableDictionary *locationItems = [_locationItemSettings objectForKey:locationId];

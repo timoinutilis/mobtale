@@ -18,17 +18,17 @@ typedef enum AdvLocationType : int AdvLocationType;
 
 @interface AdvLocation : NSObject
 
-@property (retain) NSString* locationId;
-@property (retain) NSString* name;
-@property (retain) NSString* image;
-@property (retain) NSString* music;
+@property NSString *locationId;
+@property NSString *name;
+@property NSString *image;
+@property NSString *music;
 
-@property (readonly) NSMutableArray* items;
-@property (readonly) NSMutableArray* objectActionHandlers;
-@property (readonly) NSMutableArray* locationInitCommands;
+@property (readonly) NSMutableArray *items;
+@property (readonly) NSMutableArray *objectActionHandlers;
+@property (readonly) NSMutableArray *locationInitCommands;
 @property (readonly) AdvLocationType type;
 
-- (id) initWithId:(NSString*)locationId name:(NSString*)name image:(NSString*)image music:(NSString*)music type:(AdvLocationType)type;
-- (AdvItem*) getItemById:(NSString*)itemId;
+- (id) initWithId:(NSString *)locationId name:(NSString *)name image:(NSString *)image music:(NSString *)music type:(AdvLocationType)type;
+- (AdvItem *) getItemById:(NSString *)itemId;
 
 @end

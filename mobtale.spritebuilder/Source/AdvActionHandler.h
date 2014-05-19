@@ -10,10 +10,10 @@
 
 @interface AdvActionHandler : NSObject
 
-@property (retain) NSString* type;
-@property (retain) NSString* itemId;
-@property (readonly) NSMutableArray* commands;
+@property NSString *type;
+@property NSString *itemId;
+@property (readonly) NSMutableArray *commands;
 
-- (id) initWithType:(NSString*)type;
+- (id) initWithType:(NSString *)type;
 
 @end

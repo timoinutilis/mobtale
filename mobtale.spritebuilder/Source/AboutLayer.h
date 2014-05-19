@@ -12,7 +12,7 @@
 
 @interface AboutLayer : CCNode
 
-@property MenuLayer* menuLayer;
+@property (weak) MenuLayer *menuLayer;
 
 - (void) onShow;
 

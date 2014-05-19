@@ -11,24 +11,12 @@
 #import "CCBReader.h"
 #import "AboutLayer.h"
 
-@interface MenuLayer()
-{
-    CCButton* _buttonContinue;
-    CCNode* _image;
-    AboutLayer* _aboutLayer;
-    CCNode* _nodeMenu;
-}
-@end
-
 @implementation MenuLayer
-
--(void)dealloc
 {
-    _aboutLayer.menuLayer = nil;
-    if (_image)
-    {
-        [self removeChild:_image];
-    }
+    CCButton *_buttonContinue;
+    CCNode *_image;
+    AboutLayer *_aboutLayer;
+    CCNode *_nodeMenu;
 }
 
 - (void) didLoadFromCCB
@@ -39,9 +27,9 @@
     _buttonContinue.visible = [[AdvController sharedController] canContinueGame];
 }
 
--(void) loadImage:(NSString*)name
+- (void) loadImage:(NSString *)name
 {
-    _image = (CCNode*) [CCBReader load:name owner:self];
+    _image = (CCNode *) [CCBReader load:name owner:self];
 
     CGSize winSize = [[CCDirector sharedDirector] viewSize];
     float scale = max(winSize.width / _image.contentSize.width, winSize.height / _image.contentSize.height);
@@ -50,12 +38,12 @@
     [self addChild:_image z:-1];
 }
 
--(void) onContinue
+- (void) onContinue
 {
     [[AdvController sharedController] continueGame];
 }
 
--(void) onStart
+- (void) onStart
 {
     if ([[AdvController sharedController] canContinueGame])
     {
@@ -72,7 +60,7 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == alertView.firstOtherButtonIndex)
     {
@@ -80,7 +68,7 @@
     }
 }
 
--(void) onAbout
+- (void) onAbout
 {
     [_aboutLayer onShow];
     _aboutLayer.visible = YES;

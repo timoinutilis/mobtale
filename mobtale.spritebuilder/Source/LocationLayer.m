@@ -13,17 +13,14 @@
 #import "AdvItem.h"
 #import "AdvLocation.h"
 
-@interface LocationLayer()
-{
-    IngameLayer* _ingameLayer;
-    AdvNode* _selectedNode;
-    AdvNode* _overNode;
-}
-@end
-
 @implementation LocationLayer
+{
+    IngameLayer *_ingameLayer;
+    AdvNode *_selectedNode;
+    AdvNode *_overNode;
+}
 
-- (id) initWithIngameLayer:(IngameLayer*)ingame
+- (id) initWithIngameLayer:(IngameLayer *)ingame
 {
     if (self = [super init])
     {
@@ -38,11 +35,11 @@
     return self;
 }
 
-- (void) showLocationImage:(NSString*)filename
+- (void) showLocationImage:(NSString *)filename
 {
     if (_currentLocationLayer)
     {
-        CCNode* oldLayer = _currentLocationLayer;
+        CCNode *oldLayer = _currentLocationLayer;
         oldLayer.zOrder = 1;
         oldLayer.cascadeOpacityEnabled = YES;
         [oldLayer runAction:[CCActionSequence actionOne:[CCActionFadeOut actionWithDuration:0.5f] two:[CCActionCallBlock actionWithBlock:^{
@@ -83,7 +80,7 @@
     }
 }
 
-- (void) setNodeVisible:(NSString*)itemId visible:(BOOL)visible
+- (void) setNodeVisible:(NSString *)itemId visible:(BOOL)visible
 {
     CCNode *node = [self getNodeById:itemId];
     if (visible)
@@ -98,7 +95,7 @@
     }
 }
 
-- (void) setNodeAnim:(NSString*)itemId timeline:(NSString*)timeline
+- (void) setNodeAnim:(NSString *)itemId timeline:(NSString *)timeline
 {
     CCNode *node = [self getNodeById:itemId];
     if (node.visible)
@@ -114,14 +111,14 @@
     _selectedNode = nil;
 }
 
-- (AdvNode*) getNodeById:(NSString*)itemId
+- (AdvNode *) getNodeById:(NSString *)itemId
 {
     for (int i = (int)_currentLocationLayer.children.count - 1; i >= 0; i--)
     {
         CCNode *node = [_currentLocationLayer.children objectAtIndex:i];
         if ([node isKindOfClass:[AdvNode class]])
         {
-            AdvNode* advNode = (AdvNode*)node;
+            AdvNode *advNode = (AdvNode*)node;
             if ([advNode.itemId isEqualToString:itemId])
             {
                 return advNode;
@@ -138,7 +135,7 @@
         CCNode *node = [_currentLocationLayer.children objectAtIndex:i];
         if ([node isKindOfClass:[AdvNode class]])
         {
-            AdvNode* advNode = (AdvNode*)node;
+            AdvNode *advNode = (AdvNode*)node;
             if (   [advNode hitTestWithWorldPos:location]
                 && [[AdvController sharedController] isItemAvailable:advNode.itemId] )
             {
@@ -149,7 +146,7 @@
     return nil;
 }
 
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+- (void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint location = [touch locationInWorld];
     
@@ -171,7 +168,7 @@
 {
     CGPoint location = [touch locationInWorld];
 
-    AdvNode* advNode = [self getNodeAtPosition:location];
+    AdvNode *advNode = [self getNodeAtPosition:location];
     if (advNode && advNode == _overNode)
     {
         AdvItem *advItem = [[[AdvController sharedController] currentLocation] getItemById:advNode.itemId];

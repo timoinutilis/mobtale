@@ -10,17 +10,17 @@
 
 @implementation AdvCommand
 
-- (id) initWithType:(NSString*)type attributes:(NSMutableDictionary*)attributeDict
+- (id) initWithType:(NSString *)type attributes:(NSMutableDictionary *)attributeDict
 {
     if (self = [super init])
     {
-        self.type = type;
-        self.attributeDict = attributeDict;
+        _type = type;
+        _attributeDict = attributeDict;
     }
     return self;
 }
 
-- (NSMutableArray*) createCommandsArray
+- (NSMutableArray *) createCommandsArray
 {
     if (!_commands)
     {
@@ -29,7 +29,7 @@
     return _commands;
 }
 
-- (NSString*) condition
+- (NSString *) condition
 {
     return [_attributeDict objectForKey:@"if"];
 }
